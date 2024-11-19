@@ -1,0 +1,282 @@
+
+
+% Ok so basically you can type inline comments (that will not go into the compiled pdf) by typing a percent sign
+
+%VVVV all the blue below won't actually show up in the doc because it's just comments about the source code. Now let's go to Ch0_IntroTopics.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The Legrand Orange Book
+% LaTeX Template
+% Version 2.4 (26/09/2018)
+%
+% This template was downloaded from:/
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Mathias Legrand (legrand.mathias@gmail.com) with modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Compiling this template:
+% This template uses biber for its bibliography and makeindex for its index.
+% When you first open the template, compile it from the command line with the 
+% commands below to make sure your LaTeX distribution is configured correctly:
+%
+% 1) pdflatex mainhttps://www.overleaf.com/project/5eff7835ad6bc10001d51f9a
+% 2) makeindex main.idx -s StyleInd.ist
+% 3) biber main
+% 4) pdflatex main x 2
+%
+% After this, when you wish to update the bibliography/index use the appropriate
+% command above and make sure to compile with pdflatex several times 
+% afterwards to propagate your changes to the document.
+%
+% This template also uses a number of packages which may need to be
+% updated to the newest versions for the template to compile. It is strongly
+% recommended you update your LaTeX distribution if you have any
+% compilation errors.
+%
+% Important note:
+% Chapter heading images should have a 2:1 width:height ratio,
+% e.g. 920px width and 460px height.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt,fleqn]{book} % Default font size and left-justified equations
+\input{structure.tex} % Insert the commands.tex file which contains the majority of the structure behind the template
+\addbibresource{bibliography.bib}
+
+%% In line comment macro defns below
+\usepackage{xcolor}
+\definecolor{kikiBlue}{rgb}{0.01,0.4,0.6}
+\newcommand*{\jsh}{\textcolor{red}}
+\newcommand*{\dts}{\textcolor{orange}}
+\newcommand*{\jjh}{\textcolor{blue}}
+\newcommand*{\jap}{\textcolor{purple}}
+\newcommand*{\kvdv}{\textcolor{kikiBlue}}
+
+%% 
+% Do not move ^^^^
+%% In line comment macro defns above
+
+\newcommand*{\steezybreak}{\vspace{0.35cm}}
+
+%%% This package is needed for the fitch notation in logic appendix
+% Fitch style proof stuff
+\usepackage{bussproofs}
+\usepackage{fitch}
+
+%----------------------------------------------------------------------------------------
+%	Special Math Declarations (Below Here)
+%----------------------------------------------------------------------------------------
+\usepackage{amsmath,amsfonts,amssymb,graphicx,nicefrac}
+\usepackage{mathtools, wrapfig}
+\usepackage{tcolorbox}
+\usepackage{xcolor,soul}
+\usepackage{colortbl}
+\usepackage{centernot}
+
+\usepackage{caption} % For caption customization
+\captionsetup{
+  justification=justified, % This keeps the text left-aligned
+  singlelinecheck=false,   % This centers the caption under the figure
+  format=hang,              % Hanging indent format for multiline captions
+  font=small               % 11pt font in captions like the rest of the doc...
+} % Allows multi-line captions
+
+\usepackage{multicol}
+\usepackage{cases}
+\usepackage{wasysym}
+\usepackage[shortlabels]{enumitem}
+% Stuff used for Long Division Examples (below here)
+\usepackage{scalerel}
+\usepackage{csquotes}
+\usepackage{stackengine}
+\usepackage{xcolor}
+\usepackage{transparent}
+\newcommand\showdiv[1]{\overline{\smash{\hstretch{.5}{)}\mkern-3.2mu\hstretch{.5}{)}}#1}}
+\newcommand\bsfrac[2]{%
+\scalebox{-1}[1]{\nicefrac{\scalebox{-1}[1]{$#1$}}{\scalebox{-1}[1]{$#2$}}}%
+}
+
+\newcommand{\eqdef}{:\mathrel{\mathop=}}
+
+\newcommand\ph[1]{\textcolor{white}{#1}}
+% Long div stuff (above here)
+
+% Defining some macros for the commonly used blackboard bold letters such as Real numbers, integers, rationals, etc.
+\def\Z{{\mathbb{ Z}}}
+\def\N{{\mathbb{ N}}}
+\def\R{{\mathbb{ R}}}
+\def\C{{\mathbb{ C}}}
+\def\Q{{\mathbb{ Q}}}
+\def\H{{\mathbb{ H}}}
+\providecommand{\ker}{\text{ker}}
+%\providecommand{\char}{\text{char}}
+%\def\Ker{{\text{Ker}}
+% Defining bold 0 and bold 1 commonly used to indicate a vector or matrix of zeros or ones.
+\def\0{{\mathbf{0}}}
+\def\1{{\mathbf{1}}}
+\def\mod{\bmod}
+\def\characterisic{\text{char}}
+
+% \newenvironment{rcases}
+%   {\left.\begin{aligned}}
+%   {\end{aligned}\right\rbrace}
+%----------------------------------------------------------------------------------------
+%	Special Math Declarations (Above Here)
+%----------------------------------------------------------------------------------------
+
+%\hypersetup{pdftitle={Title},pdfauthor={Author}} % Uncomment and fill out to include PDF metadata for the author and title of the book
+%----------------------------------------------------------------------------------------
+
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begingroup
+\thispagestyle{empty} % Suppress headers and footers on the title page
+\begin{tikzpicture}[remember picture,overlay]
+\node[inner sep=0pt] (background) at (current page.center) {\includegraphics[width=\paperwidth]{background.pdf}};
+%{\vspace{0.4in}\transparent{0.1}\includegraphics[width=0.75\paperwidth]{Figures/Dihedral_4_subgroup_lattice.svg.png}\transparent{1}};
+\draw (current page.center) node [fill=ocre!30!white,fill opacity=0.6,text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{\centering Modern Algebra with Friends\\[15pt] % Book title
+{\Large A Companion Note-set for ``Topics in Algebra 2nd ed." by I. N. Herstein \nocite{herstein1991topics}}\\[20pt] % Subtitle
+{\huge Hall, Hall, Stephenson, Estrada, and Pauley}}}; % Author name
+\end{tikzpicture}
+\vfill
+\endgroup
+
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+
+\newpage
+~\vfill
+\thispagestyle{empty}
+
+\noindent Copyright \textcopyright  \ 2023 J. J. Hall, J. S. Hall, D. T. Stephenson, P. Estrada, J. A. Pauley \steezybreak% Copyright notice
+
+\noindent \textsc{Published by The Friendly Publishing Co.}\steezybreak % Publisher
+
+\noindent \textsc{our-nice-website.com}\steezybreak % URL
+
+\noindent Licensed under the Creative Commons Attribution-NonCommercial 3.0 Unported License (the ``License''). You may not use this file except in compliance with the License. You may obtain a copy of the License at \url{http://creativecommons.org/licenses/by-nc/3.0}. Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \textsc{``as is'' basis, without warranties or conditions of any kind}, either express or implied. See the License for the specific language governing permissions and limitations under the License.\steezybreak % License information, replace this with your own license (if any)
+
+\noindent \textit{First printing, December 10th, 2020}\\ % Printing/edition date
+\noindent \textit{This version's compile date: \today}
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\usechapterimagefalse % If you don't want to include a chapter image, use this to toggle images off - it can be enabled later with \usechapterimagetrue
+
+\chapterimage{chapter_head_1.pdf} % Table of contents heading image
+
+\pagestyle{empty} % Disable headers and footers for the following pages
+
+\tableofcontents % Print the table of contents itself
+
+\cleardoublepage % Forces the first chapter to start on an odd page so it's on the right side of the book
+\setcounter{chapter}{-1}
+\include{Chapters/Foreword}
+\include{Chapters/Acknowledgements}
+\include{Chapters/Dedication}
+
+\pagestyle{fancy} % Enable headers and footers again
+
+%----------------------------------------------------------------------------------------
+%	PART
+%----------------------------------------------------------------------------------------
+
+ \part{Part One}
+%----------------------------------------------------------------------------------------
+%	CHAPTER 0
+%----------------------------------------------------------------------------------------
+\setcounter{chapter}{-1}
+\nocite{*}
+\include{Chapters/Ch0_IntroTopics}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 1
+%----------------------------------------------------------------------------------------
+\include{Chapters/Ch1_Intro_Relations}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 2
+%----------------------------------------------------------------------------------------
+
+\include{Chapters/Ch2_GroupTheory}
+
+%----------------------------------------------------------------------------------------
+%	PART
+%----------------------------------------------------------------------------------------
+
+%\part{Part Two}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 3
+%----------------------------------------------------------------------------------------
+
+\include{Chapters/Ch3_Ring_theory}
+
+%----------------------------------------------------------------------------------------
+%	Supplementary materials
+%----------------------------------------------------------------------------------------
+\part{Part Two}
+\appendix
+\include{Chapters/LogicAppendix}
+\cleardoublepage
+
+\include{Chapters/Supplementary}
+\cleardoublepage
+
+\include{Chapters/HomeworkSets}
+\cleardoublepage
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\chapter*{Bibliography}
+\addcontentsline{toc}{chapter}{\textcolor{ocre}{Bibliography}} % Add a Bibliography heading to the table of contents
+
+%------------------------------------------------
+
+\section*{Articles}
+\addcontentsline{toc}{section}{Articles}
+\printbibliography[heading=bibempty,type=article]
+
+%------------------------------------------------
+
+\section*{Books}
+\addcontentsline{toc}{section}{Books}
+\printbibliography[heading=bibempty,type=book]
+
+
+%-------ABOUT THE AUTHORS ------------------------
+\chapter*{About the Authors}
+\addtocounter{chapter}{1} % Manually increment the chapter counter
+\markboth{\sffamily\normalsize\bfseries About The Authors}{} % Set the chapter header
+
+\addcontentsline{toc}{chapter}{\textcolor{ocre}{About the Authors}}
+\input{Chapters/AboutTheAuthors}
+
+%----------------------------------------------------------------------------------------
+%	INDEX
+%----------------------------------------------------------------------------------------
+
+\cleardoublepage % Make sure the index starts on an odd (right side) page
+\phantomsection
+\setlength{\columnsep}{0.75cm} % Space between the 2 columns of the index
+\addcontentsline{toc}{chapter}{\textcolor{ocre}{Index}} % Add an Index heading to the table of contents
+\printindex % Output the index
+
+\end{document}

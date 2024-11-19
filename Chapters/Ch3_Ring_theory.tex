@@ -1,0 +1,1324 @@
+%%%%%%%%%%%%%%%%%%%%
+% CHAPTER 3
+% %%%%%%%%%%%%%%%%%%
+
+% This chapter's gonna be dense like the last one.\steezybreak\\
+% We will begin with a discussion of unital and non-unital rings (\textit{rngs} lol) and we will look closely at a non-commutative ring whose elements commute with real numbers (Quaternions). We will discuss integral domains and then divisions rings which will naturally lead to more finite ring examples and then we will quickly introduce fields as commutative division rings. (don't worry we will include a venn diagram to simplify these differences between Groups, Rings, Integral Domains, and Commutative division rings (fields) ). Then we will discuss ring homomorphisms, Ideals, and Quotient Rings. Then we will look at Euclidian and Polynomial rings and we will build up some elementary results of Galois Theory. Then a bunch of Field/Ring thms will be staring us in the face and we will dive deeper with fields in Ch. 4 (setting the stage for a discussion of Modules and Vector Spaces).
+
+
+\chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+\chapter{Ring Theory}
+\vspace{-0.5in}
+\section{Definition and Examples of Rings}
+\href{https://en.wikipedia.org/wiki/David_Hilbert}{David Hilbert (1862-1943)} originally coined the term `Ring'. Hilbert was a German mathematician who had a profound impact on mathematics developed during the 19th and early 20th centuries\footnote{\href{https://en.wikipedia.org/wiki/Brouwer\%E2\%80\%93Hilbert_controversy}{Among other great mathematicians! We would be doing a disservice to the reader if we failed to mention that Hilbert could be a bit of a prickly fellow, effectively \textit{silencing} views from the constructivist "intuitionism" school of thought which opposed his "formalism".} The contributions of \href{https://en.wikipedia.org/wiki/L._E._J._Brouwer}{L. E. J. Brouwer} were also tremendous and perhaps more relevant to a reader interested in the modern foundations of mathematics. Throughout this book so far we have implicitly assumed the law of the excluded middle (typically in the form of "double negation elimination") as a viable tool in our arguments. Towards the end of the text, we will revisit some arguments and see where this concept crops up... for now, don't worry too much. Sorry for the diatribe just felt like it ought to go right next to my first mention of Hilbert lol.}. 
+
+\begin{definition}[Ring]
+A non-empty set $R$ is a \textit{ring} if in $R$ there are defined two binary operations denoted $\cdot$ and $+$ such that
+\begin{enumerate}[label=\roman*)]
+    \item $a,b \in R \implies a+b \in R$
+    \item $a+b=b+a \ \forall \ a,b \in R$
+    \item $(a+b)+c = a+(b+c) \ \ \forall \ a,b,c \in R$
+    \item $\exists \ $an element "$0$" in $R \ \ni \ a+0=a \ \forall \ a \in R$
+    \item $\forall \ a\in R \ \exists -a\in R \ni \ a+(-a)=0$
+    \item $a,b\in R \ \implies a\cdot b \in R$
+    \item $a\cdot (b\cdot c) = (a\cdot b)\cdot c \ \ \forall \ a,b,c \in R$
+    \item $a\cdot (b+c) = (a\cdot b)+(a\cdot c)$ and $(b+c)\cdot a = (b\cdot a)+(c\cdot a) \ \ \forall \ a,b,c\in R$
+\end{enumerate}
+Note that (i)-(v) imply that $R$ is an abelian group under $+$. \steezybreak\\
+If $R$ has an element called "$1$" with the property that 
+\begin{align}
+    a\cdot 1 = a = 1\cdot a \ \ \ \forall \ a\in R \nonumber
+\end{align}
+Then $R$ is \textit{a ring with unit element}. \steezybreak\\
+If $a\cdot b=b\cdot a \ \ \forall \ a,b\in R$, then $R$ is \textit{a commutative ring}.
+\end{definition}
+\newpage
+\begin{definition}[Complex Numbers] 
+\begin{align}
+    \mathbb{C} = \{a+bi \ |\ a,b\in \R\} \ \text{ with } i^2=-1 \nonumber
+\end{align}
+In $\mathbb{C}$, addition and multiplication are defined as follows:\steezybreak\\
+Addition:
+\begin{align}
+    (a+bi)+(c+di) \underset{\text{add like terms}}{=} (a+c)+(b+d)i \nonumber
+\end{align}
+Multiplication:
+\begin{align}
+    (a+bi)(c+di)&=ac+bci+adi-bd \nonumber \\
+    &= (ac-bd)+(bc+ad)i \nonumber
+\end{align}
+\end{definition}
+Consider the following chain of inclusions 
+\begin{align}
+    &\mathbb{C} \ \ \ \ \ \leftarrow \ \R \ \ \leftarrow \mathbb{Q} \leftarrow \Z  \nonumber \\
+    &\frac{n}{1}+0i \leftarrow \frac{n}{1} \leftarrow \frac{n}{1} \leftarrow n \nonumber
+\end{align}
+Each of the above are commutative rings with unit element under $\ \cdot$ and $+$ \steezybreak\\
+Let's look at some other examples of rings aside from the integers, rationals, reals and complex numbers:
+\begin{enumerate}\setcounter{enumi}{1}
+    \item $2\Z=\{\text{ even integers }\}$ under usual $+$ and $\cdot$ \ \ \\
+    \begin{align}
+        \text{Note that } 2n(m)=2n  \ \text{ only when }m=1, \ \text{ but } 1\not\in 2\Z \nonumber
+    \end{align}
+    So $2\Z$ is a commutative ring without unit element. A ring without an unit element is often referred to as a \textit{rng}.
+    \item $\Z_n=\{\underset{"0" + id}{0},\underset{"1" \cdot id}{1},2,\cdots,n-1\}$ under $\ +\mod n$ and $\cdot \mod n$ is a commutative ring with unit element (proof later).
+    \item $M_2(\Z)$, $2\times 2$ matrices with integer entries
+    \begin{align}
+        ``0" \text{ is }\begin{bmatrix}0&0\\0&0\end{bmatrix} \nonumber \\
+        ``1" \text{ is }\begin{bmatrix}1&0\\0&1\end{bmatrix} \nonumber 
+    \end{align}
+    Non-commutative since:
+    \begin{equation*}
+        \begin{drcases}
+            \begin{bmatrix}
+                    1&0\\1&0
+            \end{bmatrix}
+            \begin{bmatrix}
+                    1&1\\0&0
+            \end{bmatrix} &= \begin{bmatrix}
+                    1&1\\1&1
+            \end{bmatrix} \\
+            \begin{bmatrix}
+                    1&1\\0&0
+            \end{bmatrix}\begin{bmatrix}
+                    1&0\\1&0
+            \end{bmatrix} &= \begin{bmatrix}
+                    2&0\\0&0
+            \end{bmatrix} 
+        \end{drcases} \neq \ \therefore \text{ non-commutative}
+    \end{equation*}
+    Generalizing, $M_n(R)=\{n\times n \text{ matrices with ring entries}\}$ (where $R$ is a ring with unit element) is a non-commutative ring with ``$1$"
+\end{enumerate}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics{Figures/Quaternions_xsquared_solns.pdf}
+    \label{fig:x_squared_solns}
+\end{figure}
+\newpage
+Let's have a look at another ring which generalizes the Complex numbers known as the Quaternions. The elements in this ring commute with real numbers but in general the ring is non-commutative. The Quaternions were first described by the Irish mathematician William Rowan Hamilton (1805-1865) in 1843. Hamilton had seen the utility of the commutative division ring $\C$ for describing points in a 2D plane which had the added benefit of "products" corresponding to rotations and re-scalings of points in the plane. Since points in 3 dimensional space can be described with triples $(x,y,z)$, Hamilton sought a convention for describing 3-D points in space in a manner similar to how the complex numbers describe 2-D points on a plane. On Monday 16 October 1843 in Dublin, whilst walking with his wife to a council meeting of the Royal Irish Academy, Hamilton made a revelation. In his excitement he carved a fundamental correspondence for what would be come known as the ``Quaternions" into the stone of Brougham bridge in Dublin. 
+\begin{center}
+    \begin{equation}
+        i^2=j^2=k^2=ijk=-1 \nonumber
+    \end{equation}
+\end{center}
+The next day in a letter to his friend and fellow mathematician John T. Graves, Hamilton summarized:
+\begin{quote}
+    And here there dawned on me the notion that we must admit, in some sense, a \textit{fourth} dimension of space for the purpose of calculating with triples ... An electric circuit seemed to close, and a spark flashed forth.
+\end{quote}
+Hamilton realized that in order to describe 3-D points in a ring whose products behave as rotations and re-scalings, he must admit an extra dimension. In fact, Ferdinand Georg Frobenius later proved in 1877 that for a division algebra over the real numbers to be finite-dimensional and associative, it \textit{cannot} be three-dimensional, and there are only three such division algebras: 
+$\mathbb{R,C}$ (complex numbers) and $\mathbb{H}$ (quaternions) which have dimension 1, 2, and 4 respectively. Quaternions are typically denoted with the blackboard bold H ($\mathbb{H}$) in honor of Hamilton.
+\begin{enumerate}\setcounter{enumi}{4}
+    \item The Ring of Quaternions $\H$
+\end{enumerate}
+\begin{definition}[Quaternions $\H$]
+\begin{align}
+    \mathbb{H} &= \text{The ring of Quaternions} \nonumber \\
+    &= \{a+bi+cj+dk \ | \ a,b,c,d \in \R \} \nonumber \\
+    \text{ Where } &i^2=-1 \nonumber \\
+    &j^2=-1 \nonumber \\
+    &ji=-ij  \ \ \ \ (\leftarrow \text{ non-commutative})\nonumber \\
+    &k=ij \nonumber \\
+    &i,j,k \text{ commute with reals.}\nonumber
+\end{align}
+\end{definition}
+Prove: $jk=i$
+\begin{align}
+    jk=jij&=-ijj \nonumber \\
+    &= -i(-1) \nonumber \\
+    &= i \nonumber
+\end{align}
+Prove $k^2=-1$:
+\begin{align}
+    k^2 = (ij)(ij) &= i(ji)j \nonumber \\
+    &= i(-i)jj \nonumber \\
+    &= -iijj \nonumber \\
+    &= -(-1)(-1) \nonumber \\
+    &= -1 \nonumber
+\end{align}
+\begin{figure}
+    \centering
+    \includegraphics{Figures/Herstein_quat_device.pdf}
+    \label{fig:herstein_quat_device}
+\end{figure}
+\subsection*{Example of how to Calculate products in $\mathbb{H}$}
+\begin{align}
+    + \ &: \ \text{ add "like" terms}\nonumber \\
+    \circ \ &: \ \text{ distribute, use relations}\nonumber
+\end{align}
+\begin{align}
+    & (i+2j+3k)(5i-j+k) \nonumber \\
+    &=i(5i-j+k)+2j(5i=j+k)+3k(5i-j+k) \nonumber \\
+    &= 5\underbrace{i^2}_{-1}-\underbrace{ij}_{k}+\underbrace{ik}_{-j}+10\underbrace{ji}_{-k}-2\underbrace{j^2}_{-1}+2\underbrace{jk}_{i}+15\underbrace{ki}_{j}-3\underbrace{kj}_{-i}+3\underbrace{k^2}_{-1} \nonumber \\
+    &= -5-k-j-10k+2+2i+15j+3i-3 \nonumber \\
+    &= -6+5i+14j-11k \nonumber
+\end{align}
+
+\noindent A quaternion $q=a+b\,\mathbf {i} +c\,\mathbf {j} +d\,\mathbf {k}$ , consists of a scalar part and a vector part. The quaternion $ b\,\mathbf {i} +c\,\mathbf {j} +d\,\mathbf {k} $ is called the vector part (sometimes imaginary part) of $q$, and $a$ is the scalar part (sometimes called the real part) of $q$. A quaternion that equals its real part (that is, its vector part is zero) is called a scalar or real quaternion. A quaternion that equals its vector part is called a vector quaternion. To avoid confusion we want to demonstrate a quick example which exemplifies some differences between dot product (inner product), cross product, and the product in $\mathbb{H}$.
+\begin{align}
+    \overrightarrow{v}&= i+2j+3k &\nonumber \\
+    \overrightarrow{w}&= 5i-j+k &\nonumber \\
+    \overrightarrow{v}\cdot \overrightarrow{w} &= (1)(5)+(2)(-1)+(3)(1)=5-2+3=6 \ \ \ \ \ \ \ \ \ &\text{(dot product)}\nonumber \\
+    \overrightarrow{v}\times \overrightarrow{w} &= \det\left(\begin{bmatrix}
+            i&j&k \\ 1&2&3 \\ 5&-1&1
+    \end{bmatrix}\right) = 5i+14j-11k \ \ \ \ \ \ \ \ \ &\text{(cross product)}\nonumber \\
+    (\overrightarrow{v}\times \overrightarrow{w})\times \overrightarrow{y} &\neq \overrightarrow{v}\times (\overrightarrow{w}\times \overrightarrow{y}) &\text{(cross products are non-associative)}\nonumber \\
+    (\overrightarrow{v}\overrightarrow{w})\overrightarrow{y}&\underset{\cdot \text{ in } \mathbb{H} \text{ assoc.}}{=}\overrightarrow{v}(\overrightarrow{w}\overrightarrow{y}) \ \ \ \ \ \ \ \ \ &\text{(product in }\mathbb{H})\nonumber
+\end{align}
+\newpage
+That being said, there is a relationship between the product used in $\mathbb{H}$ and the dot and cross products. If we adopt a convention of writing our quaternions as a scalar (real part) plus a vector (imaginary parts) $a=a_0+\overrightarrow{a}$ then we get:
+\begin{align}
+    ab &=(a_0+\overrightarrow{a})(b_0+\overrightarrow{b}) \nonumber \\
+    &= (a_0b_0 - \overrightarrow{a}\cdot \overrightarrow{b}) + a_0 \overrightarrow{b}+b_0\overrightarrow{a}+\overrightarrow{a}\times \overrightarrow{b} \nonumber 
+    \end{align} (See footnote regarding line above\footnote{Try demonstrating this correspondence yourself! To help perhaps first try to demonstrate this: \\ $(a_0+a_1i+a_2j+a_3k)(b_0+b_1i+b_2j+b_3k)= (a_0b_0-a_1b_1-a_2b_2-a_3b_3)+(a_0b_1+a_1b_0+a_2b_3-a_3b_2)i+(a_0b_2+a_2b_0+a_3b_1-a_1b_3)j+(a_0b_3+a_3b_0+a_1b_2-a_2b_1)k$ This can be accomplished by distributing, simplifying products between $i,j,k$ using Herstein's device, and collecting the scalar, $i$, $j$, and $k$ terms, respectively.})
+    \begin{align}
+    &\implies \frac{1}{2}(ab-ba)=\overrightarrow{a}\times\overrightarrow{b} \nonumber
+\end{align}
+the last implication comes from anticommutativity of cross product (i.e. $\overrightarrow{a}\times \overrightarrow{b}= (-\overrightarrow{b}\times \overrightarrow{a})$) and commutativity of dot product. 
+
+You may recall from earlier encounters with vectors that vector cross products only exist in 3 and 7 dimensions. One may ask, why only 3 and 7? Without going off on too much of a tangent I will leave this for interested readers to research in their own time: The nonexistence of nontrivial vector-valued cross products of two vectors in other dimensions is related to Hurwitz's theorem (composition Algebras) that implies the only normed division algebras are ones with dimension 1, 2, 4, and 8, these correspond to the reals, complex numbers, quaternions, and octonions, respectively.
+\begin{tcolorbox}
+\begin{center}
+    From now on, we will assume ring $R$ is a ring with unit element, i.e. we will assume $R$ has ``$1$", multiplicative identity
+\end{center}
+\end{tcolorbox}
+\section{Basic Ring Properties}
+\begin{lemma}[Basic Ring Properties]
+If $R$ is a ring, then $\forall a,b\in R$
+\begin{enumerate}[label=(\roman*)]
+    \item $a0=0a=0$
+    \item $a(-b)=(-a)b=-(ab)$
+    \item $(-a)(-b)=ab$
+    \item $(-1)a=-a$
+    \item $(-1)(-1)=1$
+\end{enumerate}
+\noindent\textit{Proof:}
+\begin{enumerate}[label=(\roman*)] 
+\item We will show $a0=0$ first, and leave $0a=0$ to the readers (use an \textit{almost} identical argument)
+\begin{align}
+        a0&=a(0+\underbrace{0}_{+ id.})=a0+a0 \nonumber \\
+        a0&\in R \ \ \ \ \ (\ \cdot \text{ closure }) \nonumber \\
+        R \text{ abelian group under }+ &\implies -(a0)\in R \nonumber
+    \end{align}
+    Now adding $-(a0)$ to both sides:
+    \begin{align}
+        \underbrace{a0+[-(a0)]}_{0 \text{ inv. prop.}}&=a0+\underbrace{[a0+[-(a0)]]}_{0 \text{ inv. prop.}} \nonumber \\
+        0&=a0+0 \nonumber \\
+        0&= a0 \nonumber
+    \end{align}
+    Note that $0a=0$ follows the same method of proof but we use right side distribution.
+    \item Here we will first show $a(-b)$ is the additive inverse of $ab$ which will imply that $a(-b)$ is $-(ab)$:
+    \begin{align}
+        a(-b)+ab&= a[(-b)+b] \ \ \ \ \ &(\text{ l-distribution}) \nonumber \\
+        &= a[0] \ \ \ \ \ &(\text{ property of additive inverses}) \nonumber \\
+        &= 0 \ \ \ \ \ &(\text{ previous prop }) \nonumber \\
+        &= ab+a(-b) \ \ \ \ \ &(R \text{ abelian under +}) \nonumber
+    \end{align}
+    By uniqueness of additive inverses, $a(-b)$ is additive inverse of $ab$. \\ $\therefore \ \  a(-b)=-(ab)$. \\ For the other one (i.e. in order to show $(-a)b=-(ab)$  ) we need the other distributive law.
+    \item We wish to show $(-a)(-b)=ab$ to do so we will use the property we just proved in (ii) now thinking of $-a$ as $a$ and using a property of inverses in groups we uncovered in Chapter 2.
+    \begin{align}
+        (-a)(-b)&= -[(-a)b] \ \ \ \ \ & (-a \text{ is a ring elt. use (ii) w/ }-a \text{ as }a ) \nonumber \\
+        &= -[-(\underbrace{ab}_{\in R \ (\ \cdot \text{ closure})})] \ \ \ \ \ & ( \text{property (ii) again}) \nonumber \\
+        &= (ab) \ \ \ \ \ & (\ R\text{ is a group under }+: (g^{-1})^{-1}=g) \nonumber
+    \end{align}
+    \item \begin{align}
+        (-1)a&= -(1\cdot a) \ \ \ \ \ & ( \text{property (ii)}) \nonumber \\
+        &= -(a) \ \ \ \ \ & (\text{mult. identity}) \nonumber \\
+        &= -a \nonumber
+    \end{align}
+    \item \begin{align}
+        (-1)(-1)&= (1)(1)  \ \ \ \ \ & (\text{property (iii) with }a=b=1) \nonumber \\
+        &= 1 \nonumber
+    \end{align}
+    $\blacksquare$
+\end{enumerate}
+\end{lemma}
+
+\begin{definition}[Zero Divisors]
+If $R$ is a commutative ring, $a,b\in R$ are \textit{zero divisors} if $a\neq 0$ and $b\neq 0$ but $ab=0$.
+\end{definition}
+\begin{definition}[Integral Domain]
+A commutative ring $R$ (with unit elt) is an \textit{integral domain} if it has no zero divisors. (i.e. if $ab=0$, either $a=0$ or $b=0$)
+\end{definition}
+\subsection*{Examples}
+\begin{example}
+$\Z,\Q,\R,\C$ are integral domains.
+\end{example}
+\begin{example}
+$\Z_{10}=\{0,1,2,3,4,5,6,7,8,9\}$ under $+\mod 10$ and $\cdot \mod 10$ is not an integral domain...
+\begin{align}
+    5\cdot 2 &= 10\mod 10 = 0 \nonumber \\
+    &\therefore \ 5,2 \text{ are zero-divisors} \nonumber
+\end{align}
+\end{example}
+
+\begin{example}
+$M_2(\Z)$ is not an integral domain because it is not a \textul{commutative} ring.
+\begin{align}
+    AB= \begin{bmatrix}
+            0&0\\0&0
+    \end{bmatrix} = 0 \ \ \ \text{ for } A= \begin{bmatrix}
+            1&0\\1&0
+    \end{bmatrix}, \ \ \ B= \begin{bmatrix}
+            0&0\\1&1
+    \end{bmatrix}, \ \ \ \ BA = \begin{bmatrix}
+            0&0\\2&0
+    \end{bmatrix} \nonumber
+\end{align}
+$A$ and $B$ are zero-divisors
+\end{example}
+\newpage
+
+\begin{example}[Example from Pg 130 \#10 in Herstein Text] \hspace{0.1in }\\
+A commutative ring $R$ is an integral domain $\iff$ $\forall \ a,b,c \in R$ with $a\neq 0$, $ab=ac \implies b=c$
+
+\textit{Proof:} \steezybreak\\
+$\Rightarrow$: Assume $R$ is an integral domain; so $R$ has no zero divisors. Now suppose $ab=ac$ with $a\neq 0$.
+\begin{align}
+    ac\in R &\implies \exists \ -(ac)\in R & (R +\text{ group}) \nonumber \\
+    ab+[-(ac)]&= ac + [-(ac)] & \nonumber \\
+    ab+a(-c)&=0 & ( \text{ (ii) }) \nonumber \\
+    a[b+(-c)]&=0 & (\text{ Dist. Law}) \nonumber
+\end{align}
+Since $R$ has no zero divisors, and $a\neq 0$ 
+\begin{align}
+    &\implies b+(-c)=0 \nonumber \\
+    &\implies b+(-c)+c= c \nonumber \\
+    &\implies b+0= c \nonumber \\
+    &\implies b=c \nonumber
+\end{align}
+$\Leftarrow$: For this direction we assume cancellation property holds and we will show $R$ has no zero divisors. Suppose $ab=0$ with $a\neq 0$ we'll show $b$ is forced to be $0$.
+\begin{align}
+    ab&=0 & \nonumber \\
+    &= a0 &(\text{ Lemma 3.2.1 part (i) }) \nonumber
+\end{align}
+Cancellation of $a$ gives
+\begin{align}
+    b=0. \ \ \ \ \blacksquare \nonumber
+\end{align}
+\end{example}
+Quick takeaways, given $R$ commutative ring,
+\begin{align}
+    R \text{ is an integral domain} &\iff R \text{ has no zero divisors} \nonumber \\
+    &\iff R \text{ has cancellation property.} \nonumber
+\end{align}
+
+\begin{definition}[Division Ring]
+    A ring $R$ with unit element is a \textit{division ring} if its non-zero elements form a group under ``$\cdot$" (i.e. if $R$ has the additional property of multiplicative inverses for all $a\neq 0 \in R$). \steezybreak\\
+    
+    \noindent Even more compact: $R \text{ div. ring} \iff \forall a \in R \ni a\neq 0, \exists b \in R \ni ab=1$.
+\end{definition}
+
+\begin{example}
+    $\Z$ is \textul{not} a division ring since $2b=1$ is never true for $b\in \Z$ ($2$'s multiplicative inverse is $\frac{1}{2} \not \in \Z$)
+\end{example}
+\begin{example}
+    $\Q$ is a division ring, so are $\R$, and $\C$. In fact they are all commutative division rings: \steezybreak\\
+    
+    \begin{align}
+        \text{Let }  a/b \in \Q \text{ with } a,b\neq 0,  \ &\implies (\frac{a}{b})^{-1} = \frac{b}{a} \nonumber \\
+        r \in \R, r\neq 0 &\implies r^{-1}=\frac{1}{r} \nonumber \\
+        (a+bi)\in \C \text{ with $a,b$ not BOTH zero} &\implies (a+bi)^{-1} = \frac{a}{a^2+b^2} - \frac{b}{a^2+b^2}i \nonumber
+    \end{align}
+    Left to the reader to confirm that $(a+bi)^{-1}$, as given, satisfies $(a+bi)(a+bi)^{-1} = 1+0i$
+\end{example}
+
+\begin{example}
+    $\H$ is a non-commutative division ring
+    \begin{align}
+        \H = \{a+bi+cj+dk \ | \ a,b,c,d \in \R \} \text{ with } i^2=j^2=k^2=-1, ji = -ij \nonumber
+    \end{align}
+    Recall Hersteins device for products of $i$ $j$ and $k$: \includegraphics[width= 0.4\textwidth]{Figures/Herstein_quat_device.pdf} \steezybreak\\
+    \noindent If $a+bi+cj+dk \in \H$ with $a,b,c,d$ not all zero we can denote $s= a^2+b^2+c^2+d^2$, then
+    \begin{align}
+        (a+bi+cj+dk)^{-1}&= \frac{a}{s} - \frac{b}{s}i - \frac{c}{s}j - \frac{d}{s}k\nonumber
+    \end{align}
+    A good exercise for the reader would be to prove by checking that the product $=1$ for left and right multiplication.
+\end{example}
+
+\begin{example} 
+    $M_2(R)$ (where $R$ a ring) is a non-commutative ring but not a division ring:
+    \begin{align}
+        \det\begin{pmatrix}
+            0&0\\1&1
+        \end{pmatrix} = 0 \ \ \therefore \text{ has no inverse} \nonumber
+    \end{align}
+\end{example}
+
+\begin{example}
+    $GL_2(R)$ is not even a ring so not a division ring. $GL_2(R)$ does not have ``$e$" (identity) for ``$+$" operation.
+\end{example}
+
+\begin{definition}[Field] 
+A \textit{field} is a commutative division ring.
+\end{definition}
+
+\subsubsection*{Exerise \#12 from Pg. 130 in Herstein:}
+Prove every field is an integral domain.
+\textit{Proof:} Say $F$ is a field, we'll show that $F$ has no zero divisors: \steezybreak\\
+Suppose $ab=0$ and further assume $a\neq 0$ we must show this setup forces $b=0$
+\begin{align}
+    a\neq 0 &\implies \exists \ a^{-1}\in F \ \ (F\text{ is a div. ring}) \nonumber \\
+    &ab=0 \nonumber \\
+    &\implies a^{-1}ab =a^{-1}0 \nonumber \\
+    &\implies 1b = a^{-1}0 \nonumber \\
+    &\implies b=0 \nonumber
+\end{align}
+So $F$ has no zero divisors. $\blacksquare$ \steezybreak\\
+
+A natural question one might ask, `` are there any finite fields?" will be answered shortly. Recall in $\Z_{10}$ we have that $5\cdot 2 = 0$, $\Z_{10}$ is certainly a ring, but it is not an integral domain and hence is not a field. How about $\Z_{7}$? In fact it is! but we will need to prove two more results to make it very clear, first we will prove ring $\Z_p$, has no zero divisors for $p$ prime (making it a finite integral domain). Then in the lemma that follows we will prove that a finite integral domain is a field.
+
+\begin{proposition}[$p$ prime $\implies \Z_p$ integral domain] 
+$\Z_p$ has no zero divisors for $p$ prime. \steezybreak\\
+\textit{Proof:} Suppose $ab=0$ for $a,b \in \Z_p \ni \ a\neq 0$, we will show $b$ is forced to be zero. 
+
+\noindent In $\Z$, $ab=0$ means $ab\equiv 0 \mod p$, i.e. $p|ab$. Now, $a\not\equiv 0 \mod p$ means $p\not | a$ so $p$ must divide $b$. Lastly $p|b \implies b\equiv 0 \mod p$
+\begin{align}
+    \therefore b=0 \text{ in } \Z_p \nonumber
+\end{align}
+So $\Z_p$ is a finite integral domain. $\blacksquare$
+\end{proposition}
+
+\begin{lemma}[Finite Integral Domain $\implies$ Field] 
+A finite integral domain is a field. \steezybreak\\
+\noindent \textit{Proof:}
+To begin, we note that $R$ finite integral domain $\implies$ $R$ is a commutative ring with ``$1$" in which cancellation holds, and it is finite $R=\{x_1,x_2,\cdots, x_n\}$ $n-$distinct. Let $a\in R$ with $a\neq 0$, we must show that $a^{-1}$ exists in $R$. Consider the list:
+\begin{align}
+    x_1a, \ x_2a, \ x_3a, \cdots, \ x_na \ \ \ \text{ all }\in R \text{ by closure.} \nonumber
+\end{align}
+Are there duplicates? \\ 
+Well if $x_ia=x_ja$, cancellation in $R$ $\implies \ x_i=x_j$ , \ \ $\Rightarrow\Leftarrow$. \\ 
+So no, no duplicates exist in this list. The new list is just $R$ again. \\ 
+Since $1\in R$ $\implies \ x_ia=1$ for some $1\leq i \leq n$, \\ 
+$\therefore x_i$ is the required $a^{-1}$. $\blacksquare$
+\end{lemma}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{Figures/Ring Classifications.png}
+    \caption{Ring Classifications}
+    \label{fig:ring-classifications}
+\end{figure}
+\subsection*{Characteristic of Integral Domains}
+Suppose $R$ is an integral domain (w/ ``$1$"). Think of $R$ as an additive group and consider $o(1)$ (order of $1$):
+\begin{align}
+    o(1)=m = \text{ smallest positive integer }\ni \underbrace{1^m}_{\underbrace{1+1+\cdots+1}_{m \text{ times}}\ =} = \underbrace{0}_{\underbrace{0}_{``e" \text{ in additive }R}} \nonumber
+\end{align}
+\begin{definition}[Characteristic of Integral Domain]
+\begin{enumerate}
+    \item Integral domain $R$ has characteristic $0$, denoted $\characterisic(R)=0$, if the only $m\in \Z$ satisfying $1^m=0$ is $m=0$.
+    \item If $\characterisic(R)\neq 0$, then $\characterisic(R)=o(1)$
+\end{enumerate}
+\end{definition}
+
+\begin{example}
+    $\Z$, $\R$, $\Q$, and $\C$ all have $\characterisic(R)=0$
+\end{example}
+\newpage
+\begin{example}
+    $\Z_p$, $p$ prime, has $\characterisic(R)=p$ \ \ \ \ \ ($\underbrace{1+1+\cdots +1}_{p \text{ times}} = 0$)
+\end{example}
+\noindent The Characteristic of an Integral Domain R is $o(1)=$ the order of the multiplicative identity in the additive group $R$.
+\begin{align}
+    \text{if }o(1)&=\infty \ \text{ then }\characterisic(R)=0 \nonumber \\
+    \text{if }o(1)&=m\in \Z^{+} \ \text{ then }\characterisic(R)=m \nonumber
+\end{align}
+The characteristic affects the calculations in $R$: \\ 
+Take $x,y\in R$
+\begin{align}
+    \text{Say }R \text{ has }\characterisic(R)=0, \text{ then} \nonumber \\
+    (x+y)^2 &= (x+y)(x+y) \nonumber \\
+    &= x^2+xy+yx+y^2 \nonumber \\
+    &= x^2 + 2xy + y^2  \ \ \ (R\text{ comm.}) \nonumber 
+\end{align}
+Above we use additive notation $g+g=2g$ after recognizing that $R$ int. domain implies $R$ commutative.
+\begin{align}
+    \text{Say }R \text{ has }\characterisic(R)=2, \text{ then} \nonumber \\
+    (x+y)^2 &= x^2 + 2xy + y^2  \nonumber \\
+    &= x^2+\underbrace{(1+1)}_{\substack{o(1)=2 \\ \text{ so this is }0, \\ 0\cdot r = 0 \ (L3.2.1)}}xy+y^2 \nonumber \\
+    &= x^2+y^2 \nonumber
+\end{align}
+
+\begin{definition}[Subring]
+A subset $S$ of ring $R$ is a subring if
+\begin{enumerate}[label=\roman*)]
+    \item $S<R$ (under $+$).
+    \item $1_R\in S$.
+    \item $S$ is closed under $\cdot$ in $R$.
+\end{enumerate}
+$S$ inherits the rest of $R$'s ring properties:
+\begin{itemize}
+    \item $+$ abelian
+    \item $\cdot$ associativity
+    \item 2 distributive laws
+\end{itemize}
+$R$ is a ``trivial" subring of itself.
+\end{definition}
+\newpage
+\begin{example}[Personal Ring Example] 
+Discuss the ring generated by $A= \begin{pmatrix}
+    0&0\\0&1
+\end{pmatrix} \in M_2(\Z_2)$
+    \begin{table}[h!]
+    \centering
+    \begin{tabular}{c||c|c|c|c|}
+         $+$& $0$&$I$&$A$&$A+I$  \\ \hline \hline
+         $0$&$0$&$I$&$A$&$A+I$\\ \hline
+         $I$&$I$&$0$&$A+I$&$A$ \\ \hline
+         $A$&$A$&$A+I$&$0$&$I$ \\ \hline
+         $A+I$&$A+I$&$A$&$I$&$0$ \\ \hline
+    \end{tabular} \hspace{0.2in}
+    \begin{tabular}{c||c|c|c|c|}
+         $\cdot$& $0$&$I$&$A$&$A+I$  \\ \hline \hline
+         $0$&$0$&$0$&$0$&$0$\\ \hline
+         $I$&$0$&\cellcolor{blue!25}$I$&\cellcolor{blue!25}$A$&\cellcolor{blue!25}$A+I$ \\ \hline
+         $A$&$0$&\cellcolor{blue!25}$A$&\cellcolor{blue!25}$A$&\cellcolor{blue!25}$0$ \\ \hline
+         $A+I$&$0$&\cellcolor{blue!25}$A+I$&\cellcolor{blue!25}$0$&\cellcolor{blue!25}$A+I$ \\ \hline
+    \end{tabular}
+    \caption{Cayley Table (additive) and Table of Products for ring generated by $A$. Note that $0$'s appearing in the sub-block shaded in blue $\implies$ 0 divisions $\implies$ $R$ is not an integral domain.}
+    \label{tab:Cayley_and_products_ex_ring}
+\end{table}\\
+Relations:
+\begin{align}
+    2I&=0 \nonumber \\
+    2A&=0 \nonumber
+\end{align}
+Ring of order 4. Symmetry down main diagonal of $\cdot$ table $\implies$ commutative. As we noted from the multiplication table ($\cdot$ table) $(A+I)A=0$ so we have zero divisors, $\therefore$ $R$ is not an integral domain. $R$ is a basic commutative ring.\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.65\textwidth]{Figures/Example_Ring_Figure.png}
+    \caption{Where $R$ sits in our previous diagram}
+    \label{fig:R_comm_ring}
+\end{figure}\\
+Let's explore the subrings of $R$ and see if there are any non-trivial ones. Looking back at part (i) of our definition of a subring we can begin by looking at $R$'s subgroups under addition:
+\begin{center}
+    \begin{tabular}{|l|c|} \hline
+         \textbf{Order } & \textbf{Subgroup}  \\ \hline
+         $4$ & $R$ \\ \hline
+         $2$ & $\{I,0\}=\langle I \rangle, \{A,0\}=\langle A \rangle, \{A+I,0\}= \langle A+I \rangle$ \\ \hline
+         $1$ & $\langle 0 \rangle $ \\ \hline
+\end{tabular}
+\end{center}
+Now the next requirement for being a subring is that the subgroup needs to contain ``1", the multiplicative identity. So $\{A+I,0\}$ and $\{A,0\}$ are out of the running, but $\{I,0\}=\langle I \rangle$ is still a contender! Lastly we require the subgroup to be closed under $\cdot$, which $\{I,0\}$ is so $\{I,0\}$ is a subring!!
+
+As an extra takeaway from this discussion, we can also see from that table of subgroups that $R$ must be non-cyclic since there is no single element of order $4$.
+\end{example}
+\newpage
+\section{Ring Homomorphisms}
+We've seen structure-preserving maps for groups (group homomorphisms), now we will extend the idea to Rings.
+\begin{definition}[Ring Homomorphism] 
+Let $R$, $R'$ rings. A map $\phi : R \rightarrow R'$ is a \textit{(ring) homomorphism} if $\forall \ a,b \in R$
+\begin{enumerate}
+    \item $\phi(a+b)=\phi(a)+\phi(b)$ 
+    \item $\phi(a\cdot b) = \phi(a)\cdot \phi(b)$
+\end{enumerate}
+\end{definition}
+
+\begin{lemma} 
+If $\phi : R\rightarrow R'$ is a ring homomorphism, then
+\begin{enumerate}
+    \item $\phi(0)=0'$
+    \item $\phi(-a)=-\phi(a)$
+\end{enumerate}
+\textit{Proof:}\\
+We begin by first noting that $R$ and $R'$ are groups under $+$ (below we use the handles $G$ and $G'$ when thinking of $R$ and $R'$ simply as groups under their respective ``+" operations) and $\phi$ is a group homomorphism $\phi:G \rightarrow G'$. Then by Lemma 2.7.2 we have
+\begin{align}
+    \phi(e)&=e' \nonumber \\
+    \phi(a^{-1}) &= \phi(a)^{-1} \ \forall \ a \in G. \ \ \ \blacksquare \nonumber
+\end{align}
+\end{lemma}
+
+\begin{definition}[Kernel of Ring Homomorphism] 
+Given $\phi:R\rightarrow R'$ ring hom. The \textit{kernel of} $\phi$ is defined:
+\begin{align}
+    \ker \phi = \{ a \in R \ | \ \phi(a)=0'\} \nonumber
+\end{align}
+\end{definition}
+
+\begin{lemma}
+Given $\phi: R \rightarrow R'$ ring homomorphism, then
+\begin{enumerate}[label=\roman*)]
+    \item $\ker \phi < R$ under $+$
+    \item $\forall \ a \in \ker \phi $ and $\forall r \in R$, $ar, ra \in \ker\phi$
+\end{enumerate}
+\textit{Proof:}\\
+\begin{enumerate}[label=\roman*)]
+    \item Recall that Lemma 2.7.3 states that for group homomorphism $\sigma : G \rightarrow G'$ the kernel of $\sigma$ is a normal subgroup of $G$ (i.e. $\ker{\sigma} \ \triangleleft \ G$). Now, since $R$ and $R'$ are groups under $+$ and $\phi$ is a group homomorphism, $\ker{\phi} \ \triangleleft \ R$
+    \item Take $a \ \in \ \ker{\phi} $ and $r \ \in \ R$
+    \begin{align}
+        \phi(ar) &= \phi(a)\phi(r) = 0' \cdot \phi(r)=0' \implies ar \ \in \ker{\phi} \nonumber
+    \end{align}
+    A similar argument can be made to show $\phi(ra)=0'$
+\end{enumerate}
+
+\end{lemma}
+
+\begin{definition}[Ring Isomorphism]
+    $R$ is isomorphic to $R'$ ($R\approx R'$) if $\exists$ a ring homomorphism $\phi : R \rightarrow R'$ that is bijective. Then $\phi$ is an \textit{isomorphism} (\textit{ring isomorphism})
+\end{definition}
+
+\begin{lemma}
+    The ring hom. $\phi : R \rightarrow R'$ is injective $\iff$ $\ker\phi = \{0\}$ \steezybreak\\
+    \textit{Proof:} Apply group theory. $\blacksquare$
+\end{lemma}
+\subsection*{Examples of Ring Homomorphisms}
+\begin{example}
+    The ``trivial map" $\phi: R \rightarrow R'$ where $\phi(a)=0'$ $\forall \ a \in R$
+    \begin{align}
+        \text{Take }a,b \ & \in R \nonumber \\
+        \phi(a+b)&= 0' \nonumber \\
+        &= 0' + 0' \nonumber \\
+        &= \phi(a) + \phi(b) \nonumber
+    \end{align}
+    \begin{align}
+        \phi(ab)&= 0' \nonumber \\
+        &= 0'\cdot 0' \ \ \ \ \ \ \ \ \ \ \ \ (Lemma \ 3.2.1 \ (i)) \nonumber \\
+        &= \phi(a)\cdot \phi(b) \nonumber
+    \end{align}
+    $\ker\phi = R$
+\end{example}
+
+\begin{example}
+    The identity map: $\phi : R \rightarrow R$ where $\phi(r)=r$ $\forall \ r \in R$ \steezybreak\\
+    $\ker\phi = \{0\}$
+\end{example}
+
+\begin{example}
+Consider the following: $\phi: \Z \rightarrow \Q$ where $\phi(n) = \frac{n}{1}$ $\forall \ n \in \Z$. Is this a ring homomorphism? Is it injective? Surjective?
+
+Take $m,n \in \Z$
+\begin{align}
+    \phi(m+n) &= \frac{m+n}{1} = \frac{m}{1}+\frac{n}{1}= \phi(m)+\phi(n) \nonumber
+\end{align}
+\begin{align}
+    \phi(mn) &= \frac{mn}{1} = \frac{m}{1}\cdot\frac{n}{1}= \phi(m)\phi(n) \nonumber
+\end{align}
+So it is a ring homomorphism. Furthermore
+\begin{align}
+    \ker \phi &= \{n\in\Z \ | \ \frac{n}{1}=0\} = \{0\} \nonumber
+\end{align}
+so it is injective. $\phi$ is not surjective because $\frac{2}{3}$ (among many others) has no pre-image under $\phi$. $\phi$ is an embedding of $\Z$ into $\Q$ (change of perspective)
+\end{example}
+
+\begin{example}
+Complex conjugation: define $\phi : \C \rightarrow \C $ by $\phi(a+bi)=a-bi= \underset{\substack{MINUS \\ notation \ meaning}}{\underbrace{a+(-b)i}}$ \steezybreak\\
+Consider $a+bi, c+di \in \C$
+\begin{align}
+    \phi((a+bi)+(c+di))= \phi((a+c)+(b+d)i)&= (a+c)-(b+d)i \nonumber \\
+    &= (a+c)+(-1)(b+d)i \nonumber \\
+    &= (a+c)+[(-b)+(-d)]i \nonumber \\
+    &= a+c +(-b)i+(-d)i \nonumber \\
+    &= a-bi + c-di \nonumber \\
+    &= \phi(a+bi)+\phi(b+di) \nonumber
+\end{align}
+\begin{align}
+    \phi[(a+bi)(c+di)]&=\phi[(ac-bd)+(ad+bc)i] \nonumber \\
+    &= ac-bd-(ad+bc)i \nonumber \\
+    &= ac-bd-adi-bci \nonumber \\
+    &= ac-adi -bci-bd \nonumber \\
+    &= a(c-di)-bi(c-di) \nonumber \\
+    &= (a-bi)(c-di) \nonumber \\
+    &=\phi(a+bi)\phi(c+di) \nonumber 
+\end{align}
+
+\begin{align}
+    \ker\phi = \{a+bi | \phi(a+bi)=0+0i\} = \{0+0i\} \nonumber
+\end{align}
+so $\phi$ is injective. \steezybreak\\ Furthermore, note that arbitrary complex number $r+si$ has pre-image $r-si$, 
+\begin{align}
+    \phi(r-si)=r-(-s)i=r+si \nonumber
+\end{align}
+so $\phi$ is surjective.
+\end{example}
+\section{Ideals and Quotient Rings}
+
+\begin{definition}[(Two-sided) Ideal]
+    A non-empty $U$ of ring $R$ is \textit{ideal} if 
+    \begin{enumerate}[label=\roman*)]
+        \item $U<R$ under $+$
+        \item $\forall \ u \in U$ and $r \in R$, $ur\in U$ and $ru\in U$
+    \end{enumerate}
+    This second property is known as the absorption, or ``ideal" property.
+\end{definition}
+Let's look at subgroups from our previous example and see if they absorb...
+\begin{align}
+    \{0,I\}& \text{ is not ideal, }IA\not\in \{0,I\} \nonumber \\
+    \{0,A\}& \text{ is and ideal, absorbs} \nonumber \\
+    \{0,A+I\}& \text{ is  ideal } \nonumber \\
+    \{0\}& \text{ is ideal} \nonumber
+\end{align}
+
+\subsection*{Examples of Ideals}
+\begin{example}
+    Every ring $R$ has two trivial Ideals: $\{0\}$ and $R$, both are subgroups under $+$, 
+    \begin{align}
+        r\cdot 0 = 0 = 0\cdot r \nonumber
+    \end{align}
+    so $\{0\}$ absorbs. $R$ absorbs by $\cdot$ closure.
+    \begin{align}
+        \underset{\in R}{r}\cdot \underset{\in R}{a} \in R\nonumber
+    \end{align}
+\end{example}
+
+\begin{example}
+    $\phi : R \rightarrow R'$ ring hom. then $\ker \phi$ is an ideal of $R$ (Lemma 3.3.2)
+\end{example}
+
+\begin{example}
+    Let $R=\Z$, choose $n \in \Z$ and consider $n\Z = U = \{\cdots, -2n, -n, 0,n, \cdots\}$, is this an ideal of $R$? Lets begin by trying to show $U$ is a subgroup under $+$. Then we will show it has the ideal property
+    \begin{enumerate}[label=\roman*)]
+        \item \textbf{Subgroup under $+$} \\ Lemma 2.4.1 applies here since $n\Z \neq \emptyset$ (it contains 0)
+        \begin{itemize}
+            \item \textbf{+ Closure:} $\forall \ a,b\in \Z$
+            \begin{align}
+                \underset{\in n\Z}{an}+\underset{\in n\Z}{bn} = (a+b)n \in n\Z \nonumber
+            \end{align}
+            \item \textbf{+ Inverses:} $\forall \ a\in \Z$
+            \begin{align}
+                -(an) \underset{\substack{L\ 3.2.1\\pt.\ 2}}{=} \underset{\in \Z }{(-a)}n \in n \Z \nonumber
+            \end{align}
+        \end{itemize}
+        \item \textbf{Ideal (Absorption) Property} \\ $\forall m \in \Z$, $\forall \ an \in n\Z$ we have:
+        \begin{align}
+            m(an)&=\underset{\in \Z}{(ma)}n \in n \Z \nonumber \\
+            (an)m&=m(an) \in n \Z \ \ \ \ \ \ \ (\Z \text{ comm. under }\cdot)\nonumber
+        \end{align}
+    \end{enumerate}
+    
+    $\therefore \ $  $n\Z$ is an ideal in $\Z$.\\
+     I'm going to box the findings of this example because it might come in handy down the road:
+     \begin{tcolorbox}[width=2in, center=true]
+\begin{center}
+    $\forall \ n \in \Z$, $n\Z$ is an ideal in $\Z$.
+\end{center}
+\end{tcolorbox}
+\end{example}
+
+\begin{example}
+Let $R=M_2(\Z)$ and $U=M_2(2\Z)$ \\
+We will begin by showing $U<R$ under $+$
+\begin{enumerate}[label=\roman*)]
+    \item $U$ \textbf{nonempty: }\begin{align}
+    U\neq \emptyset \text{ as it contains } \begin{pmatrix}
+        2&4\\6&8
+    \end{pmatrix} \nonumber \\
+    \underbrace{\begin{pmatrix}
+        2a & 2b \\ 2c & 2d
+    \end{pmatrix}}_{\in M_2(2\Z)} = 2 \underbrace{\begin{pmatrix}
+        a&b \\ c& d
+    \end{pmatrix}}_{\in M_2(\Z)} \nonumber
+\end{align}
+We note that every matrix in $M_2(2\Z)$ can be expressed as $2M$ for some $M \in M_2(\Z)$ \steezybreak\\
+Take $A,B \in M_2(2\Z)$, then $\exists \ M_1 M_2 \in M_2(\Z) \ni A=2M_1 \ \text{ and } B=2M_2$
+\item + \textbf{closure:} $A+B=2M_1+2M_2 = 2(M_1+M_2) \in M_2(2\Z)$
+\item \textbf{additive inverses:} Take $A$ as above
+\begin{align}
+    -A= -(2M_1)=[(-1)(2)]M_1=[(2)(-1)]M_1 = 2\underbrace{[-M_1]}_{\in M_2(\Z)} \in M_2(2\Z) \nonumber
+\end{align}
+So $M_2(2\Z)<M_2(\Z)$
+\end{enumerate}
+Next we will show the absorption (ideal) property, take $M\in M_2(\Z)$ and $A=2M_1\in M_2(2\Z)$
+\begin{align}
+    MA &= M\cdot 2M_1 \underset{\substack{elementary \\lin. alg.}}{=} 2\underbrace{(MM_1)}_{\in M_2(\Z)} \in M_2(2\Z) \nonumber \\
+    AM &= 2(M_1M) \in M_2(2\Z) \nonumber
+\end{align}
+so $M_2(2\Z)$ is an ideal in $M_2(\Z)$
+\end{example}
+
+\subsubsection*{Cosets of ideal $U$ in ring $R$: } Let $R$ ring and $U$ ideal in $R$, $U<R$ so we can form cosets of $U$ in $R$.
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{c|c}\hline
+         Groups & Rings  \\ \hline
+         $H<G$ & $U$ ideal in $R$ ($U<R$ so group theory applies) \\[0.1in] \hline
+         $\forall \ g\in G, \ Hg = \{hg | h\in H \}$ & $\forall \ a\in R, U+a = \{u+a | u \in U\}$ ($+$ group op. in $R$) \\[0.1in] \hline
+         \shortstack{  $Hx=Hy \iff xy^{-1} \in H$ \\($[x]=[y] \iff x\sim y \iff xy^{-1}\in H$)} & \shortstack{$\ U+a =U+b \iff a+(-b)\in U $ \\ $ \iff a-b\in U$} \\[0.1in] \hline
+         $H\triangleleft G \iff Hg=gH, \ \forall \ g\in G$ & \shortstack{$U\triangleleft R \iff U+a=a+U$ \\ (happens automatically $\because$ $R$ abelian under $+$)}
+    \end{tabular}
+\end{table}
+\begin{tcolorbox}[width=5in, center=true]
+\begin{center}
+    $\star \star \star$ \textit{Ideals play the role in rings that normal subgroups play in groups.} $\star \star \star$
+\end{center}
+\end{tcolorbox}
+\newpage
+Denote the set of (distinct) cosets of $U$ in $R$ by $R/U$
+\begin{lemma} 
+If $R$ is a ring with ideal $U$, then
+\begin{enumerate}[label=\roman*)]
+    \item $R/U$ is a ring
+    \item $\exists$ a surjective ring homomorphism $\sigma : R \rightarrow R/U$ with kernel $U$.
+\end{enumerate}
+\textit{Proof:}
+\begin{enumerate}[label=\roman*)]
+    \item We will begin by recalling Lemma 2.6.3 and Theorem 2.6.1:
+    \begin{align}
+        N \triangleleft G \iff \ Na \underset{\substack{\uparrow \\ \text{op in }G/N}}{\cdot} Nb = Na\underset{\substack{\uparrow \\ \text{op in }G}}{\cdot} b \nonumber
+    \end{align}
+    $G/N$ is a group with this product. Now $U \triangleleft R$, so 
+    \begin{align}
+        (a+U)\underset{\substack{\uparrow \\ \text{op in }R/U}}{+} (b+U) = (a\underset{\substack{\uparrow \\ \text{op in }R}}{+}b)+U \nonumber
+    \end{align}
+    Theorem 2.6.1 $\implies$ $R/U$ is a group with this $+$. Furthermore, it is an abelian group:
+    \begin{align}
+        (a+U)+(b+U)= (a\underset{\substack{\uparrow \\ \text{in }R \\ \text{ abelian} \\ \text{under +}}}{+}b)+U = (b+a) + U = (b+U) + (a+U)\nonumber
+    \end{align}
+    $\therefore \ R/U$ is an abelian group. Next we will define multiplication in $R/U$:
+    \begin{align}
+        \text{Define }(a+U)\cdot (b+U) = ab + U \nonumber
+    \end{align}
+    Is this operation well-defined? could we have $a'b'+U \neq ab+U$? We will show the outcome doesn't depend on which representatives we choose:
+    \begin{align}
+        a' &\in a+U \implies a'=a+u_1 \ \text{ for some }u_1\in U \nonumber \\
+        b' &\in b+U \implies b'=b+u_2 \ \text{ for some }u_2 \in U \nonumber \\
+        a'b'&= (a+u_1)(b+u_2) \nonumber \\
+        &= a(b+u_2)+u_1(b+u_2) \nonumber \\
+        &= ab+\underbrace{\underset{\substack{\in U \\ \text{by abs.}}}{au_2} + \underset{\substack{\in U \\ \text{by abs.}}}{u_1b} + \underset{\substack{\in U \\ \text{by abs.}}}{u_1u_2}}_{\substack{\text{ in }U\text{ by additive closure}}} \nonumber \\
+        &\in ab + U . \nonumber
+    \end{align}
+    so $a'b'$ is in $ab$'s cosets. Since cosets are either identical or disjoint, not disjoint $\implies$ identical. So multiplication as state is well-defined and satisfied closure. Next we must show this multiplication we have defined is associative.
+    \begin{align}
+        [(a+u)(b+U)](c+U) &= (ab+U)(c+U) \nonumber \\
+        &= (ab)c + U \nonumber \\
+        &= a(bc)+ U  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (R \text{ assoc. in } \ \cdot \ )\nonumber \\
+        &= (a+U)(bc+U) \nonumber \\
+        &= (a+U)[(b+U)(c+U)]. \nonumber
+    \end{align}
+    Cool, so it's associative. Next we need to show the distribution laws hold, we will show left-distribution and right distribution follows by a similar argument:
+    \begin{align}
+        (a+U)[(b+U)+(c+U)] &= (a+U)[(b+c)+U] \nonumber \\
+        &= a(b+c) +U \nonumber \\
+        &= (ab+ac)+U \nonumber \\
+        &= (ab+U)+(ac+U) \nonumber \\
+        &= (a+U)(b+U) + (a+U)(c+U) \nonumber
+    \end{align}
+    $\therefore \  R/U$ is a ring. \steezybreak\\
+    Furthermore, if $R$ has a multiplicative identity $1$ then so does $R/U$:
+    \begin{align}
+        \underbrace{(1+U)}_{\substack{``1" \\ \text{in }R/U}}(a+U)=(a+U) \nonumber
+    \end{align}
+    \item Define $\sigma : R \rightarrow R/U$ by $\sigma(a)=a+U$ (i.e. every element goes to its own coset). Take $a,b\in R$
+    \begin{align}
+        \sigma(a+b)&= (a+b)+U \nonumber \\
+        &= (a+U)+(b+U) \nonumber \\
+        &= \sigma(a)+\sigma(b) \nonumber
+    \end{align}
+    And,
+    \begin{align}
+        \sigma(ab)&= ab+U \nonumber \\
+        &= (a+U)(b+U) \nonumber \\
+        &= \sigma(a)\sigma(b) \nonumber.
+    \end{align}
+    So it is a ring homomorphism. Further, arbitrary $x+U \in R/U$ has preimage $x\in R$, $\sigma(x)=x+U$, so $\sigma$ is surjective.
+
+    Lastly, we want to show that $\ker \sigma = U$. \steezybreak\\
+    \textbf{$\subseteq$:} \steezybreak\\
+    Take $r\in \ker\sigma \ $, $\ \ \underbrace{\sigma(r)}_{r+U}\underset{\substack{\uparrow \\ r\in \ker\sigma}}{=} 0+U=U$ \\ Cosets $r+U$ and $0+U$ are identical so $r\in U$, $r$'s coset is $U$.\\
+    \textbf{$\supseteq$:} \steezybreak\\
+    Take $r\in U$. $U$ is the coset $0+U$ so $r\in U \ \implies \ r$'s coset is $0+U$. \steezybreak\\
+    So $\sigma(r)=r+U=0+U$, now $0+U$ serves as the ``$0$" in $R/U$, $\therefore$ $r\in \ker \sigma$, so $U\subset \ker \sigma$. $\blacksquare$
+    %to be cont'd... (gotta still show there's a surjective ring hom. and that its kernel is $U$) hopefully we're starting to see the correspondence between role of normal subgroups in G and ideals in R. this lemma should seem uh familiar 
+\end{enumerate}
+
+\end{lemma}
+\newpage
+\begin{theorem}[First Isomorphism Theorem for Rings] 
+If $\phi: R \rightarrow R'$ is a surjective ring homomorphism with kernel $U$, then $R' \approx R/U$ \steezybreak\\
+\textit{Proof:} $U=\ker \phi$ is an ideal of $R$ so $R/U$ is a ring by Lemma 3.4.1. \\  \\
+We have: \\
+\begin{center}
+    \includegraphics[width=0.4\textwidth]{Figures/Ring_1st_iso_black.png}
+\end{center}
+Define $\tau: R/U \rightarrow R'$ by $\tau(a+U)= \phi(a)$, this mapping lifts $a+U$ to preimage ``$a$" then applies $\phi$. As in the proof of first isomorphism theorem for groups, $\tau$ is well-defined, bijective, and a group homomorphism (under $+$); it remains to show $\tau$ splits over $\cdot$ \steezybreak\\
+Let $a+U, b+U \in R/U$
+\begin{align}
+    \tau[(a+U)(b+U)]=\tau[ab+U]=\phi(ab)\underset{\substack{\uparrow \\ \phi \ ring \ hom.}}{=} \phi(a)\phi(b) =\tau[a+U]\tau[b+U]. \ \  \blacksquare \nonumber
+\end{align}
+    
+\end{theorem}
+
+\section{Ideal Theory}
+
+\subsection*{Constructing Ideals} $U,V$ ideals in $R$
+\begin{enumerate}
+    \item $U\cap V < R$\steezybreak\\
+    Check absorption: take $r\in R$, $x\in U\cap V$\\
+    $rx\in U$ by absorption in $U$\\
+    $rx\in V$ by absorption in $V$\\
+    $\therefore$ $rx\in U\cap V$\\
+    similarly $xr \in U \cap V$ \\
+    $\therefore$ $U\cap V$ is an ideal.
+
+    \item Recall that when you have $H,K$ subgroups in group $G$ then $HK<G \iff HK=KH$. Now consider $U,V$ ideals in $R$ (thinking of them as subgroups of $R$ under $+$) Lemma 2.5.1 says
+    \begin{align}
+        U+V<R \iff U+V=V+U \ \ \ \ \ (\text{Automatic in a ring which is abelian under }+) \nonumber
+    \end{align}
+    Checking absorption: take $r\in R$, $x\in U+V \ \ \implies \exists \ u\in U $ and $v\in V \ \ni x=u+v$
+    \begin{align}
+        rx=r(u+v)=\underset{\in U}{ru} + \underset{\in V}{rv} \in U+V \nonumber
+    \end{align}
+    similarly, $xr \in U+V$\\
+    $\therefore$ $U+V$ is a two-sided ideal in $R$.
+    \item Let $R$ comm. ring, $\forall \ a\in R, \ \ Ra=\{ra \ | \ r\in R\}$, $Ra$ is an ideal in $R$ called ``the ideal \textit{generated} by $a$"\\
+    \textit{Proof:} Take $a\in R$, we will first show $Ra$ is a subgroup of $R$ under $+$ and then we will show it has the absorption property. First, note $0\cdot a=0\in Ra$ and $1\in R$, so $1\cdot a=a\in R$, so $R\neq \emptyset$ and Lemma 2.4.1 applies.\\
+    \textbf{+ Closure:} Take $ra, \ sa \in Ra$
+    \begin{align}
+        ra+sa\underset{\substack{\uparrow \\ right \\dist. \\law}}{=}\underset{\substack{\in R \\ (+ closure)}}{(r+s)}a \in Ra \nonumber
+    \end{align}
+    \textbf{+ Inverses:} Take $ra$ as above, $\exists \ -ra$ because $ra\in R$
+    \begin{align}
+        -(ra)\underset{\substack{\uparrow \\ L3.2.1 (ii)}}{=} (-r)a\in Ra \ \ \ \ (\text{since }R \text{ contains the }+\text{ inv. ``}-r"\text{ for its elt. ``} r") \nonumber
+    \end{align}
+    $\therefore \ $ by Lemma 2.4.1 $Ra<R$ \\ \steezybreak
+    \textbf{Absorption:} Take $x\in R$, $ra\in Ra$.
+    \begin{align}
+        (ra)x \underset{\substack{R \\ comm.}}{=} x(ra) \underset{assoc.}{=} \underset{\in R}{(xr)}a \in Ra \nonumber
+    \end{align}
+    $\therefore \ $ $Ra$ has the absorption property.  $\blacksquare$
+\end{enumerate}\steezybreak
+We know ``$0$" (+``$e$") is in every ideal. What about ``$1$" ($\ \cdot$ ``$e$")? \\ If $U$ is an ideal in $R$ and $1\in U$ then $\forall \ r \in R$, $r=r\cdot \underbrace{1}_{\in U} \in U$ by absorption. Which implies $R\subset U$, and since $U\subset R,  \ \ \implies \ \ U=R$ \\
+\begin{tcolorbox}[width=5in, center=true]
+\begin{center}
+$\bigstar$: \ \ \ The only ideal containing $1$ is $R$.
+\end{center}
+\end{tcolorbox}
+\begin{lemma}
+    $R$ commutative ring and $R\neq \emptyset$.
+    \begin{align}
+        R \text{ is a field } &\iff \text{ the only ideals of }R \text{ are trivial.} \nonumber
+    \end{align}
+    \textit{Proof:}\\
+    $\Rightarrow$: Assume $R$ is a field (comm. div. ring) and suppose $U$ is an ideal in $R$ with $U\neq \{0\}$ (we will show $U=R$). $U\neq \{0\} \ \implies  \ \exists \ u \in R \ni u\neq 0$, since $R$ is a division ring $\implies$ $\exists \ u^{-1}\in R$ but $1=\underset{\in U}{u}\cdot \underset{\in R}{u^{-1}}\in U$ by absorption. Therefore, $U=R$ by $\bigstar$. \\ \steezybreak
+    $\Leftarrow$: Assume $\{0\}$ and $R$ are the only ideals in $R$. \\
+    $R$ commutative, so it suffices to show that every non-zero element in $R$ has a multiplicative inverse (making $R$ a division ring). Take $a\in R \ni \ a\neq 0$, then $Ra$ is an ideal, so by our hypothesis $\implies$ $Ra=\{0\}$ or $Ra=R$. $Ra$ cannot be $\{0\}$ because $Ra$ contains $1\cdot a = a \neq 0$, so $Ra=R$. Therefore $\exists \ r \in R \ni ra = 1$ and $r$ is the required mult. inverse of $a$. \ \ \ $\blacksquare$ \\ 
+
+    \noindent (Clarification: if $Ra=R$ that means every element of $R$ can be expressed as $ra$ for some $r\in R$, in particular, $1\in R$ can be expressed this way, and the $r$ that does this serves as the mult. inverse for $a$.)
+\end{lemma}
+\begin{example}
+    The only ideals in $\Q, \R,$ and $\C$ are trivial (L3.5.1)
+\end{example}
+\begin{example}
+    What are the ideals in $\Z$? Earlier we showed that $\forall \ n\in \Z$, $n\Z=\{ \text{ integer multiples of }n\}$ is an ideal in $\Z$. What other ideals in $\Z$ might there be? Ideals come from pool of subgroups of $\Z$
+    \begin{align}
+        \Z &\text{ is cyclic }: \ \ \Z=\langle 1 \rangle \nonumber \\
+        1^0&=0 \nonumber \\
+        1^1&=1 \nonumber \\
+        1^2&=2 \nonumber \\
+        1^{-2}&= (1^{-1})^2 = (-1)+(-1)=-2 \nonumber \\
+        &\vdots \nonumber
+    \end{align}
+    every subgroup of a cyclic group is cyclic so ideals in $\Z$ have the form $\langle n \rangle$
+    \begin{align}
+        \langle n \rangle &= \{\cdots, -3n, -2n, -n, 0, n, 2n, 3n, \cdots\} = n\Z \nonumber
+    \end{align}
+    so $n\Z$'s account for all ideals in $\Z$. \\ \steezybreak 
+    Note that $\langle n \rangle = \langle -n \rangle$ so it's customary to use the non-negative generator $\langle +n \rangle$.
+\end{example}
+\begin{definition}[Maximal Ideal]
+    An ideal $M\neq R$ is \textit{maximal} if whenever an ideal $U$ satisfies $M\subseteq U \subseteq R$, either $M=U$ or $U=R$ \\ 
+    
+    \noindent (i.e. you can't slip a 3rd ideal strictly between $M$ and $R$)
+\end{definition}
+\begin{example}
+    Consider $4\Z \varsubsetneqq 2\Z \varsubsetneqq \Z$, $4\Z$ is not maximal because we can slip $2\Z$ between $4\Z$ and $\Z$. What about $2\Z$? (we think its maximal) \\ \steezybreak
+    Assume $2\Z \varsubsetneqq n\Z \ \implies$ $n\Z$ must have an odd integer
+    \begin{align}
+        &\implies \exists k \in \Z \ni 2k+1 \in n\Z \nonumber \\
+        2k \in 2\Z \subset n\Z &\implies 2k \in n\Z < \Z \nonumber \\
+        &\implies -2k \in n\Z \nonumber \\
+        (2k+1)+&(-2k) \in n\Z  \nonumber \\
+        &\implies 1\in n\Z \nonumber \\
+        &\implies n\Z = \Z \ \ \ (\text{ by }\bigstar) \nonumber
+    \end{align}
+    so $2\Z$ is maximal in $\Z$.
+\end{example}
+\begin{example}
+    What about $3\Z$? If $3\Z \varsubsetneqq n\Z \subseteq \Z$ then
+    \begin{align}
+        3\Z \varsubsetneqq n\Z &\implies \ n\Z \text{ contains a member of the form }3k+1 \text{ or } 3k+2 \text{ for some }k\in \Z \nonumber \\
+        \text{Suppose }3k+1 \in n\Z &\implies 3k+1 + (-3k) \in n\Z  \nonumber \\
+        &\implies 1 \in n\Z \nonumber \\
+        &\implies n\Z = R \nonumber \\
+        \text{Now, suppose }3k+2 \in n\Z &\implies -(3k+2)\in n\Z \nonumber \\
+        &\implies 3k+1+[-(3k+2)]\in n\Z \nonumber \\
+        &\implies 1 \in n\Z \nonumber \\
+        \therefore \ n\Z &= \Z \nonumber \\
+        \therefore \ 3\Z &\text{ is maximal. } \nonumber
+    \end{align}
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.3\linewidth]{Figures/Maximal_Ideals_Factor_Graph_thing.png}
+    \end{figure}
+\end{example}
+
+\begin{proposition}
+    Given $n\in \Z^{+}$ \\ $n\Z$ is maximal in $\Z$ $\iff \ n$ is prime. \\
+    \textit{Proof: } \\ \steezybreak
+    $\Leftarrow$ : Suppose $n=p$ is prime and suppose $p\Z \varsubsetneqq \underbrace{m\Z}_{ideal} \subseteq \Z$
+    \begin{align}
+        &p\in m\Z \implies \exists \ k \in \Z \ni \ p=mk \ \ \ \ (p\text{ prime so divisor } m \text{ can only be }1 \text{ or }p) \nonumber \\
+        &\text{Since }m\Z \neq p\Z, \ m\text{ can't be }p, \text{ so }m=1. \nonumber \\
+        & \text{Now, }1\Z=\Z, \ \therefore \ p\Z \varsubsetneqq 1\Z \subseteq \Z \nonumber \\
+        &\text{So, }m\Z=\Z \ \therefore \ p\Z \text{ is maximal.} \nonumber
+    \end{align}
+    $\Rightarrow$: Assume $n\Z$ is maximal and suppose $n=ab$ where $a,b\in \Z^{+}$. Consider ideal $a\Z$, any multiple of $n$ is also a multiple of $a$, so
+    \begin{align}
+        \underbrace{n\Z}_{maximal} &\subseteq a\Z \subseteq \Z \nonumber
+    \end{align}
+    $n\Z$ maximal $\implies$ either $a\Z=n\Z$ or $a\Z=\Z$ \\ \steezybreak
+    If $a\Z=\underset{\substack{\uparrow \\ 1\in }}{\Z}$, then $\exists \ k\in \Z \ni ak = 1$, since $a$ and $k$ are integers $\implies a=k=1 \ \implies a=1$ so $b=b\cdot 1 = b\cdot a = n$, so in this case, $n$ factors only as $1\cdot n$. \\ \steezybreak
+    If $a \underset{\substack{\uparrow \\ 1 \in}}{\Z} = n\Z$, then $\exists \ k\in \Z \ni a\cdot 1 =nk, \ \implies$ $a$ can be written in the form $a=nk$.
+    \begin{align}
+        n&= ab = nkb \nonumber
+    \end{align}
+    applying cancellation in integral domain $\Z \ \ \implies \ 1=kb$, now since $k,\ b$ are integers and $b$ positive $\implies \ \ k=b=1$, so we have $a\cdot 1 = a = ab=n$. So again, $n$ can only be factored as $n\cdot 1$. \\ \steezybreak
+    $\therefore$ $ n$ is prime since it's only possible divisors are $n$ and $1$. $\blacksquare$
+\end{proposition}
+
+\setcounter{dummy}{0}
+\begin{theorem}
+    Suppose $R$ is a commutative ring with $1$ and $M$ is an ideal of $R$ with $M\neq R$, then:
+    \begin{align}
+        M \text{ is maximal } \iff R/M \text{ is a field.} \nonumber
+    \end{align}
+    \textit{Proof: }\\
+    $\Leftarrow$: Assume $R/M$ is a field. \\
+    Suppose $V$ is an ideal $\ni$ $M\varsubsetneqq V \subseteq R$ (Show $V=R$)
+    \begin{align}
+        M \varsubsetneqq V \implies \ \exists \ x \in V \ni x\not \in M \nonumber
+    \end{align}
+    Consider $x$'s coset in $R/M$:
+    \begin{center}
+    \includegraphics[width=0.65\textwidth]{Figures/x_coset_in_R_M.png} \\ 
+    \end{center}
+    Recall that $a+U=b+U \iff a-b\in U$ \\
+    Since $x\not \in M \implies \ x+M$ is non-zero (i.e. it's not $0+M$) in the field $R/M$. So it has a multiplicative inverse in $R/M$, call it $y+M$
+    \begin{align}
+        1+M &= (x+M)(y+M)=xy+M\nonumber \\
+        &\therefore 1-xy \in M \nonumber
+    \end{align}
+    \begin{align}
+        1&= \underset{\in M \subset V}{(1-xy)}+\underset{\underbrace{\substack{\uparrow\uparrow\\x \in V y\in R}}_{\in V \text{ by abs.}}}{xy} \in V \text{ by }+ \text{ closure.} \nonumber \\
+        \therefore & \ V=R \ \ \ (\text{ by }\bigstar) \text{ and so } M \text{ is maximal.} \nonumber
+    \end{align}
+
+    \begin{tcolorbox}[width=5in, center=true]
+    \begin{center}
+        \textbf{Side Notes}
+    \end{center}
+    $H<G$
+    \begin{center}
+        \includegraphics[width=0.45\textwidth]{Figures/subgroup_idk.png}
+    \end{center}
+    \begin{align}
+        [a]=[b]\iff a\sim b \iff a \equiv b \mod H \iff ab^{-1}\in H \nonumber
+    \end{align}
+    \begin{center}
+    \begin{tcolorbox}[width=0.4\textwidth]
+        $Ha = Hb \iff ab^{-1}\in H$
+    \end{tcolorbox}
+    \end{center}
+    Ideal $M<R$
+    \begin{center}
+        \includegraphics[width=0.65\textwidth]{Figures/Ideal_idk.png}
+    \end{center}
+    \begin{align}
+        [a]=[b]\iff a\equiv b \mod M \iff a-b\in M \nonumber
+    \end{align}
+    \begin{center}
+    \begin{tcolorbox}[width=0.5\textwidth]
+        $a+M=b+M \iff a-b \in M$
+    \end{tcolorbox}
+    \end{center}
+    \end{tcolorbox}
+    \noindent $\Rightarrow$:  Assume $M$ is maximal. \\
+    $M$ ideal $\implies$ $R/M$ is a ring by Lemma 3.4.1. What's more $R$ commutative $\implies$ $R/M$ commutative meaning $\forall \ a,b \in R$ we have 
+    \begin{align}
+        (a+M)(b+M) \ \ & \ \ \ \ = \ \ \ ab+M \nonumber\\
+        &\underset{R \text{ comm.}}{=}ba+M \nonumber \\
+        & \ \ \ \ = \ \ \ (b+M)(a+M) \nonumber
+    \end{align}
+    It remains to show that $R/M$ has multiplicative inverses for its non-zero elements. \\ \steezybreak
+    \noindent Take $x+M \in R/M$ non-zero
+    \begin{center}
+        \includegraphics[width=0.75\textwidth]{Figures/M_maximal_idk.png}
+    \end{center}
+    We will use $x$ to construct an ideal, (remember $Rx$ is the ideal generated by $x$ and the sum of two ideals is an ideal)
+    \begin{align}
+        &Rx+M \nonumber \\
+        x&= 1\cdot x + 0 \in Rx + M \nonumber\\
+    \text{furthermore,}& \nonumber \\
+        \forall m \in M \ \ m &= 0\cdot x + m \in Rx+M \nonumber
+    \end{align}
+    So,
+    \begin{align}
+        \underset{x\not\in}{M} \varsubsetneqq \underset{x\in}{Rx+M} \subset R \nonumber
+    \end{align}
+    But $M$ was assumed maximal $\implies Rx+M = R$. Now, since $1\in R$,
+    \begin{align}
+        \exists \ \bar{r} \in R \text{ and } \bar{m}\in M \ni 1&=\bar{r}x+\bar{m} \nonumber \\
+        \implies 1-\bar{r}x &= \bar{m} \nonumber \\
+        \implies 1-\bar{r}x &\in M \nonumber \\
+        \implies 1+M &= \bar{r}x+M \nonumber \\
+        \implies 1+M &= (\bar{r}+M)(x+M) \nonumber 
+    \end{align}
+    So $(\bar{r}+M)$ is $(x+M)^{-1}$ in $R/M$. \\
+    $\therefore$ $\ R/M$ is a field. \ \ \ \ $\blacksquare$
+\end{theorem}
+\newpage 
+\subsection{$\Z_n$ Recap}
+\begin{align}
+    \Z_n = \{0,1,\cdots , n-1\} \text{ under  }  +,\ \cdot \ \ (\mod n) \nonumber
+\end{align}
+$\Z$ has ideal $n\Z$, so $\Z/n\Z$ is a ring (commutative).
+
+\begin{align}
+    \Z/n\Z = \{\underbrace{0+n\Z}_{[0]}, \underbrace{1+n\Z}_{[1]}, \underbrace{2+n\Z}_{[2]}, \cdots , \underbrace{(n-1)+n\Z}_{[n-1]}\} \nonumber
+\end{align}
+
+\begin{align}
+    \Z/n\Z &\approx \Z_n \ \ \ \ \text{    via a simple name change:} \nonumber \\
+    [x] \ \ &\leftrightarrow x \ \ \ \ \text{    so }\Z_n \text{ has the ring structure of }\Z/n\Z \nonumber
+\end{align}
+\begin{align}
+    \Z_n \approx \Z/n\Z \text{ is a field } &\iff n\Z \text{ is maximal} \nonumber \\
+    &\iff \ n \text{ is prime} \nonumber
+\end{align}
+\begin{align}
+    &\Z_2, \Z_3, \Z_5, \cdots , \Z_p, \cdots \ \ &\text{ fields}\nonumber \\
+    &\Z_4, \Z_6, \Z_8, \cdots , \Z_{\text{composite}}, \cdots \ \ &\text{ basic comm. rings, all have zero divisors} \nonumber
+\end{align}
+\begin{example}
+    Find the multiplicative inverse of $28$ in $\Z_{53}$. \\ \steezybreak
+    
+    \begin{align}
+        \text{We need } x\in \{0,1,\cdots, 52\} &\ni 28\cdot x \equiv 1 \mod 53 \nonumber \\
+        &\iff 28x-1=53k \ \ \ \text{     for some }k\in \Z \nonumber \\
+        &\iff \underset{\substack{\uparrow \ \ \ \ \ \ \ \  \uparrow \ \ \ \ \ \ \\ Rel. \ prime \ \ \ }}{28x+53(-k)}=1 \nonumber
+    \end{align}
+
+    \begin{align}
+        53&= \overset{\substack{q \\ \ }}{\colorbox{green}{1}}\cdot 28 + \overset{\substack{r \\ \ }}{25} \nonumber \\
+        28&= \colorbox{green}{1}\cdot 25 + 3 \nonumber \\
+        25&= \colorbox{green}{8}\cdot 3 + 1 \nonumber \\
+        3&= 3 \cdot 1 + 0 \nonumber
+    \end{align}
+    \begin{align}
+        \underbrace{\begin{pmatrix}
+            0&1 \\
+            1 & -8
+        \end{pmatrix}
+        \begin{pmatrix}
+            0&1 \\
+            1 & -1
+        \end{pmatrix}}_{\searrow}
+        \begin{pmatrix}
+            0&1 \\
+            1 & -1
+        \end{pmatrix}& \nonumber \\
+        \begin{pmatrix}
+            1&-1 \\
+            -8 & 9
+        \end{pmatrix}
+        \begin{pmatrix}
+            0&1 \\
+            1 & -1
+        \end{pmatrix}&= \begin{pmatrix}
+            *&* \\
+            9 & -17
+        \end{pmatrix} \nonumber
+    \end{align}
+    $\therefore \ (9)53+(-17)28 = 1$ \\ \steezybreak
+    
+    \noindent Pass to $\Z_{53}$ \ \ $-17+53=36$ \\ \steezybreak
+    
+    \noindent $(36)(28)=1$ in $\Z_{53}$
+\end{example} 
+\newpage 
+
+\section{The Field of Fractions (Quotients) of an Integral Domain}
+\begin{theorem}
+    Every integral domain can be extended to a field. \\
+    \textit{Proof}: This proof is a construction. \steezybreak \\
+    Let $D$ be an integral domain, form the set $D\times (D-\{0\})=\{(a,b) \ | \ a,b\in D, \ b\neq 0\}$ \steezybreak \\
+    Now define relation $\sim$ on $D\times (D-\{0\})$
+    \begin{align}
+        (a,b)\sim (c,d) &\iff ad=bc \nonumber
+    \end{align}
+    $\sim$ is an equivalence relation: \\
+    \noindent \textbf{Reflexive}: \\ 
+    \indent $\ \ (a,b)\sim (a,b)$ because $ab=ba$ (integral domains are commutative)\\
+    \noindent \textbf{Symmetric}: 
+    \begin{align}
+        (a,b)\sim (c,d) \implies ad=bc &\overset{D \  comm.}{\implies} da=cb \nonumber \\
+        & \ \implies cb=da \ \ \ \ \ \ \ \ (\text{symmetry of }``=") \nonumber \\
+        & \ \implies (c,d)\sim (a,b) \nonumber
+    \end{align} \\
+    \noindent \textbf{Transitive}: \\
+    Assume $(a,b)\sim (c,d)$ and $(c,d)\sim (e,f)$
+    \begin{align}
+        (a,b)&\sim (c,d) \implies ad=bc \nonumber \\
+        (c,d)&\sim (e,f) \implies cf=de \nonumber \\
+        &\implies adf= bcf \nonumber \\
+        &\implies a\not d f = b\not d e  \ \ \ \ \ (D \text{ int. domain }\iff \text{ cancellation of non-zero elts. holds in }D)\nonumber \\
+        &\implies af=be \ \implies (a,b)\sim (e,f) \nonumber
+    \end{align}
+    \\
+
+    \noindent Denote the equivalence class of $(a,b)$ by $\frac{a}{b}$ \steezybreak \\
+    Let $F=\{\frac{a}{b} \ | \ a,b\in D, \  b\neq 0\} = \{\text{ equivalence classes under }\sim \text{ in }D\times (D-\{0\})\}$
+    \begin{tcolorbox}
+        \begin{center}
+            \textbf{Pause proof for a moment for an aside:}
+        \end{center}
+        Two equivalence classes are either $\underset{\substack{\Updownarrow \\ \text{Reps are related}}}{\text{identical}}$ or $\underset{\substack{\Updownarrow \\ \text{Reps are unrelated} }}{\text{disjoint}}$\\
+        So 
+        \begin{align}
+            \frac{a}{b}=\frac{c}{d} &\iff (a,b)\sim (c,d) \nonumber \\
+            &\iff ad = bc \nonumber
+        \end{align}
+        So in effect, you can tell if two fractions are equal by ``cross multiplying".
+        \begin{center}
+            \includegraphics[width=0.75\textwidth]{Figures/quotient_equiv_classes.png}
+        \end{center}
+        \begin{center}
+            \textbf{Ok, back to the proof!}
+        \end{center}
+    \end{tcolorbox}
+    \noindent It remains to show that $F$ is a \textul{field}. \\ 
+    Define $+$ on $F$ by
+    \begin{align}
+        \frac{a}{b}+\frac{c}{d} = \frac{ad+bc}{bd} \nonumber
+    \end{align}
+    Is this operation well-defined? Suppose $\frac{a}{b}$ and $\frac{a'}{b'}$ name the same class, and $\frac{c}{d}$ and $\frac{c'}{d'}$ name the same class
+    \begin{align}
+        \underset{\substack{\nwarrow \ \ \ \ \ \ \ \nearrow \\ \text{does }+\text{ give the same class?}}}{\underbrace{\frac{a}{b}+\frac{c}{d}} \ \ \ \ \ \ \underbrace{\frac{a'}{b'}+\frac{c'}{d'}}} \nonumber
+    \end{align}
+    User cross multiplying criteria \steezybreak \\
+    We know $ab'=ba'$ and $cd'=dc'$
+    \begin{align}
+        \frac{ad+bc}{bd} = \frac{a'd'+b'c'}{b'd'} \iff (ad+bc)b'd' = bd(a'd'+b'c') \nonumber
+    \end{align}
+    So we must show $(ad+bc)b'd' = bd(a'd'+b'c')$
+    \begin{align}
+        (ad+bc)b'd' &= adb'd'+bcb'd' \nonumber \\
+        &= ba'dd' + bb'dc' \nonumber \\
+        &= bd(a'd'+b'c')\nonumber
+    \end{align}
+    $\therefore \ +$ is well defined. \steezybreak \\
+    \newpage
+    Next we will show $F$ is an abelian group under the $+$ we just defined. \\
+    \noindent \textbf{$+$ Closure}: \\
+    \begin{align}
+        \frac{a}{b}+\frac{c}{d} = \frac{\overbrace{ad+bc}^{\in D}}{\underbrace{bd}_{\neq 0, \ \ \in D}} \in F \ \ \ \ \ \ (bd\neq 0\text{ because }b\neq 0, \ d\neq 0 \ \ \text{ and }D \text{ is an integral domain}) \nonumber
+    \end{align}\\
+    \noindent \textbf{$+$ Associative}: \\
+    \begin{align}
+        \left(\frac{a}{b}+\frac{c}{d}\right)+\frac{e}{f} &= \frac{ad+bc}{bd} + \frac{e}{f} \nonumber \\
+        &= \frac{(ad+bc)f+(bd)e}{(bd)f} \nonumber \\
+        &= \frac{a(df)+(bcf+bde)}{b(df)} \ \ \ \ \ \  \ \ (\text{L dist. and assoc. in }D) \nonumber \\
+        &= \frac{a(df)+b(cf+de)}{b(df)} \nonumber \\
+        &= \frac{a}{b} + \frac{cf+de}{df} \nonumber \\
+        &= \frac{a}{b}+\left(\frac{c}{d}+\frac{e}{f}\right) \ . \nonumber
+    \end{align}\\
+    \noindent \textbf{$+$ Abelian}: \\
+    \begin{align}
+        \frac{a}{b}+\frac{c}{d}&= \frac{ad+bc}{bd}\nonumber \\
+        &= \frac{da+cb}{db} \ \ \ \ \ (D \text{ comm.}) \nonumber \\
+        &= \frac{cb+da}{db} \ \ \ \ \ (D \text{ abelian under }+) \nonumber \\
+        &= \frac{c}{d}+\frac{a}{b} \ . \nonumber
+    \end{align}\\
+    \noindent \textbf{$+$ Identity ($\exists$ ``$0$" )}: \\
+    \begin{align}
+        \frac{a}{b}+\frac{0}{1} &= \frac{a\cdot 1 + b\cdot 0}{b\cdot 1} \nonumber \\
+        &= \frac{a}{b} \nonumber
+    \end{align}
+    So we have a ``$0$" it is $\frac{0}{1}$.\\
+    \noindent \textbf{$+$ Inverses}: \\ 
+    \begin{align}
+        \frac{a}{b}+\frac{(-a)}{b} = \frac{ab+b(-a)}{b^2} &= \frac{ab+[-(ab)]}{b^2} \nonumber \\
+        &= \frac{0}{b^2} = \frac{0}{1} \ \ \ \ \ \ \ \ (\text{ Because }0\cdot 1 = b^2 \cdot 0 = 0) \nonumber
+    \end{align}
+    So $-\frac{a}{b}$ is $\frac{(-a)}{b}$
+    \steezybreak \\
+    So far, $F$ is an abelian group under $+$.  \steezybreak \\
+    For $F$ to become a field we need to define a multiplication $\cdot$ for elements in $F$ and show 1) $\cdot$ closure, 2) $\cdot$ associativity, 3) $\cdot$ commutativity, 4) two distribution (left and right) laws for the $\cdot$, 5) the existence of a multiplicative identity, and 6) the existence of inverses under $\cdot$ \steezybreak \\
+    Define multiplication on $F$ for $\frac{a}{b}, \ \frac{c}{d}$
+    \begin{align}
+        \frac{a}{b} \cdot \frac{c}{d}&= \frac{ac}{bd} \nonumber
+    \end{align}
+    Is it well defined? If $\frac{a}{b}=\frac{a'}{b'}$ and $\frac{c}{d}=\frac{c'}{d'}$ is $\frac{ac}{bd}=\frac{a'c'}{b'd'}$? Show $acb'd'=bda'c'$:
+    \begin{align}
+        acb'd'&\underset{\substack{\uparrow \\ ab'=ba'}}{=}ba'cd'\underset{\substack{\uparrow \\ dc'=d'c}}{=}ba'dc'=bda'c'\nonumber 
+    \end{align}
+    $\therefore \ $ cross multiplying criteria says YES! well defined.
+
+    \noindent \textbf{$\cdot$ Closure}: \\
+    \begin{align}
+        \underset{\substack{\uparrow \\ \neq 0}}{\frac{a}{b}}\cdot  \underset{\substack{\uparrow \\ \neq 0}}{\frac{c}{d}} &= \underset{\substack{\uparrow \\ \neq 0, \in D}}{\frac{\overset{\substack{\in D \\ \downarrow}}{ab}}{cd}}\nonumber
+    \end{align}
+    \noindent \textbf{$\cdot$ Associative}: \\
+    \begin{align}
+        \left(\frac{a}{b}\cdot \frac{c}{d} \right) \cdot \frac{e}{f} &= \frac{a\cdot c}{bd} \cdot \frac{e}{f}\nonumber \\
+        &= \frac{(ac)e}{(bd)f}\nonumber \\
+        &= \frac{a(ce)}{b(df)} \nonumber \\
+        &= \frac{a}{b}\cdot \frac{ce}{df} \nonumber \\
+        &= \frac{a}{b} \cdot \left(\frac{c}{d}\cdot \frac{e}{f}\right) \nonumber
+    \end{align}
+    \noindent \textbf{$\cdot$ Commutative}: \\
+    \begin{align}
+        \frac{a}{b}\cdot \frac{c}{d}&= \frac{ac}{bd} \nonumber \\
+        &= \frac{ca}{db} \ \ \ \ \ (D\text{ comm.}) \nonumber \\
+        &= \frac{c}{d}\cdot \frac{a}{b} \nonumber
+    \end{align}
+    \noindent \textbf{$\cdot$ Distribution Laws}: \\
+    \begin{enumerate}
+        \item \begin{align}
+            \frac{a}{b}\left(\frac{c}{d}+\frac{e}{f}\right) &= \frac{a(cf+de)}{b(df)}\nonumber \\
+            &= \frac{acf+ade}{bdf} \nonumber
+        \end{align}
+        on the other hand,
+        \begin{align}
+            \frac{a}{b}\cdot \frac{c}{d}+\frac{a}{b}\cdot \frac{e}{f} &= \frac{ac}{bd}+\frac{ae}{bf} \nonumber \\
+            &= \frac{acbf+bdae}{bdbf} \nonumber \\
+            &= \frac{acf+ade}{bdf} \ \ \ \ \ \ \ (\text{ by cross mult. criteria}) \nonumber
+        \end{align}
+        \item 
+        \begin{align}
+            \left( \frac{c}{d}+\frac{e}{f} \right)\frac{a}{b} &= \frac{a}{b}\left(\frac{c}{d}+\frac{e}{f}\right) \nonumber \\
+            &= \frac{a}{b}\cdot \frac{c}{d} + \frac{a}{b}\cdot \frac{e}{f} \nonumber \\
+            &= \frac{c}{d}\cdot \frac{a}{b} + \frac{e}{f} \cdot \frac{a}{b} \nonumber 
+        \end{align}
+    \end{enumerate}
+    \noindent \textbf{$\cdot$ Identity ($\exists$ ``$1$")}: \\
+    \begin{align}
+        \overset{\substack{\text{mult ID in }D \\ \searrow \\}}{\frac{a}{b}\cdot \frac{1}{1}} &= \frac{a\cdot 1}{b \cdot 1} \nonumber \\
+        &= \frac{a}{b} \nonumber
+    \end{align}
+    \noindent \textbf{$\cdot$ Inverses}: \\
+    Suppose $\frac{a}{b}\neq \frac{0}{1}$ well then $a\cdot 1 \neq b\cdot 0$ so $a\neq 0$, thus $\frac{b}{a}\in F$ and 
+    \begin{align}
+        \frac{a}{b}\cdot \frac{b}{a} &= \frac{ab}{ba} = \frac{1}{1} \ \ \ \ \ (\text{by cross mult. criteria in }D \text{ comm.}) \nonumber
+    \end{align}
+    $\therefore  \ F$ is a field. \ \ \  $\blacksquare$
+\end{theorem}
+
+In the theorem above (Thm 3.6.1), $F$ \textit{extends} $D \ \ \implies$ $\exists$ an injective ring homomorphism from $D$ into $F$. \\
+\begin{definition}[Embedding of $D$ into $F$]
+    \label{defn:embeddingofD}
+    Given $D$ integral domain, and $F$ as constructed above from $D$, we define an injective ring homomorphism $\phi: D \rightarrow F$ by
+    \begin{align}
+        \phi(a) &= \frac{a}{1} \nonumber \\ 
+        \phi(a+b) &= \frac{a+b}{1} = \frac{a\cdot 1+b\cdot 1}{1\cdot 1} = \frac{a}{1}+\frac{b}{1} = \phi(a)+\phi(b) \nonumber \\
+        \phi(ab) &= \frac{ab}{1} = \frac{ab}{1\cdot 1} = \frac{a}{1}\cdot \frac{b}{1} = \phi(a)\cdot \phi(b) \nonumber 
+    \end{align}
+    If $a\neq b$ then $\frac{a}{1} \neq \frac{b}{1}$ because $b\cdot 1 \neq a \cdot 1$ \\
+    $\therefore$ $\phi(a)\neq \phi(b)$, so $\phi$ is injective.
+\end{definition}
+
+\begin{definition}[Field of Fractions (of an Integral Domain)]
+Given integral domain $D$, then the field $F$, as constructed in Theorem 3.6.1, is known as the \textit{Field of Fractions} of $D$ and $D$ is said to be \textit{embedded} in $F$ by $\phi$ from Definition \ref{defn:embeddingofD}.
+\end{definition}
+Leftover questions from Theorem 3.6.1: \\
+\steezybreak \textit{This material onward is incomplete, more to come in the very near future!}
+
