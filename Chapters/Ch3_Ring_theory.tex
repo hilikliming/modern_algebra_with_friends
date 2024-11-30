@@ -1319,6 +1319,138 @@ In the theorem above (Thm 3.6.1), $F$ \textit{extends} $D \ \ \implies$ $\exists
 \begin{definition}[Field of Fractions (of an Integral Domain)]
 Given integral domain $D$, then the field $F$, as constructed in Theorem 3.6.1, is known as the \textit{Field of Fractions} of $D$ and $D$ is said to be \textit{embedded} in $F$ by $\phi$ from Definition \ref{defn:embeddingofD}.
 \end{definition}
-Leftover questions from Theorem 3.6.1: \\
+\newpage
+\subsection{Leftover questions from Theorem 3.6.1} 
+
+\begin{align}
+    &F = \{\frac{a}{b} \ | \ a,b\in D, \  b\neq 0\} \nonumber \\
+    &\vert \nonumber \\ 
+    &D \nonumber \\
+    & \nonumber \\
+    D &\times (D-\{ 0 \}) \nonumber \\
+    \frac{a}{b} &= \frac{c}{d} \iff bc=ad \nonumber
+\end{align}
+
+\begin{enumerate}
+    \item Why can't we include $0$ as a denominator? Let's try leaving it in: use $D\times D$, then the class of $(1,0)$ is denoted $\frac{1}{0}$
+    \begin{align}
+        &\frac{1}{0}, \text{ so }\frac{1}{0}\in F \nonumber \\
+        \frac{0}{1} &= \frac{1}{0}\cdot \frac{0}{1} = \frac{1\cdot 0}{0\cdot 1} = \frac{0}{0} \underset{\substack{\text{by cross} \\ \text{mult criteria}}}{=}\frac{1}{1} \nonumber
+    \end{align}
+    So in $F$ we have $0=1$ or $+ \text{ identity}=\text{mult. identity}$, Then
+    \begin{align}
+        \forall &r \in F \ \text{ we have} \nonumber \\
+        r &= r\cdot 1 = r\cdot 0 \underset{L \ 3.2.1}{=} 0 \implies F = \{0\} \text{ \ \ \  (Trivial!)} \nonumber
+    \end{align}
+    $\therefore$ if $R$ is non-trivial then it must have the separation between $+$ and $\cdot \ \text{ID}$. So $1\neq 0$ and $R$ cannot have a $0$ inverse among its elements. (Because existence of $0^{-1} \implies 1=0 \Rightarrow \Leftarrow$)
+    \item Can we build $\R$ from $\Q$ using a similar process? Getting $\Q$ doesn't give you all of $\R$: \\ \steezybreak
+    Suppose $\sqrt{2} \in \Q$
+    \begin{align}
+        \frac{\sqrt{2}}{1}=\frac{a}{b} &\implies \sqrt{2}b=a \nonumber \\
+        &\implies 2b^2 = a^2 \nonumber
+    \end{align}
+    $a$ and $b$ have prime factorizations \\
+    Count the number of $2$'s in prime factorizations of $2b^2$ and $a^2$ \\
+    $a^2$ has an even number of $2$'s in factorization ($2k$ where $k$ is number in $a$'s factorization) \\
+    $b^2$ has an even number by a similar argument \\
+    so $2b^2$ has an odd number in its factorization! So $2b^2 \neq a^2$ $\Rightarrow \Leftarrow$ \\
+    $\therefore \sqrt{2} \not \in \Q$ \\
+    By a similar argument, in general, $\sqrt{p} \not \in Q$ for $p$ prime. \\
+    Algebra $+$ Analysis $\implies \ \R $ \\
+    Algebra is the skeleton, Analysis is ethereal. 
+\end{enumerate}
+
+\section{Polynomial Rings and Euclidean Rings}
+In this section,  we will present some results from both sections 3.7 and 3.9 from Hersteins book, to be consistent with the theorem and lemma numbers in Herstein's text you may notice the numbers suddenly jump from 3.7.x to 3.9.x, this is intentional. I just want it to be easy for you to reference the relevant sections in Herstein's text if you are following along with his book as you read ours. \\
+\newpage 
+\noindent In the definition below $X$ is a formal placeholder
+\begin{definition}[Ring of Polynomials in $X$ over $F$]
+    The \textit{Ring of Polynomials} in $X$ over $F$, denoted $F[X]$ is defined as follows
+    \begin{align}
+        F[X]= \{a_0 + a_1X + a_2X^2 + a_3X^3 + \cdots + a_m X^m \ | \ a_i \in F \text{ for } 0\leq i \leq m, \ \ m \text{ any non-zero integer}\} \nonumber
+    \end{align}
+    $a_i$'s are coefficients.
+\end{definition}
+
+\noindent For the following three definitions suppose that
+\begin{align}
+    p(x)&= a_0 + a_1x + \cdots + a_mx^m \in F[x] \nonumber \\
+    \text{and } \ \ q(x)&= b_0+b_1x+\cdots + b_n x^n \in F[x] \nonumber
+\end{align}
+
+\begin{definition}[Equality of Polynomials]
+    \begin{align}
+        p(x)=q(x) \iff b_i = a_i \ \forall \ i \geq 0 \nonumber 
+    \end{align}
+    That is, polynomials are equal if and only if their corresponding coefficients agree.
+\end{definition}
+
+\begin{definition}[Sum of Polynomials]
+    \begin{align}
+        (p+q)(x)= p(x)+q(x) \underset{defn.}{=}c_0 + c_1x + \cdots + c_t x^t \nonumber
+    \end{align}
+    where $c_i = a_i+b_i$ $\forall \ i\geq 0$ (Add like terms).
+\end{definition}
+
+\begin{definition}[Product of Polynomials]
+    \begin{align}
+        (pq)(x) &= \underbrace{p(x)\cdot q(x)}_{\text{notation}} \nonumber \\ 
+        &\underset{defn.}{=} c_0 + c_1x + c_2x^2 + \cdots + c_kx^k \nonumber 
+    \end{align}
+    Where 
+    \begin{align}
+        c_i &= a_i b_0 + a_{i-1}b_1 + a_{i-2}b_{2} + \cdots + a_1b_{i-1} + a_0b_i \  \forall  \ i \geq 0 \nonumber \\
+        \ \nonumber \\
+        c_0 &= a_0b_0   \nonumber \\
+        c_1 &= a_1b_0 + a_0b_1 \ \ \ \ \ \ \ \ \ \ \ \ \ (\text{Distribute } x^\alpha \cdot x^\beta = x^{\alpha + \beta}) \nonumber \\
+        &\vdots \nonumber
+    \end{align}
+    and so on, 
+\end{definition}
+
+\begin{example}
+    \begin{align}
+        &(a_0 + a_1x + a_2x^2)(b_0 + b_1x) \nonumber  \\
+        &= a_0b_0 + a_0b_1x + a_1x b_0 + a_1xb_1x + a_2x^2b_0 + a_2x^2+b_1x \nonumber \\
+        &= \underbrace{(a_0b_0)}_{c_0} + \underbrace{(a_0b_1+a_1b_0)}_{c_1}x + \underbrace{(a_1b_1+a_2b_0)}_{c_2}x^2+ \underbrace{(a_2b_1)}_{c_3}x^3 \nonumber
+    \end{align}
+    Note, in this example, if we want to write things out thoroughly for $c_2$ and $c_3$ we have:
+    \begin{align}
+        c_2 &= \colorbox{green}{$a_2b_0 + a_1b_1$}+\underbrace{a_0b_2}_{=0} \nonumber \\
+        c_3 &= \underbrace{a_3b_0}_{=0}+ \colorbox{green}{$a_2b_1$}+ \underbrace{a_1b_2}_{=0} + \underbrace{a_0b_3}_{=0} \nonumber
+    \end{align}
+\end{example}
+$F[x]$ is a commutative ring under $+$ and $\cdot$ as defined above. \\ 
+\noindent The ``$0$'' is $f(x) = 0_F+ 0x + 0x^2 + \cdots  $ \\
+\noindent The ``$1$'' is $g(x) = 1_F$ where $1_F$ is the multiplicative identity in $F$. \\
+\begin{definition}[Degree (of a Polynomial)]
+    Let $f(x) \in F[x]$ 
+    \begin{enumerate}
+        \item the \textit{degree} of $f$ is the largest integer $i$ for which $a_i \neq 0$ \\ \steezybreak 
+        (So $f(x) = a_0 + a_1x + a_2x^2 + \cdots a_mx^m$ and $a_m \neq 0 \ \implies \deg f = m$ )
+        \item ``$0$'' ($f(x)=0_F$) is said to be ``without degree''.
+        \item $f(x)\in F[x]$ is constant $\iff$ $f$ has degree $0$.
+        \begin{align}
+            f(x) &= \underbrace{a_0}_{\neq 0} x^0 = a_0 \in F \nonumber
+        \end{align}
+        The constants in $F[x]$ are the non-zero field elements.
+    \end{enumerate}
+\end{definition}
+Here's a quick example to clarify the last two parts of the defintion above, in $\R[x]$
+\begin{align}
+    f(x)&=5 \ \ \ \leftarrow \text{ has degree }0 \nonumber \\
+    g(x)&=0 \ \ \ \leftarrow \text{ is without degree}. \nonumber
+\end{align}
+
+% Artificially bump section number ahead!
+\setcounter{section}{9}
+\begin{lemma}
+    $f,g$ non-zero in $F[x]$
+    \begin{align}
+        \deg(fg)= \deg(f)+\deg(g) \nonumber
+    \end{align}
+    \textit{Proof:} \\
+    \noindent Suppose $f(x)= a_0 +a_1x+\cdots + a_mx^m$ where $a_m\neq 0$ and $g(x)= b_0 + b_1x + \cdots + b_nx^n$ where $b_n\neq 0$
+\end{lemma}
 \steezybreak \textit{This material onward is incomplete, more to come in the very near future!}
 
