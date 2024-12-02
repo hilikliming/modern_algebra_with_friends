@@ -1450,7 +1450,37 @@ Here's a quick example to clarify the last two parts of the defintion above, in 
         \deg(fg)= \deg(f)+\deg(g) \nonumber
     \end{align}
     \textit{Proof:} \\
-    \noindent Suppose $f(x)= a_0 +a_1x+\cdots + a_mx^m$ where $a_m\neq 0$ and $g(x)= b_0 + b_1x + \cdots + b_nx^n$ where $b_n\neq 0$
+    \noindent Suppose 
+    \begin{align}
+        f(x)= a_0 +a_1x+\cdots + a_mx^m \text{ where } a_m \neq 0 \nonumber \\
+        g(x)= b_0 +b_1x + \cdots + b_nx^n \text{ whre } b_n\neq 0 \nonumber
+    \end{align}
+
+    \begin{align}
+        f(x)g(x) &= c_0 + c_1x + \cdots c_kx^k \nonumber
+    \end{align}
+    where $c_i = a_ib_0 + a_{i-1}b_1 + \cdots a_1b_{i-1} + a_0 b_i$. \\
+    \noindent we must show $c_{m+n}\neq 0$ and $c_i = 0 \ \forall \ i >m+n$
+    \begin{align}
+        c_{m+n} &= a_{m+n} b_0 + a_{m+n-1}b_1 + \underbrace{\cdots}_{a_mb_n \text{ is in here}}+ a_1b_{m+n-1}+a_0b_{m+n} \nonumber
+    \end{align}
+    Terms to left of $a_mb_n$: $a_ib_j \ i>m, \ j <n$ these terms will be $0$ since $\deg f = m$ \\
+    \noindent Terms to right of $a_mb_n$: $a_ib_j, \ i<m, \ j>n$ these terms will be $0$ since $\deg g = n$. \\
+
+    $\therefore \ $ $c_{m+n}=\underset{\substack{\uparrow \\ \neq 0}}{a_m}\underset{\substack{\uparrow \\ \neq 0}}{b_n} \underset{\substack{\uparrow \ \ \\ \text{field }F \\ \text{is int. domain}}}{\neq 0} $ \\
+    Now consider $c_i$ for $i\overset{*}{>}m+n$ 
+    \begin{align}
+        c_i = a_ib_0 + \cdots + a_0b_i = \sum_{j=0}^i a_{i-j}b_j \nonumber
+    \end{align}
+    Either $i-j>m$ or $i-j \leq m$ \\
+    \noindent if $i-j>m$ then $a_{i-j}=0$ since $\deg f = m$ \\
+    \noindent if $i-j \leq m$ then;
+    \begin{align}
+        i-j + j = i &\overset{*}{>} m + n \nonumber \\
+        \text{then } \underbrace{(i-j)}_{\leq m} +j &> m  \text{ forces }j>n \nonumber \\
+        \text{so }b_j = 0 \text{ since } &\deg g = n  \nonumber
+    \end{align}
+    Then, no matter what $i-j$ is, $a_{i-j}b_j=0$, so $c_i=0$ for $i>m+n$
 \end{lemma}
 \steezybreak \textit{This material onward is incomplete, more to come in the very near future!}
 
