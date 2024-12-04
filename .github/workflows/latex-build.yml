@@ -13,14 +13,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
     
-    # Experimental BEGIN
-    # Set up TeX Live environment and install makeindex
-    - name: Set up TeX Live and install makeindex
-      run: |
-        sudo apt-get update
-        sudo apt-get install texlive-binaries
-    # Experimental END
-    
     # Set up TeX Live environment
     - name: Set up TeX Live
       uses: xu-cheng/latex-action@v3
@@ -28,32 +20,6 @@ jobs:
         root_file: main.tex  # Update this if your main file has a different name
         latexmk_shell_escape: true  # Enable shell escape if your document uses external tools like `minted`
         texlive_version: 2024
-        extra_system_packages: |
-          texlive-latex-extra
-          texlive-fonts-recommended
-          texlive-science
-          makeindex
-
-
-    # # Experimental Begin //
-    #  # List files for debugging
-    # - name: List files for debugging
-    #   run: ls -alh
-
-    # # Run makeindex to process the index
-    # # - name: Run makeindex
-    # #   run: makeindex main
-    # #   working-directory: ./  # Ensure the correct directory
-    # - name: Run makeindex with debugging
-    #   run: |
-    #     makeindex main.idx -o main.ind
-    #     cat main.ind  # Output the content of the index file
-
-
-    # # Recompile to include the index
-    # - name: Final LaTeX Compilation
-    #   run: latexmk -pdf -shell-escape main.tex
-    # # Experimental End //
     
     # Rename the PDF file
     - name: Rename PDF
