@@ -27,7 +27,7 @@ jobs:
       id: create_release
       uses: actions/create-release@v1
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.BUILD_PDF_SECRET }}
       with:
         tag_name: v1.${{ github.run_number }}  # Auto-generated tag for each run
         release_name: "Compiled PDF v1.${{ github.run_number }}"
@@ -38,7 +38,7 @@ jobs:
     - name: Upload PDF to Release
       uses: actions/upload-release-asset@v1
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.BUILD_PDF_SECRET }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: main.pdf
