@@ -22,6 +22,16 @@ jobs:
         extra_packages: >
           latexmk texlive-fonts-recommended texlive-latex-extra texlive-science biber
 
+    # Experimental Begin //
+    # Run makeindex to process the index 
+    - name: Run makeindex
+      run: makeindex main.idx
+
+    # Recompile to include the index
+    - name: Final LaTeX Compilation
+      run: latexmk -pdf -shell-escape main.tex
+    # Experimental End //
+    
     # Rename the PDF file
     - name: Rename PDF
       run: mv main.pdf Modern_Algebra_with_Friends_Textbook.pdf
