@@ -1,0 +1,46 @@
+name: Build and Release LaTeX Document
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout the repository
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Set up TeX Live environment
+    - name: Set up TeX Live
+      uses: xu-cheng/latex-action@v3
+      with:
+        root_file: main.tex  # Update this if your main file has a different name
+        latexmk_shell_escape: true  # Enable shell escape if your document uses external tools like `minted`
+        extra_packages: >
+          latexmk texlive-fonts-recommended texlive-latex-extra texlive-science biber
+
+    # Upload the compiled PDF as a release asset
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: v1.${{ github.run_number }}  # Auto-generated tag for each run
+        release_name: "Compiled PDF v1.${{ github.run_number }}"
+        body: "This release includes the latest version of the compiled LaTeX document."
+        draft: false
+        prerelease: false
+
+    - name: Upload PDF to Release
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: main.pdf
+        asset_name: main.pdf
+        asset_content_type: application/pdf
