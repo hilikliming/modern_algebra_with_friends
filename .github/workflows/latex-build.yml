@@ -36,9 +36,14 @@ jobs:
       run: ls -alh
 
     # Run makeindex to process the index
-    - name: Run makeindex
-      run: makeindex main
-      working-directory: ./  # Ensure the correct directory
+    # - name: Run makeindex
+    #   run: makeindex main
+    #   working-directory: ./  # Ensure the correct directory
+    - name: Run makeindex with debugging
+      run: |
+        makeindex main.idx -o main.ind
+        cat main.ind  # Output the content of the index file
+
 
     # Recompile to include the index
     - name: Final LaTeX Compilation
