@@ -27,7 +27,7 @@ For those pursuing Category Theory, consider Steven Roman's *"An Introduction to
   - Induction
 - Logical Expression Negation
 
-#### Chapter 1: Relations, Mappings, and the Integers ({\displaystyle \mathbb {Z} })
+#### Chapter 1: Relations, Mappings, and the Integers (ℤ)
 - Relations and Equivalence Relations
 - Mappings
 - The Integers
