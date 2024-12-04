@@ -18,7 +18,7 @@ For those pursuing Category Theory, consider Steven Roman's *"An Introduction to
 
 ## Rough Layout of Contents (So far!)
 ### Part One: Preliminaries, Integers, Groups, and Rings
-#### Chapter One: Preliminaries
+#### Chapter Zero: Preliminaries
 - Common Notation and Axioms
 - Basic Set Theory
 - Proof Techniques:
@@ -27,6 +27,11 @@ For those pursuing Category Theory, consider Steven Roman's *"An Introduction to
   - Induction
 - Logical Expression Negation
 
+#### Chapter 1: Relations, Mappings, and the Integers ({\displaystyle \mathbb {Z} })
+- Relations and Equivalence Relations
+- Mappings
+- The Integers
+  
 #### Chapter 2: Group Theory
 - Definition, Examples, and Elementary Results
 - Subgroups, Normal Subgroups, and Quotient Groups
