@@ -18,7 +18,7 @@ For those pursuing Category Theory, consider Steven Roman's *"An Introduction to
 
 ## Rough Layout of Contents (So far!)
 ### Part One: Preliminaries, Integers, Groups, and Rings
-#### Chapter Zero: Preliminaries
+#### Chapter 0: Preliminaries
 - Common Notation and Axioms
 - Basic Set Theory
 - Proof Techniques:
