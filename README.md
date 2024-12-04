@@ -47,6 +47,7 @@ For those pursuing Category Theory, consider Steven Roman's *"An Introduction to
 - Field of Fractions and Euclidean Rings
 
 ### Part Two: Propositional and First-order Logic Primer
+#### Appendix A: Propositional and First-Order Logic, (Brief Discussion of Second Order Logic that may be expanded later)
 - Introduction and Elimination Rules for Logical Connectives
 - Quantifier Rules and Scope in Proofs
 - Practice Problems
