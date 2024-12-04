@@ -37,7 +37,7 @@ jobs:
 
     # Run makeindex to process the index
     - name: Run makeindex
-      run: makeindex main.idx
+      run: makeindex main
       working-directory: ./  # Ensure the correct directory
 
     # Recompile to include the index
