@@ -62,3 +62,10 @@ For those pursuing Category Theory, consider Steven Roman's *"An Introduction to
 
 ## About the Authors
 This repository is a labor of love, we hope you enjoy reading and providing feedback; reach out to us, we are all friends here! :)
+
+Contributors include:
+Jack Hall
+Pedro Estrada
+Jessica Hall
+Daniel Stephenson
+Jacob Pauley
