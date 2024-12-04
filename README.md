@@ -42,6 +42,7 @@ For those pursuing Category Theory, consider Steven Roman's *"An Introduction to
 #### Chapter 3: Ring Theory
 - Definitions, Properties, and Examples
 - Ring Homomorphisms and Ideals
+- Ideal Theory
 - Quotient Rings and Polynomial Rings
 - Field of Fractions and Euclidean Rings
 
