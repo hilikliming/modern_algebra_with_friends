@@ -18,7 +18,7 @@ jobs:
     - name: Set up TeX Live and install makeindex
       run: |
         sudo apt-get update
-        sudo apt-get install texlive-full
+        sudo apt-get install texlive-binaries
     # Experimental END
     
     # Set up TeX Live environment
