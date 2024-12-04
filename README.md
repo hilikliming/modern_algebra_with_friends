@@ -1,6 +1,6 @@
 # Modern Algebra With Friends
 
-This repository contains the LaTeX source files for *Modern Algebra With Friends*. The text is inspired by the Fall 2012 MATH 421 course at Miami University in Oxford, OH, taught by Dr. Katherine Magurn. In this work we attempt to preserve her unique ability to make dense material accessible to all learners, so that others may bask in the warm light she brought to learning mathematics.
+This repository contains the LaTeX source files for *Modern Algebra With Friends*. The text is inspired by Dr. Katherine Magurn's Fall 2012 MATH 421 course at Miami University in Oxford, OH. In this work, we attempt to preserve her unique ability to make dense material accessible to all learners, so that others may bask in the warm light she brought to learning mathematics.
 
 ## About the Text
 
@@ -47,7 +47,7 @@ For those pursuing Category Theory, consider Steven Roman's *"An Introduction to
 - Field of Fractions and Euclidean Rings
 
 ### Part Two: Propositional and First-order Logic Primer
-#### Appendix A: Propositional and First-Order Logic, (Brief Discussion of Second Order Logic that may be expanded later)
+#### Appendix A: Propositional and First-Order Logic, (Brief Discussion of Second-Order Logic that may be expanded later)
 - Introduction and Elimination Rules for Logical Connectives
 - Quantifier Rules and Scope in Proofs
 - Practice Problems
