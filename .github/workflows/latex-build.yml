@@ -28,8 +28,12 @@ jobs:
         root_file: main.tex  # Update this if your main file has a different name
         latexmk_shell_escape: true  # Enable shell escape if your document uses external tools like `minted`
         texlive_version: 2024
-        #extra_packages: >
-        #  latexmk texlive-fonts-recommended texlive-latex-extra texlive-science biber
+        extra_system_packages: |
+          texlive-latex-extra
+          texlive-fonts-recommended
+          texlive-science
+          makeindex
+
 
     # # Experimental Begin //
     #  # List files for debugging
