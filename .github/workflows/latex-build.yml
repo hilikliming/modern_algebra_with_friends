@@ -24,7 +24,7 @@ jobs:
 
     # Rename the PDF file
     - name: Rename PDF
-      run: mv main.pdf modern-algebra-with-friends.pdf
+      run: mv main.pdf Modern_Algebra_with_Friends_Textbook.pdf
       
     # Upload the compiled PDF as a release asset
     - name: Create Release
@@ -45,6 +45,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.BUILD_PDF_SECRET }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: modern-algebra-with-friends.pdf
-        asset_name: modern-algebra-with-friends.pdf
+        asset_path: Modern_Algebra_with_Friends_Textbook.pdf
+        asset_name: Modern_Algebra_with_Friends_Textbook.pdf
         asset_content_type: application/pdf
