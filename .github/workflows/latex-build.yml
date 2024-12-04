@@ -12,7 +12,15 @@ jobs:
     # Checkout the repository
     - name: Checkout repository
       uses: actions/checkout@v3
-
+    
+    # Experimental BEGIN
+    # Set up TeX Live environment and install makeindex
+    - name: Set up TeX Live and install makeindex
+      run: |
+        sudo apt-get update
+        sudo apt-get install texlive-full
+    # Experimental END
+    
     # Set up TeX Live environment
     - name: Set up TeX Live
       uses: xu-cheng/latex-action@v3
