@@ -27,28 +27,29 @@ jobs:
       with:
         root_file: main.tex  # Update this if your main file has a different name
         latexmk_shell_escape: true  # Enable shell escape if your document uses external tools like `minted`
-        extra_packages: >
-          latexmk texlive-fonts-recommended texlive-latex-extra texlive-science biber
+        texlive_version: 2024
+        #extra_packages: >
+        #  latexmk texlive-fonts-recommended texlive-latex-extra texlive-science biber
 
-    # Experimental Begin //
-     # List files for debugging
-    - name: List files for debugging
-      run: ls -alh
+    # # Experimental Begin //
+    #  # List files for debugging
+    # - name: List files for debugging
+    #   run: ls -alh
 
-    # Run makeindex to process the index
-    # - name: Run makeindex
-    #   run: makeindex main
-    #   working-directory: ./  # Ensure the correct directory
-    - name: Run makeindex with debugging
-      run: |
-        makeindex main.idx -o main.ind
-        cat main.ind  # Output the content of the index file
+    # # Run makeindex to process the index
+    # # - name: Run makeindex
+    # #   run: makeindex main
+    # #   working-directory: ./  # Ensure the correct directory
+    # - name: Run makeindex with debugging
+    #   run: |
+    #     makeindex main.idx -o main.ind
+    #     cat main.ind  # Output the content of the index file
 
 
-    # Recompile to include the index
-    - name: Final LaTeX Compilation
-      run: latexmk -pdf -shell-escape main.tex
-    # Experimental End //
+    # # Recompile to include the index
+    # - name: Final LaTeX Compilation
+    #   run: latexmk -pdf -shell-escape main.tex
+    # # Experimental End //
     
     # Rename the PDF file
     - name: Rename PDF
