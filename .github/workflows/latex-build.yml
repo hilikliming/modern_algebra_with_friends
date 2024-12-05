@@ -12,7 +12,18 @@ jobs:
     # Checkout the repository
     - name: Checkout repository
       uses: actions/checkout@v3
-    
+
+    # Uncomment this block and comment the block below if you want to use the standard pdflatex build recipe
+    # # Set up TeX Live environment
+    # - name: Set up TeX Live
+    #   uses: xu-cheng/latex-action@v3
+    #   with:
+    #     root_file: main.tex  # Update this if your main file has a different name
+    #     latexmk_shell_escape: true  # Enable shell escape if your document uses external tools like `minted`
+    #     texlive_version: 2024
+
+    # I use a custom recipe 
+    # (pdflatex once then makeindex pointing to my styleInd.ist then biber, then pdflatex 2 more times)
     - name: Build MAWF Using LeGrands Recipe 
       uses: xu-cheng/texlive-action@v2
       with:
