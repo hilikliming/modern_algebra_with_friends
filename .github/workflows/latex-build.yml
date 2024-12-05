@@ -1,0 +1,72 @@
+name: Build and Release LaTeX Document
+
+on:
+  push:
+    branches:
+      - main
+    # Ignore pushes that were purely related to this doc or the readme (for now)
+    paths-ignore:
+      - '.github/workflows/**'
+      - 'README.md'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout the repository
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # # Uncomment this block and comment the block below if you want to use the standard pdflatex build recipe
+    # # Set up TeX Live environment
+    # - name: Set up TeX Live
+    #   uses: xu-cheng/latex-action@v3
+    #   with:
+    #     root_file: main.tex  # Update this if your main file has a different name
+    #     latexmk_shell_escape: true  # Enable shell escape if your document uses external tools like `minted`
+    #     texlive_version: 2024
+
+    # LeGrand Orange Book Template uses a custom recipe to get the Index to be formatted correctly 
+    # (pdflatex once then makeindex pointing to my styleInd.ist then biber, then pdflatex 2 more times)
+    - name: Build MAWF Using LeGrands Recipe 
+      uses: xu-cheng/texlive-action@v2
+      with:
+        scheme: full
+        run: |
+          pdflatex  -file-line-error -halt-on-error -interaction=nonstopmode -shell-escape -recorder  "main.tex"
+          makeindex main.idx -s StyleInd.ist
+          biber main
+          pdflatex  -file-line-error -halt-on-error -interaction=nonstopmode -shell-escape -recorder  "main.tex"
+          pdflatex  -file-line-error -halt-on-error -interaction=nonstopmode -shell-escape -recorder  "main.tex"
+          
+    
+    # Rename the PDF file via a move (mv) (include the release number in pdf name now...)
+    - name: Rename PDF
+      run: mv main.pdf "Modern_Algebra_with_Friends_Textbook_v1.${{ github.run_number }}.pdf"
+      # run: mv main.pdf Modern_Algebra_with_Friends_Textbook.pdf
+      
+    # Upload the compiled PDF as a release asset 
+    # Note: you need to have added a Personal Access Token (PAT) as a named secret under: 
+    # Repo Settings> Secrets & Vars> Actions>Repo Secrets ( I named my secret BUILD_PDF_SECRET)
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.BUILD_PDF_SECRET }}
+      with:
+        tag_name: v1.${{ github.run_number }}  # Auto-generated tag for each run
+        release_name: "Compiled Modern Algebra With Friends PDF v1.${{ github.run_number }}"
+        body: "This release includes the latest version of the compiled LaTeX document."
+        draft: false
+        prerelease: false
+    
+    # Lastly, upload the PDF we renamed to the release we just created!
+    - name: Upload MAWF PDF to Release
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.BUILD_PDF_SECRET }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: "Modern_Algebra_with_Friends_Textbook_v1.${{ github.run_number }}.pdf"
+        asset_name: "Modern_Algebra_with_Friends_Textbook_v1.${{ github.run_number }}.pdf"
+        asset_content_type: application/pdf
