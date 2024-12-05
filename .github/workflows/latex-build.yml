@@ -38,6 +38,7 @@ jobs:
           biber main
           pdflatex  -file-line-error -halt-on-error -interaction=nonstopmode -shell-escape -recorder  "main.tex"
           pdflatex  -file-line-error -halt-on-error -interaction=nonstopmode -shell-escape -recorder  "main.tex"
+          pdflatex  -file-line-error -halt-on-error -interaction=nonstopmode -shell-escape -recorder  "main.tex"
           
     
     # Rename the PDF file via a move (mv) (include the release number in pdf name now...)
