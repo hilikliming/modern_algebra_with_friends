@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+    # Ignore pushes that were purely related to this doc or the readme (for now)
+    paths-ignore:
+      - '.github/workflows/**'
+      - 'README.md'
 jobs:
   build:
     runs-on: ubuntu-latest
