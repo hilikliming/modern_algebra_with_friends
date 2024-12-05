@@ -5,6 +5,8 @@ This repository contains the LaTeX source files for *Modern Algebra With Friends
 ## Feedback
 Feedback on this project is more than welcome, feel free to open an issue or email suggestions/corrections to me (hilikliming) personally with the subject: MAWF Suggestion Request -- TODAYS_DATE_AND_TIME
 
+If you are interested in working through the problems with a community, send me a message and I will invite you to our discord server.
+
 ## About the Text
 
 The book provides:
