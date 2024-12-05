@@ -13,7 +13,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    # Uncomment this block and comment the block below if you want to use the standard pdflatex build recipe
+    # # Uncomment this block and comment the block below if you want to use the standard pdflatex build recipe
     # # Set up TeX Live environment
     # - name: Set up TeX Live
     #   uses: xu-cheng/latex-action@v3
@@ -22,7 +22,7 @@ jobs:
     #     latexmk_shell_escape: true  # Enable shell escape if your document uses external tools like `minted`
     #     texlive_version: 2024
 
-    # I use a custom recipe 
+    # LeGrand Orange Book Template uses a custom recipe to get the Index to be formatted correctly 
     # (pdflatex once then makeindex pointing to my styleInd.ist then biber, then pdflatex 2 more times)
     - name: Build MAWF Using LeGrands Recipe 
       uses: xu-cheng/texlive-action@v2
@@ -35,11 +35,15 @@ jobs:
           pdflatex  -file-line-error -halt-on-error -interaction=nonstopmode -shell-escape -recorder  "main.tex"
           pdflatex  -file-line-error -halt-on-error -interaction=nonstopmode -shell-escape -recorder  "main.tex"
           
-    # Rename the PDF file
+    
+    # Rename the PDF file via a move (mv) (include the release number in pdf name now...)
     - name: Rename PDF
       run: mv main.pdf "Modern_Algebra_with_Friends_Textbook_v1.${{ github.run_number }}.pdf"
+      # run: mv main.pdf Modern_Algebra_with_Friends_Textbook.pdf
       
-    # Upload the compiled PDF as a release asset
+    # Upload the compiled PDF as a release asset 
+    # Note: you need to have added a Personal Access Token (PAT) as a named secret under: 
+    # Repo Settings> Secrets & Vars> Actions>Repo Secrets ( I named my secret BUILD_PDF_SECRET)
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
@@ -51,7 +55,8 @@ jobs:
         body: "This release includes the latest version of the compiled LaTeX document."
         draft: false
         prerelease: false
-
+    
+    # Lastly, upload the PDF we renamed to the release we just created!
     - name: Upload MAWF PDF to Release
       uses: actions/upload-release-asset@v1
       env:
