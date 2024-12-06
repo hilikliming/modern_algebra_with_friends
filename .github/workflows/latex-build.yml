@@ -38,6 +38,11 @@ jobs:
           biber main
           pdflatex  -file-line-error -halt-on-error -interaction=nonstopmode -shell-escape -recorder  "main.tex"
           pdflatex  -file-line-error -halt-on-error -interaction=nonstopmode -shell-escape -recorder  "main.tex"
+          # Double it up? idk seemed to work on my local lol
+          pdflatex  -file-line-error -halt-on-error -interaction=nonstopmode -shell-escape -recorder  "main.tex"
+          makeindex main.idx -s StyleInd.ist
+          biber main
+          pdflatex  -file-line-error -halt-on-error -interaction=nonstopmode -shell-escape -recorder  "main.tex"
           pdflatex  -file-line-error -halt-on-error -interaction=nonstopmode -shell-escape -recorder  "main.tex"
           
     
