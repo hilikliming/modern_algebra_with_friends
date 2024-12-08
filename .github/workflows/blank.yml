@@ -1,0 +1,17 @@
+name: Notify Discord on Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  notify-discord:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Discord Notification
+        run: |
+          curl -X POST -H "Content-Type: application/json" \
+            -d "{\"content\": \"🎉 New MAWF Release Published! **${{ github.event.release.tag_name }}** is now available! Check it out: ${{ github.event.release.html_url }}\"}" \
+            $DISCORD_WEBHOOK_URL
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
