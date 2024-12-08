@@ -1487,7 +1487,15 @@ Here's a quick example to clarify the last two parts of the defintion above, in 
 \begin{corollary}
     $F[x]$ is an integral domain. \\ \steezybreak
     \textit{Proof:} \\ \steezybreak
-    Take $f,g$ both non-zero in $F[x]$, $\deg f\geq 0$ and $\deg g \geq 0$
+    Take $f,g$ both non-zero in $F[x]$ $ \implies $ $\deg f\geq 0$ and $\deg g \geq 0$ \\ 
+    By Lemma 3.9.1,
+    \begin{align}
+        \deg(fg)&=\deg f +\deg g \geq 0 + 0. \nonumber \\
+        &\therefore fg \text{ has degree} \nonumber \\
+        & \therefore fg \neq \underbrace{0}_{\substack{\uparrow \\ \text{has no degree}}} \nonumber \\
+        & \therefore F[x] \text{ has no zero divisors.} \ \ \blacksquare \nonumber
+    \end{align}
+    
     
 \end{corollary}
 \steezybreak \textit{This material onward is incomplete, more to come in the very near future!}
