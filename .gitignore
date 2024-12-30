@@ -1,0 +1,10 @@
+# .aux files (intermediate build files)
+*.aux
+
+# bib related files
+*.bbl
+*.bbl-SAVE-ERROR
+
+# Others (anything starting with main. except for main.tex)
+main.*
+!main.tex

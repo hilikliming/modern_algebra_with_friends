@@ -1323,7 +1323,7 @@ Given integral domain $D$, then the field $F$, as constructed in Theorem 3.6.1, 
 \subsection{Leftover questions from Theorem 3.6.1} 
 
 \begin{align}
-    &F = \{\frac{a}{b} \ | \ a,b\in D, \  b\neq 0\} \nonumber \\
+    &F = \left\{\frac{a}{b} \ | \ a,b\in D, \  b\neq 0 \right\} \nonumber \\
     &\vert \nonumber \\ 
     &D \nonumber \\
     & \nonumber \\
@@ -1495,8 +1495,40 @@ Here's a quick example to clarify the last two parts of the defintion above, in 
         & \therefore fg \neq \underbrace{0}_{\substack{\uparrow \\ \text{has no degree}}} \nonumber \\
         & \therefore F[x] \text{ has no zero divisors.} \ \ \blacksquare \nonumber
     \end{align}
-    
+\end{corollary}
+
+\begin{corollary}
+    $F[x]$ is not a field. \\ \steezybreak
+    \textit{Proof}: let $f(x)=x=0\cdot x^0 + 1\cdot x^{1}$, non-zero in $F[x]$, suppose $f(x)$ has an inverse $g(x)\in F[x]$, then, 
+    \begin{align}
+        x\cdot g(x) &= 1_{F} \implies g(x) \neq 0_F, \ \ \ \text{So $g(x)$ has degree.} \nonumber
+    \end{align}
+    But then 
+    \begin{align}
+        0 = \deg(1_F) = \deg(x \cdot g(x)) &= \deg(x)+ \deg(g(x)) \nonumber
+        &= 1+ \deg(g(x)) \geq 1+0 = 1 \nonumber
+        &\implies 0 \geq 1 \Rightarrow \Leftarrow \nonumber
+    \end{align}
+    $\therefore \ x^{-1}$ does not exist in $F[x]$ \\ \steezybreak
+    $\therefore \ \ F[x]$ is not a field. $\blacksquare$
     
 \end{corollary}
+
+\begin{definition}[\textit{Rational functions in $X$ over $F$}]
+    The Field of fractions of the integral domain $F[x]$ guaranteed by Therorem 3.6.1 is known as the \textit{The Rational functions in $X$ over $F$}
+    \begin{align}
+        \left\{\frac{p(x)}{q(x)} \ | \ p(x), q(x) \in F[x] q(x) \neq 0_F \right\} \nonumber
+    \end{align}
+\end{definition}
+
+\setcounter{dummy_lemma}{1}
+\begin{lemma}[Division Algorithm]
+Given $f(x)$ and $g(x)\neq 0$ in $F[x]$, $\exists \ q(x), r(x) \in F[x] \ni $
+\begin{align}
+    f(x) = q(x)\cdot g(x) + r(x) \nonumber
+\end{align}
+Where $r(x)=0$ or $\deg(r(x)) < \deg(g(x))$ \\ \steezybreak
+\textit{Proof}:
+\end{lemma}
 \steezybreak \textit{This material onward is incomplete, more to come in the very near future!}
 
