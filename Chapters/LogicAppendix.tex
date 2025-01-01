@@ -200,6 +200,13 @@ Another way to think about it is that if we want to have the tool of disjunctive
     \end{nd} \nonumber
 \end{equation}
 \newpage
+\begin{center}
+    \subsection{ Quick Reference for Propositional Logic Intro and Elim Rules} \vspace{0.3in}
+    \label{ssec:prop_quick}
+    \includegraphics[width=1.1\textwidth]{Figures/Prop_rules_no_background.png}
+\end{center}
+These fourteen rules form Classical Propositional logic. When you include the five extra rules for Quantifiers and Identity (\ref{ssec:quant_quick}) you get First-Order logic. If you drop Indirect Proof you get Intuitionistic Propositional/First-Order Logic.
+\newpage
 \section{A brief word about \textit{Scope} in proofs}
 We would like to take a moment to discuss scope\footnote{one might argue these are more aptly labeled ``observations on context" rather than scope.} in proofs. When applying an inference rule (i.e. an introduction or elimination rule) to justify a proof step, one can refer to proof step numbers preceeding it so long as the previous step is either in the \textit{same level of scope} (e.g. in the following proof, 11 refers to 10) or at the preeceding step numbers in any of its \textit{outer scope} layers (e.g., 10 refers 6). 
 
@@ -734,6 +741,14 @@ What is this saying? Our premises are 1) for all $x$ in our universe of discours
     \item $\exists x [(Kx \wedge \forall y (Ky \to x = y)) \wedge Bx], Kd \vdash Bd$
     \item $\vdash P_a \to \forall x (P_x \lor \neg x = a)$
 \end{enumerate}
+\newpage
+\begin{center}
+    \subsection{Quick Reference for Quantifier and Identity Intro and Elim Rules} \vspace{0.3in}
+    \label{ssec:quant_quick}
+    \includegraphics[width=1.1\textwidth]{Figures/Quant_rules_no_background.png} \\  \vspace{0.3in} \steezybreak 
+    \includegraphics[width=1.1\textwidth]{Figures/Identity_rules_no_background.png} \\ \steezybreak
+    These five rules, along with the fourteen rules for Propositional logic (\ref{ssec:prop_quick}) form the rules for First-Order logic.
+\end{center}
 \newpage
 \section{A Brief Discussion on Classical vs. Intuitionistic Logic}
 In the simplest terms, intuitionistic logic is classical logic \textit{without} indirect proof! Keep all the other introduction and elimination rules and do away with indirect proof (IP) and you have intuitionistic logic. Just keep this in the back of your mind and we will discuss some consequences of this.

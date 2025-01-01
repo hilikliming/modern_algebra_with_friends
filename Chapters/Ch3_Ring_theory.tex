@@ -1528,7 +1528,27 @@ Given $f(x)$ and $g(x)\neq 0$ in $F[x]$, $\exists \ q(x), r(x) \in F[x] \ni $
     f(x) = q(x)\cdot g(x) + r(x) \nonumber
 \end{align}
 Where $r(x)=0$ or $\deg(r(x)) < \deg(g(x))$ \\ \steezybreak
-\textit{Proof}:
+\textit{Proof}: If $f(x)=0$ or if $\deg f < \deg g$ we're done since then $f(x)=\underbrace{0}_{\substack{\uparrow \\ q(x)}}\cdot g(x)+\underbrace{f(x)}_{\substack{\uparrow \\ r(x)}}$ \\
+So assume $\deg f \geq \deg g$, say
+
+\begin{align}
+    \begin{drcases}
+        f(x) = a_0 + a_1 x+ \cdots + a_m x^m \ \ \ &a_m \neq 0 \nonumber \\
+        g(x) = b_0 + b_1 x+ \cdots + b_n x^n \ \ \ &b_n \neq 0 \nonumber 
+    \end{drcases} \text{ and }m\geq n
+\end{align}
+Induct on $m$, the degree of $f$ \\ \steezybreak
+
+\noindent \\ \steezybreak
+\textbf{Base Case:} \\  \steezybreak 
+Assume $m=0$ then $\deg f=\deg g = 0$, so $f(x) = a_0 \neq 0$ and $g(x)=b_0\neq 0$ \\
+\noindent $\therefore \ \ a_0 = \underbrace{(a_0 b_0^{-1})}_{q(x)}b_0 + \underbrace{0}_{r(x)}$ \\ \steezybreak
+\\ \steezybreak
+\noindent \textbf{Inductive Hypothesis:} \\ \steezybreak
+\noindent Assume the theorem is true for all polynomials with degree $< m$. Consider the polynomial
+\begin{align}
+    f_1(x) = f(x) - (a_m b_n^{-1}x^{m-n})g(x) \nonumber
+\end{align}
 \end{lemma}
 \steezybreak \textit{This material onward is incomplete, more to come in the very near future!}
 
