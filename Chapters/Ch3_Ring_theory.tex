@@ -1360,8 +1360,8 @@ Given integral domain $D$, then the field $F$, as constructed in Theorem 3.6.1, 
     Algebra is the skeleton, Analysis is ethereal. 
 \end{enumerate}
 
-\section{Polynomial Rings and Euclidean Rings}
-In this section,  we will present some results from both sections 3.7 and 3.9 of Herstein's book, to be consistent with the theorem and lemma numbers in Herstein's text you may notice the numbers suddenly jump from 3.7.x to 3.9.x, this is intentional. I just want it to be easy for you to reference the relevant sections in Herstein's text if you are following along with his book as you read ours. \\
+\section{Polynomial Rings}
+In the next two sections,  we will present some results from both sections 3.7 and 3.9 of Herstein's book, to be consistent with the theorem and lemma numbers in Herstein's text you may notice the numbers suddenly jump from 3.7.x to 3.9.x, this is intentional. I just want it to be easy for you to reference the relevant sections in Herstein's text if you are following along with his book as you read ours. \\
 \newpage 
 \noindent In the definition below $X$ is a formal placeholder
 \begin{definition}[Ring of Polynomials in $X$ over $F$]
@@ -1443,7 +1443,8 @@ Here's a quick example to clarify the last two parts of the defintion above, in 
 \end{align}
 
 % Artificially bump section number ahead!
-\setcounter{section}{9}
+\setcounter{section}{8}
+\section{Rational Functions in $X$ over $F$ and Euclidean Rings}
 \begin{lemma}
     $f,g$ non-zero in $F[x]$
     \begin{align}
@@ -1513,7 +1514,7 @@ Here's a quick example to clarify the last two parts of the defintion above, in 
     $\therefore \ \ F[x]$ is not a field. $\blacksquare$
     
 \end{corollary}
-
+\newpage 
 \begin{definition}[\textit{Rational functions in $X$ over $F$}]
     The Field of fractions of the integral domain $F[x]$ guaranteed by Therorem 3.6.1 is known as the \textit{The Rational functions in $X$ over $F$}
     \begin{align}
@@ -1537,18 +1538,121 @@ So assume $\deg f \geq \deg g$, say
         g(x) = b_0 + b_1 x+ \cdots + b_n x^n \ \ \ &b_n \neq 0 \nonumber 
     \end{drcases} \text{ and }m\geq n
 \end{align}
-Induct on $m$, the degree of $f$ \\ \steezybreak
-
+Induct on $m$, the degree of $f$
 \noindent \\ \steezybreak
 \textbf{Base Case:} \\  \steezybreak 
 Assume $m=0$ then $\deg f=\deg g = 0$, so $f(x) = a_0 \neq 0$ and $g(x)=b_0\neq 0$ \\
 \noindent $\therefore \ \ a_0 = \underbrace{(a_0 b_0^{-1})}_{q(x)}b_0 + \underbrace{0}_{r(x)}$ \\ \steezybreak
 \\ \steezybreak
-\noindent \textbf{Inductive Hypothesis:} \\ \steezybreak
+\noindent \textbf{Induction Hypothesis:}\footnote{Exercise for the reader: convince yourself this is equivalent to a standard induction argument ;), we just thought it would be cleaner this way. Look up complete induction, or strong induction} \\ \steezybreak
 \noindent Assume the theorem is true for all polynomials with degree $< m$. Consider the polynomial
 \begin{align}
-    f_1(x) = f(x) - (a_m b_n^{-1}x^{m-n})g(x) \nonumber
+    f_1(x) &= f(x) - (a_m b_n^{-1}x^{m-n})g(x) \nonumber \\
+    &= f(x)-(a_m b_n^{-1}x^{m-n})(b_0+b_1x+\cdots b_nx^n) \nonumber \\
+    &= f(x)-(a_m b_n^{-1}x^{m-n})(b_0+b_1x+\cdots b_{n-1}x^{n-1})- \underbrace{(a_m b_n^{-1}x^{m-n})b_nx^n}_{\substack{(a_m\not{b_n^{-1}}x^{m-n})(\not{b_n}x^n) \\ -a_mx^m \\ \text{cancels with }a_mx^m \text{ in }f(x)}}\nonumber \\
+    &\therefore \deg f_1 \leq m-1 < m \nonumber
 \end{align}
+So the induction hypothesis applies meaning $\exists \ q(x), r(x)$ such that 
+\begin{align}
+    f_1(x) &= q_1(x)g(x)+r(x) \ \  &\text{ where }r(x)=0 \text{ or } \deg r < \deg g \ \ \ \ \nonumber \\
+    &\therefore \ f(x) - (a_m b_n^{-1}x^{m-n})g(x) = q_1(x)g(x) + r(x) &\nonumber \\
+    &\implies \ f(x) = \underbrace{(q_1(x)+ a_m b_n^{-1}x^{m-n})}_{q(x)}g(x)+r(x) \ \ \ &\text{ where }r(x)=0 \text{ or } \deg r < \deg g. \ \blacksquare \nonumber 
+\end{align}
+
+% Assignment, convince yourself this is a standard induction argument ;)
+
+% \noindent \textbf{Induction Hypothesis:} \\ \steezybreak
+% \noindent Assume the theorem is true for all polynomials with degree $m\geq 0$. Consider the polynomial
+% \begin{align}
+%     f_1(x) &= f(x) - (a_{m+1} b_n^{-1}x^{(m+1)-n})g(x) \nonumber \\
+%     &= f(x)-(a_{m+1} b_n^{-1}x^{(m+1)-n})(b_0+b_1x+\cdots b_nx^n) \nonumber \\
+%     &= f(x)-(a_{m+1} b_n^{-1}x^{(m+1)-n})(b_0+b_1x+\cdots b_{n-1}x^{n-1})- \underbrace{(a_{m+1} b_n^{-1}x^{(m+1)-n})b_nx^n}_{\substack{(a_{m+1}\not{b_n^{-1}}x^{(m+1)-n})(\not{b_n}x^n) \\ -a_{m+1}x^{m+1} \\ \text{cancels with }a_{m+1}x^{m+1} \text{ in }f(x)}}\nonumber \\
+%     &\therefore \deg f_1 \leq m < m +1\nonumber
+% \end{align}
+% So the induction hypothesis applies meaning $\exists \ q(x), r(x)$ such that 
+% \begin{align}
+%     f_1(x) &= q_1(x)g(x)+r(x) \ \  &\text{ where }r(x)=0 \text{ or } \deg r < \deg g \ \ \ \ \nonumber \\
+%     &\therefore \ f(x) - (a_{m+1} b_n^{-1}x^{(m+1)-n})g(x) = q_1(x)g(x) + r(x) &\nonumber \\
+%     &\implies \ f(x) = \underbrace{(q_1(x)+ a_{m+1} b_n^{-1}x^{(m+1)-n})}_{q(x)}g(x)+r(x) \ \ \ &\text{ where }r(x)=0 \text{ or } \deg r < \deg g. \ \blacksquare \nonumber 
+% \end{align}
+
 \end{lemma}
+\newpage 
+\setcounter{dummy_example}{0}
+\begin{example}
+    Consider the polynomials $f(x)=x^5+3x^4-2x^3-x+2$ and $g(x)= x^3 -1$ in $\R[x]$, let's divide $f$ by $g$
+    \begin{align}
+    \stackunder{
+      x^3-1 \stackon[1pt]{\showdiv{x^5+3x^4-2x^3-x+2}}{x^2+3x-2 \ \ \ \leftarrow q(x)}%
+    }{
+      \Shortstack[l]{
+        {\ph{12345}\underline{x^5-x^2}} 
+        {\ph{12345}3x^4-2x^3+x^2-x+2} 
+        {\ph{12345}\underline{3x^4 \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -3x}} 
+        {\ph{12345}-2x^3+x^2+2x+2}
+        {\ph{123456}\underline{-2x^3 \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +2}}
+        {\ph{123456} r(x) = x^2+2x}
+      }
+    }\nonumber
+    \end{align}
+\end{example}
+
+\begin{example}
+    Divide $f(x)=x^3+5x^2+4x+5$ by $g(x)=x+2$ in $\Z_7[x]$
+    \begin{align}
+        \stackunder{
+        x+2 \stackon[1pt]{\showdiv{ \ x^3+5x^2+4x+5}}{ \ph{123}x^2+3x+5 \  \leftarrow q(x)}%
+        }{
+          \ph{1}\Shortstack[l]{
+            {\ph{12345678910}\underline{x^3+2x^2}} 
+            {\ph{12345678910}3x^2+4x+5} 
+            {\ph{12345678910}\underline{3x^2 +6x }} 
+            {\ph{12345678910}5x+5 \ \ \ \ \ \  (-2\equiv 5 \mod 7)}
+            {\ph{12345678910}\underline{5x+3}}
+            {\ph{12345678910} r(x) = 2}
+          }
+        }\nonumber
+        \end{align}
+\end{example}
+
+\begin{example}
+    Divide $f(x)=x^3+x^2+x+5$ by $g(x)=3x+2$ in $\Z_7[x]$
+    \begin{align}
+        \stackunder{
+        3x+2 \stackon[1pt]{\showdiv{ \ x^3+x^2+x+5}}{ \ph{123}5x^2+4x \  \leftarrow q(x)}%
+        }{
+          \ph{1234567891011121}\Shortstack[l]{
+            {\underline{x^3+3x^2} \ \ \ \ \ \  (10\equiv 3 \mod 7)} 
+            {5x^2+x+5} 
+            {\underline{5x^2 +x }} 
+            {r(x) = 5}
+          }
+        }\nonumber
+        \end{align}
+\end{example}
+
+\begin{definition}[Euclidean Ring]
+    Given $R$ integral domain, $R$ is a \textit{Euclidean Ring} if $\exists$ a function\footnote{Remember, in this book, we take $\N = \Z^+ \cup \{0\}$} $d: R-\{0\} \rightarrow \N$ such that 
+    \begin{enumerate}
+        \item $d(a)\leq d(ab) \ \ \forall$ non-zero $a,b \in R$
+        \item for any non-zero $a,b\in R \ \ \exists \ q,r \in R \ni a=qb+r$ where either $r=0$ or $d(r)<d(b)$
+    \end{enumerate}
+\end{definition}
+
+\begin{example}
+    $\Z$ is a Euclidean ring with $d(n)=|n|$
+    \begin{enumerate}
+        \item $|n|\leq |m||n|=|mn| $
+        \item Euclidean Algorithm with ``$0\leq r < |div|$'' replaced by ``$r=0$ or $|r|< |div|$''
+    \end{enumerate}
+\end{example}
+\begin{example}
+    $F[x]$ is a Euclidean ring with $d(f) = \deg (f)$ ($F$ field)
+    \begin{enumerate}
+        \item $f,g$ non-zero in $F[x] \ \implies \deg f \geq 0 \text{ and }\deg g\geq 0$, then $\deg f \leq \deg f + \deg g \underset{L3.9.1}{=} \deg(fg)$
+        \item is the division algorithm from Lemma 3.9.2.
+    \end{enumerate}
+\end{example}
+
 \steezybreak \textit{This material onward is incomplete, more to come in the very near future!}
 
