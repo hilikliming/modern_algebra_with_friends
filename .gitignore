@@ -8,3 +8,4 @@
 # Others (anything starting with main. except for main.tex)
 main.*
 !main.tex
+.DS_Store
