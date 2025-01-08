@@ -1444,6 +1444,9 @@ Here's a quick example to clarify the last two parts of the defintion above, in 
 
 % Artificially bump section number ahead!
 \setcounter{section}{8}
+\begin{tcolorbox}
+    We are briefly going to jump ahead to some section 3.9 material from Hersteins book, and then we will return to 3.7 material, I hope this isn't too confusing...
+\end{tcolorbox}
 \section{Rational Functions in $X$ over $F$ and Euclidean Rings}
 \begin{lemma}
     $f,g$ non-zero in $F[x]$
@@ -1653,6 +1656,107 @@ So the induction hypothesis applies meaning $\exists \ q(x), r(x)$ such that
         \item is the division algorithm from Lemma 3.9.2.
     \end{enumerate}
 \end{example}
+\newpage
+\begin{example}
+    The ``Gaussian Integers'' $\Z[i]$ are defined
+    \begin{align}
+        \Z[i] = \{a+bi \ | \ a,b \in \Z \} \subseteq \C \nonumber
+    \end{align}
+    $\Z[i]$ is a subring of $\C$ under the usual $+, \cdot$ in $\C$, so it is commutative and an integral domain (``no zero-divisors'' property is inherited from $\C$). 
+    Moreover, $\Z[i]$ is a Euclidean ring with $d(a+bi)=a^2+b^2$
+    \begin{enumerate}
+        \item Take $a+bi$, $c+di$ non-zero in $\Z[i]$
+        \begin{align}
+            d[(a+bi)(c+di)] &= d[(ac-bd)+(ad+bc)i] \nonumber \\
+            &= (ac-bd)^2 + (ad+bc)^2 \nonumber \\
+            &= a^2c^2 -2acbd +b^2d^2 +a^2d^2 +2acbd +b^2c^2 \nonumber \\
+            &= a^2c^2 +b^2d^2 +a^2d^2 +b^2c^2 \nonumber \\
+            &= a^2(c^2+d^2) +b^2(c^2+d^2) \nonumber \\
+            &= \underbrace{(c^2+d^2)}_{\in \Z^+,  \neq 0}(a^2+b^2) \geq a^2+b^2 = d(a+bi) \nonumber
+        \end{align}
+        \item To divide in $\Z[i]$, use $\C$ division, then round to integers. \\ \steezybreak
+        \textbf{Example:} In $\Z[i]$ divide $6+7i$ by $9+i$, so we perform $(6+7i)(9+i)^{-1}$ in the usual manner (use a useful form of $1$ that leverages complex conjugation)
+        \begin{align}
+            \frac{6+7i}{9+i} \cdot \frac{9-i}{9-i} &= \frac{54-6i+63i+7}{82} = \frac{61+57i}{82}= \frac{61}{82}+\frac{57}{82}i \nonumber \\
+            \text{ rounding }&\implies \boxed{1+i} \nonumber
+        \end{align}
+        Note that when rounding, we have some options but not all are valid
+        \begin{center}
+            \includegraphics[width=0.4\textwidth]{Figures/RoundingOptions.png}
+        \end{center}
+        \begin{minipage}[t]{0.4\textwidth} % Adjust the width as needed
+            \centering
+            \vspace{0.1in}
+            \begin{tabular}{c|c c}
+                & $d(r) < d(div)$ \\ \hline
+                1) & $13 < 82 \ \ $ &$\checkmark$ \\
+                2) & $45 < 82 \ \ $ &$\checkmark$ \\
+                3) & $53 < 82 \ \ $ &$\checkmark$ \\
+                4) & $85 \not< 82 \ \ $ &$\times$ (NOT OK)
+            \end{tabular}
+        \end{minipage}%
+        \hfill % Add space between the minipages
+        \begin{minipage}[t]{0.55\textwidth} % Adjust the width as needed
+            \begin{align}
+                (6+7i) &= \overbrace{(9+i)}^{\text{divisor}}
+                          \overbrace{(1+i)}^{\text{quotient}} + 
+                          \overbrace{(-2-3i)}^{\text{remainder}} \nonumber \\
+                       &= (9+i)(1+0i)+ (-3+6i) \nonumber \\
+                       &= (9+i)(i) + (7-2i) \nonumber \\
+                       &= (9+i)(0) + \underbrace{(6+7i)}_{36+49 \rightarrow 85} \nonumber 
+            \end{align}
+        \end{minipage}
+        When uniqueness of $q,r$ is desirable, add this more stringent condition:
+        \begin{enumerate}[i)]
+            \item in $\Z$ require $0\leq r < |div|$
+            \item in $\Z[i]$ use ``standard rounding'' ($\geq 0.5$ round up, $<0.5$ round down)
+        \end{enumerate}
+    \end{enumerate}
+    \newpage
+    So we have 
+    \begin{center}
+        \includegraphics[width=0.5\textwidth]{Figures/ComplexRingLattice.png}
+    \end{center}
+    As an aside, when you see $\Z[\sqrt{integer}] = \{a+b\sqrt{int} \ | \ a,b \in \Z\}$ rings of this form are referred to as \textit{rings of quadratic integers} \index{Rings of Quadratic Integers}, they are quite important in Number Theory.
+    Ok that concludes Example 3.9.6 :P
+\end{example}
+\begin{example}
+    Any field is a Euclidean Ring. $\forall \ x \in F$ field, $x\neq 0$ define $d(x)=8 \ \ \leftarrow \text{ your favorite natural number}$
+    \begin{enumerate}
+        \item $d(x) \underset{\substack{\uparrow \\ \text{always equal}}}{\leq} d(xy)$
+        \item $x=(xy^{-1})y +\underset{\substack{\uparrow \\ r}}{0} \ \ \ \text{ in }F, \ \ x\div y \text{ is }xy^{-1}$
+    \end{enumerate}
+\end{example}
+\noindent We can now update our little diagram on Ring Classifications
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Figures/RingClassifications_Euclidean.png}
+    \caption{Ring Classifications (Updated)}
+    \label{fig:ring-classifications-eucl}
+\end{figure}
+\begin{tcolorbox}
+    \begin{center}
+        Exam III Material Ends Here
+    \end{center}
+\end{tcolorbox}
+\begin{tcolorbox}
+    We are briefly jumped ahead to some section 3.9 material from Hersteins book, we will now return to 3.7 material, I hope this wasn't too confusing...
+\end{tcolorbox}
+\newpage
+
+\setcounter{section}{6}
+\section{Principal Ideal Domains (3.7 Continued, sorry for the jump!)}
+We know we can take $a\in R$ and generate $Ra$. But if we have an arbitrary ideal $U$ in $R$, you might or might not have a (single) generator.
+\begin{definition}[Principal Ideals and Principal Ideal Domains]
+    Given $R$ integral domain.
+    \begin{enumerate}
+        \item An ideal $U$ in $R$ is \textit{principal} if it can be generated by a single element in $U$
+        \begin{align}
+            U \text{ princial }\iff \exists a \in U \ni U = Ra \nonumber
+        \end{align}
+        \item $R$ is a \textit{princial ideal domain} (PID) if every ideal in $R$ is principal.
+    \end{enumerate}
+\end{definition}
 
 \steezybreak \textit{This material onward is incomplete, more to come in the very near future!}
 
