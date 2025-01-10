@@ -1740,13 +1740,14 @@ So the induction hypothesis applies meaning $\exists \ q(x), r(x)$ such that
     \end{center}
 \end{tcolorbox}
 \begin{tcolorbox}
-    We are briefly jumped ahead to some section 3.9 material from Hersteins book, we will now return to 3.7 material, I hope this wasn't too confusing...
+    We briefly jumped ahead to some section 3.9 material from Hersteins book, we will now return to 3.7 material, I hope this wasn't too confusing...
 \end{tcolorbox}
 \newpage
 
 \setcounter{section}{6}
 \section{Principal Ideal Domains (3.7 Continued, sorry for the jump!)}
-We know we can take $a\in R$ and generate $Ra$. But if we have an arbitrary ideal $U$ in $R$, you might or might not have a (single) generator.
+We know we can take $a\in R$ and generate $Ra$. But if we have an arbitrary ideal $U$ in $R$, you might or might not have a (single) generator. 
+When an ideal can be generated in such a way (from a single element) we give it a special name, and when every ideal in a given ring has this property that ring gets a special name.
 \begin{definition}[Principal Ideals and Principal Ideal Domains]
     Given $R$ integral domain.
     \begin{enumerate}
@@ -1757,6 +1758,32 @@ We know we can take $a\in R$ and generate $Ra$. But if we have an arbitrary idea
         \item $R$ is a \textit{princial ideal domain} (PID) if every ideal in $R$ is principal.
     \end{enumerate}
 \end{definition}
-
+$\Z$ is a principal ideal domain (PID) since each of the ideals in $\Z$ take the form $n\Z$ ($n$ is the generator). 
+\begin{theorem}
+    If $R$ is a Euclidean ring, then $R$ is a PID.
+    \begin{align}
+        \boxed{\text{ Euclidean }\implies \text{ PID }}\nonumber
+    \end{align}
+    \textit{Proof:} Suppose $R$ is a Euclidean ring. \\ \steezybreak
+    \noindent Easy case first: 
+    \begin{align}
+        \underbrace{\{0\}}_{\substack{\uparrow \\  \text{ideal}}} = R\cdot \underbrace{0}_{\substack{\uparrow \\ \text{generator}}} \ \ \ \therefore \ \ \ \{0\} \text{ is principal}. \nonumber
+    \end{align}
+    Take $U$ ideal in $R$, $U\neq \{0\}$ \\ 
+    \noindent $R$ Euclidean $\implies \ \forall$ non-zero $a\in R \ \exists $ non-negative integer $d(a)$ (the ``size'' of $a$) \\
+    \noindent Choose $x$ non-zero in $U$ with $d(x)$ minimal among all elements of $U$. \\
+    \noindent \textbf{Claim:} $x$ generates $U$ (i.e. $U=Rx$) \\
+    \noindent \textbf{$\supseteq$:} $\forall \ r \in R$, $rx\in U$ (since $r\in R$, $x\in U$ and $U$ ideal) so $Rx\subseteq U$ \\
+    \noindent \textbf{$\subseteq$:} Take $y\in U$ \\
+    \noindent $R$ Euclidean $\implies \ \exists \ q,r \in R \ni \ y=qx+r$ where $r=0$ or $d(r)<d(x)$ \\
+    
+    \begin{align}
+        y\in U, \ \ qx &\in U \ \ &\text{ by absorp. } (q\in R, x\in U) \nonumber \\
+        -(qx) &\in U \ \ \ &\text{ by }+ \text{ inv. }(U<R) \nonumber \\
+        \therefore \ y+(-(qx)) &\in U, \ &\text{ so }r=y-qx \in U \nonumber
+    \end{align}
+    Since $d(r)<d(x)$ contradicts our choice of $x$ with minimal $d$-value, it must be true that $r=0$ \\
+    \noindent $\therefore \ \ y=qx \in Rx$ \\
+    \noindent $\therefore \ \ U\subseteq Rx$. $\blacksquare$
+\end{theorem}
 \steezybreak \textit{This material onward is incomplete, more to come in the very near future!}
-
