@@ -200,7 +200,7 @@ Without going into too much detail we want to briefly introduce the concept of c
     \noindent For finite sets, \(|A|\) is the total count of elements in \(A\). For example, if \(A = \{1, 2, 3\}\), then \(|A| = 3\). \\
     \noindent As another example, if \(B=\{green, red, blue, red, orange\}\) then $|B|=4$. \ \footnote{Recall the footnote from Section \ref{sec:axioms}.}\\ 
     
-    \noindent \textbf{A More Complete Definition\footnote{Ignore until you have begun Chapter 1 material}} \\ \steezybreak
+    \noindent \textbf{A More Complete Definition\footnote{Revisit after you have begun Chapter 1 material}} \\ \steezybreak
 
     \noindent For sets in general, \textit{cardinality} is determined by comparing a set \(A\) to another set \(B\) using a \textit{bijection} \footnote{To be covered in the next chapter, see Definition \ref{def:surj_inj_bij}}, which is a one-to-one correspondence between the elements of \(A\) and \(B\):
     \begin{align}
@@ -266,7 +266,18 @@ $\emptyset=\{\}$ The empty set (set with no elements, $\emptyset$ is trivially a
 $\mathbb{N}=\{0, 1,2,3,4,...\}$  = the natural numbers\\ 
 $\mathbb{Z}=\{..,-3,-2,-1,0,1,2,3,...\}=$ the integers\\
 $\mathbb{Q}=\{\frac{a}{b} \ | \  a,b \in \mathbb{Z} \ni b\neq 0\}$= the rationals \\
-$\mathbb{R}=\{\ ...c_1c_0.c_{-1}c_{-2}...\  | \ c_i\in \{0,1,2,3,4,5,6,7,8,9\} \ \forall  i  \}=$ the reals\\ \\
+$\mathbb{R}=\{\ \pm \ \dots c_1c_0.c_{-1}c_{-2}\dots \  | \ c_i\in \{0,1,2,3,4,5,6,7,8,9\} \ \forall  \ i  \ \}=$ the reals\\ \\
+
+\noindent In this last definition, the real numbers $\R$ we want to point out:
+\begin{itemize}
+    \item The \(\pm\) indicates that the number can be positive or negative.
+    \item \(c_i\) are the digits of the decimal expansion. It is customary to omit trailing and leading $0$'s.
+    \item The index \(i\) represents the position of each digit relative to the decimal point, with \(i=0\) corresponding to the ones place, \(i=-1\) corresponding to the tenths place and so on.
+    \item When using decimal expansions to define the reals you must take care; realize that a single element may go by more than one representation, e.g. $0.999 \ldots = 1.000 \ldots$ and $2.999 \ldots = 3.000 \ldots$ This ambiguity reflects the fact that decimal expansions are not unique for certain real numbers.
+    \item This definition provides a representation of the real numbers via decimal expansions. However, \(\mathbb{R}\) can also be rigorously defined using other constructions, such as Cauchy sequences or Dedekind cuts.
+    \item In simpler terms, The real numbers $\R$ are the set of \textit{all} points on the number line, including both rational numbers (fractions) and irrational numbers (non-repeating, non-terminating decimals).
+\end{itemize}
+
 \subsection{Interval Notation for Interval Subsets in $\R$}
 We will use the following standard interval notation for \textit{interval subsets} of $\R$.\\ 
 Let $a,b\in \R, a<b$ we denote the following sets:\\
