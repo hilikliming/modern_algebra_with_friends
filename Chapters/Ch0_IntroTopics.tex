@@ -62,10 +62,11 @@ The intuition for an implications equivalence with its contraposition is two par
     \item ``If $B$ is \textit{always} true when $A$ is true ($A\implies B$), then if $B$ isn't true, $A$ must not be true ($\lnot B \implies \lnot A$)".
     \item ``If $A$ is \textit{always} false when $B$ is false ($\lnot B \implies \lnot A$), then if $A$ is true, $B$ must be true ($A\implies B$)".
 \end{enumerate}
-Examples of proof by contrapositive and proof by contradiction are given in the sub-sections below. \\ \\
+Examples of proof by contrapositive and proof by contradiction are given in the sub-sections below.
 
 \noindent In this text, the shorthand for ``contradiction" is a pair of arrows running into one another ``$\Rightarrow\Leftarrow$" so read this as ``contradiction".
 \section{A Word About Axioms in This Book}
+\label{sec:axioms}
 As of January 11th, 2021, Merriam-Webster defines the noun ``Axiom" as:
 \begin{enumerate}
     \item ``a statement accepted as true as the basis for argument or inference"
@@ -74,7 +75,7 @@ As of January 11th, 2021, Merriam-Webster defines the noun ``Axiom" as:
 \end{enumerate}
 In the land of Mathematics, the meaning of the word ``Axiom" most closely resembles the definition given in 1. ; i.e. Axioms are statements which are assumed to be true and used as the basis for argument or inference \textit{without} justification. 
 
-This book is not a set theory or foundations of mathematics course so we will take a \textit{few} things for granted. In this book, we will not attempt to define or construct the most fundamental tools that we begin our studies with: Sets and Integers (the set $\Z$ and properties of its elements). We will instead take these to be primitive notions that do not need justification. You can take a set to be a collection of objects, \textit{with no repeated objects}. You can also take the following facts about integers as axioms:
+This book is not a set theory or foundations of mathematics course so we will take a \textit{few} things for granted. In this book, we will not attempt to define or construct the most fundamental tools that we begin our studies with: Sets and Integers (the set $\Z$ and properties of its elements). We will instead take these to be primitive notions that do not need justification. You can take a set to be a collection of objects, \textit{with no repeated objects}\footnote{Sets are defined by the elements they contain, an element either \textit{is} in a given set or it \textit{is not}, each element is unique, there is no notion of duplicity or "multiple copies" of elements, so while you might write out a set like $\{1, 2, 2, 3\}$ this is the same as the set $\{1,2,3\}$ and we prefer to write sets in the latter of these two ways for clarity.}. You can also take the following facts about integers as axioms:
 \noindent\begin{align}
     a,b\in \Z &\implies a+b\in \Z  \ \ \ &\text{i.e. it is always true that the sum of two integers is an integer}\nonumber \\
     \text{ and } &\implies a-b\in \Z \ \ \ &\text{i.e. it is always true that the difference of two integers is an integer}\nonumber \\
@@ -88,7 +89,7 @@ Given a set $S$ we will consistently use the notation $A=\{a\in S\ |\ P(a)\}$ to
 \noindent Here is a simple example of this \textbf{set builder} notation in use, let $P(a)=$ "$a \text{ is even}$". \\
 Then $\{a\in \Z | P(a)\} = \{...,-4,-2,0,2,4,6,...\} = \{ \text{the set of all even integers}\}$ \\ \\
 Sometimes, in other math texts, a colon, ``$:$", will be used in place of the vertical bar, ``$|$", in set builder notation.\\ \\
-\noindent We will now present five basic, but very important, definitions from Set Theory. \newpage
+\noindent We will now present thirteen basic, but very important, definitions from Set Theory. \newpage
 \begin{definition}[Subset]\index{$\subset$}
 Set $A$ is a \textit{subset} of set $B$, denoted $A\subset B$, if every element of $A$ is an element of $B$, that is, if
 \begin{align}
@@ -191,7 +192,65 @@ In another way using an idea known as set complement. In this case we would have
 
     \noindent That is, a collection of sets are mutually disjoint when each set in the collection contain no common elements with any other set in the collection (aside from itself).
 \end{definition}
-\newpage 
+\newpage
+Without going into too much detail we want to briefly introduce the concept of cardinality. Cardinality describes a relationship between sets which compares their relative size.
+\begin{definition}[Cardinality (of a Set)]
+    The \textit{cardinality} of a set \(A\), denoted \(|A|\), is, roughly speaking, the "number of elements" in \(A\). \\
+
+    \noindent For finite sets, \(|A|\) is the total count of elements in \(A\). For example, if \(A = \{1, 2, 3\}\), then \(|A| = 3\). \\
+    \noindent As another example, if \(B=\{green, red, blue, red, orange\}\) then $|B|=4$. \ \footnote{Recall the footnote from Section \ref{sec:axioms}.}\\ 
+    
+    \noindent \textbf{A More Complete Definition\footnote{Ignore until you have begun Chapter 1 material}} \\ \steezybreak
+
+    \noindent For sets in general, \textit{cardinality} is determined by comparing a set \(A\) to another set \(B\) using a \textit{bijection} \footnote{To be covered in the next chapter, see Definition \ref{def:surj_inj_bij}}, which is a one-to-one correspondence between the elements of \(A\) and \(B\):
+    \begin{align}
+        |A| &= |B| \quad \text{if and only if there exists a bijective function } f: A \to B. \nonumber \\
+        |A|&\leq |B| \quad \text{if there exists an injective function }f:A \to B. \nonumber \\
+        |A|&<|B| \quad \text{if there exists an injective function } f:A \to B \quad \text{but no bijective function.} \nonumber
+    \end{align}
+\end{definition}
+% The less complete definition applies only to finite sets but helps provide some intuition about what cardinality tells us, more or less the "size" of a set. This more complete definition of cardinality allows us to rigorously compare the "sizes" of infinite (or finite) sets, such as the set of natural numbers \(\mathbb{N}\) ($|\N| = \aleph_0$ pronounced ``aleph nought" or ``aleph zero") and the set of real numbers \(\mathbb{R}\) ($|\R|=2^{\aleph_0}> \aleph_0$). \\ \steezybreak 
+    
+% \noindent In fact, as you will see once you have learned about bijections, this more rigorous definition works just the same for finite sets (two finite sets have same number of elements if and only if a bijection can be constructed between them)
+% \begin{definition}[Cardinality of a Set]
+%     The \textit{cardinality} of a set \(A\), denoted \(|A|\), is, roughly speaking, the "number of elements" in \(A\).
+    
+%     \noindent For \textbf{finite sets}, \(|A|\) is the total count of elements in \(A\). For example, if \(A = \{1, 2, 3\}\), then \(|A| = 3\).
+    
+%     \textbf{A More Complete Definition\footnote{Ignore until you have begun Chapter 1 material.}}
+%     For sets in general, cardinality is determined by comparing a set \(A\) to another set \(B\) using a \textit{bijection}\footnote{To be covered in the next chapter, see Definition \ref{def:surj_inj_bij}}, which is a one-to-one correspondence between the elements of \(A\) and \(B\):
+%     \begin{align*}
+%         |A| &= |B| \quad \text{if and only if there exists a bijective function } f: A \to B, \\
+%         |A| &\leq |B| \quad \text{if there exists an injective function } f: A \to B, \\
+%         |A| &< |B| \quad \text{if there exists an injective function } f: A \to B \text{ but no bijection.}
+%     \end{align*}
+% \end{definition}
+
+\noindent The simplified definition applies only to finite sets but helps build intuition about cardinality as the "size" of a set. The more rigorous definition extends this concept to both finite and infinite sets, enabling us to compare sets such as the natural numbers \(\mathbb{N}\) (\(|\mathbb{N}| = \aleph_0\), pronounced "aleph nought") and the real numbers \(\mathbb{R}\) (\(|\mathbb{R}| = 2^{\aleph_0} > \aleph_0\)). \\ \steezybreak
+
+\noindent The rigorous definition also aligns with our intuition for finite sets: two finite sets have the same number of elements if and only if a bijection exists between them.
+
+\begin{definition}[Cartesian Product (of Sets)]
+    Given sets $A$ and $B$, the \textit{Cartesian product} of $A$ and $B$ is the set of all ordered pairs $(a,b)$ where $a\in A$ and $b\in B$, that is 
+    \begin{align}
+        A\times B &= \{(a,b) \ | \ a\in A \text{ and } b\in B\} \nonumber
+    \end{align} 
+\end{definition}
+Consider the set $A=\{a,b,c\}$ and the set $B=\{1,2\}$, then $A\times B =\{(a,1), (a,2), (b,1), (b,2), (c,1), (c,2)\}$. If the cardinality (i.e. the number of elements contained within a set) is finite for both $A$ and $B$ then the cardinality of the cartesian product $A\times B$ is the product of the individual cardinalities, i.e. $|A\times B| = |A|\cdot |B|$. The set $A\times B$ is infinite if either $A$ or $B$ is infinite and the other set is non-empty.
+\begin{definition}[$n-$ary Cartesian Product]
+    The Cartesian product can be generalized to the \textit{$n$-ary Cartesian Product }over $n$ sets $A_1, A_2, \cdots, A_n$ as the set 
+    \begin{align}
+        A_1 \times \cdots \times A_n &= \{(a_1, \cdots, a_n ) \ | \ a_i \in A_i \text{ for every }i\in \{1, \cdots, n\}\} \nonumber
+    \end{align}
+\end{definition}
+
+\begin{definition}[$n-$ary Cartesian power]
+    The \textit{$n-$ary Cartesian Power} of a set $A$, denoted $A^n$ is defined
+    \begin{align}
+        A^n &= \underbrace{A\times A \times \cdots \times A}_{n} = \{(a_1, a_2, \cdots, a_n) \ | \ a_i \in A \text{ for every } i \in \{1, \cdots, n\}\} \nonumber
+    \end{align}
+\end{definition}
+\newpage
 \noindent\section{Some important sets to remember}
 % \begin{align}
 % \emptyset=\{\} =\text{ The empty set (set with no elements, $\emptyset$ is trivially a subset of all sets) } \nonumber \\
