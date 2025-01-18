@@ -209,22 +209,18 @@ Without going into too much detail we want to briefly introduce the concept of c
         |A|&<|B| \quad \text{if there exists an injective function } f:A \to B \quad \text{but no bijective function.} \nonumber
     \end{align}
 \end{definition}
-% The less complete definition applies only to finite sets but helps provide some intuition about what cardinality tells us, more or less the "size" of a set. This more complete definition of cardinality allows us to rigorously compare the "sizes" of infinite (or finite) sets, such as the set of natural numbers \(\mathbb{N}\) ($|\N| = \aleph_0$ pronounced ``aleph nought" or ``aleph zero") and the set of real numbers \(\mathbb{R}\) ($|\R|=2^{\aleph_0}> \aleph_0$). \\ \steezybreak 
-    
-% \noindent In fact, as you will see once you have learned about bijections, this more rigorous definition works just the same for finite sets (two finite sets have same number of elements if and only if a bijection can be constructed between them)
-% \begin{definition}[Cardinality of a Set]
-%     The \textit{cardinality} of a set \(A\), denoted \(|A|\), is, roughly speaking, the "number of elements" in \(A\).
-    
-%     \noindent For \textbf{finite sets}, \(|A|\) is the total count of elements in \(A\). For example, if \(A = \{1, 2, 3\}\), then \(|A| = 3\).
-    
-%     \textbf{A More Complete Definition\footnote{Ignore until you have begun Chapter 1 material.}}
-%     For sets in general, cardinality is determined by comparing a set \(A\) to another set \(B\) using a \textit{bijection}\footnote{To be covered in the next chapter, see Definition \ref{def:surj_inj_bij}}, which is a one-to-one correspondence between the elements of \(A\) and \(B\):
-%     \begin{align*}
-%         |A| &= |B| \quad \text{if and only if there exists a bijective function } f: A \to B, \\
-%         |A| &\leq |B| \quad \text{if there exists an injective function } f: A \to B, \\
-%         |A| &< |B| \quad \text{if there exists an injective function } f: A \to B \text{ but no bijection.}
-%     \end{align*}
-% \end{definition}
+% Add as a footnote???
+% After reading the simplified and complete definition you may think to yourself "in the simple definition cardinality seems like a fixed property of a set, no comparisons needed, in the more complete definition it's all about comparison between pairs of sets? what gives?"
+% Well these are two perspectives on the same concept:
+% Fixed Property of a Set: The cardinality of a set \textit{is indeed} a fixed property—it represents, in a sense, "how many elements" the set contains or the "size" of the set. For finite sets, this is straightforward: you simply count the elements. 
+% For example, $|A|=3$ if $A=\{1,2,3\}$. 
+
+% Comparison Perspective: For infinite sets, we can't directly "count" elements the way we do for finite sets. Instead, cardinality is determined by comparing one set to another using bijections and injections (one-to-one correspondences, and one-to-one maps). 
+
+% For example, the set of integers  $\Z$ and the set of natural numbers $\N$ have the same cardinality because you can establish a bijective function between them.
+% Its easier to see how these two perspectives related by considering finite sets versus infinite sets:
+% For finite sets, these two perspectives collapse into one: you can directly count the elements, and the existence of a bijection between two finite sets corresponds exactly to their element counts being equal.
+% For infinite sets, the "comparison perspective" becomes essential because there’s no direct way to \textit{count} their elements. This comparison through bijections allows us to define and compare their cardinalities rigorously. It gives us a way to say this guy is bigger than this guy even when both are infinite!
 
 \noindent The simplified definition applies only to finite sets but helps build intuition about cardinality as the "size" of a set. The more rigorous definition extends this concept to both finite and infinite sets, enabling us to compare sets such as the natural numbers \(\mathbb{N}\) (\(|\mathbb{N}| = \aleph_0\), pronounced "aleph nought") and the real numbers \(\mathbb{R}\) (\(|\mathbb{R}| = 2^{\aleph_0} > \aleph_0\)). \\ \steezybreak
 
@@ -263,37 +259,53 @@ Consider the set $A=\{a,b,c\}$ and the set $B=\{1,2\}$, then $A\times B =\{(a,1)
 
 $\emptyset=\{\}$ The empty set (set with no elements, $\emptyset$ is trivially a subset of all sets since for any set, empty or non-empty, you can always consider the collection of \textit{none} of its elements, this is exactly the empty set) \index{$\emptyset$} \index{$\{\}$}\\
 %$\text{Bool}= \{T,F\}$ \\
-$\mathbb{N}=\{0, 1,2,3,4,...\}$  = the natural numbers\\ 
-$\mathbb{Z}=\{..,-3,-2,-1,0,1,2,3,...\}=$ the integers\\
-$\mathbb{Q}=\{\frac{a}{b} \ | \  a,b \in \mathbb{Z} \ni b\neq 0\}$= the rationals \\
-$\mathbb{R}=\{\ \pm \ \dots c_1c_0.c_{-1}c_{-2}\dots \  | \ c_i\in \{0,1,2,3,4,5,6,7,8,9\} \ \forall  \ i  \ \}=$ the reals\\ \\
+$\mathbb{N}=\{0, 1,2,3,4,...\}$  = the set of natural numbers\\ 
+$\mathbb{Z}=\{..,-3,-2,-1,0,1,2,3,...\}=$ the set of integers\\
+$\mathbb{Q}=\{\frac{a}{b} \ | \  a,b \in \mathbb{Z} \ni b\neq 0\}$= the set of rational numbers \\
+$\mathbb{R}=\{\ \pm \ \dots c_1c_0.c_{-1}c_{-2}\dots \  | \ c_i\in \{0,1,2,3,4,5,6,7,8,9\} \ \forall  \ i  \ \}=$ the set of real numbers
 
-\noindent In this last definition, the real numbers $\R$ we want to point out:
+\noindent In this final description of the real numbers $\R$ we want to point out:
 \begin{itemize}
     \item The \(\pm\) indicates that the number can be positive or negative.
-    \item \(c_i\) are the digits of the decimal expansion. It is customary to omit trailing and leading $0$'s.
+    \item \(c_i\) are the digits of the decimal (base 10) expansion. It is customary to omit trailing and leading $0$'s.
     \item The index \(i\) represents the position of each digit relative to the decimal point, with \(i=0\) corresponding to the ones place, \(i=-1\) corresponding to the tenths place and so on.
     \item When using decimal expansions to define the reals you must take care; realize that a single element may go by more than one representation, e.g. $0.999 \ldots = 1.000 \ldots$ and $2.999 \ldots = 3.000 \ldots$ This ambiguity reflects the fact that decimal expansions are not unique for certain real numbers.
-    \item This definition provides a representation of the real numbers via decimal expansions. However, \(\mathbb{R}\) can also be rigorously defined using other constructions, such as Cauchy sequences or Dedekind cuts.
+    % \footnote{This will occur in any base, not just base $10$ (decimal). For example, in base $3$ we would write a number like $5.333...$ as $12.1000= (1*3^1 + 2*3^0 + 1*3^{-1})$. $4$ looks like $11.0=(1*3^1 + 1*3^0)$.
+    % Our coefficients in front of the powers of $3$ never exceed $2$ (they are $0$, $1$, or $2$) just like in decimal we get to work with $0, 1, 2, ... ,9$ before we have to bring in a new power of $10$
+    % But, importantly, the number $0.5$ (whose representation is not unique in base $10$) suddenly has a unique representation here where we represent our reals in ternary, the only acceptable representation is 
+    % $0.11111...$ 
+    % (If you want to confirm that $0.111...$ in ternary is $0.5$ in decimal, recall from Calc II the geometric series $\sum_{n=0}^\infty ar^n$ where $r<1$, this series converges to $\frac{a}{1-r}$, The number we wrote is $1*3^{-1} + 1*3^{-2} + ...$
+    % Which looks an awful lot like a geometric series but just missing the $0^{th}$ term. So using that geometric series with $r=\frac{1}{3}$ and $a=1$ we get $\frac{1}{2/3}= \frac{3}{2}$. Now since our number $0.11111...$ is just that sum from $n=1$ to infinity we can subtract the $a*r^0=a=1$ term and we get $3/2-1=1/2$)
+    % in a similar vein... $1/3$ doesn't have a unique representation in ternary, it could be written $0.10000$ or it could be written $0.0222...$ but in decimal, there is only one way to write it: $0.333...$
+    % }
+    \footnote{This occurs in any base, not just base $10$. For instance, in base $3$, $5.333\ldots$ becomes $12.1000$ $(1 \cdot 3^1 + 2 \cdot 3^0 + 1 \cdot 3^{-1})$, and $4$ is $11.0$ $(1 \cdot 3^1 + 1 \cdot 3^0)$. Digits in base $3$ are $0$, $1$, or $2$, similar to decimal digits $0$ through $9$. 
+    Notably, $0.5$—which is not uniquely represented in base $10$—has a unique ternary representation: $0.111\ldots$ Using the geometric series formula $\sum_{n=0}^\infty ar^n = \frac{a}{1-r}$ with $a=1$ and $r=\frac{1}{3}$, $0.111\ldots = \frac{3}{2} - 1 = \frac{1}{2}$ (we subtract $1=ar^0$ because our number is $\sum_{n=1}^\infty ar^n$). Conversely, $1/3$ lacks a unique 
+    ternary form: it could be $0.1000$ or $0.0222\ldots$, whereas in decimal, $0.333\ldots$ is unique.}
+    \item Here we provide a representation of the real numbers via decimal expansions. However, \(\mathbb{R}\) can also be rigorously defined using other constructions, such as Cauchy sequences or Dedekind cuts.
     \item In simpler terms, The real numbers $\R$ are the set of \textit{all} points on the number line, including both rational numbers (fractions) and irrational numbers (non-repeating, non-terminating decimals).
 \end{itemize}
-
 \subsection{Interval Notation for Interval Subsets in $\R$}
 We will use the following standard interval notation for \textit{interval subsets} of $\R$.\\ 
-Let $a,b\in \R, a<b$ we denote the following sets:\\
-$(a,b)= \{r\in \R | a<r<b \} \subset \R$,\\
-$[a,b)= \{r\in \R | a\leq r<b \} \subset \R$, \\ 
-$(a,b]= \{r\in \R | a< r\leq b \} \subset \R$, and lastly, \\
-$[a,b]= \{r\in \R | a\leq r \leq b \} \subset \R$ \\ 
-
-\noindent A key observation about the above interval notations is that square brackets, "$[$" or "$]$", are used when a given "endpoint" (i.e. $a$ or $b$) \textit{is} a member of the subset. Round brackets, "$($" or "$)$", are used when a given "endpoint" \textit{is not} a member of the subset. From examples above this means $a\not \in (a,b]$ but $b\in (a,b]$ and similarly $a,b\in [a,b]$, but $a\not \in (a,b)$ and $b \not \in (a,b)$.\\ \\
+Let $a,b\in \R, a<b$ we denote the following sets:
+\begin{align}
+    (a,b)&= \{r\in \R \ | \ a<r<b \} \subset \R \nonumber \\
+    [a,b)&= \{r\in \R \ | \ a\leq r<b \} \subset \R \nonumber \\
+    (a,b]&= \{r\in \R \ | \ a< r\leq b \} \subset \R \quad \text{and lastly, } \nonumber \\
+    [a,b]&= \{r\in \R \ | \ a\leq r \leq b \} \subset \R \nonumber
+\end{align}
+% $(a,b)= \{r\in \R \ | \ a<r<b \} \subset \R$,\\
+% $[a,b)= \{r\in \R \ | \ a\leq r<b \} \subset \R$, \\ 
+% $(a,b]= \{r\in \R \ | \ a< r\leq b \} \subset \R$, and lastly, \\
+% $[a,b]= \{r\in \R \ | \ a\leq r \leq b \} \subset \R$ \\ 
+\noindent A key observation about the above interval notations is that square brackets, "$[$" or "$]$", are used when a given "endpoint" (i.e. $a$ or $b$) \textit{is} a member of the subset. Round brackets, "$($" or "$)$", are used when a given "endpoint" \textit{is not} a member of the subset. From examples above this means $a\not \in (a,b]$ but $b\in (a,b]$ and similarly $a,b\in [a,b]$, but $a\not \in (a,b)$ and $b \not \in (a,b)$.
 
 \section{Proof by Contrapositive Example} Let $x\in \mathbb{Z}$ and suppose we have statements $A=$``$x^2$ is even" and $B=$``$x$ is even", and wish to prove $A\implies B$, we can instead prove $\lnot B \implies \lnot A$ where $\lnot B=$``$x$ is not even" and $\lnot A=$``$x^2$ is not even". This latter statement is equivalent to the former and a proof by contraposition goes as follows: suppose that $x$ is not even, then $x$ is odd. The product of two odd numbers is odd, hence $x^2 = x\cdot x$ is odd. Thus $x^2$ is not even. Having proved the contrapositive, we can then infer that the original statement is true, i.e. that $A \implies B$ \\ \\
 \href{https://www.math.toronto.edu/preparing-for-calculus/3_logic/we_3_negation.html}{Click Here for help with negating logical expressions. (See table at end of webpage)}\\
 
-\noindent This is not to be confused with proof by contradiction. In proof by contradiction we have statement $A\implies B$ that we wish to show. To accomplish this, we begin by assuming $A$ is true \textit{and} that $B$ is false and we will arrive at a contradiction (notated as $\Rightarrow\Leftarrow$) that is a direct consequence of our incorrect assumption about $B$, meaning the only possibility is that our assumption about $B$ being false when $A$ is true was incorrect, meaning that if $A$ is true then $B$ must be true too, giving us the desired result: $A \implies B$ \newpage
+\noindent This is not to be confused with proof by contradiction. In proof by contradiction we have statement $A\implies B$ that we wish to show. To accomplish this, we begin by assuming $A$ is true \textit{and} that $B$ is false and we will arrive at a contradiction (notated as $\Rightarrow\Leftarrow$) that is a direct consequence of our incorrect assumption about $B$, meaning the only possibility is that our assumption about $B$ being false when $A$ is true was incorrect, meaning that if $A$ is true then $B$ must be true too, giving us the desired result: $A \implies B$ 
+\newpage
 \noindent\section{Proof by Contradiction (a.k.a. 
-\textit{Reductio ad absurdum}) Example:} In this example\footnote{ A reader who already knows some Category Theory and is fond of Type Theories may scoff at this example for Reductio ad absurdum as it relies on another (dubious?) tool (LOTEM). We will be working with Classical Logic for the time being, and under those rules, this is all fine. I may discuss introduction and elimination rules we've been using ( see Dr. Mark Jago's excellent lectures here: \textcolor{orange}{\href{https://www.youtube.com/watch?v=dlUkeN7KqVA&t=8s}{Propositional Logic/Classical Natural Deduction}/ \href{https://www.youtube.com/watch?v=C30w5vZypXE}{First-Order Logic}}) towards the end of the text and allude to logics that relax assumptions like double negation elimination. Stick with us, you may enjoy the presentation of the algebraic topics covered here \smiley } we will prove an implication using \textit{Reductio ad absurdum} or proof by contradiction. Given statements $A= "x^2 \text{ is even}"$, and $B= "x \text{ is even}"$, we could show $A\implies B$ through the following contradiction: Assume $A$ true and $\lnot B$ true, that is assume ``$x^2 \text{ is even}$" and ``$x \text{ is not even}$", now since $x$ is odd, and the product of two odds is odd, $x\cdot x$ is odd, but $x\cdot x=x^2$ and $x^2$ was assumed even! $\Rightarrow\Leftarrow$ (contradiction!). What we have shown is that $\lnot B$ cannot be true when $A$ is true. So our only option left is to conclude that if $A$ is true, then $B$ is true, i.e. $A\implies B$ %Given statements $A=$``The match is burning" and $B=$``There is oxygen in the room" we could show $A\implies B$ through the following contradiction: Assume $A$ true and $\lnot B$ true, that is assume ``The match is burning" and ``there is not oxygen in the room", immediately we arrive at a contradiction because as any person who has snuffed a candle knows ``burning " cannot occur without oxygen $\Rightarrow \Leftarrow$ (arrows running into each other is used to indicated a contradiction) therefore $\lnot B$ cannot be true when $A$ is true. So we have pigeon-holed our option for the true-ness or false-ness of statement B which statement A is assumed to be true, so our only option left is to conclude that when $A$ is true, $B$ must be true, i.e. $A\implies B$\\ \\
+\textit{Reductio ad absurdum}) Example:} In this example\footnote{ A reader who already knows some Category Theory and is fond of Type Theories may scoff at this example for Reductio ad absurdum as it relies on another (dubious?) tool (LOTEM). We will be working with Classical Logic for the time being, and under those rules, this is all fine. I may discuss introduction and elimination rules we've been using ( see Dr. Mark Jago's excellent lectures here: \textcolor{orange}{\href{https://www.youtube.com/watch?v=dlUkeN7KqVA&t=8s}{Propositional Logic/Classical Natural Deduction}/ \href{https://www.youtube.com/watch?v=C30w5vZypXE}{First-Order Logic}}) towards the end of the text and allude to logics that relax assumptions like double negation elimination. Stick with us, you may enjoy the presentation of the algebraic topics covered here \smiley } we will prove an implication using \textit{Reductio ad absurdum} or proof by contradiction. Given statements $A= "x^2 \text{ is even}"$, and $B= "x \text{ is even}"$, we could show $A\implies B$ through the following contradiction: Assume $A$ true and $\lnot B$ true, that is assume ``$x^2 \text{ is even}$" and ``$x \text{ is not even}$", now since $x$ is odd, and the product of two odds is odd, $x\cdot x$ is odd, but $x\cdot x=x^2$ and $x^2$ was assumed even! $\Rightarrow\Leftarrow$ (contradiction!). What we have shown is that $\lnot B$ cannot be true when $A$ is true. So our only option left is to conclude that if $A$ is true, then $B$ is true, i.e. $A\implies B$
 
 \section{Proof by Induction Example} Mathematical induction is a technique of proof that is essentially used to prove that a statement $P(n)$ holds for \textit{every} natural number $n = 0, 1, 2, 3, ...$ ; that is, the overall statement is a sequence of infinitely many cases $P(0), P(1), P(2), P(3), ...$ \\
 \noindent A proof by induction consists of two cases. The first, the base case (or basis), proves the statement for $n = 0$ without assuming any knowledge of other cases. The second case, the induction step, proves that if the statement holds for any given case $n\geq 0$, then it must also hold for the next case $n + 1$. These two steps establish that the statement holds for every natural number $n$. The base case does not necessarily begin with $n = 0$, but often with $n = 1$, and possibly with any fixed natural number $n = N$, establishing the truth of the statement for all natural numbers $n \geq N$. Now we will give an example of this approach of proof in order to prove the following fact about sums of natural numbers:

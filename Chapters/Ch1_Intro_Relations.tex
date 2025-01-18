@@ -13,25 +13,17 @@ A \textit{relation}\footnote{
     A relation \textit{between} sets $A$ and $B$ is a subset $R\subset A\times B$ with $(a,b)\in R \iff a\sim b $. If $A=B$ the relation is called ``homogeneous" and we commonly say relation ``on" $A$ as above, if $A\neq B$ the relation is called ``heterogeneous"
 } on a set $A$ is a statement in two variables which is either true or false for values in $A$
 \end{definition}
-%\textbf{Defn:} A relation on a set $A$ is a statement in two variables which is either true or false for values in $A$\steezybreak\\
 \begin{example}
 $A=\{\text{people in this room}\}$\\
 $x\sim y \Leftrightarrow x \text{ was born in the same month as } y$\\
 Read the above expression as ``$x$ is related to $y$ if and only if (iff) $x$ was born in the same month as $y$"
 \end{example}
-%\noindent\textbf{Example 1:} $A=\{\text{people in this room}\}$\\
-%$x\sim y \Leftrightarrow x \text{ was born in the same month as } y$\\
-%Read the above expression as ``$x$ is related to $y$ if and only if (iff) $x$ was born in the same month as $y$"\steezybreak\\
 \begin{example}
 $A=\mathbb{R}$\\
 $x\sim y \Leftrightarrow x \geq y$\\
 so if we think of $\sqrt{2}$ and $0$ we have that $\sqrt{2}\geq 0$ so $\sqrt{2}\sim 0$, \\
 However, since $0 \not\geq \sqrt{2} \Rightarrow 0\not\sim \sqrt{2}$
 \end{example}
-% \noindent\textbf{Example 2:} $A=\mathbb{R}$\\
-% $x\sim y \Leftrightarrow x \geq y$\\
-% so if we think of $\sqrt{2}$ and $0$ we have that $\sqrt{2}\geq 0$ so $\sqrt{2}\sim 0$, \\
-% However, since $0 \not\geq \sqrt{2} \Rightarrow 0\not\sim \sqrt{2}$ \steezybreak\\
 \begin{definition}[Reflexive, Symmetric, and Transitive Relations]
 The relation $\sim$ on a set $A$ is said to be:
 \begin{enumerate}[label=\roman*)]
@@ -40,7 +32,7 @@ The relation $\sim$ on a set $A$ is said to be:
     \item \textit{Transitive} iff $x\sim y$ and $y\sim z \Rightarrow x\sim z \ \forall x,y,z \in A$
 \end{enumerate}
 \end{definition}
-A relation need not have any of these properties but if \textit{all three} of these properties hold, then $\sim$ is an \textit{equivalence relation} but that's important enough to get it's own definition:
+A relation need not have any of these properties but if \textit{all three} of these properties hold, then $\sim$ is an \textit{equivalence relation} but that's important enough to get its own definition:
 \begin{definition}[Equivalence Relation]
 A relation $\sim$ on a set $A$ is an \textit{equivalence relation} if all three of the following hold:
 \begin{enumerate}[label=\roman*)]
@@ -49,13 +41,6 @@ A relation $\sim$ on a set $A$ is an \textit{equivalence relation} if all three 
     \item Relation $\sim$ on $A$ is transitive.
 \end{enumerate}
 \end{definition}
-% \noindent \textbf{Defn:} The relation $\sim$ on a set $A$ is said to be:
-% \begin{enumerate}[i]
-%     \item Reflexive iff $x\sim x \ \forall x \in A$
-%     \item Symmetric iff $x\sim y \Rightarrow y\sim x \ \forall \ x,y \in A$
-%     \item Transitive iff $x\sim y$ and $y\sim z \Rightarrow x\sim z \ \forall x,y,z \in A$
-% \end{enumerate}
-% If all three of these properties hold, then $\sim$ is an ``equivalence relation".\\
 Note that Example 1 is an equivalence relation, but Example 2 is not because it is not symmetric.
 \newpage
 \begin{example}
@@ -86,18 +71,12 @@ Since this was the first proof in the course material we would like to take a fe
 \noindent The first of these questions is certainly valid, and yes, we \textit{do} need to show this property holds for \textit{all} of the $x\in \Z$. However, the second question is a little misleading. We did consider a single $x\in \Z$, but this $x$ was \textit{arbitrary}, we did not pick $1$, or $2$ or $-664$, we instead chose "$x$", a \textit{variable}, to represent an arbitrary member of the set $\Z$ and then we \underline{only} made statements and inferences about $x$ that are true for \textbf{every} member of $\Z$ (i.e. we never used special properties of a specific member who $x$ could have been, such as $1$ or $2$, all we knew about $x$ is that it is an integer, and by being an integer it inherited any properties that are true for all integers). As a result, statements and inferences that were made about $x$ apply to \textit{all} members of the set $\Z$. \steezybreak\\
 With this in mind let's break down each of the sentences in this proof starting with the reflexivity line. We first say ``Take $x\in\Z$, then $x-x=0$", we begin by considering an arbitrary representative of the set (that we call ``$x$" providing us a handle, so to speak, for "an arbitrary element of $\Z$") on which the relation is defined. We then note that for ANY element in $\Z$ it's true that $x-x=0$. Then we have another equality that says $=2*0$, this equality is pointing out that $x-x$ is an integer multiple of $2$, the integer is $0$. From here we simply look back at the definition of "even" and we see that $x-x$ is even. Then since the defined relation is an $\iff$ (i.e. a pair of implications) this means that $x\sim x \implies x-x \text{ is even}$ (we don't use this direction) AND it means that $x-x \text{ is even}\implies x\sim x$ (we use this direction). Using the latter of these implications, since we showed that $x-x$ is even, this implies that $x\sim x$, lastly, since our $x$ was chosen arbitrarily we have shown the property holds for all of the possible members of $\Z$. Hopefully, this clarifies proof of the reflexivity portion.\steezybreak\\
 Next we will discuss the part of the proof that pertained to showing the symmetry property. Let's look back at the definition of a symmetric relation. In Defn 1.1.2 we say that relation $\sim$ on set $A$ is symmetric iff $x\sim y \implies y\sim x \ \forall \ x,y \in A$. In more plain speech this says a relation is symmetric iff \textit{whenever} it is true that $x\sim y$ this \textit{implies} it is also true that $y\sim x$. So to show symmetry, we must first assume that there is a related pair $x,y$ in $A$ for which $x\sim y$ that \textit{could} exist, and we show \textit{if such a pair exists} then it implies that $y\sim x$.
-%(if a pair with $x\sim y$ \textit{does} exist we will show that \textit{because} of the way our relation is defined this implies $y\sim x$), 
+
 We begin by assuming there are some $x,y\in \Z$ with $x\sim y$ because symmetry is a property concerned with related pairs, we don't \textit{need} to consider an arbitrary $x\not\sim y$ because all we want to show is that: \textit{if there were} some pair where $x\sim y$ is true \textit{then} $y\sim x$ must also be true. \steezybreak\\
 Let's break this symmetry part down. We first say ``Assume $x\sim y$, then $x-y$ is even", We begin by assuming there could be some related pair $x\sim y$ and we want to show if such a related pair exists then it is also true that $y\sim x$. We infer that $x-y$ is even because the assumption said $x\sim y$ and the definition of $\sim$ for this example tells us that $x\sim y \implies x-y \text{ is even}$. Then we say ``which means $\exists \ k\in \Z$ such that $x-y=2k$" This is just applying the definition of "even" after we confirmed that $x-y$ must be even. Lastly we say `` From here we can see $y-x=-(x-y)=-2k=2(-k)$, since $k\in \Z$, $-k\in \Z$ so $y-x$ is even too and we have $y\sim x$". So after having established that $x-y$ is even, we take a look at what $y-x$ is and realize that $x-y$ even \textit{implies} $y-x$ even since every integer $k\in \Z$ has an additive opposite $-k\in \Z$. Since we considered an arbitrary related pair (i.e. arbitrary $x,y\in \Z$ for which $x\sim y$) and we showed that just based on the fact that $x,y$ were integers and the way the equivalence relation is defined, this implies that $y\sim x$ must be true too.\steezybreak\\
 Lastly, we will discuss the reasoning for the transitive step of the proof. In a similar fashion to the symmetric proof, in order to show a relation $\sim$ is \textit{transitive} we must consider an arbitrary triple $x,y,z \in \Z$ for which $x\sim y$ and $y\sim z$ and we must show that assuming $x\sim y$ and $y\sim z$ \textit{implies} that $x\sim z$.\steezybreak\\
 We begin by assuming an arbitrary pair of relations $x\sim y$ and $y\sim z$ are true and we want to show that with the way $\sim$ is defined, it implies that $x$ must be related to $z$. We say ``These expressions imply the existence of two integers", this is because $x\sim y\implies x-y \text{ even }\implies \exists \ k\in \Z \ni x-y=2k$ AND $y\sim z\implies y-z \text{ even}\implies \exists \ l\in \Z \ni y-z=2l$. Next we realize that $x-z$ can be rewritten as the sum of $x-y$ and $y-z$ (both of whom are even) and we see that $x-z$ must too be even, then by the definition of the relation $x-z \text{ even}\implies x\sim z$. Again, since we showed this for an arbitrary triple $x,y,z\in \Z$ for which $x\sim y$ and $y\sim z$ using only properties that were assumed true for the argument (i.e. $x\sim y$ and $y\sim z$) or that are true for all integers, it is true for all triples $x,y,z\in \Z$ for which $x\sim y$ and $y\sim z$.
 
-% \noindent\textbf{Example 4:} Prove that $\sim$ is an equivalence relation on $\mathbb{Z}$:\\
-% $x\sim y \iff x-y \text{ is even}$\steezybreak\\
-% \noindent\textbf{Proof:} To prove we must show $\sim$ is reflexive, symmetric, and transitive on $\mathbb{Z}$.\\
-% \textit{Reflexivity:} take $x\in \mathbb{Z}$, then $x-x=0=2*0$, since $0\in \mathbb{Z}$, $x-x$ is even. $\implies x\sim x \ \forall x \in \mathbb{Z}$\\
-% \textit{Symmetry:} Assume $x\sim y$, then $x-y$ is even which means $\exists k \in \mathbb{Z}$ such that $x-y=2k$. From here we can see $y-x=-(x-y)=-2k=2(-k)$, since $k\in \mathbb{Z}$, $-k\in \mathbb{Z}$ so $y-x$ is even too so we have $y\sim x$\\
-% \textit{Transitivity:} Assume $x\sim y$ and $y \sim z$. These expression imply the existence of two integers. The first expression implies $\exists k\in \mathbb{Z}$ such that $x-y=2k$ and the second expression implies $\exists l \in \mathbb{Z}$ such that $y-z=2l$. Using these we can see that $x-z=x-y+y-z=2k+2l=2*(k+l)$ since $k+l$ is a sum of integers, it is itself an integer so $x\sim y \text{ and } y\sim z \implies x\sim z \ \forall x,y,z \in \mathbb{Z}$. $\ \ \ \blacksquare$
 
 \subsection{Equivalence Classes}
 \begin{definition}[Equivalence Class]
