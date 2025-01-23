@@ -1786,4 +1786,53 @@ $\Z$ is a principal ideal domain (PID) since each of the ideals in $\Z$ take the
     \noindent $\therefore \ \ y=qx \in Rx$ \\
     \noindent $\therefore \ \ U\subseteq Rx$. $\blacksquare$
 \end{theorem}
+
+\begin{definition}[Divides (relation on comm. ring $R$)]
+    Given $R$ commutative ring and $a,b\in R, \ a\neq 0$ the \textit{divides} relation is defined as follows
+    \begin{align}
+        a |b \iff \ \exists \ c\in R \ni \ b=ca \nonumber
+    \end{align}
+    That is, $a$ divides $b$ if and only if there exists some $c\in R$ for which $b=ca$
+\end{definition}
+\newpage
+\begin{definition}[Greatest Common Divisor (for general comm. ring $R$)]
+     Given $R$ commutative ring and $a,b, d \in R, \ d\neq 0$ $d$ is \textit{a greatest common divisor of $a$ and $b$} if and only if 
+     \begin{enumerate}
+        \item $d|a$ and $d|b$
+        \item if $c$ is another common divisor then $c|a$ and $c|b$ $\implies \ c|d$.
+     \end{enumerate}
+\end{definition}
+
+\begin{lemma}
+    Let $R$ Euclidean ring. Any two non-zero elements $a,b \in R$ have a GCD. Moreover, $\exists \ \lambda, \mu \in R \ni$
+    \begin{align}
+        GCD(a,b) &= \lambda a + \mu b \nonumber
+    \end{align}
+    \textit{Proof:} Consider $U=\{ra+sb \ | \ r,s \in R \}$, $U$ is an ideal because it is $Ra+Rb$ \\ \steezybreak
+    Now, $R\ \text{Euc.} \implies R \ \text{PID} \implies U=Rd$ for $d\in U$ \\ \steezybreak
+    $d\in U \implies \ \exists \ \lambda, \mu \in R \ni \ d=\lambda a + \mu b$ \\ \steezybreak
+    It remains to show that $d$ satisfies the definition of a GCD: \\
+    \begin{enumerate}[(i)]
+        \item $a=1\cdot a + 0\cdot b\in U = Rd$\\
+        so $\exists \ r\in R \ni a=rd \ \therefore \ d|a$ \\
+        $b=0\cdot a + 1\cdot b \in U = Rd$ \\
+        so $\exists \ s\in R \ni b=sd \ \therefore \ d|b$ \\
+        \item Suppose $c|a$ and $c|b$  $\implies \ \exists \ r,s \in R \ni a=rc  \text{ and } b=sc$ \\
+        So
+        \begin{align}
+            d &=\lambda a + \mu b \nonumber \\
+            &= \lambda (rc) + \mu (sc) \nonumber \\
+            &= c \underbrace{(\lambda(r) + \mu (s))}_{\in R} \nonumber \\
+            &\therefore \ c|d. \ \ \ \ \blacksquare \nonumber
+        \end{align} 
+        
+    \end{enumerate}
+\end{lemma}
+\begin{example}[Application of Lemma 3.7.1 ]
+\textbf{Application in $\R[x]$:} \\
+If $GCD(f(x),f'(x))$ is constant, then $f(x)$ has no multiple roots. \\ \steezybreak
+\textit{Proof:} (by contradiction)
+
+    
+\end{example}
 \steezybreak \textit{This material onward is incomplete, more to come in the very near future!}
