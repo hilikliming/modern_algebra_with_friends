@@ -329,7 +329,7 @@ Quick takeaways, given $R$ commutative ring,
     \begin{align}
         \H = \{a+bi+cj+dk \ | \ a,b,c,d \in \R \} \text{ with } i^2=j^2=k^2=-1, ji = -ij \nonumber
     \end{align}
-    Recall Hersteins device for products of $i$ $j$ and $k$: \includegraphics[width= 0.4\textwidth]{Figures/Herstein_quat_device.pdf} \steezybreak\\
+    Recall Herstein's device for products of $i$ $j$ and $k$: \includegraphics[width= 0.4\textwidth]{Figures/Herstein_quat_device.pdf} \steezybreak\\
     \noindent If $a+bi+cj+dk \in \H$ with $a,b,c,d$ not all zero we can denote $s= a^2+b^2+c^2+d^2$, then
     \begin{align}
         (a+bi+cj+dk)^{-1}&= \frac{a}{s} - \frac{b}{s}i - \frac{c}{s}j - \frac{d}{s}k\nonumber
@@ -1740,7 +1740,7 @@ So the induction hypothesis applies meaning $\exists \ q(x), r(x)$ such that
     \end{center}
 \end{tcolorbox}
 \begin{tcolorbox}
-    We briefly jumped ahead to some section 3.9 material from Hersteins book, we will now return to 3.7 material, I hope this wasn't too confusing...
+    We briefly jumped ahead to some section 3.9 material from Herstein's book, we will now return to 3.7 material, I hope this wasn't too confusing...
 \end{tcolorbox}
 \newpage
 
@@ -1900,12 +1900,49 @@ can we generalize the notion of ``prime''? We will get to this but it will take 
     \noindent and we get $\deg(fg)=\deg(f)+\deg(g)=0 \ \implies \deg(f)=\deg(g)=0$ \\
 \noindent $\therefore \ f(x)=a_0 \neq 0$ and $g(x)=b_0 \neq 0$ \\
 \end{example}
-
+\newpage
 \begin{proposition}[Units fact \#2]
     \begin{align}
-        x\in \Z_n^* \iff \ x \text{ and } n \text{ are relatively prime in }\Z_n \nonumber 
+        x\in \Z_n^* \iff \ x \text{ and } n \text{ are relatively prime in }\Z. \nonumber 
     \end{align}
-    \textit{Proof:}
+    \textit{Proof:}\\
+    \noindent $\Rightarrow :$
+    \begin{align*}
+        &x \in \Z_n^* \implies \exists \ y \in \Z_n \; \text{such that} \; xy =1 \text{ in }\Z_n \\
+        &\text{So in } \Z, \; \exists \ k \in \Z \; \text{such that} \; xy = 1 + kn \\
+        &\implies xy + (-k)n = 1 \\
+        &\text{Since } GCD(x, n) \mid n \; \text{and} \; GCD(x, n) \mid x \implies GCD(x, n) \mid \underbrace{\big(xy + (-k)n\big)}_{1} \\
+        &\implies GCD(x, n) = 1
+    \end{align*}
+    $\Leftarrow :$
+    \begin{align*}
+        &GCD(x, n) = 1 \\
+        &\implies \exists \ s, t \in \Z \ni \; sx + tn = 1 \quad \text{( Lemma 1.3.1 )} \\
+        &\implies n \mid (1 - sx) \\
+        &\implies 1 \equiv sx \mod n \\
+        &\text{Reduce } s \mod n: \; s \equiv \bar{s} \mod n, \; \text{where } \bar{s} \text{ is between } 0 \text{ and } n
+    \end{align*}
+    \begin{align*}
+        &0 \leq \bar{s} \leq n \\
+        &s \equiv \bar{s} \mod n, \; x \equiv x \mod n \\
+        &\implies sx \equiv \bar{s}x \mod n  \\
+        &\implies 1\equiv \bar{s}x \mod n \quad \text{(transitivity of congruence)} \\
+        &\text{So in } \Z_n, \; 1 = \bar{s}x \ \ \ (\bar{s}=x^{-1} \text{ in }\Z_n) . \ \ \ \blacksquare
+    \end{align*}
 \end{proposition}
-
+\setcounter{dummy_lemma}{0}
+\begin{corollary}
+    \begin{align*}
+        o(\Z_n^*) &= \text{ \# of positive integers less than }n\text{ and relatively prime to n}\\
+        &= \phi(n) \ \ \ \ (\text{Euler totient function})
+    \end{align*}
+    \textit{Proof:} follows directly from Units Fact \#2.
+\end{corollary}
+Recall in $\Z$, $n|m$ and $m|n \ \implies n=\underset{\substack{\uparrow \\ \Z^*=\{1,-1\}}}{\pm} m$
+\setcounter{dummy_lemma}{1}
+\begin{lemma}
+    Let $R$ integral domain, $a,b$ both non-zero in $R$. \\
+    \noindent If $a|b$ and $b|a$ then $a=ub$ where $u\in R^*$ \\
+    \noindent \textit{Proof:} 
+\end{lemma}
 \steezybreak \textit{This material onward is incomplete, more to come in the very near future!}
