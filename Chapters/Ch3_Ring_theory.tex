@@ -1832,7 +1832,80 @@ $\Z$ is a principal ideal domain (PID) since each of the ideals in $\Z$ take the
 \textbf{Application in $\R[x]$:} \\
 If $GCD(f(x),f'(x))$ is constant, then $f(x)$ has no multiple roots. \\ \steezybreak
 \textit{Proof:} (by contradiction)
+Suppose $r$ is at least a double root of $f(x)$, then
+\begin{align}
+    f(x)&= (x-r)(x-r)g(x) \nonumber \\
+    &= (x-r)^2 g(x) \nonumber
+\end{align}
+So $x-r|f(x)$
+\begin{align}
+    f'(x)&=2(x-r)g(x)+(x-r)^2 g'(x) \nonumber \\
+    &= (x-r)[2g(x)+(x-r)g'(x)] \nonumber
+\end{align}
+So $x-r|f'(x)$ \\
+$ \therefore \ x-r| GCD(f(x),f'(x)), $ \\
+$GCD(f(x),f'(x))\text{ is constant by hypothesis, say it's }s\in \R$
+\begin{align}
+    \underset{\substack{\uparrow \\ \deg=0}}{s}&= \underbrace{(x-r)\cdot P(x)}_{\substack{\in \R[x] \\ \deg(x-r)+\deg(P(x))}} \ \ \ \ (P(x)\neq 0, \text{ otherwise } s=0) \nonumber
+\end{align}
+So $0= 1+ \underbrace{\deg(P(x))}_{\geq 0} \geq 1 \ \ \ \ \Rightarrow \Leftarrow$ \\
+$\therefore$ there is no double root or larger for $f(x). \ \ \ \blacksquare$
 
-    
 \end{example}
+
+After having seen several results, that were originally introduced for integers, generalized to arbitrary commutative rings, one might start to wonder about other properties that $\Z$ has and whether they too can be generalized.
+For example, we know that element in $\Z$ have unique prime factorizations, for example
+\begin{align}
+    20&= 2^2\cdot 5 \nonumber
+\end{align}
+can we generalize the notion of ``prime''? We will get to this but it will take a little work, to start we presen this definition
+\begin{definition}[Unit (of a Commutative Ring)]
+    Let $R$ be a commutative ring. $a\in R$ is a \textit{unit} if $\underset{\substack{\uparrow \ \ \ \ \ \  \ \\ mult. inv.}}{a^{-1}\in R}$ \\ \steezybreak
+    $R^*$ denotes the set of units in $R$.
+\end{definition}
+
+\begin{proposition}[Units Fact \#1]
+    $R^*$ is a group under $\cdot$ in $R$. \\
+
+    \noindent \textit{Proof:} \\
+    \indent $1\in R^*$  ($1=1^{-1}$) shows that $R^* \neq \emptyset$, in this group $1$ acts as $e$ (identity) under $\cdot$
+    \begin{itemize}
+        \item \textbf{Closure:} $r,s \in R \ \implies \ \exists \ r^{-1},s^{-1} \in R$, 
+        \begin{align}
+            (rs)(s^{-1}r^{-1})&= rer^{-1}=e \in R^* \nonumber
+        \end{align}
+        so $(rs)$ also has an inverse in $R$ (namely $s^{-1}r^{-1}$) and so $R^*$ is closed under $\cdot$
+        \item \textbf{Associativity:} Inherited from $R$.
+        \item \textbf{Identity:} $1\in R$
+        \item \textbf{Inverses:} $r\in R^* \ \implies \ r^{-1} \in R \text{ and } (r^{-1})^{-1}=r\in R$ therefore $r^{-1}\in R^*. \ \ \ \ \blacksquare$
+    \end{itemize}
+\end{proposition}
+
+\begin{example}[The units in the integers]
+    $\Z^{*}= \{-1,1\}$ \\ \steezybreak
+    
+    \begin{tabular}{|c|c|c|}
+        *&1&-1 \\ \hline
+        1&1&-1 \\ \hline
+        -1&-1&1 
+    \end{tabular}
+\end{example}
+\begin{example} [The units of a field]
+    Given $F$ field, $F^*=F-\{0\}$
+\end{example}
+
+\begin{example}[The units of polynomials over a field]
+    $F$ field. $F[x]^* = \{\text{ constant polynomials }\} = F-\{0\}=F^*$ \\ \steezybreak
+    \noindent Note if $f$ has inverse $g$, then $\underset{\substack{\ \\ \nwarrow \ \ \ \ \ \ \ \nearrow \\ non-zero}}{f(x)\cdot g(x)}=1$ \\ 
+    \noindent and we get $\deg(fg)=\deg(f)+\deg(g)=0 \ \implies \deg(f)=\deg(g)=0$ \\
+\noindent $\therefore \ f(x)=a_0 \neq 0$ and $g(x)=b_0 \neq 0$ \\
+\end{example}
+
+\begin{proposition}[Units fact \#2]
+    \begin{align}
+        x\in \Z_n^* \iff \ x \text{ and } n \text{ are relatively prime in }\Z_n \nonumber 
+    \end{align}
+    \textit{Proof:}
+\end{proposition}
+
 \steezybreak \textit{This material onward is incomplete, more to come in the very near future!}
