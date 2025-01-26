@@ -132,7 +132,7 @@ Next we must show that different classes are disjoint. Take any two classes $cl(
 \end{align}
 so $a\in cl(b)$. By transitivity, any other element related to $a$ is in $cl(b)$ so $cl(a)\subset cl(b)$. In a similar manner we can show $cl(b)\subset cl(a) \ \implies cl(a)=cl(b)$ meaning $A_i=A_j$. So equivalence classes are either disjoint or they are identical (i.e. if they share even a single element $a$, they are necessarily the exact same classes/subsets). This completes the proof of the first fact (1) in Thm 1.1.1 \steezybreak \\
 
-\noindent\textit{Proof of (2):} Assume $A$ is paritioned by subsets $S_1,S_2,...,S_n$. Define the relation $\sim$ on $A: \forall x,y \in A, x\sim y \iff x$ and $y$ are in the same $S_i$. Then $\sim$ is an equivalence relation on $A$ (prove this as an exercise) and $\forall a \in A, cl(a)=$The $S_i$ in which $a$ sits.
+\noindent\textit{Proof of (2):} Assume $A$ is partitioned by subsets $S_1,S_2,...,S_n$. Define the relation $\sim$ on $A: \forall x,y \in A, x\sim y \iff x$ and $y$ are in the same $S_i$. Then $\sim$ is an equivalence relation on $A$ (prove this as an exercise) and $\forall a \in A, cl(a)=$The $S_i$ in which $a$ sits.
 $\blacksquare$
 \end{theorem}
 
@@ -307,7 +307,7 @@ $\sigma :S \rightarrow T$.
 \textbf{$\Leftarrow$:} \\Assume that $\mu$ exists with the stated properties; show that this forces $\sigma$ to be a bijection. We will begin by showing $\sigma$ is injective through a contradiction \steezybreak\\
 \textit{$\sigma$ Inj:} Suppose $\sigma$ is not injective $\implies \exists \ s_1,s_2\in S \ni s_1\neq s_2$ and $\sigma(s_1)=\sigma(s_2)$. But we know $\mu \circ \sigma = I_s$ which means $\mu\circ \sigma (s_1) = \mu\circ \sigma(s_2) = s_1=s_2$ $\Rightarrow\Leftarrow$ $s_1$ and $s_2$ were assumed non-equal!! So $\sigma$ must be injective.\steezybreak\\
 Now, we will show that $\sigma$ is also surjective if such a $\mu$ exists.\steezybreak\\
-\textit{$\sigma$ Surj:} Take arbitrary $t\in T$. $t= I_t(t)= (\sigma\circ\mu)(t)=\sigma(\mu(t))$ and $\mu(t)\in S$ so $\mu(t)$ serves as a preimage for $t$ under $\sigma$. Therfore $\sigma$ is surjective. \\ 
+\textit{$\sigma$ Surj:} Take arbitrary $t\in T$. $t= I_t(t)= (\sigma\circ\mu)(t)=\sigma(\mu(t))$ and $\mu(t)\in S$ so $\mu(t)$ serves as a preimage for $t$ under $\sigma$. Therefore $\sigma$ is surjective. \\ 
 
 \noindent Now to show the other implication (i.e. show LHS of Lemma 1.2.3 $\implies$ RHS) \\
 \textbf{$\Rightarrow$:} \\ We assume $\sigma$ is a bijection, now we have to:
@@ -345,7 +345,7 @@ Take $t\in T$, $(\sigma\circ \mu)(t)= \sigma(\mu(t))=\sigma(s)=t=I_T(t)$. $\ther
 % \textbf{Proof:} we will begin with showing the $\Leftarrow$ direction.\\
 % \textbf{$\Leftarrow$:} Assume that $\mu$ exists with the stated properties; show that this forces $\sigma$ to be a bijection. We will begin by showing $\sigma$ is injective through a contradiction \steezybreak\\
 % \textit{$\sigma$ Inj:} Suppose $\sigma$ is not injective $\implies \exists s_1,s_2\in S \ni s_1\neq s_2$ and $\sigma(s_1)=\sigma(s_2)$. But we know $\mu \circ \sigma = I_s$ which means $\mu\circ \sigma (s_1) = \mu\circ \sigma(s_2) = s_1=s_2$ $\Rightarrow\Leftarrow$ $s_1$ and $s_2$ were assumed non-equal!! So $\sigma$ must be injective. Now we will show that $\sigma$ is also surjective if such a $\mu$ exists.\steezybreak\\
-% \textit{$\sigma$ Surj:} Take arbitrary $t\in T$. $t= I_t(t)= (\sigma\circ\mu)(t)=\sigma(\mu(t))$ and $\mu(t)\in S$ so $\mu(t)$ serves as a preimage for $t$ under $\sigma$. Therfore $\sigma$ is surjective. \steezybreak\\
+% \textit{$\sigma$ Surj:} Take arbitrary $t\in T$. $t= I_t(t)= (\sigma\circ\mu)(t)=\sigma(\mu(t))$ and $\mu(t)\in S$ so $\mu(t)$ serves as a preimage for $t$ under $\sigma$. Therefore $\sigma$ is surjective. \steezybreak\\
 
 % \noindent Now to show the other implication (LHS of Lemma 1.2.3 $\implies$ RHS) \steezybreak\\
 % \textbf{$\Rightarrow$:}Now we assume $\sigma$ is a bijection, now we have to:
@@ -796,7 +796,7 @@ Congruence mod $n$ is an equivalence relation on the integers.\steezybreak\\
 %         a\equiv b\mod n \iff n|(a-b) \nonumber\\
 %         b\equiv c\mod n \iff n|(b-c) \nonumber
 %     \end{align}
-%     Using these togethern with observation \# 4 we see $\implies$ $n|(a-b)+(b-c)=a-c$\\
+%     Using these together with observation \# 4 we see $\implies$ $n|(a-b)+(b-c)=a-c$\\
 %     $\therefore a\equiv c \mod n \ \ \blacksquare$
 % \end{enumerate}
 \begin{example}
@@ -836,7 +836,7 @@ so $cl(248)=cl(2)$ under $\equiv\mod 6$.\steezybreak\\
 %     cl(1)&=\{1+6k|k\in \Z \}= 1+6\Z= \{...,-17,-11,-5,1,7,13,...\} \nonumber \\
 %     cl(2)&=\{2+6k|k\in \Z \}= 2+6\Z= \{...,-16,-10,-4,2,8,14,...\} \nonumber \\
 % \end{align}
-% Continuing in this way it is clear that the equivalence realtion $\equiv \mod 6$ partitions $\Z$ into 6 equivalence classes. Also note that any member of an equivalence class can be used to name that class, e.g. under this relation $cl(-17)=cl(7)=cl(1)$, another example: 
+% Continuing in this way it is clear that the equivalence relation $\equiv \mod 6$ partitions $\Z$ into 6 equivalence classes. Also note that any member of an equivalence class can be used to name that class, e.g. under this relation $cl(-17)=cl(7)=cl(1)$, another example: 
 % \begin{align}
 %     cl(248) \implies
 % \stackunder{%
