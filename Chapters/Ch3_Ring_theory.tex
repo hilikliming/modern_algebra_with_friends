@@ -1943,6 +1943,345 @@ Recall in $\Z$, $n|m$ and $m|n \ \implies n=\underset{\substack{\uparrow \\ \Z^*
 \begin{lemma}
     Let $R$ integral domain, $a,b$ both non-zero in $R$. \\
     \noindent If $a|b$ and $b|a$ then $a=ub$ where $u\in R^*$ \\
-    \noindent \textit{Proof:} 
+    \noindent \textit{Proof:} \\
+    \noindent $b|a \ \implies \exists \ u \in R \ni \ a=ub$ (must show $\exists u^{-1} \in R$).
+    \noindent $a|b \ \implies \exists \ x \in R \ni \ b=xa$
+    \begin{align*}
+        a&= ub =uxa=(ux)a
+    \end{align*}
+    Now, $R$ integral domain $\implies$ we can cancel non-zero $a$ \\
+    \noindent $\implies 1=u\underset{\substack{\uparrow \\ u^{-1}}}{x} \ \implies u \in R^*$. $\ \blacksquare$
+\end{lemma}
+
+\begin{definition}[Associates]
+    $R$ commutative ring. $a,b\in R$ are \textit{associates} if one is a unit times the other:
+    \begin{align*}
+        \underbrace{a=ub}_{u^{-1}a=b} \text{ for some } u\in R^*
+    \end{align*}
+\end{definition}
+
+\begin{example}
+    $R=\Z$, $R^*=\{1,-1\}$
+    \begin{align*}
+        \forall \ n \in \Z, \text{ associates of }n \text{ are }n,-n.
+    \end{align*}
+\end{example}
+
+\begin{example}
+    $R=\Z_8$, 
+    \begin{align*}
+        \Z_8^* &= \{\text{positive integers }<8 \text{ and relatively prime to }8\} \\
+        &=\underbrace{\{1,3,5,7\}}_{\substack{ \text{group in }\Z_8 \\ \text{ under }\cdot \mod 8}}
+    \end{align*}
+    For example the associates of $2$ are $\{2,6\}$
+    \begin{align*}
+        2\cdot 1 &= 2 \\
+        2\cdot 3 &= 6 \\
+        2\cdot 5 &= 2 \\
+        2\cdot 7 &= 6 
+    \end{align*}
+\end{example}
+\begin{tcolorbox}
+    \textbf{Aside about Euclidean Rings:} \\ \steezybreak
+    $R$ Euclidean $\implies$ $R$ PID \\
+    $R$ Euclidean $\implies$ $\exists \ d: R-\{0\}\rightarrow \N \ni d(a)\leq d(ab) \ \forall \ a,b\in R-\{0\}$ \\
+    $R$ Euclidean with non-zero $U$ (ideal), $U$ has the form $\underset{\substack{\ \ \  \uparrow \\ \text{generator }\neq 0}}{Rx}$ and $d(x)\leq \underset{\substack{\uparrow \\ \neq 0}}{d(rx)}$\\
+    So generator has smallest possible size among non-zero elements in $U$. \\
+    Also, in the proof of Theorem 3.7.1 we showed any non-zero element of smallest size is capable of generating $U$.
+\end{tcolorbox}
+
+\begin{lemma}
+    Let $R$ Euclidean, $a,b$ non-zero in $R$. \\
+    \noindent If $b\not\in R^*$, then $d(a) \underset{\substack{\uparrow \\ \text{strict}}}{<}d(ab)$ \\ \steezybreak
+    
+    \noindent \textit{Proof:} Assume $b\not\in R^*$ \\
+    $R$ Euclidean $\implies \ d(a)\leq d(ab)$ \\
+    Now assume $d(a)=d(ab)$ (we will try to arrive at a contradiction) \\
+    Use $a$ to generate ideal $U=Ra$, by the aside above, $a$ must have smallest size possible among non-zero elements of $U$ \\
+    $ab\in U$ by absorption ($a\in U$, $b\in R$), now since $d(a)=d(ab)$ that means $ab$ is also capable of generating $U$, so $U=R(ab)$, then $\exists \ r\in R \ni a=r(ab)=(rb)a$. \\
+    $R$ Euclidean $\implies$ $R$ integral domain $\implies$ we can cancel non-zero $a$ \\
+    $1=rb$ $\implies \ b\in R^* \ \ \Rightarrow \Leftarrow$ \\
+    $\therefore \ d(a)\neq d(ab)$ \\
+    $\therefore \ d(a)<d(ab). \ \ \blacksquare$ 
+\end{lemma}
+\setcounter{dummy_lemma}{2}
+\begin{corollary}
+    All units have the same size, namely $d(1)$, and $d(\text{unit})<d(\text{non-unit})$ \\ \steezybreak
+
+    \textit{Proof: }
+    Take $u\in R^*$, $\exists \ u^{-1}$ (non-zero) \\
+    \begin{align*}
+        d(u)&\leq d(uu^{-1})=d(1)\\
+        d(1)&\leq d(1\cdot u) = d(u)
+    \end{align*}
+    
+    $\implies \ d(u)=d(1)$ \\ \steezybreak
+
+    Take $x\in R \ni x\not \in R^*$
+    \begin{align*}
+        d(u)&=d(1) \underset{L \ 3.7.3}{<}d(1\cdot x) = d(x). \ \ \ \blacksquare
+    \end{align*}
+\end{corollary}
+
+\begin{definition}[Prime]
+    \label{def:prime}
+    $R$ Euclidean ring, $\pi \in R, \pi \neq 0$. \\ \steezybreak
+
+    $\pi$ is \textit{prime} if whenever $\pi=ab$ for $ab\in R$, 
+    \begin{align*}
+        \text{Either } &a\in R^* \text{ and } b \not\in R^*, \\
+        \text{or } &a\not\in R^* \text{ and } b\in R^*
+    \end{align*}
+    In other words, $\pi$ is prime if the only way it factors is as a unit times a non-unit
+\end{definition}
+
+\begin{tcolorbox}
+    \textbf{Observation:} Consider $x$ both \textit{prime} and \textit{unit}. 
+    \begin{align*}
+        \underset{\substack{\uparrow \\ \text{prime}}}{x}&= \underset{\substack{\uparrow \\ \text{unit}}}{1}\cdot \underset{\substack{\uparrow \\ \text{non-unit}}}{x} \ \ \ \Rightarrow \Leftarrow \\
+        \implies &\{\text{primes}\}\cap \{\text{units}\} = \emptyset
+    \end{align*}
+    \begin{center}
+        \includegraphics[width=0.5\textwidth]{Figures/UnitsAndPrimesAreDistinct.png}
+    \end{center}
+\end{tcolorbox}
+\newpage 
+\section*{Things to know for Exam III}
+\subsection*{Rings}
+You should know the basic properties of rings, as well as the different types of rings we discussed and the properties that make them distinct from others:
+
+You should be familiar with:
+\begin{itemize}
+    \item \textit{Integral Domains} 
+    \item \textit{Fields}
+    \item \textit{Division Rings}
+    \item \textit{Euclidean Rings} (these have a size function)
+\end{itemize}
+You should also be familiar with:
+\begin{itemize}
+    \item\textit{Subrings}
+    \item \textit{Ideals} ($U_1\cap U_2, \ U_1+U_2, \ Rx$)
+    \item \textit{Center}
+    \item \textit{Annihilator of an Ideal}
+    \item \textit{Centralizer of an Element}
+    \item \textit{Direct Product of Rings}
+\end{itemize}
+As well as
+\begin{itemize}
+    \item \textit{Zero divisors}
+    \item \textit{Idempotent} TODO: Refer to the exam where this was introduced...
+    \item \textit{Ring homomorphisms}
+    \item \textit{Kernels}
+\end{itemize}
+\subsection*{The ring of Integers $\Z$}
+Should be familiar with 
+\begin{itemize}
+    \item Ideals in $\Z$ ($n\Z$s)
+    \item $n\Z\cap m\Z$
+    \item $n\Z+m\Z$
+    \item $n\Z \text{ maximal }\iff n \text{ is prime.}$
+\end{itemize}
+\subsection*{Division in Various Rings}
+You should be familair with division in:
+\begin{itemize}
+    \item $\H$
+    \item $\C$
+    \item $\Z[i]$
+    \item $\R$
+    \item $\Z_p$
+    \item $\Q$
+    \item $F[x]$
+    \item $\Z$
+\end{itemize}
+\subsection*{Theorems}
+You should be familiar with the following theorems and major results
+\begin{itemize}
+    \item Structure Theorem for Finite Abelian Groups
+    \item First Isomorphism Theorem for Rings
+    \item $R/U \text{ field } \iff \ U \text{ maximal}$
+    \item Any integral domain $D$ (e.g. $\Z$) can be extended to a field $F$ (e.g. $\Q$) (Know proof construction)
+\end{itemize}
+\newpage 
+
+Recall from definition \ref{def:prime} that non-zero $\pi \ \text{ prime }\iff \ \pi \text{ factors only as }(\text{unit})(\text{non-unit})$\\
+$\implies \{\text{prime}\}\cap R^*=\emptyset$\\ \steezybreak
+
+Furthermore, Lemma 3.7.3 tells us that given $a,b\in R-\{0\}$, $b\not\in R^* \ \implies \ d(a)<d(ab)$
+\section*{Factorization in $R$ Euclidean}
+\begin{lemma*}[Factorization Lemma \#1]
+    \index{Factorization Lemma \#1}
+    Given $a,b\in R-\{0\}$, $R$ Euclidean
+    \begin{align*}
+        b\not\in R^* \implies Rab \varsubsetneq Ra
+    \end{align*}
+    \textit{Proof:} \\ \steezybreak
+    Take $r\in R$, then $rab = \underbrace{(rb)}_{\in R}a \in Ra$, so $Rab\subseteq Ra$. \\
+
+    \noindent Now assume $Rab=Ra$ (try for a contradiction) \\
+    $a\in Ra$ as $1\cdot a$ so $\exists \ r \in R \ni a=rab$
+    \begin{align*}
+        R \text{ Eucl. } &\implies R \text{ integral domain } \implies \ \text{ cancellation holds } \\
+        &\implies \ 1=rb \ \implies \exists \ b^{-1}\in R \ \implies \ b\in R^* \Rightarrow \Leftarrow \ b\not \in R^* \\
+        &\therefore \ Rab \varsubsetneq Ra. \ \ \ \blacksquare
+    \end{align*}
+\end{lemma*}
+\begin{example}
+    In $\Z$, taking $a=2$ and $b\underset{\substack{\uparrow \\ \text{non-unit}}}{=2}$, $\ Ra=2\Z$, $Rab=4\Z$, $4\Z \varsubsetneq 2\Z$
+\end{example}
+
+\begin{lemma*}[Factorization Lemma \#2]
+    \index{Factorization Lemma \#2}
+    If $U_1 \subseteq U_2 \subseteq \subseteq U_3 \cdots$ are ideals of commutative ring $R$, then 
+    \begin{align*}
+        U &= \bigcup_{i=1}^\infty U_i \text{   is an ideal of }R
+    \end{align*}
+    \textit{Proof:} $U\neq \emptyset$ since $0\in U_1$ so $0\in U$, so Lemma 2.4.1 applies. Take $x,y\in U$, then $x\in U_i$ for some $i$ and $y\in U_j$ for some $j$
+    \begin{align*}
+        \text{Nesting } \implies \ x,y \text{ are both in } U_{\max(i,j)},
+    \end{align*}
+    $U_{\max(i,j)}$ is an ideal so it is closed under $+$
+    \begin{align*}        
+        \therefore \ x+y \in U_{\max(i,j)} \subseteq U.
+    \end{align*}
+    So $U$ has $+$ closure. \\
+    \textbf{Absorption:} Take $r\in R$, $x$ as above
+    \begin{align*}
+        U_i \text{ ideal }& \implies \ rx \in U_i \text{ by absorption in }U_i \\
+        \text{ and }U_i \subseteq U &\implies \ rx \in U 
+    \end{align*}
+    \begin{tcolorbox}
+        Note that additive inverses follow from absorption:
+        \begin{align*}
+            -x &= \underbrace{(-1)}_{\in R}\underbrace{x}_{\in U_i} \in U_i \ \text{ by absorption}. 
+        \end{align*}
+        This is a useful shortcut for showing $+$ inverses.
+    \end{tcolorbox}
+    $\therefore \ U \text{ is and ideal}. \ \ \blacksquare$
+\end{lemma*}
+
+\begin{lemma}[Factorization Theorem]
+$R$ Euclidean $r\in R-\{0\}$ and $r\not\in R^*$, then $r$ is a product of finitely many primes\footnote{This lemma is important enough to consider it a theorem, but we continue with the naming used by Herstein}. \\ \steezybreak
+\begin{center}
+    \includegraphics[width=0.65\textwidth]{Figures/UnitsPrimesComposites.png}
+\end{center}
+\textit{Proof: } \\ \steezybreak
+
+Let $S= \{0\} \cup R^* \cup \{\text{primes}\}\cup \{\text{composites}\}$ (we will show $R-S=\emptyset$)\\ \steezybreak
+
+\noindent Suppose $\exists \ x\in R-S$, $x$ isn't prime so it has a factorization other than $(\text{unit})(\text{non-unit})$ (both units or both non-units)
+If $x=ab, a,b \in R^*$ then since $R^*$ group ($\cdot$ closure) $\implies$ $x\in R^* \ \Rightarrow \Leftarrow \ \because x \not\in S$\\ \steezybreak
+
+\noindent So it must be that $x=ab, a,b \not\in R^*$ (neither $a$ nor $b$ is a unit). \\
+We also note $a,b$ are not $0$ otherwise $x=0$ ($\Rightarrow \Leftarrow \ x\not\in S$). \\ \steezybreak
+
+Consider where the factors lie
+\begin{align*}
+    &\text{If }a\in S, \text{ then }a \not \in R^* \ \text{ and }a\neq 0 \\
+    &\implies \ a \text{ is the product of finitely many primes}
+\end{align*}
+The same argument would apply to $b$. But if $a,b \in S$ and are products of finitely many primes then $x=ab$ is also a product of finitely many primes! $\Rightarrow \Leftarrow \ \because x\not\in S$. \\
+
+So $a\in R-S$ or $b\in R-S$ (or both). Without loss of generality (WLOG) say $a\in R-S$
+\begin{align*}
+    \text{Factorization Lemma \#1} \implies \text{ Since }a\neq 0 \text{ and }b \text{ non-unit}\\
+    R\underbrace{ab}_{x}\varsubsetneq Ra
+\end{align*} 
+\begin{align*}
+    a\in R-S &\implies \ a=cd \text{ where }c\in R-S \ (\text{ so }c\neq 0) \text{ and }d\in R^* \\
+    &\implies Rx \varsubsetneq Ra \varsubsetneq Rc \varsubsetneq \cdots \text{ keep iterating to build ascending chain of ideals} \\
+    &\ \ \ \ \ \ \ \ \ \ U_1 \varsubsetneq U_2 \varsubsetneq U_3 \varsubsetneq \cdots \text{ Rename and call union of this nested chain }U \\
+    \text{Factorization Lemma \#2 }&\implies \ U \text{ is an ideal} \\
+    R \text{ Euclidean }\implies \ R \text{ PID } &\implies \exists \ g\in R \ni U=Rg \ (\text{ single generator })\\
+    g\in U &= \bigcup_{i=1}^\infty U_i \implies \exists \ j \in \Z \ni \ g\in U_j  \\
+    R\underset{\substack{\uparrow \\ \in U_j}}{g} &\subseteq U_j \varsubsetneq U_{j+1} \varsubsetneq U = Rg \\
+    &\Rightarrow \Leftarrow \ Rg \text{ can't be smaller than itself} \\
+    &\therefore R-S=\emptyset \\
+    &\therefore R=S. \ \ \ \blacksquare 
+\end{align*} \footnote{Note, in the fourth to last line, there will always be a $U_{j+1}$ because if there weren't $x$ would admit a finite composite representation $\Rightarrow \Leftarrow$ }
+\end{lemma}
+
+Whats left to do: Questions of uniqueness (both of GCDs and the Factorization just covered). Also what does a notion of relatively prime look like here?
+
+\begin{theorem*}[GCD Relationship Theorem]
+    $R$ Euclidean, $a,b \in R-\{0\}$, with $GCD(a,b)=d$
+    \begin{align*}
+        d' =GCD(a,b) \iff d \text{ and }d' \text{ are associates in }R
+    \end{align*}
+    \textit{Proof:} \\ \steezybreak
+    $\Rightarrow:$ Assume $d$ and $d'$ are both GCDs of $a$ and $b$, then 
+    \begin{align*}
+        \underset{\substack{\text{common}\\ \text{divisor}}}{d}|\underset{\text{GCD}}{d'} \text{  and  } \underset{\substack{\text{common}\\ \text{divisor}}}{d'}|\underset{\text{GCD}}{d} \overset{L3.7.2}{\implies} \ \exists \ u \in R^* \ni \ d'=ud \ (d'\text{ and }d\text{ are associates.})
+    \end{align*}
+    $\Leftarrow:$ Take any $u\in R^*$ to form arbitrary associate 
+    \begin{align*}
+        ud=d' \ \ \ (\text{ we will show }d' \text{ satisfies the definition of GCD.})
+    \end{align*}
+    \begin{align*}
+        \text{Hypothesis }&\implies d|a \ \implies \exists \ x\in R \ni a= dx \\
+        u \in R^* &\implies \exists \ u^{-1}\in R \ (\text{ actually it's in }R^*)\\
+        &\text{So } a=d(uu^{-1}x) = \underbrace{(du)}_{d'}\underbrace{(u^{-1}x)}_{\in R} \implies \ d'|a
+    \end{align*}
+    Similarly $d|b \ \implies \ d'|b$\\
+    Now suppose $c$ is a common divisor of $a,b$. Then $c|\underset{\substack{\uparrow \\ \text{GCD}}}{d}$ so $\exists \ r\in R \ni d=rc$, but then 
+    \begin{align*}
+        d'&=ud=u(rc) = \underbrace{(ur)}_{\in R}c \\
+        &\implies \ c|d' \\
+        &\therefore \ d' \text{ is a GCD of }a \text{ and }b. \ \ \ \blacksquare
+    \end{align*}
+\end{theorem*}
+This theorem basically says that if we have one $GCD$ we've got them all by using $R^*$
+\begin{align*}
+    \{\text{GCDs of }a,\ b\} &= \{u\cdot \underbrace{GCD(a,b)}_{\substack{\uparrow \\ \text{one}\\ \text{we} \\ \text{have}}} \ | \ u \in R^*\}
+\end{align*}
+In a Euclidean ring $R$, GCDs are ``Unique up to associates''. 
+
+\begin{example}
+    In $\Z$ Euclidean, $\Z^*=\{1,-1\}$ 
+    \begin{align*}
+        \{\text{ GCDs of }9, \ 6\}&= \{-3,3\}
+    \end{align*}
+    Theorem guarantees that this is the complete set of GCDs of $9$ and $6$ \\ \steezybreak
+    In simplified presentation of $\Z$ we define GCD as positive to cut it down to one GCD.
+\end{example}
+
+\begin{definition}[Relatively Prime]
+    $R$ Euclidean, $a,b \in R-\{0\}$, $a$ and $b$ are \textit{relatively prime} iff $GCD(a,b)\in R^*$
+\end{definition}
+This well-defined because if one $GCD(a,b)$ is a unit, they all have to be:
+\begin{align*}
+    \{\text{ Complete set of GCDs of }a, \ b\}= \{\underset{\substack{\uparrow \\ \text{unit}}}{u}\cdot \underset{\substack{\uparrow \\ \text{unit}}}{GCD(a,b)} \ | \ u\in R^* \} \subseteq R^* \ \ (\text{ closed under }\cdot \ )
+\end{align*}
+
+\section*{Some Questions}
+\begin{enumerate}
+    \item \textbf{Q1:} What are the primes in $\Q$? 
+    \item \textbf{Q2:} Are $9$ and $6$ relatively prime in $\Q$?
+\end{enumerate}
+\vspace{0.25in}
+\begin{enumerate}
+    \item \textbf{A1:} $\Q$ is a field so $\Q^*=\Q-\{0\}$, and since $\{\text{units}\}\cap \{\text{primes}\} =\emptyset$ $\implies \ \Q$ has no primes. \\
+    Note, $0$ is neither prime nor a unit, but when $F$ is a field, $F^*$ is everything aside from $0$.
+    \item \textbf{A2:} $GCD(9,6)=3$, now is $3$ a unit in $\Q$? Of course! $3,\ \frac{1}{3}=3^{-1}$ \\
+    So $9$ and $6$ are relatively prime in $\Q$ (Actually everything is relatively prime in $\Q$)
+\end{enumerate}
+\vspace{0.2in}
+\noindent Next on the agenda... Unique Factorization, do we get it in Euclidean $R$? We are almost ready to tackle that question but first, two more lemmas that generalize some results we encountered in chapter 1.
+\begin{lemma}
+    $R$ Euclidean, $a,b,c \in R$ $a,b \neq 0$.\\
+If $a | bc$  and $a$ and $b$ are relatively prime, then $a|c$. \\
+
+\noindent \textit{Proof: } $a$ and $b$ relatively prime $\implies \ GCD(a,b)=u \in R^*$ so $\exists \ \lambda, \mu \in R \ni u=\lambda a + \mu b$. Now multiply by $c$
+\begin{align*}
+    uc = \lambda \underset{\substack{\uparrow \\ a|a}}{ac} + \mu \underset{\substack{\uparrow \\ a|bc}}{bc}
+\end{align*}
+\begin{align*}
+    a|a \text{ and }a|bc \implies a | \underbrace{(\lambda c)a+ (\mu)(bc)}_{uc}
+\end{align*}
+So $\exists \ r\in R \ni \ uc=ra$
+\begin{align*}
+    u \text{ unit } & \implies \exists \ u^{-1}\in R \text{ so left mult. by }u^{-1} \\
+    & \ \ \ \ \ \ \ \ \ \ c=u^{-1}ra \\
+    &\implies c= \underbrace{(u^{-1}r)}_{\in R} a \implies a|c.  \ \ \ \blacksquare 
+\end{align*}
 \end{lemma}
 \steezybreak \textit{This material onward is incomplete, more to come in the very near future!}

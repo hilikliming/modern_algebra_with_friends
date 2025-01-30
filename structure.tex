@@ -309,6 +309,9 @@
 %\newtheorem{lemma}[dummy_lemma]{Lemma}
 
 \newtheorem{lemmaT}[dummy_lemma]{Lemma}
+\newtheorem*{lemmaT*}{Lemma}
+\newtheorem*{theoremeT*}{Theorem}
+
 %----------------------------------------------------------------------------------------
 %	DEFINITION OF COLORED BOXES
 %----------------------------------------------------------------------------------------
@@ -386,7 +389,8 @@ innerbottommargin=5pt]{cBox}
 \newenvironment{corollary}{\begin{cBox}\begin{corollaryT}}{\end{corollaryT}\end{cBox}}	
 
 \newenvironment{lemma}{\begin{cBox}\begin{lemmaT}}{\end{lemmaT}\end{cBox}}
-
+\newenvironment{lemma*}{\begin{cBox}\begin{lemmaT*}}{\end{lemmaT*}\end{cBox}}
+\newenvironment{theorem*}{\begin{tBox}\begin{theoremeT*}}{\end{theoremeT*}\end{tBox}}
 %----------------------------------------------------------------------------------------
 %	REMARK ENVIRONMENT
 %----------------------------------------------------------------------------------------
