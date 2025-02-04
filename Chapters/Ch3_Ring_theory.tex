@@ -3,7 +3,7 @@
 % %%%%%%%%%%%%%%%%%%
 
 % This chapter's gonna be dense like the last one.\steezybreak\\
-% We will begin with a discussion of unital and non-unital rings (\textit{rngs} lol) and we will look closely at a non-commutative ring whose elements commute with real numbers (Quaternions). We will discuss integral domains and then divisions rings which will naturally lead to more finite ring examples and then we will quickly introduce fields as commutative division rings. (don't worry we will include a venn diagram to simplify these differences between Groups, Rings, Integral Domains, and Commutative division rings (fields) ). Then we will discuss ring homomorphisms, Ideals, and Quotient Rings. Then we will look at Euclidian and Polynomial rings and we will build up some elementary results of Galois Theory. Then a bunch of Field/Ring thms will be staring us in the face and we will dive deeper with fields in Ch. 4 (setting the stage for a discussion of Modules and Vector Spaces).
+% We will begin with a discussion of unital and non-unital rings (\textit{rngs} lol) and we will look closely at a non-commutative ring whose elements commute with real numbers (Quaternions). We will discuss integral domains and then divisions rings which will naturally lead to more finite ring examples and then we will quickly introduce fields as commutative division rings. (don't worry we will include a venn diagram to simplify these differences between Groups, Rings, Integral Domains, and Commutative division rings (fields) ). Then we will discuss ring homomorphisms, Ideals, and Quotient Rings. Then we will look at Euclidean and Polynomial rings and we will build up some elementary results of Galois Theory. Then a bunch of Field/Ring thms will be staring us in the face and we will dive deeper with fields in Ch. 4 (setting the stage for a discussion of Modules and Vector Spaces).
 
 
 \chapterimage{chapter_head_1.pdf} % Chapter heading image
@@ -1436,7 +1436,7 @@ $F[x]$ is a commutative ring under $+$ and $\cdot$ as defined above. \\
         The constants in $F[x]$ are the non-zero field elements.
     \end{enumerate}
 \end{definition}
-Here's a quick example to clarify the last two parts of the defintion above, in $\R[x]$
+Here's a quick example to clarify the last two parts of the definition above, in $\R[x]$
 \begin{align}
     f(x)&=5 \ \ \ \leftarrow \text{ has degree }0 \nonumber \\
     g(x)&=0 \ \ \ \leftarrow \text{ is without degree}. \nonumber
@@ -1445,7 +1445,7 @@ Here's a quick example to clarify the last two parts of the defintion above, in 
 % Artificially bump section number ahead!
 \setcounter{section}{8}
 \begin{tcolorbox}
-    We are briefly going to jump ahead to some section 3.9 material from Hersteins book, and then we will return to 3.7 material, I hope this isn't too confusing...
+    We are briefly going to jump ahead to some section 3.9 material from Herstein's book, and then we will return to 3.7 material, I hope this isn't too confusing...
 \end{tcolorbox}
 \section{Rational Functions in $X$ over $F$ and Euclidean Rings}
 \begin{lemma}
@@ -2069,7 +2069,7 @@ You should also be familiar with:
 As well as
 \begin{itemize}
     \item \textit{Zero divisors}
-    \item \textit{Idempotent} TODO: Refer to the exam where this was introduced...
+    \item \textit{Idempotent} (HW \#11)
     \item \textit{Ring homomorphisms}
     \item \textit{Kernels}
 \end{itemize}
@@ -2082,7 +2082,7 @@ Should be familiar with
     \item $n\Z \text{ maximal }\iff n \text{ is prime.}$
 \end{itemize}
 \subsection*{Division in Various Rings}
-You should be familair with division in:
+You should be familiar with division in:
 \begin{itemize}
     \item $\H$
     \item $\C$
@@ -2131,7 +2131,7 @@ Furthermore, Lemma 3.7.3 tells us that given $a,b\in R-\{0\}$, $b\not\in R^* \ \
 
 \begin{lemma*}[Factorization Lemma \#2]
     \index{Factorization Lemma \#2}
-    If $U_1 \subseteq U_2 \subseteq \subseteq U_3 \cdots$ are ideals of commutative ring $R$, then 
+    If $U_1 \subseteq U_2 \subseteq U_3 \cdots$ are ideals of commutative ring $R$, then 
     \begin{align*}
         U &= \bigcup_{i=1}^\infty U_i \text{   is an ideal of }R
     \end{align*}
@@ -2504,6 +2504,74 @@ Spotty results (i.e. less general)
 \end{lemma*}
 To find the roots of $p(x) \in \Z[x]$ look among the $\frac{a}{b}$'s where $a|c_0$ and $b|(\text{leading coefficient})$
 \begin{example}
+    Let $p(x)=3x^6+90x^5+\frac{161}{3}x^4-28x^3+21x-7\in \Q[x]$
+    \begin{align*}
+        3p(x)=9x^6+270x^5+161x^4-84x^3+63x-21
+    \end{align*}
+    Now note that $p(a)=0 \iff 3p(a)=0$ (i.e. they have the same roots)
+    \begin{align*}
+            &\Rightarrow: \text{ obviously }\\
+            &\Leftarrow: \text{ integral domain }\therefore \ 3\neq 0 \implies p(a)=0
+    \end{align*}
+    Now lets look at the candidates for $\frac{a}{b}$
+    \begin{align*}
+        a|21 \implies a&= (\pm)1, \ 3, \ 7, \ 21 \\
+        b|9 \implies b &= (\pm)1, \ 3, \ 9 \\
+        \text{ So } \frac{a}{b} &= (\pm) \frac{1}{1}, \ \frac{1}{3}, \ \frac{1}{9}, \ \frac{3}{1}, \ \cancel{\frac{3}{3}}, \ \cancel{\frac{3}{9}}, \ \frac{7}{1}, \ \frac{7}{3}, \ \frac{7}{9}, \ \frac{21}{1}, \ \cancel{\frac{21}{3}}, \ \cancel{\frac{21}{9}} \ (\text{keep lowest terms versions})
+    \end{align*}
+    Let's start plugging them in and see if we can find a root/factor.
+    \begin{align*}
+        p(1)&= 79+ \frac{161}{3} \neq 0 \\
+        p(-1)&= -87 + \frac{161}{3} \neq 0 \\
+        p\left(\frac{1}{3}\right) &= 0 \ \implies \ \left(x- \frac{1}{3}\right) \text{ is a factor of }p(x)
+    \end{align*}
+
+    \begin{align*}
+        (x-\frac{1}{3}) \ \ &\stackon[1pt]{\showdiv{ \ \ p(x) \ \ \ \ }}{ \ \ q(x) \ \ \ \ } \\
+        \implies p(x)&=\left(x-\frac{1}{3}\right)q(x) \\
+        q(x)&=(3x^5+91x^4+84x^3+21) \ \ \ \ \text{ integer coefficients so check Eisenstein criteria...}
+    \end{align*}
+    Attempting Eisentein with $p=3$ or $7$.\\
+    $3$ divides leading coeff so not $3$... \\
+    $7$ however, $7|91$, $7|84$, $7|21$, but $7 \not | \ 3$ and $7^2 \not | \ 21$. \\
+    So $q(x)$ is an irreducible polynomial in $\Q[x]$ \\
+    $\text{ Eisenstein }\implies \text{ the quintic is irreducible in }\Q[x]$.
+\end{example}
+\begin{example}
+    Factor $x^2+1$ into irreducibles in $\Z_5[x]$ if possible. \\ \steezybreak
+
+    In $\Z_5$, check for roots: $\cancel{0}, \ \cancel{1}, \underset{\substack{\uparrow \ \  \uparrow \\ root}}{\ 2, \ 3,} \ \cancel{4}$. \\
+    So the roots are $\underset{\substack{\ \ \ \ \ \  \uparrow \\ -2 \mod 5}}{(x+3)}$ and $\underset{\substack{\ \ \ \ \ \  \uparrow \\ -3 \mod 5}}{(x+2)}$
+    \begin{align*}
+        \therefore \ \ x^2+1 = (x+2)(x+3) = \underset{\substack{\ \ \ \ \ \ \ \ \  \uparrow \ \ \ \ \ \ \uparrow \\ \ \ \ \ \ \ \ \ \  0 \ \ \ \ \ \ 1 }}{x^2 + 5x + 6}
+    \end{align*}
+    $\Z_5$ is Euclidean so factorization is unique up to associates... (it is a field so $\Z_5^*$ is everyone but $0$) \\ \steezybreak
+    To illustrate, consider 
+    \begin{align*}
+        x^2+1 = (3x+4)(2x+4) = 3(x+3)\cdot 2(x+2)
+    \end{align*}
+    \begin{align*}
+        \begin{rcases}
+            3x+4 &= 3(x+3) \ \ \ \\
+            & \ \ \ \ \updownarrow \text{ units} \\
+            2x+4 &= 2(x+2) \ \ \ 
+        \end{rcases}
+        \text{ associates to }(x+3) \text{ and }(x+2) \text{ respectively.}
+    \end{align*}
+    As in $\Z$, we can simplify by agreeing on a standard form:
+    \begin{align*}
+        (\text{ unit })(\text{ product of }\underset{\substack{\uparrow \\ \text{leading} \\ \text{coeff. 1}}}{monic} \text{ irreducibles })
+    \end{align*}
+    \begin{align*}
+        x^2+1 = (3x+2)(2x+4)&= 3\cdot 2 (x+3)(x+2) \\
+        &= 1\cdot (x+3)(x+2) \\
+        &=(x+3)(x+2)
+    \end{align*}
+    This is the standard ``unique factorization''.
+\end{example}
+\newpage 
+\begin{example}
+    Factor $f(x)=2x^3+2x^2+x+1$ as a unit times a product of monic irreducibles in $\Z_3[x]$ if possible. \\ \steezybreak
     
 \end{example}
 \steezybreak \textit{This material onward is incomplete, more to come in the very near future!}
