@@ -1518,7 +1518,7 @@ Here's a quick example to clarify the last two parts of the defintion above, in 
     
 \end{corollary}
 \newpage 
-\begin{definition}[\textit{Rational functions in $X$ over $F$}]
+\begin{definition}[Rational functions in $X$ over $F$]
     The Field of fractions of the integral domain $F[x]$ guaranteed by Theorem 3.6.1 is known as the \textit{The Rational functions in $X$ over $F$}
     \begin{align}
         \left\{\frac{p(x)}{q(x)} \ | \ p(x), q(x) \in F[x], \ q(x) \neq 0_F \right\} \nonumber
@@ -2203,6 +2203,7 @@ So $a\in R-S$ or $b\in R-S$ (or both). Without loss of generality (WLOG) say $a\
 Whats left to do: Questions of uniqueness (both of GCDs and the Factorization just covered). Also what does a notion of relatively prime look like here?
 
 \begin{theorem*}[GCD Relationship Theorem]
+    \index{GCD Relationship Theorem}
     $R$ Euclidean, $a,b \in R-\{0\}$, with $GCD(a,b)=d$
     \begin{align*}
         d' =GCD(a,b) \iff d \text{ and }d' \text{ are associates in }R
@@ -2284,4 +2285,225 @@ So $\exists \ r\in R \ni \ uc=ra$
     &\implies c= \underbrace{(u^{-1}r)}_{\in R} a \implies a|c.  \ \ \ \blacksquare 
 \end{align*}
 \end{lemma}
+
+\begin{lemma}
+    $R$ Euclidean with $a,b, \pi \in R, \ \pi \text{ prime}$.
+    \begin{align*}
+        \text{If }\pi | ab, \text{ then }\pi|a \text{ or }\pi|b
+    \end{align*}
+    \textit{Proof: } Trivial case first, if $ab=0$, then 
+    \begin{align*}
+        R \text{ Euclidean }&\implies \ R \text{ int. domain} \\
+        &\implies \text{ either }a=0 \text{ or }b=0 \\
+        0=0\cdot \pi \implies \ \pi | 0 \implies \ \pi | a \text{ or } \pi | b
+    \end{align*}
+    So now we may assume $ab\neq 0$, then neither $a$ nor $b$ is $0$ (Lemma 3.2.1 (i))\\
+    Suppose $d$ is a $GCD(a,\pi)$
+    \begin{align*}
+        d|a &\implies \exists \ r\in R \ni a =rd \\
+        d|\pi &\implies \exists \ s\in R \ni \pi = sd 
+    \end{align*}
+    \begin{align*}
+        \pi \text{ prime }\implies \text{ either } &(i) \ d\in R^* \text{ and }s \text{ is not.} \\
+        \text{ or }&(ii) \ s\in R^* \text{ and }d \text{ is not.} 
+    \end{align*}
+    If $(i)$, then $d\in R^* \ \implies a$ and $\pi$ are relatively prime, combining this with the hypothesis ($\pi|ab$) then by Lemma 3.7.5, $\pi|b$ \\
+
+    \noindent If $(ii)$, then $s\in R^* \ \implies \exists \ s^{-1}\in R $
+    \begin{align*}
+        \pi &= sd \\
+        \implies \pi s^{-1} &= d \\
+        \text{ then }a&= rd =r\pi s^{-1}= \underbrace{(rs^{-1})}_{\in R}\pi \\
+        &\therefore \ \pi | a. \ \ \ \blacksquare
+    \end{align*}
+\end{lemma}
+\setcounter{dummy_lemma}{5}
+\begin{corollary}
+    Given $\pi$ prime in Euclidean ring $R$, then 
+    \begin{align*}
+        \pi | a_1 a_2 \cdots a_n \ \implies \ \pi | a_i \text{ for at least one } 1\leq i \leq n 
+    \end{align*}
+    \textit{Proof: } 
+    \begin{align*}
+        \pi | a_1 (a_2 \cdots a_n) \ &\implies \ \underbrace{\pi |a_1}_{\substack{\text{either we}\\ \text{found it}}} \text{ or  } \underbrace{\pi | a_2 \cdots a_n}_{\text{or not}}\\
+        \text{ If not, }\pi | a_2 (a_3 \cdots a_n) &\implies \pi | a_2 \text{ or }\pi | a_3 \cdots a_n \\
+        &\vdots \\
+        &\implies \pi |a_{n-1}(a_{n-1}a_n) \implies \pi|a_{n-2} \text{ or }\pi | a_{n-1}a_n \\
+        \text{ If not, } \pi |a_{n-1}a_n &\implies \pi | a_{n-1} \text{ or }\pi | a_n. \ \ \ \blacksquare 
+    \end{align*}
+\end{corollary}
+
+In Euclidean $\Z$, primes are $\pm 2, \ \pm 3, \ \pm 5, \ \cdots $ and factorization is unique \textit{up to associates.}
+\begin{align*}
+    52&= \ \ \ \underset{\updownarrow}{2} \ \ \cdot \ \underset{\updownarrow}{2} \ \ \cdot \ \ \underset{\updownarrow}{13} \\
+    &= (-2)\cdot 2 \cdot (-13) \\
+    -13&= (-1)(13) \ \ \ \ \ \ \ \ \ \text{ so }-13 \text{ and }13 \text{ are associates.} \\
+    2&=(1)(2), \ \ \ \ \ \ \ \ \ \ \ \ \ 2 \text{ is associate to itself}
+\end{align*}
+In any factorization of $52$ into primes, two will appear twice, bringing a unit ($1$ or $-1$), $13$ will appear once bringing at unit. \\ \steezybreak
+\subsubsection*{The Unique Part:}
+\begin{itemize}
+    \item The positive primes involved.
+    \item The number of appearances of each.
+\end{itemize}
+Note that since $\Z$ is commutative, the order in which the primes appear is irrelevant. In the simplified presentation of $\Z$ it is customary to add a condition that factoring be done in this way:
+\begin{align*}
+    \underbrace{(\pm 1)}_{\substack{\text{product}\\ \text{of} \\ \text{units}}}(\text{Product of positive primes listed smallest to largest})
+\end{align*}
+\begin{align*}
+    \therefore \ \ \ 52&= (1)(2\cdot 2\cdot 13) = 2^2 \cdot 13 \\
+    -52 &= (-1)(2\cdot 2\cdot 13 )= -(2^2\cdot 13)
+\end{align*}
+\setcounter{dummy}{1}
+\begin{theorem}[Unique Factorization in $R$ Euclidean]
+    Every non-zero element in Euclidean ring $R$ is either a unit or can be written uniquely up to associates as a product of finitely many prime elements of $R$. \\
+
+    \noindent \textit{Proof: } Let $a$ be a non-zero non-unit in $R$,
+    \begin{align*}
+        \text{Factorization Theorem } \implies a=\pi_1 \pi_2 \cdots \pi_n, \ \ \pi_i \text{ prime}.
+    \end{align*}
+    Suppose $a$ also factors as $a= \tilde{\pi}_1 \tilde{\pi}_2 \cdots \tilde{\pi}_m,  \ \ \tilde{\pi}_j \text{ prime}$.
+    \begin{align*}
+        \pi_1| a &\implies \pi_1 | (\tilde{\pi}_1 \cdots \tilde{\pi}_m) \\
+        &\underset{C3.7.6}{\implies} \pi_1 | \tilde{\pi}_j \ \text{ for some } 1\leq j \leq m \\
+        &\implies \tilde{\pi}_j =u_1\pi_1 \text{ for some }u_1 \in R^* \ \ \ \ (\tilde{\pi}_j, \pi_1 \text{ prime, non-units means }u_1\text{ must be a unit})
+    \end{align*}
+    \begin{align*}
+        \therefore \ \ \  \not \mathrel{\pi_1}\cdots \pi_n = \tilde{\pi}_1 \tilde{\pi}_2 \cdots \tilde{\pi}_{j-1} u_1 \not \mathrel{\pi_1} \tilde{\pi}_{j+1}\cdots \tilde{\pi}_m \ \ (\text{ can cancel }\pi_1 \text{ because }R\text{ integral domain.})
+    \end{align*}
+    Repeat process with $\pi_2$, $\pi_3$ etc. \\
+    
+    \noindent If $\pi$'s are exhausted first:
+    \begin{align*}
+        1=\underbrace{(u_1 u_2 \cdots u_n)\tilde{\pi}_{k_1}\cdots}_{\tilde{\pi}_{k_q}^{-1}?}\tilde{\pi}_{k_q} \implies \tilde{\pi}_{k_q} \text{ is a unit }\Rightarrow \Leftarrow
+    \end{align*}
+
+    \noindent If $\tilde{\pi}$'s are exhausted first:
+    \begin{align*}
+        \pi_{k_1}\cdots \pi_{k_q} &= \underbrace{(u_1\cdots u_m)}_{\substack{\text{unit }\\(\cdot \text{ closure in }R^*)}}\cdot 1 \\
+        \implies 1=\underbrace{(u_1 u_2 \cdots u_m)^{-1}\pi_{k_1}\cdots}_{\pi_{k_q}^{-1}}\pi_{k_q}&= 1 \ \implies \pi_{k_q} \text{ is a unit }\Rightarrow\Leftarrow
+    \end{align*}
+    So they must be exhausted at the same time. \\
+
+    \begin{align*}
+        \text{ So, }a= \pi_1 \pi_2 \cdots \underset{n=m}{\pi_n} = (u_1\pi_1)(u_2 \pi_2)\cdots (u_n\pi_n)
+    \end{align*}
+    each factor in the $\sim$ factorization is associate to a factor in the original factorization. $\blacksquare$
+\end{theorem}
+\subsection*{Factorization In Polynomial Rings}
+Given $F$ field, $F[x]$ is Euclidean with degree as ``size'' function.
+\begin{lemma*}[Factors/Roots Connection]
+    \index{Factors/Roots Connection (Polynomials Rings)}
+    Suppose $f(x)\in F[x], \ a\in F$ then $f(a)=0 \iff (x-a)|f(x)$ in $F[x]$, i.e.
+    \begin{center}
+        \begin{align*}
+            \boxed{ a \text{ is a root of }f \iff x-a \text{ is a factor of }f(x)}
+        \end{align*}
+    \end{center}
+    \noindent \textit{Proof:} \\
+    
+    \noindent $\Leftarrow:$ Recall that the ``evaluation map'' is a ring homomorphism:
+    \begin{align*}
+        \phi_a: F[x]\rightarrow F \\
+        \phi_a(f(x))=f(a)
+    \end{align*}
+    Now,
+    \begin{align*}
+        (x-a)|f(x) &\implies \exists \ g(x) \in F[x]\ni f(x)=g(x)(x-a). \\
+        \text{ then }f(a) &= \phi_a(f(x))=\phi_a(g(x)(x-a)) \\
+        &= \phi_a(g(x))\phi_a((x-a)) \\
+        &= \underset{\in F}{g(a)}\underset{0\in F}{(a-a)} = g(a)\cdot 0 = 0. \\
+        &\therefore \ \ a \text{ is a root of }f(x).
+    \end{align*}
+    \noindent $\Rightarrow :$ Assume $f(a)=0$. \\
+    \begin{align*}
+        F[x] \text{ Euclidean } &\implies \exists \ q(x), r(x) \in F[x] \ni f(x)=q(x)(x-a)+r(x) \\
+        \text{ where either } &(i) \ r(x)=0  \\
+        \text{ or } &(ii) \ \deg(r(x))< \underbrace{\deg(x-a)}_{1} 
+    \end{align*}
+    \begin{align*}
+        \text{ if }&(ii) \deg(r(x))=0 \implies \ r(x)=a_0x^0 = a_0 \neq 0 
+    \end{align*}
+    \begin{align*}
+        \text{ then } 0 = f(a) = \phi_a(f(x)) &= \phi_a(q(x))\phi_a(x-1)+\phi_a(r(x)) \\
+        &= q(a)\cdot 0 + r(a) \\
+        &= r(a)
+    \end{align*}
+    However $0=r(a)=a_0x^0 = a_0\cdot 1 = a_0$, but $a_0 \neq 0$! $\Rightarrow \Leftarrow, \ \ \therefore$ it must be $(i)$ \\
+    $\implies \ (x-a)|f(x)$. $\blacksquare$
+\end{lemma*}
+
+\subsubsection*{Primes/Units in $F[x]$}
+We saw earlier that $F[x]^*=F^* = F-\{0\}$, that is 
+\begin{align*}
+    \{\text{units in }F[x]\}= \{\text{deg }0 \text{ polynomials}\}.
+\end{align*}
+In $F[x]$ ``primes'' are known as \textit{Irreducibles}: they factor only as $\underset{\substack{\uparrow \\ coeff.}}{\text{unit}}\cdot\text{non-unit}$
+\begin{align*}
+    2x+4 &= 2(x+2)
+\end{align*}
+For example, $2x+3$ is irreducible in $\R[x]$
+\begin{align*}
+    2x+3 = 2\left(x+\frac{3}{2}\right)
+\end{align*}
+you might ask, couldn't we do something like:
+\begin{align*}
+    \underset{\substack{\\ \\ \ \ \nwarrow \ \ \ \ \ \ \ \ \ \ \ \ \ \ \nearrow \\ \text{ not in }R[x] \\ \sqrt{x}=x^{1/2} \text{ not even a polynomial}}}{(\sqrt{2x}+\sqrt{3})(\sqrt{2x}-\sqrt{3})} ?
+\end{align*}
+What the irreducibles are in $F[x]$ depends on $F$:\\
+In $\C[x]: \\
+f(x) \text{ is irreducible } \iff f(x) \text{ is linear } \ \ (\deg(f) =1)$. (``The Fundamental Theorem of Algebra'' [Gauss]) \\
+Every $f(x) \in \C[x]$ is a product of \ul{linear} factors. That is, $\C$ is a \ul{splitting field}. \\
+For example 
+\begin{align*}
+    f(x)=x^2+1 = (x+i)(x-i)
+\end{align*}
+In $\R[x]$: \\
+$f(x)$ is irreducible
+\begin{align*}
+    x^2+1\in R[x] \\
+    x= \frac{-b \pm \sqrt{\overbrace{b^2-4ac}^{<0}}}{2a}
+\end{align*}
+So in $\R[x]$ $f(x)$ is irreducible $\iff$ $f(x)$ is linear OR quadratic with negative discriminant ($b^2-4ac$)\\
+\noindent In $\Q[x]$: \\
+Spotty results (i.e. less general)
+\newpage
+\begin{tcolorbox}
+    \index{Eisenstein Criteria for Irreducibility in $\Q[x]$}
+    \textbf{Eisentein's Criteria:} \\ \steezybreak 
+    If $f(x)=a_0+a_1x+ \dots + a_n x^n \in \Q[x]$ with $a_0, a_1, \dots, a_n \in \Z$ and if $\exists$ prime $p\in \Z\ni p \not | \ a_n$ but $p|a_i \ \ 0\leq i \leq n-1$ and $p^2 \not | \ a_0$ then $f(x)$ is irreducible in $\Q[x]$.
+\end{tcolorbox}
+\begin{example}
+    Let $f(x)= x^4 + 10x + 5 \in \Q[x]$, note that the coefficients are in $\Z$ \\
+    Now for $p=5$: $p|5$ and $p|10$ but $p\not | \ 1$ and $p^2 \not | \ 5$ \\
+    $\therefore \ $Eisenstein says $f(x)=x^4+10x+5$ is irreducible in $\Q[x]$
+\end{example}
+\begin{lemma*}[Rational Root Test]
+    \index{Rational Root Test}
+    Suppose $f(x) = c_0 + c_1x + \dots + c_n x^n \in \Z[x] \subseteq \Q[x]$. \\
+    If $\frac{a}{b} \in \Q$ is a root of $f(x)$ with $a$ and $b$ relatively prime (so $\frac{a}{b}$ is in ``lowest terms'' ) then $a|c_0$ and $b|c_n$. \\
+
+    \noindent \textit{Proof: }
+    \begin{align*}
+        0 = f\left(\frac{a}{b}\right)= c_0 + c_1\left(\frac{a}{b}\right) + \dots + c_n\left(\frac{a}{b}\right)^n
+    \end{align*}
+    Clear the denominators
+    \begin{align*}
+        \underbrace{0\cdot b^n}_{0} =  c_0b^n + c_1ab^{n-1} + c_2a^2b^{n-2} + \dots + c_na^n
+    \end{align*}
+    Then
+    \begin{align*}
+        c_0b^n = -[c_1ab^{n-1} + \dots + c_na^n]
+    \end{align*}
+    Now, $a|RHS$ so $a|c_0b^n$, but $a$ and $b^n$ are relatively prime $\implies \ a|c_0$ \\
+    Also,
+    \begin{align*}
+        c_na^n = -[c_0b^n + \dots + c_{n-1}a^{n-1}b]
+    \end{align*}
+    so $b| RHS$ which means $b|c_na^n$ and since $b$ and $a^n$ relatively prime $\implies \ \ b|c_n. \ \ \ \blacksquare$
+\end{lemma*}
+To find the roots of $p(x) \in \Z[x]$ look among the $\frac{a}{b}$'s where $a|c_0$ and $b|(\text{leading coefficient})$
+\begin{example}
+    
+\end{example}
 \steezybreak \textit{This material onward is incomplete, more to come in the very near future!}
