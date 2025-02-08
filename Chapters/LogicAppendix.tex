@@ -1110,8 +1110,7 @@ Provide proofs for the following:
 
 We conclude this Logic appendix with these parting thoughts. We mentioned in a footnote at the beginning of this appendix what it means for a system to by \textit{sound} and \textit{complete}. 
 Propositional and first-order logic are well-behaved in the sense that they are both \textit{sound} and \textit{complete}: every syntactically provable statement is semantically true (soundness), 
-and every semantically true statement is provable (completeness). This fundamental result, established by \href{https://en.wikipedia.org/wiki/Kurt_G%C3%B6del}{G\"{o}del} for first-order logic, 
-ensures a close correspondence between formal derivations and truth in models. However, second-order logic does not enjoy this property -- while it is sound, it is not complete. There exist 
+and every semantically true statement is provable (completeness). This fundamental result was first established first-order logic by \href{https://en.wikipedia.org/wiki/Kurt_G%C3%B6del}{G\"{o}del}. However, second-order logic does not enjoy this property -- while it is sound, it is not complete. There exist 
 true statements in second-order logic that cannot be derived in any formal system. Loosely speaking, this happens because second-order quantification is too expressive to be fully captured 
 by any systematic proof method.
 
@@ -1125,81 +1124,9 @@ often the preferred system for formalizing both simple and dependent type theori
 of sequent calculus allow for greater flexibility in encoding logics that deviate from classical assumptions, making it a powerful tool for investigating alternative logical frameworks.
 
 Despite its formal advantages, sequent calculus is often less intuitive for direct reasoning compared to natural deduction, this is why I wanted you to get your feet wet with a system like 
-Natural Deduction to begin with. However, the structured nature of sequent calculus makes it particularly useful for meta-theoretical studies, automated theorem proving, and the analysis 
+natural deduction to begin with. However, the structured nature of sequent calculus makes it particularly useful for meta-theoretical studies, automated theorem proving, and the analysis 
 of logical systems beyond first-order logic. So if you enjoyed this primer and learning about natural deduction, you may take an interest in learning about the sequent calculus, perhaps beginning 
 your studies with a foray into Simple Type Theory!
-
-
-% \section{Second Order Logic}
-% Alright ngl I'm in over my head for this section (and the last one) but I will do my best...  \\
-
-% Basically, First-Order Logic quantifies only variables that range over individuals (elements of a universe of discourse); Second-order logic quantifies over individuals \textit{and} relations! For example the second order sentence $\forall P \forall x (Px\lor \neg Px)$ says that for every formula $P$, and every individual $x$, either $Px$ is true or $\neg Px$ is true. Both first-order and second order logic use the idea of a domain of discourse or ``universe" but sentences in second order logic are allowed to \textit{quantify} over relations (and hence functions)
-
-% \subsection{Syntax Fragments}
-% The syntax of Second-Order logic indicates which expressions are well-formed formulas. In addition to the syntax of First-Order logic, Second-Order logic includes many new \textit{sorts} (sometimes called \textit{types}) of variables These are:
-% \begin{enumerate}
-%     \item A sort of variable that ranges over sets of individuals. If $S$ is a variable of this sort, and $t$ is a first order term, then the expression $t\in S$ (also sometimes written $S(t)$ or $St$) is an atomic formula. Sets of individuals can also be viewed as unary relations on the domain.
-%     \item For each natural number $k$ there is a sort of variables that ranges over all $k$-ary relations on the individuals. If $R$ is such a $k$-ary relation variable, and $t_1, \cdots , t_k$ are first-order terms then the expression $R(t_1,\cdots , t_k)$ is an atomic formula
-%     \item For each natural number $k$ there is a sort of variables that ranges over all functions taking $k$ elements of the domain and returning a single element of the domain. If $f$ is such a $k$-ary function variable, and $t_1, \cdots t_k$ are first order terms, then the expression $f(t_1,\cdots ,t_k)$ is a first order term.\footnote{We could actually forego this last part (the introduction of function variables) because an $n$-ary function variable can be represented by an $(n+1)$-ary relation variable and an appropriate formula for the uniqueness of the ``result" in the $n+1$ argument of the relation. (Recall from chapter 1 how functions with one input and one output can be seen as a special type of heterogeneous relation, this concept can be extended to functions with an arbitrary number of inputs)}
-% \end{enumerate}
-
-% UGHHHHHHHH wuttttttt
-% \noindent In second-order logic, you extend the domain of quantification to include not just individual elements (as in first-order logic) but also sets, functions, relations, and even properties. This extension allows you to quantify over these higher-order entities. \\
-
-% \noindent In second-order logic, relations and functions are treated as first-class citizens within the domain of discourse. This means that the rules of introduction and elimination apply to these entities just as they do to individuals in first-order logic.
-
-
-
-% \subsection{Second-Order Universal Quantifier ($\forall$)}
-% \subsubsection{Introduction ($\forall$-Intro for Second-Order Logic)}
-% To introduce a second-order universal quantifier, you need to show that a formula holds for any arbitrary relation, function, or set.
-% \begin{equation}
-% \begin{nd}
-% \open{}
-% \hypo{} {P(A(\cdots x \cdots))}
-% \have{} {B}
-% \close{}
-% \have{} {\forall P , B} \by{for any $P$ not in $A(\cdots x \cdots)$}{}
-% \end{nd} \nonumber
-% \end{equation}
-
-% \subsubsection{Elimination ($\forall$-Elim for Second-Order Logic)}
-% To eliminate a second-order universal quantifier, you can instantiate it with any specific relation, function, or set.
-% \begin{equation}
-% \begin{nd}
-% \have{} {\forall P , A(P)}
-% \have{} {A(Q)} \by{where $Q$ is a predicate term}{}
-% \end{nd} \nonumber
-% \end{equation}
-
-% \subsection{Second-Order Existential Quantifier ($\exists$)}
-% \subsubsection{Introduction ($\exists$-Intro for Second-Order Logic)}
-% To introduce a second-order existential quantifier, you need to demonstrate that a specific relation, function, or set satisfies a given formula.
-% \begin{equation}
-% \begin{nd}
-% \have{} {A(Q)} \by{where $Q$ is a predicate term}{}
-% \have{} {\exists P , A(P)}
-% \end{nd} \nonumber
-% \end{equation}
-
-% \subsubsection{Elimination ($\exists$-Elim for Second-Order Logic)}
-% To eliminate a second-order existential quantifier, you assume a specific instance and derive a conclusion that does not depend on that specific instance.
-% \begin{equation}
-% \begin{nd}
-% \have{} {\exists P , A(P)}
-% \open{}
-% \hypo{} {A(Q)} \by{$Q$ is arbitrary (not in any previous undischarged assumption)}{}
-% \have{} {B}
-% \close{}
-% \have{} {B}
-% \end{nd} \nonumber
-% \end{equation}
-
-% \subsection{Brief Summary}
-% Second-order logic extends first-order logic by allowing quantification over sets, functions, and relations. The main rules for natural deduction—introduction and elimination—are adapted to handle these new types of quantification. The Fitch-style rules remain structurally similar, but now you have to consider relations, functions, and sets as part of the domain of discourse.
-
-% This allows for a much richer and more expressive logical system, capable of capturing many mathematical concepts that are not expressible in first-order logic. However, while propositional and first-order logics are both sound (only true things can be proven) and complete (all things that are true have a proof), second order logic is only sound.
-
 \newpage
 
 \section{Solutions to Problems from Section \ref{subsec:PropExercises}}

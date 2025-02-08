@@ -2753,15 +2753,17 @@ How much information do you get about a group from its order?
 \begin{center}
     \includegraphics[width=0.68\textwidth]{Figures/prime_power_order_lattice.pdf}
 \end{center}
-% \begin{align}
-%     o(G) = p \overset{\text{Lagrange Cor. \#5}}{\implies} \ G \text{ is cyclic and has no non-trivial subgroups }\implies G \text{ is simple} \implies G \text{ abelian}.
-% \end{align}
+\begin{tcolorbox}
+    \begin{center}
+        $\star\star\star$ \textbf{Read up to this point to Complete Homework 7} $\star\star\star$
+    \end{center}
+\end{tcolorbox}
 
 \section{\texorpdfstring{The Sylow Theorems ( $G$ finite )}{The Sylow Theorems ( G finite )}}
 Lagrange's theorem tells us that the order of a subgroup of a finite group is a divisor of the order of that group. The converse, however, is false. There are very few theorems which assert the existence of subgroups of prescribed order in arbitrary finite groups. The most basic, and widely used, is a classic theorem due to the Norwegian mathematician Peter Sylow (1832-1918).
-In this section we will present this classic result. \steezybreak\\
+In this section we will present this classic result. \\
 
-\noindent Before beginning the proof of Sylow's first theorem, we will take a slight detour to a number-theoretic and combinatorial argument that will be useful in our proof: \steezybreak\\
+\noindent Before beginning the proof of Sylow's first theorem, we will take a slight detour to a number-theoretic and combinatorial argument that will be useful in our proof: \\
 The number of ways of picking a subset of $k$ elements from a set of $n$ elements can easily be shown to be 
 \begin{equation}
     {n \choose k} = {\frac{n!}{k!(n-k)!}} \nonumber
@@ -2774,9 +2776,9 @@ If $n=p^\alpha m$ where $p$ is a prime number, and if $p^r|m$ but $p^{r+1}\not |
     &= \frac{p^\alpha m (p^\alpha m -1)(p^\alpha m - 2)\dots(p^\alpha m - p^\alpha + 1)}{(p^\alpha)!} \nonumber \\
     &= \frac{p^\alpha m (p^\alpha m -1) \dots (p^\alpha m - i) \dots (p^\alpha m - p^\alpha +1)}{p^\alpha (p^\alpha -1) \dots (p^\alpha - i) \dots (p^\alpha - p^\alpha +1)} \nonumber \\
     &= m\cdot \frac{p^\alpha (p^\alpha m -1) \dots (p^\alpha m - i) \dots (p^\alpha m - p^\alpha +1)}{p^\alpha (p^\alpha -1) \dots (p^\alpha - i) \dots (p^\alpha - p^\alpha +1)} \nonumber \\ 
-    &= m\cdot \frac{ (p^\alpha m -1) \dots (p^\alpha m - i) \dots (p^\alpha m - p^\alpha +1)}{ (p^\alpha -1) \dots (p^\alpha - i) \dots (p^\alpha - p^\alpha +1)} 
+    &= m\cdot \frac{ (p^\alpha m -1) \dots (p^\alpha m - i) \dots (p^\alpha m - p^\alpha +1)}{ (p^\alpha -1) \dots (p^\alpha - i) \dots (p^\alpha - p^\alpha +1)}
 \end{align}
-The question is, What power of $p$ divides ${p^\alpha m \choose p^\alpha}$? We will show that $p^r | {p^\alpha m \choose p^\alpha}$ but $p^{r+1} \not | {p^\alpha m \choose p^\alpha}$. \steezybreak\\
+The question is, What power of $p$ divides ${p^\alpha m \choose p^\alpha}$? We will show that $p^r | {p^\alpha m \choose p^\alpha}$ but $p^{r+1} \not | {p^\alpha m \choose p^\alpha}$. \\
 \textit{Proof:} Let $m\geq 1$, and $0<i<p^\alpha$, with $m,i,p,\alpha,\beta \in \Z$. \steezybreak\\ In order to prove our claim, we will begin by showing that the fraction on the right of equation (2.7) cannot provide any factors of $p$ since each numerator term that could provide a factor of $p$ will cancel with a corresponding term in the numerator. That is, we will begin by proving the following claim. \steezybreak\\
 \textit{Claim 1: } $p^\beta | p^\alpha m - i \ \iff p^\beta | p^\alpha - i$  for $0<i<p^\alpha$\steezybreak\\
 \textit{Proof of Claim 1:}\steezybreak\\

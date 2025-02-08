@@ -5,6 +5,9 @@
 *.bbl
 *.bbl-SAVE-ERROR
 
+# stuff related to VS Code
+.vscode/*
+
 # Others (anything starting with main. except for main.tex)
 main.*
 !main.tex
