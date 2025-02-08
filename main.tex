@@ -112,6 +112,19 @@
 % EXPERIMENTAL Cancel package?? shouldn't fuck up anything...riiiiight?
 \usepackage{cancel}
 
+% Make citations come with square brackets, not round...
+% \renewcommand*{\bibopenbracket}{[}
+% \renewcommand*{\bibclosebracket}{]}
+\AtBeginDocument{%
+  \renewcommand*{\bibopenbracket}{[}%
+  \renewcommand*{\bibclosebracket}{]}%
+}
+
+
+
+
+
+
 % Defining some macros for the commonly used blackboard bold letters such as Real numbers, integers, rationals, etc.
 \def\Z{{\mathbb{ Z}}}
 \def\N{{\mathbb{ N}}}
@@ -140,6 +153,7 @@
 
 
 \begin{document}
+
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE

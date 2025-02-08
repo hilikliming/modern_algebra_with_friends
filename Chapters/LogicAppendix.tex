@@ -668,7 +668,7 @@ So what is this saying? It says if there is some $x$ such that $Fx$, then it fol
     \end{nd}\nonumber
 \end{equation}
 
-\subsection{More practice problems}
+\subsection{More practice with quantifier rules}
 \label{subsec:QuantifiersExercises}
 Prove each of the following:
 \begin{enumerate}
@@ -729,6 +729,7 @@ What is this saying? Our premises are 1) for all $x$ in our universe of discours
     \end{nd} \nonumber
 \end{equation}
 \subsection{Practice problems for Identity Rules}
+\label{subsec:IdentityExercises}
 \begin{enumerate}
     \item $Pa \lor Qb, Qb \to b = c, \neg Pa \vdash Qc$
     \item $m = n \lor n = o, An \vdash Am \lor Ao$
@@ -842,19 +843,305 @@ In classical logic, double negation is equivalent to the original statement\foot
 $P$ cannot be false, but it does not constructively prove $P$.
 
 In fact a good exercise is to show that IP and DNE can be derived from one another. We actually already showed one direction of this exercise in section \ref{subsec:DNE}.
-
+\newpage 
 \section{Second Order Logic}
-Alright ngl I'm in over my head for this section (and the last one) but I will do my best...  \\
+Alright, ngl, I'm in over my head for this section (and the last one) but I will do my best and I will be HEAVILY leaning on the work of \href{https://www.rtrueman.com/}{Dr. Rob Trueman}, in particular his extension/primer of his \texttt{forall}$\chi$ which deals with second-order logic \cite{truemanSOL}.
 
-Basically, First-Order Logic quantifies only variables that range over individuals (elements of a universe of discourse); Second-order logic quantifies over individuals \textit{and} relations! For example the second order sentence $\forall P \forall x (Px\lor \neg Px)$ says that for every formula $P$, and every individual $x$, either $Px$ is true or $\neg Px$ is true. Both first-order and second order logic use the idea of a domain of discourse or ``universe" but sentences in second order logic are allowed to \textit{quantify} over relations (and hence functions)
+Dr. Trueman begins his primer by pointing out two perfectly reasonable natural language arguments, one of which can be proven with the tools of First-Order Logic alone, and the second of which requires something more. He begins like this:
 
-\subsection{Syntax Fragments}
-The syntax of Second-Order logic indicates which expressions are well-formed formulas. In addition to the syntax of First-Order logic, Second-Order logic includes many new \textit{sorts} (sometimes called \textit{types}) of variables These are:
+\begin{tcolorbox}
+    \textbf{Excerpt from \cite{truemanSOL}:}\\
+    Here is a good, natural language argument:
+\begin{align*}
+    &\text{Bertrand is a logician}\\
+    &\text{Bertrand is a mathematician}\\
+    &\therefore \text{ Someone is both a logician and a mathematician}\\
+\end{align*}
+Here is another good, natural language argument:
+\begin{align*}
+   &\text{Bertrand is a philosopher}\\
+   &\text{Alfred is a philosopher}\\
+   &\therefore \text{ Bertrand and Alfred have something in common} \\
+\end{align*}
+But while both of these are perfectly good arguments, the formal tools you have been given deal only with the first, not the second. As you all know, you can formalise the first argument like this:
+\begin{align*}
+    Lb, Mb \ \therefore \exists x(Lx\wedge Mx)
+\end{align*}
+What is more, you all also know how to construct a natural deduction proof which vindicates this argument. But how would you go about formalising the second of our two arguments? And once you had 
+formalised it, how would you construct a proof to vindicate it? There is no way for you to answer these questions with the formal tools you currently have access to. What we need to do is introduce 
+a new kind of variable. The variables in first-order logic (FOL) all go where names go. We need some new variables, which go where predicates go. If we had variables like these, we could formalise our second
+argument like this:
+\begin{align*}
+    Pb, Pa \ \therefore \exists X(Xb\wedge Xa)
+\end{align*}
+\end{tcolorbox}
+
+Roughly speaking,  First-Order Logic (FOL) quantifies only variables that range over individuals/objects (elements of a universe of discourse); Second-order logic (SOL) quantifies over individuals \textit{and} predicates/properties! 
+SOL extends FOL by allowing quantification over predicates. What do we mean by this? Well, the quantifiers in FOL let us quantify over objects to say things like this: \(\exists x(Lx\wedge Mx)\), this says
+that there is some object which is both $L$ and $M$. The quantifiers in SOL, on the other hand, let us quantify over properties: \(\exists X(Xb\wedge Xa)\) says that there is
+some property which $b$ and $a$ both have.
+
+In the following subsection I will speed-run Rob Trueman's explanation of the Language of Second-Order Logic, this explanation may help clarify some of the FOL discussions in the previous sections as well. 
+I didn't dive into the minutiae of names, variables, predicates, formulas, etc. because I think that when just starting out, these extra bits of machinery in the formalization can distract from the intuition. But understanding them becomes more important when moving from FOL to SOL.
+
+In the subsection after that I will conclude by introducing the four extra quantifier rules for second-order natural deduction and the concept of comprehension. This should, at the very least, give the reader an idea of how our plain-english arguments and proofs can come to be formalized in terms of SOL. For a more in-depth 
+discussion of this topic, I highly encourage you to read \href{https://www.rtrueman.com/uploads/7/0/3/2/70324387/second-order_logic_primer.pdf}{Dr. Rob Trueman's Second-Order Logic Primer (click here for the pdf).}
+
+\subsection{The Language of Second-Order Logic}
+This subsection is taken from Rob Trueman's Primer on Second Order Logic \cite{truemanSOL}. The vocabulary of Second-Order logic extends that of First-Order logic by adding new variables to go in place of predicates (so we can quantify over predicates as we did over objects in FOL). \\ \steezybreak
+The complete list of all basic symbols in SOL is as follows:
+\begin{table}[h]
+    \centering
+    \begin{tabular}{ll}
+        \textbf{Names} & \( a, b, c, \dots, r \) \\
+        with subscripts, as needed & \( a_1, b_{224}, h_7, m_{32}, \dots \) \\[8pt]
+
+        \textbf{Predicates (with superscripts)} & \( =, A^1, B^1, \dots, R^1, A^2, B^2, \dots \) \\
+        and with subscripts, as needed & \( A_1^1, B_1^2, R_1^5, A_2^8, J_{25}^{10}, \dots \) \\[8pt]
+
+        \textbf{First-order variables} & \( s, t, u, v, w, x, y, z \) \\
+        with subscripts, as needed & \( x_1, y_1, z_1, x_2, \dots \) \\[8pt]
+
+        \textbf{Second-order variables} & \( S, T, U, V, W, X, Y, Z \) \\
+        with subscripts, as needed & \( X_1, Y_1, Z_1, X_2, \dots \) \\[8pt]
+
+        \textbf{Connectives} & \( \neg, \wedge, \vee, \rightarrow, \leftrightarrow \) \\[8pt]
+
+        \textbf{Brackets} & \( (, ) \) \\[8pt]
+
+        \textbf{Quantifiers} & \( \forall, \exists \)
+    \end{tabular}
+\end{table}
+
+The superscripts on predicates indicate their \textit{adicity}: a \textit{monadic} predicate combines with one term, a \textit{dyadic} predicate with two, and in general, an \textit{n-adic} predicate with $n$ terms. For simplicity, we often omit these superscripts.
+
+Second-order variables can also have any adicity, but to keep things straightforward, we assume all second-order variables are monadic, meaning they combine with only one term. This is purely for simplicity—there’s no technical reason to exclude higher-adicity second-order variables.
+
+With this basic vocabulary for SOL established, we now turn to constructing sentences. As with FOL, we follow three steps: first, defining atomic formulas; second, forming complex formulas from simpler ones; and finally, identifying which formulas qualify as sentences.
+
+We begin with the definition of a \textit{term} from FOL: \\
+% \begin{center}
+%     \boxed{\text{A $term$ is any name or first-order variable}}
+% \end{center}
+\begin{definition}[Term (FOL/SOL)]
+    A $term$ is any name or first-order variable
+\end{definition}
+
+Next we can define the \textit{atomic formulas} of SOL. This definition, in SOL, is exactly the same as it is for FOL, but with one extra clause, clause
+3. \footnote{That is, if you want the atomic formulas for FOL, just drop 3.}
+
+\begin{definition}[Atomic Formulas (FOL/SOL)] \hspace{0.1in} \\
+    \begin{enumerate}
+        \item If $R^n$ is $n$-adic predicate and $t_1 t_2 , \dots, t_n$ are terms, then $R^n t_1 t_2 \dots t_n$ is an atomic formula.
+        \item If $t_1$ and $t_2$ are terms, then $t_1=t_2$ is an atomic formula.
+        \item If $X$ is a second order variable and $t$ is a term, then $Xt$ is an atomic formula.
+        \item Nothing else is an atomic formula.
+    \end{enumerate}
+\end{definition}
+Some examples of atomic SOL formulas are: 
+\begin{align*}
+    Fa, \ Fx, \ Xa, \ Yx
+\end{align*}
+\newpage
+Next we present the rules for building more complex formulas from simpler ones (atomic or otherwise). These rules are all the same as those from FOL, aside from rule 8 \footnote{That is, if you want the formula construction rules for FOL, just drop 8.}:
+\begin{definition}[Formula Construction Rules] \hspace{0.1in}\\
+    \begin{enumerate}
+        \item Every atomic formula is a formula.
+        \item If \( A \) is a formula, then \( \neg A \) is a formula.
+        \item If \( A \) and \( B \) are formulas, then \( (A \wedge B) \) is a formula.
+        \item If \( A \) and \( B \) are formulas, then \( (A \vee B) \) is a formula.
+        \item If \( A \) and \( B \) are formulas, then \( (A \rightarrow B) \) is a formula.
+        \item If \( A \) and \( B \) are formulas, then \( (A \leftrightarrow B) \) is a formula.
+        \item If \( A \) is a formula, \( x \) is a first-order variable, \( A \) contains at least one occurrence of \( x \), and \( A \) contains neither \( \forall x \) nor \( \exists x \), then \( \forall x A \) and \( \exists x A \) are both formulas.
+        \item If \( A \) is a formula, \( X \) is a second-order variable, \( A \) contains at least one occurrence of \( X \), and \( A \) contains neither \( \forall X \) nor \( \exists X \), then \( \forall X A \) and \( \exists X A \) are formulas.
+        \item Nothing else is a formula.
+    \end{enumerate}    
+\end{definition}
+Here are some formulas from SOL:
+\begin{align*}
+    Fa, \ Fx, \ Xa, \ \exists x (Fx \rightarrow Gx), \ \exists X (Xa\rightarrow Ga), \ \forall x \exists Y (Yx \leftrightarrow Za)
+\end{align*}
+Finally we define \textit{sentences} of SOL as:
+\begin{definition}[Sentences (FOL/SOL)]
+A \textit{sentence} of SOL is any formula of SOL which contains no free variables (first-order or second-order). \footnote{Similarly, a sentence in FOL is any formula of FOL that contains no free first-order variables.}
+\end{definition}
+The definition of a \textit{free variable} is the same whether we are dealing with first-order or second-order variables: a first-order variable $x$ is free if and only if it is not within the scope of either $\forall x$ or $\exists x$; a second-order variable $X$, is free if and only if it is not within the scope of either $\forall X$ or $\exists X$.
+Here are some sentences of SOL:
+\begin{align*}
+    Fa, \ \exists x Fx, \ \exists X \ Xa , \ \exists x (Fx \rightarrow Gx), \ \exists X (Xa \rightarrow Ga), \ \forall x \exists Y \forall Z (Yx \leftrightarrow Za)
+\end{align*}
+
+\subsection{Natural Deduction for Second-Order Logic}
+This subsection is taken from Rob Trueman's Primer on Second Order Logic \cite{truemanSOL}. As in FOL, we will use the symbol $\vdash$ to denote provability, but to emphasize that we are using tools from SOL (as opposed to FOL) we add a subscripted $2$ like so $\vdash_2$. The natural deduction system for SOL extends that of FOL, including all its rules. We simply add introduction and elimination rules for second-order quantifiers and one final rule that allows us to define properties with complex predicates (known as \textit{Comprehension}).
+
+\subsubsection{Second Order Existential Introduction $\exists_2$I}
+This subsection is taken from Rob Trueman's Primer on Second Order Logic \cite{truemanSOL}.
+\begin{align}
+    &\begin{nd}
+        \have[m]{1} {A(\cdots F \cdots F \cdots)} 
+        \have[~]{} {\exists X A(\cdots X \cdots F \cdots)} \by{$\exists_2$ I}{1}
+    \end{nd} \nonumber \\
+    & X \text{ must not occur in }A(\cdots F \cdots F \cdots) \nonumber
+\end{align}
+Similarly to the existential introduction rule in FOL the notation in this rule can be interpreseted as: $F$ is a one-place predicate; $X$
+is a second-order variable; $A(\cdots F\cdots F\cdots)$ is a formula containing one or more occurrence of $F$; and $A(\cdots X\cdots F\cdots)$ is a formula obtained by replacing \textit{some or
+all} of those occurrences of $F$ with occurrences of $X$.
+
+\subsubsection{Second Order Existential Elimination $\exists_2$E}
+This subsection is taken from Rob Trueman's Primer on Second Order Logic \cite{truemanSOL}. Here is the elimination rule for the second-order existential quantifier:
+\begin{align}
+    &\begin{nd}
+        \have[m]{1} {\exists X A(\cdots X \cdots X \cdots)} 
+        \open{}
+        \hypo[i]{2} {A(\cdots F \cdots F \cdots)} 
+        \have[~]{}{\vdots}
+        \have[j]{3} {B} 
+        \close{}
+        \have[~]{} {B} \by{$\exists_2$E}{1,2-3}
+    \end{nd} \nonumber \\
+    & F \text{ must not occur in any assumption undischarged before line $i$} \nonumber \\
+    & F \text{ must not occur in }\exists X A(\cdots X \cdots X \cdots ) \nonumber \\
+    & F \text{ must not occur in } B \nonumber
+\end{align}
+Similar to the convention in FOL the notation $A(\cdots F\cdots F\cdots)$ is the result of substituting $F$ for
+\textit{all} of the occurrences of $X$ in $A(\cdots X\cdots X\cdots)$
+\subsubsection{Second Order Universal Introduction $\forall_2$I}
+This subsection is taken from Rob Trueman's Primer on Second Order Logic \cite{truemanSOL}. Here is the introduction rule for the second-order universal quantifier:
+\begin{align}
+    &\begin{nd}
+        \have[m]{1} {A(\cdots F \cdots F \cdots)} 
+        \have[~]{} {\forall X A(\cdots X \cdots X \cdots)} \by{$\forall_2$I}{1} 
+    \end{nd}\nonumber \\
+    &F \text{ must not occur in any undischarged assumption} \nonumber \\
+    &F \text{ must not occur in }\forall X A(\cdots X \cdots X \cdots) \nonumber \\
+    &X \text{ must not occur in }A(\cdots F \cdots F \cdots) \nonumber
+\end{align} 
+\subsubsection{Second Order Universal Elimination $\forall_2$E}
+This subsection is taken from Rob Trueman's Primer on Second Order Logic \cite{truemanSOL}.  Here is the elimination rule for the second-order universal quantifier:
+
+\begin{equation}
+    \begin{nd}
+        \have[m]{1} {\forall \ X \ A(\cdots X \cdots X \cdots)}
+        \have[~]{} {A(\cdots F \cdots F \cdots)} \by{$\forall_2$E}{1}
+    \end{nd}\nonumber
+\end{equation}
+
+\subsection{ Practice Problems for Second-Order Quantifier Rules}
+\label{subsec:SOLQuantifierExercises}
+As before, here are some exercises to practice using the second-order intro and elim rules in proofs.  \\ \steezybreak
+
+\noindent Prove each of the following:  
+
 \begin{enumerate}
-    \item A sort of variable that ranges over sets of individuals. If $S$ is a variable of this sort, and $t$ is a first order term, then the expression $t\in S$ (also sometimes written $S(t)$ or $St$) is an atomic formula. Sets of individuals can also be viewed as unary relations on the domain.
-    \item For each natural number $k$ there is a sort of variables that ranges over all $k$-ary relations on the individuals. If $R$ is such a $k$-ary relation variable, and $t_1, \cdots , t_k$ are first-order terms then the expression $R(t_1,\cdots , t_k)$ is an atomic formula
-    \item For each natural number $k$ there is a sort of variables that ranges over all functions taking $k$ elements of the domain and returning a single element of the domain. If $f$ is such a $k$-ary function variable, and $t_1, \cdots t_k$ are first order terms, then the expression $f(t_1,\cdots ,t_k)$ is a first order term.\footnote{We could actually forego this last part (the introduction of function variables) because an $n$-ary function variable can be represented by an $(n+1)$-ary relation variable and an appropriate formula for the uniqueness of the ``result" in the $n+1$ argument of the relation. (Recall from chapter 1 how functions with one input and one output can be seen as a special type of heterogeneous relation, this concept can be extended to functions with an arbitrary number of inputs)}
+    \item \( P a, P b \vdash_2 \exists X (X a \wedge X b) \)
+    \item \( F a, \neg F b \vdash_2 \neg \forall Y (Y a \leftrightarrow Y b) \)
+    \item \( \exists X (X a \wedge \neg X b) \vdash_2 \neg a = b \)
+    \item \( \exists X \exists y \neg X y \vdash_2 \neg \forall X \forall y X y \)
+    \item \( \neg \exists x \neg x = a \vdash_2 \forall X (X a \rightarrow \forall x X x) \)
+    \item \( \forall X (X a \rightarrow \forall y (\neg y = a \rightarrow \neg X y)), Q a \vdash_2 \exists Z \neg \exists x \exists y (\neg x = y \wedge (Z x \wedge Z y)) \)
 \end{enumerate}
+
+\newpage
+\subsection{Comprehension}
+This subsection is taken from Rob Trueman's Primer on Second Order Logic \cite{truemanSOL}.
+\begin{tcolorbox}
+    \textbf{Excerpt from \cite{truemanSOL}:} Our natural deduction system for SOL already lets us prove lots of things, but it does have its limits. Consider the following argument: 
+    \begin{align*}
+        &\text{Susanne is a pianist or a historian}\\
+        &\text{Mary is a pianist or a historian}\\
+        &\therefore \text{ Susanne and Mary have something in common} 
+    \end{align*}
+This strikes me as a good argument. Even if Susanne isn’t a historian and Mary isn’t a pianist, they still have something in common: they are both pianists or historians! We can symbolise this argument in SOL as follows:
+\begin{align*}
+    Ps \vee Hs, \ Pm \vee Hm \ \therefore \exists X(Xs \wedge Xm)
+\end{align*}
+Unfortunately, however, the rules we have laid out so far will not allow us to provide a proof to vindicate this argument. 
+The trouble is that these rules only ever allow us to replace simple predicates, like $P$ and $H$, with second-order variables, 
+not complex predicates like $Px \vee Hx$. As far as the rules we currently have are concerned, it is only simple predicates which 
+define properties, not complex ones. To get around this problem, we need to add a rule which allows us to define properties 
+with complex predicates. That rule is known as \textit{Comprehension}.
+\end{tcolorbox}
+\begin{align}
+    &\begin{nd}
+        \have[~]{1} {\exists X \forall x (Xx \leftrightarrow A(\cdots x \cdots x \cdots))} \by{Comp}{} 
+    \end{nd}\nonumber \\
+    &X \text{ must not occur in }A(\cdots x \cdots x \cdots) \nonumber 
+\end{align} 
+Comprehension allows us to stop at any point in a proof, and define a new property with the formula $A(\cdots x \cdots x \cdots)$. Here is a proof vindicating the argument discussed above:
+\begin{equation}
+    \begin{nd}
+        \hypo{1} {Ps \lor Hs}
+        \hypo{2} {Pm \lor Hm}
+        \have{3} {\exists X \forall x (Xx \leftrightarrow (Px \lor Hx))} \by{Comp}{}
+        \open{}
+        \hypo{4} {\forall x (Fx \leftrightarrow (Px \lor Hx))}
+        \have{5} {Fs \leftrightarrow (Ps \lor Hs)} \by{$\forall_1$E}{4}
+        \have{6} {(Fs\rightarrow (Ps \lor Hs)) \wedge ((Ps \lor Hs)\rightarrow Fs)} \by{$\leftrightarrow$ E}{5}
+        \have{7} {(Ps \lor Hs)\rightarrow Fs} \ae{6}
+        \have{8} {Fs} \by{$\rightarrow$E}{7,1}
+        \have{9} {Fm \leftrightarrow (Pm \lor Hm)} \by{$\forall_1$E}{4}
+        \have{10}{(Fm\rightarrow (Pm \lor Hm)) \wedge ((Pm \lor Hm)\rightarrow Fm)} \by{$\leftrightarrow$ E}{9}
+        \have{11}{(Pm \lor Hm)\rightarrow Fm} \ae{10}
+        \have{12} {Fm} \by{$\rightarrow$ E}{11,2}
+        \have{13} {Fs \wedge Fm} \ai{8,12}
+        \have{14} {\exists X (Xs \wedge Xm)} \by{$\exists_2$ I}{13}
+        \close{}
+        \have{15} {\exists X (Xs \wedge Xm)} \by{$\exists_2$ E}{3, 4-14}
+    \end{nd}\nonumber
+\end{equation}
+Comprehension is a powerful rule as the formula you plug in for $A(\cdots x\cdots x \cdots)$ can be as complex as you like. It can contain 
+first-order quantifiers, if you want. It can even contain second-order quantifiers! $A$ can be any formula, so long as it contains $x$ but does not contain $X$.
+
+
+\subsection{Practice Problems for Comprehension Rule}
+\label{subsec:SOLCompExercises}
+These exercises are taken from \cite{truemanSOL}. \\ 
+
+Provide proofs for the following:  
+\begin{enumerate}
+    \item \( A a, \neg A b \vdash_2 \exists Y (\neg Y a \wedge Y b) \)
+    \item \( \vdash_2 \exists X \forall x \neg X x \)
+    \item \( \exists Y \forall X \forall z (Y z \leftrightarrow X z) \vdash_2 \bot \)
+    \item \( \vdash_2 \forall Z (\forall Y \forall x (Y x \rightarrow Z x) \rightarrow \forall x Z x) \)
+    \item \( \forall X ((X a \wedge X b) \rightarrow X c), \forall x \forall y (R x y \rightarrow R y x), \exists x R a x \wedge \exists x R b x \vdash_2 \exists y R y c \)
+\end{enumerate}
+
+\section{Soundness, Completeness, and Going Beyond Natural Deduction}
+
+We conclude this Logic appendix with these parting thoughts. We mentioned in a footnote at the beginning of this appendix what it means for a system to by \textit{sound} and \textit{complete}. 
+Propositional and first-order logic are well-behaved in the sense that they are both \textit{sound} and \textit{complete}: every syntactically provable statement is semantically true (soundness), 
+and every semantically true statement is provable (completeness). This fundamental result, established by \href{https://en.wikipedia.org/wiki/Kurt_G%C3%B6del}{G\"{o}del} for first-order logic, 
+ensures a close correspondence between formal derivations and truth in models. However, second-order logic does not enjoy this property -- while it is sound, it is not complete. There exist 
+true statements in second-order logic that cannot be derived in any formal system. Loosely speaking, this happens because second-order quantification is too expressive to be fully captured 
+by any systematic proof method.
+
+While natural deduction is an intuitive and widely used system for formal proofs, it is not the only framework available. Another major proof system is \textit{sequent calculus}, 
+originally developed by \href{https://en.wikipedia.org/wiki/Gerhard_Gentzen}{Gentzen}. Sequent calculus differs from natural deduction in its structure: instead of constructing nested sub-proofs, 
+it operates with sequents—statements of the form \( \Gamma \vdash \Delta \), indicating that from the assumptions in \( \Gamma \), at least one formula in \( \Delta \) follows. The inference 
+rules of sequent calculus are designed to provide a symmetric treatment of assumptions and conclusions, making it particularly useful in proof theory.
+
+Sequent calculus also plays a key role in studying non-classical logics, such as modal, linear, and substructural logics, as well as in the foundations of type theory. In particular, it is 
+often the preferred system for formalizing both simple and dependent type theories due to its close relationship with category theory and the \href{https://en.wikipedia.org/wiki/Curry%E2%80%93Howard_correspondence}{Curry-Howard correspondence.} The structural rules 
+of sequent calculus allow for greater flexibility in encoding logics that deviate from classical assumptions, making it a powerful tool for investigating alternative logical frameworks.
+
+Despite its formal advantages, sequent calculus is often less intuitive for direct reasoning compared to natural deduction, this is why I wanted you to get your feet wet with a system like 
+Natural Deduction to begin with. However, the structured nature of sequent calculus makes it particularly useful for meta-theoretical studies, automated theorem proving, and the analysis 
+of logical systems beyond first-order logic. So if you enjoyed this primer and learning about natural deduction, you may take an interest in learning about the sequent calculus, perhaps beginning 
+your studies with a foray into Simple Type Theory!
+
+
+% \section{Second Order Logic}
+% Alright ngl I'm in over my head for this section (and the last one) but I will do my best...  \\
+
+% Basically, First-Order Logic quantifies only variables that range over individuals (elements of a universe of discourse); Second-order logic quantifies over individuals \textit{and} relations! For example the second order sentence $\forall P \forall x (Px\lor \neg Px)$ says that for every formula $P$, and every individual $x$, either $Px$ is true or $\neg Px$ is true. Both first-order and second order logic use the idea of a domain of discourse or ``universe" but sentences in second order logic are allowed to \textit{quantify} over relations (and hence functions)
+
+% \subsection{Syntax Fragments}
+% The syntax of Second-Order logic indicates which expressions are well-formed formulas. In addition to the syntax of First-Order logic, Second-Order logic includes many new \textit{sorts} (sometimes called \textit{types}) of variables These are:
+% \begin{enumerate}
+%     \item A sort of variable that ranges over sets of individuals. If $S$ is a variable of this sort, and $t$ is a first order term, then the expression $t\in S$ (also sometimes written $S(t)$ or $St$) is an atomic formula. Sets of individuals can also be viewed as unary relations on the domain.
+%     \item For each natural number $k$ there is a sort of variables that ranges over all $k$-ary relations on the individuals. If $R$ is such a $k$-ary relation variable, and $t_1, \cdots , t_k$ are first-order terms then the expression $R(t_1,\cdots , t_k)$ is an atomic formula
+%     \item For each natural number $k$ there is a sort of variables that ranges over all functions taking $k$ elements of the domain and returning a single element of the domain. If $f$ is such a $k$-ary function variable, and $t_1, \cdots t_k$ are first order terms, then the expression $f(t_1,\cdots ,t_k)$ is a first order term.\footnote{We could actually forego this last part (the introduction of function variables) because an $n$-ary function variable can be represented by an $(n+1)$-ary relation variable and an appropriate formula for the uniqueness of the ``result" in the $n+1$ argument of the relation. (Recall from chapter 1 how functions with one input and one output can be seen as a special type of heterogeneous relation, this concept can be extended to functions with an arbitrary number of inputs)}
+% \end{enumerate}
 
 % UGHHHHHHHH wuttttttt
 % \noindent In second-order logic, you extend the domain of quantification to include not just individual elements (as in first-order logic) but also sets, functions, relations, and even properties. This extension allows you to quantify over these higher-order entities. \\
@@ -913,7 +1200,7 @@ The syntax of Second-Order logic indicates which expressions are well-formed for
 
 % This allows for a much richer and more expressive logical system, capable of capturing many mathematical concepts that are not expressible in first-order logic. However, while propositional and first-order logics are both sound (only true things can be proven) and complete (all things that are true have a proof), second order logic is only sound.
 
-
+\newpage
 
 \section{Solutions to Problems from Section \ref{subsec:PropExercises}}
 \begin{enumerate}
@@ -1396,4 +1683,12 @@ $\dashv$ :
 \end{enumerate}
 
 \vspace{0.1in}
+
+\section{Solutions to Problems from Section \ref{subsec:QuantifiersExercises}}
+
+\section{Solutions to Problems from Section \ref{subsec:IdentityExercises}}
+
+\section{Solutions to Problems from Section \ref{subsec:SOLQuantifierExercises}}
+
+\section{Solutions to Problems from Section \ref{subsec:SOLCompExercises}}
 \noindent \textit{to be continued...}
