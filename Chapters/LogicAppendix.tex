@@ -944,7 +944,7 @@ Some examples of atomic SOL formulas are:
 \end{align*}
 \newpage
 Next we present the rules for building more complex formulas from simpler ones (atomic or otherwise). These rules are all the same as those from FOL, aside from rule 8 \footnote{That is, if you want the formula construction rules for FOL, just drop 8.}:
-\begin{definition}[Formula Construction Rules] \hspace{0.1in}\\
+\begin{definition}[Formula Construction Rules (FOL/SOL)] \hspace{0.1in}\\
     \begin{enumerate}
         \item Every atomic formula is a formula.
         \item If \( A \) is a formula, then \( \neg A \) is a formula.
@@ -1108,25 +1108,45 @@ Provide proofs for the following:
 
 \section{Soundness, Completeness, and Going Beyond Natural Deduction}
 
-We conclude this Logic appendix with these parting thoughts. We mentioned in a footnote at the beginning of this appendix what it means for a system to by \textit{sound} and \textit{complete}. 
-Propositional and first-order logic are well-behaved in the sense that they are both \textit{sound} and \textit{complete}: every syntactically provable statement is semantically true (soundness), 
-and every semantically true statement is provable (completeness). This fundamental result was first established first-order logic by \href{https://en.wikipedia.org/wiki/Kurt_G%C3%B6del}{G\"{o}del}. However, second-order logic does not enjoy this property -- while it is sound, it is not complete. There exist 
-true statements in second-order logic that cannot be derived in any formal system. Loosely speaking, this happens because second-order quantification is too expressive to be fully captured 
+We conclude this Logic appendix with these parting thoughts. We mentioned in a footnote at the beginning of this appendix what it means for a system to be \textit{sound} and \textit{complete}.
+Propositional and first-order logic are well-behaved in the sense that they are both \textit{sound} and \textit{complete}: every syntactically provable statement is semantically true (soundness),
+and every semantically true statement is provable (completeness). This fundamental result was first established for first-order logic by \href{https://en.wikipedia.org/wiki/Kurt_G%C3%B6del}{G\"{o}del}. However, second-order logic does not enjoy this property—while it is sound, it is not complete. There exist
+true statements in second-order logic that cannot be derived in any formal system. Loosely speaking, this happens because second-order quantification is too expressive to be fully captured
 by any systematic proof method.
 
-While natural deduction is an intuitive and widely used system for formal proofs, it is not the only framework available. Another major proof system is \textit{sequent calculus}, 
-originally developed by \href{https://en.wikipedia.org/wiki/Gerhard_Gentzen}{Gentzen}. Sequent calculus differs from natural deduction in its structure: instead of constructing nested sub-proofs, 
-it operates with sequents—statements of the form \( \Gamma \vdash \Delta \), indicating that from the assumptions in \( \Gamma \), at least one formula in \( \Delta \) follows. The inference 
+While natural deduction is an intuitive and widely used system for formal proofs, it is not the only framework available. Another major proof system is \textit{sequent calculus},
+originally developed by \href{https://en.wikipedia.org/wiki/Gerhard_Gentzen}{Gentzen}. Sequent calculus differs from natural deduction in its structure: instead of constructing nested sub-proofs,
+it operates with sequents—statements of the form  $\Gamma \vdash \Delta$, indicating that from the assumptions in  $\Gamma$, at least one formula in $\Delta$ follows. The inference
 rules of sequent calculus are designed to provide a symmetric treatment of assumptions and conclusions, making it particularly useful in proof theory.
 
-Sequent calculus also plays a key role in studying non-classical logics, such as modal, linear, and substructural logics, as well as in the foundations of type theory. In particular, it is 
-often the preferred system for formalizing both simple and dependent type theories due to its close relationship with category theory and the \href{https://en.wikipedia.org/wiki/Curry%E2%80%93Howard_correspondence}{Curry-Howard correspondence.} The structural rules 
-of sequent calculus allow for greater flexibility in encoding logics that deviate from classical assumptions, making it a powerful tool for investigating alternative logical frameworks.
+Sequent calculus plays a key role in studying non-classical logics, such as modal, linear, and substructural logics. Additionally, its intuitionistic variant, known as \textit{LJ},
+is closely related to the judgmental structure of type theory and is often used in formalizing type systems. In particular, the connection between \textit{LJ} and type theory is made precise
+through the \href{https://en.wikipedia.org/wiki/Curry%E2%80%93Howard_correspondence}{Curry-Howard correspondence}, which relates proofs to programs.
 
-Despite its formal advantages, sequent calculus is often less intuitive for direct reasoning compared to natural deduction, this is why I wanted you to get your feet wet with a system like 
-natural deduction to begin with. However, the structured nature of sequent calculus makes it particularly useful for meta-theoretical studies, automated theorem proving, and the analysis 
-of logical systems beyond first-order logic. So if you enjoyed this primer and learning about natural deduction, you may take an interest in learning about the sequent calculus, perhaps beginning 
+Despite its formal advantages, sequent calculus is often less intuitive for direct reasoning compared to natural deduction. This is why I wanted you to get your feet wet with a system like
+natural deduction to begin with. However, the structured nature of sequent calculus makes it particularly useful for meta-theoretical studies, automated theorem proving, and the analysis
+of logical systems beyond first-order logic. So if you enjoyed this primer and learning about natural deduction, you may take an interest in learning about the sequent calculus, perhaps beginning
 your studies with a foray into Simple Type Theory!
+
+% We conclude this Logic appendix with these parting thoughts. We mentioned in a footnote at the beginning of this appendix what it means for a system to by \textit{sound} and \textit{complete}. 
+% Propositional and first-order logic are well-behaved in the sense that they are both \textit{sound} and \textit{complete}: every syntactically provable statement is semantically true (soundness), 
+% and every semantically true statement is provable (completeness). This fundamental result was first established first-order logic by \href{https://en.wikipedia.org/wiki/Kurt_G%C3%B6del}{G\"{o}del}. However, second-order logic does not enjoy this property -- while it is sound, it is not complete. There exist 
+% true statements in second-order logic that cannot be derived in any formal system. Loosely speaking, this happens because second-order quantification is too expressive to be fully captured 
+% by any systematic proof method.
+
+% While natural deduction is an intuitive and widely used system for formal proofs, it is not the only framework available. Another major proof system is \textit{sequent calculus}, 
+% originally developed by \href{https://en.wikipedia.org/wiki/Gerhard_Gentzen}{Gentzen}. Sequent calculus differs from natural deduction in its structure: instead of constructing nested sub-proofs, 
+% it operates with sequents—statements of the form \( \Gamma \vdash \Delta \), indicating that from the assumptions in \( \Gamma \), at least one formula in \( \Delta \) follows. The inference 
+% rules of sequent calculus are designed to provide a symmetric treatment of assumptions and conclusions, making it particularly useful in proof theory.
+
+% Sequent calculus also plays a key role in studying non-classical logics, such as modal, linear, and substructural logics, as well as in the foundations of type theory. In particular, it is 
+% often the preferred system for formalizing both simple and dependent type theories due to its close relationship with category theory and the \href{https://en.wikipedia.org/wiki/Curry%E2%80%93Howard_correspondence}{Curry-Howard correspondence.} The structural rules 
+% of sequent calculus allow for greater flexibility in encoding logics that deviate from classical assumptions, making it a powerful tool for investigating alternative logical frameworks.
+
+% Despite its formal advantages, sequent calculus is often less intuitive for direct reasoning compared to natural deduction, this is why I wanted you to get your feet wet with a system like 
+% natural deduction to begin with. However, the structured nature of sequent calculus makes it particularly useful for meta-theoretical studies, automated theorem proving, and the analysis 
+% of logical systems beyond first-order logic. So if you enjoyed this primer and learning about natural deduction, you may take an interest in learning about the sequent calculus, perhaps beginning 
+% your studies with a foray into Simple Type Theory!
 \newpage
 
 \section{Solutions to Problems from Section \ref{subsec:PropExercises}}
