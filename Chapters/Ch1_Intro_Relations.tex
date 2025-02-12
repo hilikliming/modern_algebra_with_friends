@@ -14,11 +14,13 @@ A \textit{relation}\footnote{
 } on a set $A$ is a statement in two variables which is either true or false for values in $A$
 \end{definition}
 \begin{example}
+\label{ex:firstExample}
 $A=\{\text{people in this room}\}$\\
 $x\sim y \Leftrightarrow x \text{ was born in the same month as } y$\\
 Read the above expression as ``$x$ is related to $y$ if and only if (iff) $x$ was born in the same month as $y$"
 \end{example}
 \begin{example}
+    \label{ex:secondExample}
 $A=\mathbb{R}$\\
 $x\sim y \Leftrightarrow x \geq y$\\
 so if we think of $\sqrt{2}$ and $0$ we have that $\sqrt{2}\geq 0$ so $\sqrt{2}\sim 0$, \\
@@ -41,7 +43,7 @@ A relation $\sim$ on a set $A$ is an \textit{equivalence relation} if all three 
     \item Relation $\sim$ on $A$ is transitive.
 \end{enumerate}
 \end{definition}
-Note that Example 1 is an equivalence relation, but Example 2 is not because it is not symmetric.
+Note that Example \ref{ex:firstExample} is an equivalence relation, but Example \ref{ex:secondExample} is not because it is not symmetric.
 \newpage
 \begin{example}
 The relation ``equals" (``=") is an equivalence relation on $\mathbb{R}, \mathbb{Q}, \mathbb{Z}$ (i.e. on reals, rationals and integers). In fact, an equivalence relation is a generalization of equality, measuring equality up to some property.
@@ -171,7 +173,7 @@ The \textit{inverse image} of $t$, denoted $\sigma^{-1}(t)$ is the set of all pr
 % \begin{align}
 %     \sigma^{-1}(t)=\{s\in S | \sigma(s)=t \}
 % \end{align}
-e.g. in Figure \ref{fig:simple_mapping_example} we have $\sigma^{-1}(x)=\{r\}$ and $\sigma^{-1}(y)=\{p,s\}$\steezybreak\\
+e.g. in Figure \ref{fig:simple_mapping_example} we have $\sigma^{-1}(x)=\{r\}$ and $\sigma^{-1}(y)=\{p,s\}$\\
 Notice that a mapping is a special kind of relation, an equivalent definition for a mapping is as follows: A mapping from $S$ to $T$ is a subset $R\subset S \times T$ who has the property that $\forall s \in S, \exists \ \text{one and only one } t\in T \ni (s,t)\in R$, meaning that all members of the source set have a "representative" in the subset $R$, and that representative is paired with one and only one image $t\in T$. This view considers functions like lookup tables where the first entry of a given pair $(s,t)$ indicates the source element and the second entry represents the element he gets mapped to in $T$. The mapping in Figure \ref{fig:simple_mapping_example} could be written like so: $R=\{(r,x),(q,v),(s,y),(p,y)\} \subset S\times T$. When using this view, the subset of pairs, $R$, is referred to as the \textit{graph} of the mapping or function. 
 \begin{notation}
 When denoting mappings, Herstein prefers the notation $s\sigma$ rather than $\sigma(s)$ but the notations are related as follows: $\sigma(s) = s\sigma$, another example $\tau(a)=a\tau$, etc. 
@@ -186,7 +188,7 @@ When denoting mappings, Herstein prefers the notation $s\sigma$ rather than $\si
 \label{def:surj_inj_bij}
 A mapping $\sigma: S\rightarrow T$ is \textit{surjective (a.k.a. onto)} if $\forall t\in T \ \exists \ s\in S \ni \sigma(s)=t$. (So $\sigma$ is surjective if every $t\in T$ has a pre-image)\steezybreak\\
 A mapping $\sigma: S\rightarrow T$ is \textit{injective (a.k.a. one-to-one)} if $s_1\neq s_2 \implies \sigma(s_1)\neq \sigma(s_2)$. \\(So $\sigma$ is injective if distinct elements in $S$ \textit{stay} distinct when $\sigma$ is applied)\steezybreak\\
-A mapping $\sigma: S\rightarrow T$ is \textit{bijective (a.k.a. a one-to-one correspondence)} if $\sigma$ is both injective \textit{and} surjective.
+A mapping $\sigma: S\rightarrow T$ is \textit{bijective (a.k.a. a one-to-one correspondence)} if $\sigma$ is both injective \textit{and} surjective.\footnote{An injective mapping is often called an \textit{injection}\index{Injection}. A surjective mapping is often called a \textit{surjection}\index{Surjection}. A bijective mapping is often called a \textit{bijection}\index{Bijection}.}
 \end{definition}
 % \noindent\textbf{Defn:} A mapping $\sigma: S\rightarrow T$ is \textit{surjective (a.k.a. onto)} if $\forall t\in T \ \exists \ s\in S \ni \sigma(s)=t$. (So $\sigma$ is surjective if every $t\in T$ has a pre-image)\steezybreak\\
 % A mapping $\sigma: S\rightarrow T$ is \textit{injective (a.k.a. one-to-one)} if $s_1\neq s_2 \implies \sigma(s_1)\neq \sigma(s_2)$. (So $\sigma$ is injective if distinct elements in $S$ \textit{stay} distinct when $\sigma$ is applied)\steezybreak\\
@@ -336,7 +338,7 @@ Take $t\in T$, $(\sigma\circ \mu)(t)= \sigma(\mu(t))=\sigma(s)=t=I_T(t)$. $\ther
 \end{lemma}\steezybreak
 \begin{tcolorbox}
 \begin{center}
-    $\star\star\star$ \textbf{Read up to this point to Complete Homework 1} $\star\star\star$
+    $\star\star\star$ \textbf{Read up to this point to Complete Homework 1 (Located in \ref{sec:HW1})} $\star\star\star$
 \end{center}
 \end{tcolorbox}
 \steezybreak

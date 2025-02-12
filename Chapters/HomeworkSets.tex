@@ -1,10 +1,13 @@
 % Hello friend, this doc is still in the works but should eventually contain the homework questions for each of the 12 homework sets, beautifully typeset.
 
+% bump chapter num ahead since we re-declare \appendix in main.tex
+\setcounter{chapter}{1}
 \chapter*{Homework Sets}
 \addtocounter{chapter}{1} % Manually increment the chapter counter
 \markboth{\sffamily\normalsize\bfseries Homework Sets}{} % Set the chapter header
 \addcontentsline{toc}{chapter}{\textcolor{ocre}{Homework Sets}}
-\section*{Homework \# 1 }
+
+\section{Homework \# 1 }
 \markright{\sffamily\normalsize Homework \# 1} % Set the section header
 \label{sec:HW1}
 \index{Homework 001@Homework \#1}
@@ -36,7 +39,7 @@
 \newpage
 
 %\thispagestyle{plain}
-\section*{Homework \# 2}
+\section{Homework \# 2}
 \markright{\sffamily\normalsize Homework \# 2} % Manually Set the section header
 \label{sec:HW2}
 \index{Homework 002@Homework \#2}
@@ -58,10 +61,12 @@
 \end{enumerate}
 \newpage
 
-\section*{Homework \# 3}
+\section{Homework \# 3}
 \markright{\sffamily\normalsize Homework \# 3} % manually set the section header
 \label{sec:HW3}
 \index{Homework 003@Homework \#3}
+
+In problem \#6 of this homework you will begin working with your own personal group, you will investigate this group for the remainder of the course. Choose one from the list below this homework set (See next page). \\ \steezybreak
 
 \begin{enumerate}
     \item Assume that $G$ is a group of order $n$. Prove that the number of $e$'s off the main diagonal in the Cayley table for $G$ must be even. \\ \steezybreak
@@ -71,9 +76,9 @@
     \item Define
     \begin{align}
         H&= \{2\times 2 \text{ invertible matrices with entries in }\R\text{ whose columns sum to }1\} \nonumber \\
-        &= \big\{\begin{pmatrix}
+        &= \left \{\begin{pmatrix}
             r&s\\t&u
-        \end{pmatrix}\big | r,s,t,u \in \R, ru-st\neq 0, r+t=1, s+u=1\big\} \nonumber
+        \end{pmatrix}\big | \ r,s,t,u \in \R, ru-st\neq 0, r+t=1, s+u=1 \right \} \nonumber
     \end{align}
     Prove that $H<GL_2(\R)$ \\ \steezybreak
 
@@ -81,11 +86,83 @@
     
     \item Assume that $G$ is a group and suppose that $\forall \ x,y \in G$, $\ \ x^2y^2=(xy)^2$. Prove that $G$ is abelian. \\ \steezybreak
     
-    \item Construct the Cayley table for your personal group, taking care not to use different names for the same element. Keep a minimal$^{(*)}$ list of the relations you discover as you fill in the table. Finally, note the order of your group and whether or not it is abelian. \\ \\ \\ $(*)$ ``minimal" means ``as short as possible," so leave out any relation that can be deduced from the others in your list.
+    \item Construct the Cayley table for your personal group \footnote{Recall the procedure from Example \ref{ex:ConstructingFromGenerators} for constructing a group from generators $a,\ b,\ c,\ldots$.}, taking care not to use different names for the same element. Keep a minimal$^{(*)}$ list of the relations you discover as you fill in the table. Finally, note the order of your group and whether or not it is abelian. \\ \\ \\ $(*)$ ``minimal" means ``as short as possible," so leave out any relation that can be deduced from the others in your list.
+\end{enumerate}
+\newpage
+% Personal Groups go here:
+\subsection{Personal Groups (CHOOOSE ONE)}
+\begin{enumerate}
+    \setlength{\itemsep}{5pt} % Adjusts spacing between items
+    \item[\#1)] \( a = \begin{bmatrix} -1 & -1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & -1 \end{bmatrix}, \quad
+                 b = \begin{bmatrix} 0 & 1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \end{bmatrix} \)
+                 \quad multiply
+    \item[\#2)] \( a = \begin{bmatrix} -1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}, \quad
+                 b = \begin{bmatrix} 1 & 0 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & 1 \end{bmatrix}, \quad
+                 c = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & -1 \end{bmatrix} \)
+                 \quad multiply
+    \item[\#3)] \( a = \begin{bmatrix} 4 & 2 \\ 0 & 1 \end{bmatrix}, \quad
+                 b = \begin{bmatrix} 4 & 3 \\ 0 & 2 \end{bmatrix} \)
+                 \quad multiply mod 5
+    \item[\#4)] \( a = \begin{bmatrix} 2 & 1 \\ 1 & 1 \end{bmatrix}, \quad
+                 b = \begin{bmatrix} 0 & 2 \\ 1 & 0 \end{bmatrix} \)
+                 \quad multiply mod 3
+    \item[\#5)] \( a = \begin{bmatrix} 1 & 0 \\ 0 & 7 \end{bmatrix}, \quad
+                 b = \begin{bmatrix} 4 & 0 \\ 0 & 1 \end{bmatrix} \)
+                 \quad multiply mod 9
+    \item[\#6)] \( a = \begin{bmatrix} 2 & 0 \\ 0 & 3 \end{bmatrix}, \quad
+                 b = \begin{bmatrix} 0 & 1 \\ 4 & 0 \end{bmatrix} \)
+                 \quad multiply mod 5
+    \item[\#7)] \( a = \begin{bmatrix} 0 & 6 \\ 1 & 1 \end{bmatrix}, \quad
+                 b = \begin{bmatrix} 1 & 4 \\ 3 & 6 \end{bmatrix} \)
+                 \quad multiply mod 7
+    \item[\#8)] \( a = \begin{bmatrix} 3 & 0 \\ 0 & 3 \end{bmatrix}, \quad
+                 b = \begin{bmatrix} 3 & 3 \\ 3 & 4 \end{bmatrix} \)
+                 \quad multiply mod 7
+    \item[\#9)] \( a = \begin{bmatrix} 6 & 4 \\ 1 & 2 \end{bmatrix}, \quad
+                 b = \begin{bmatrix} 5 & 3 \\ 3 & 2 \end{bmatrix} \)
+                 \quad multiply mod 7
+    \item[\#10)] \( a = \begin{bmatrix} 3 & 0 \\ 3 & 5 \end{bmatrix}, \quad
+                  b = \begin{bmatrix} 3 & 0 \\ 0 & 3 \end{bmatrix}, \quad
+                  c = \begin{bmatrix} 7 & 0 \\ 7 & 1 \end{bmatrix} \)
+                  \quad multiply mod 8
+    \item[\#11)] \( a = \begin{bmatrix} 2 & 0 \\ 2 & 3 \end{bmatrix}, \quad
+                  b = \begin{bmatrix} 3 & 0 \\ 0 & 3 \end{bmatrix} \)
+                  \quad multiply mod 5
+    \item[\#12)] \( a = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 1 & 0 & 0 \end{bmatrix}, \quad
+                  b = \begin{bmatrix} 0 & 1 & 0 & 0 \\ 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 \end{bmatrix} \)
+                  \quad multiply
+\end{enumerate}
+\vspace{5pt}
+\begin{enumerate}
+    \setlength{\itemsep}{5pt} % Adjusts spacing between items
+    \item[\#13)] \( a = \begin{bmatrix} 2 & 1 \\ 1 & 1 \end{bmatrix}, \quad
+                  b = \begin{bmatrix} 1 & 2 \\ 0 & 2 \end{bmatrix} \)
+                  \quad multiply mod 3
+    \item[\#14)] \( a = \begin{bmatrix} 1 & 2 \\ 0 & 1 \end{bmatrix}, \quad
+                  b = \begin{bmatrix} 1 & 4 \\ 0 & 4 \end{bmatrix} \)
+                  \quad multiply mod 5
+    \item[\#15)] \( a = \begin{bmatrix} 2 & 1 \\ 0 & 2 \end{bmatrix}, \quad
+                  b = \begin{bmatrix} 2 & 2 \\ 0 & 1 \end{bmatrix} \)
+                  \quad multiply mod 3
+    \item[\#16)] \( a = \begin{bmatrix} 4 & 2 \\ 3 & 3 \end{bmatrix}, \quad
+                  b = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \)
+                  \quad multiply mod 5
+    \item[\#17)] \( a = \begin{bmatrix} 1 & 1 \\ 1 & 2 \end{bmatrix}, \quad
+                  b = \begin{bmatrix} 1 & 1 \\ 0 & 2 \end{bmatrix} \)
+                  \quad multiply mod 3
+    \item[\#18)] \( a = \begin{bmatrix} 1 & 0 & 0 \\ 1 & 0 & 1 \\ 1 & 1 & 0 \end{bmatrix}, \quad
+                  b = \begin{bmatrix} 1 & 1 & 0 \\ 1 & 0 & 0 \\ 1 & 0 & 1 \end{bmatrix} \)
+                  \quad multiply mod 2
+    \item[\#19)] \( a = \begin{bmatrix} 4 & 2 \\ 2 & 0 \end{bmatrix}, \quad
+                  b = \begin{bmatrix} 3 & 4 \\ 4 & 0 \end{bmatrix} \)
+                  \quad multiply mod 5
+    \item[\#20)] \( a = \begin{bmatrix} 2 & 1 \\ 0 & 3 \end{bmatrix}, \quad
+                  b = \begin{bmatrix} 4 & 2 \\ 4 & 1 \end{bmatrix} \)
+                  \quad multiply mod 5
 \end{enumerate}
 \newpage
 
-\section*{Homework \# 4}
+\section{Homework \# 4}
 \markright{\sffamily\normalsize Homework \# 4} % manually set the section header
 \label{sec:HW4}
 \index{Homework 004@Homework \#4}
@@ -123,7 +200,7 @@ $N(a)$ is also known as the ``centraliser" of $a$ (esp. British usage).
     \item Use the Euler $\phi$-function to reduce $41^{1581}\mod 21$
 \end{enumerate}
 \newpage
-\section*{Homework \# 5}
+\section{Homework \# 5}
 \markright{\sffamily\normalsize Homework \# 5} % manually set the section header
 \label{sec:HW5}
 \index{Homework 005@Homework \#5}
@@ -161,7 +238,7 @@ $N(a)$ is also known as the ``centraliser" of $a$ (esp. British usage).
 \end{enumerate}
 \newpage
 
-\section*{Homework \# 6}
+\section{Homework \# 6}
 \markright{\sffamily\normalsize Homework \# 6} % manually set the section header
 \label{sec:HW6}
 \index{Homework 006@Homework \#6}
@@ -190,7 +267,7 @@ $N(a)$ is also known as the ``centraliser" of $a$ (esp. British usage).
     
     \item With the definition above in hand,
     \begin{enumerate}
-        \item Prove that \( G \) is abelian \( \iff [x,y] = e \quad \forall x,y \in G \).
+        \item Prove that \( G \) is abelian \( \iff [x,y] = e \quad \forall \ x,y \in G \).
         \item Prove that \( \forall g \in G \), 
         \[
         g[x,y]g^{-1} = [g x g^{-1}, g y g^{-1}].
@@ -206,7 +283,7 @@ $N(a)$ is also known as the ``centraliser" of $a$ (esp. British usage).
         The \textit{commutator subgroup} in \( G \) is the \textit{smallest} \( H < G \) that contains \textbf{all} the commutators in \( G \).
     \end{definition}
     
-    In light of (5), the commutator subgroup is the \textit{smallest normal subgroup that has an abelian quotient group}. \\ \steezybreak
+    In light of problem (5), the commutator subgroup is the \textit{smallest normal subgroup that has an abelian quotient group}. \\ \steezybreak
     
     \noindent \rule{\textwidth}{0.4pt}
     
@@ -215,7 +292,7 @@ $N(a)$ is also known as the ``centraliser" of $a$ (esp. British usage).
     
     So in that sense, the size of \( H \) \textit{"measures"} how nonabelian \( G \) is. The resulting abelian quotient group \( G/H \) is essentially (in terms of structure) the group \( G \) with the nonabelian part \textit{"factored out"}. (\textit{Think surgically removed.}) \\ \steezybreak
     
-    The idea is this: Say you want to study some aspect of group \( G \) and its nonabelian nature is getting in the way. You can "factor out" the problem: take \( G \)'s commutator subgroup \( H \) and form \( G/H \), then study \textit{that} group instead of \( G \). \( G/H \) is as \textit{close as you can get} to \( G \), structure-wise, with the abelian property intact. \\ \steezybreak
+    The idea is this: Say you want to study some aspect of group \( G \) and its nonabelian nature is getting in the way. You can "factor out" the problem: take \( G \)'s commutator subgroup \( H \) and form \( G/H \), then study \textit{that} group instead of \( G \). \( G/H \) is as \textit{close as you can get} to \( G \), structure-wise, with the abelian property intact. \ \ \ \ (Final 2 problems of HW \#6 on next page.)\\ \steezybreak
     \noindent \rule{\textwidth}{0.4pt}
     \newpage
 
@@ -238,7 +315,7 @@ $N(a)$ is also known as the ``centraliser" of $a$ (esp. British usage).
 
 
 
-\section*{Homework \# 7}
+\section{Homework \# 7}
 \markright{\sffamily\normalsize Homework \# 7} % manually set the section header
 \label{sec:HW7}
 \index{Homework 007@Homework \#7}
@@ -300,14 +377,14 @@ We can even say more: in a cyclic group, not only do we get a subgroup for each 
 \end{enumerate}
 \newpage 
 
-\section*{Homework \# 8}
+\section{Homework \# 8}
 \markright{\sffamily\normalsize Homework \# 8} % manually set the section header
 \label{sec:HW8}
 \index{Homework 008@Homework \#8}
 
 \begin{enumerate}
     \item Suppose \( G \) is a group of order \( n \). Cayley’s Theorem says there must be a subgroup of \( S_n \) which is isomorphic to \( G \).  
-    This ``''\textit{subgroup of \( S_n \)}" is known as \( G \)'s \textit{permutation representation}.  
+    This ``\textit{subgroup of \( S_n \)}" is known as \( G \)'s \textit{permutation representation}.  
 
     Find the \textbf{GENERATORS} of the permutation representation for your personal group.  \\ \steezybreak
 
@@ -339,22 +416,22 @@ We can even say more: in a cyclic group, not only do we get a subgroup for each 
 \end{enumerate}
 \newpage 
 
-\section*{Homework \# 9}
+\section{Homework \# 9}
 \markright{\sffamily\normalsize Homework \# 9} % manually set the section header
 \label{sec:HW9}
 \index{Homework 009@Homework \#9}
 
-\section*{Homework \# 10}
+\section{Homework \# 10}
 \markright{\sffamily\normalsize Homework \# 10} % manually set the section header
 \label{sec:HW10}
 \index{Homework 010@Homework \#10}
 
-\section*{Homework \# 11}
+\section{Homework \# 11}
 \markright{\sffamily\normalsize Homework \# 11} % manually set the section header
 \label{sec:HW11}
 \index{Homework 011@Homework \#11}
 
-\section*{Homework \# 12}
+\section{Homework \# 12}
 \markright{\sffamily\normalsize Homework \# 12} % manually set the section header
 \label{sec:HW12}
 \index{Homework 012@Homework \#12}
