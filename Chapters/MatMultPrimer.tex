@@ -1,0 +1,60 @@
+%\chapterimage{chapter_head_1.pdf} % Chapter heading image
+\setcounter{chapter}{1}
+\chapter*{A Brief Primer on Matrix Multiplication}
+\addtocounter{chapter}{1} % Manually increment the chapter counter
+\markboth{\sffamily\normalsize\bfseries A Brief Primer on Matrix Multiplication}{} % Set the chapter header
+\addcontentsline{toc}{chapter}{\textcolor{ocre}{A Brief Primer on Matrix Multiplication}}
+
+\section{Matrix Multiplication}
+An $m\times n$ matrix has $m$ rows and $n$ columns. Matrix multiplication is defined when the number of columns in the first matrix matches the number of rows in the second. Given an \( m \times n \) matrix \( A \) and an \( n \times p \) matrix \( B \), their product \( C = AB \) is an \( m \times p \) matrix with entries:
+\[
+C_{ij} = \sum_{k=1}^{n} A_{ik} B_{kj}.
+\]
+Essentially, the $ij$th entry of the resultant matrix is the dot product of the $i$th column of the left matrix  with the $j$th row of the right matrix.
+\subsection{Examples}
+
+\textbf{1. Two Examples of Multiplication of two \( 2 \times 2 \) matrices:}
+\[
+\text{Let }A = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}, \quad 
+B = \begin{bmatrix} 5 & 6 \\ 7 & 8 \end{bmatrix}
+\]
+\[
+AB = \begin{bmatrix} 1(5) + 2(7) & 1(6) + 2(8) \\ 3(5) + 4(7) & 3(6) + 4(8) \end{bmatrix}
+= \begin{bmatrix} 19 & 22 \\ 43 & 50 \end{bmatrix}.
+\]
+
+\[
+\text{Let }A = \begin{bmatrix} 0 & 1 \\ -1 & 2 \end{bmatrix}, \quad 
+B = \begin{bmatrix} 3 & -1 \\ 2 & 4 \end{bmatrix}
+\]
+\[
+AB = \begin{bmatrix} 0(3) + 1(2) & 0(-1) + 1(4) \\ -1(3) + 2(2) & -1(-1) + 2(4) \end{bmatrix}
+= \begin{bmatrix} 2 & 4 \\ 1 & 9 \end{bmatrix}.
+\]
+
+\newpage 
+\noindent \textbf{2. An Example of Multiplication of two \( 3 \times 3 \) matrices:}
+
+\[
+    \text{Let } A = \begin{bmatrix} 2 & -1 & 3 \\ 1 & 0 & -2 \\ 4 & 5 & 6 \end{bmatrix}, \quad
+B = \begin{bmatrix} 1 & 2 & 3 \\ 0 & -1 & 4 \\ 5 & 6 & -2 \end{bmatrix}
+\]
+\[
+AB = \begin{bmatrix} 
+2(1) + (-1)(0) + 3(5) & 2(2) + (-1)(-1) + 3(6) & 2(3) + (-1)(4) + 3(-2) \\ 
+1(1) + 0(0) + (-2)(5) & 1(2) + 0(-1) + (-2)(6) & 1(3) + 0(4) + (-2)(-2) \\ 
+4(1) + 5(0) + 6(5) & 4(2) + 5(-1) + 6(6) & 4(3) + 5(4) + 6(-2)
+\end{bmatrix}
+\]
+\[
+= \begin{bmatrix} 17 & 23 & -4 \\ -9 & -10 & 7 \\ 34 & 36 & 20 \end{bmatrix}.
+\]
+
+\subsection{The Identity Matrix}
+
+The identity matrix \( I_n \) is the \( n \times n \) matrix with ones on the diagonal and zeros elsewhere, for example $I_3$, the $3\times 3$ identity matrix, looks like:
+\[
+I_3 = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}.
+\]
+For any $m \times n$ matrix \( A \), then \( A I_n = A \) and \( I_m A = A \). If $A$ is square ($n\times n$) we have $AI_n =I_nA = A$.
+
