@@ -5,7 +5,9 @@
 \markboth{\sffamily\normalsize\bfseries A Brief Primer on Matrix Multiplication}{} % Set the chapter header
 \addcontentsline{toc}{chapter}{\textcolor{ocre}{A Brief Primer on Matrix Multiplication}}
 
+\setcounter{section}{0}
 \section{Matrix Multiplication}
+\label{sec:MatrixMult}
 An $m\times n$ matrix has $m$ rows and $n$ columns. Matrix multiplication is defined when the number of columns in the first matrix matches the number of rows in the second. Given an \( m \times n \) matrix \( A \) and an \( n \times p \) matrix \( B \), their product \( C = AB \) is an \( m \times p \) matrix with entries:
 \[
 C_{ij} = \sum_{k=1}^{n} A_{ik} B_{kj}.
@@ -58,3 +60,27 @@ I_3 = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}.
 \]
 For any $m \times n$ matrix \( A \), then \( A I_n = A \) and \( I_m A = A \). If $A$ is square ($n\times n$) we have $AI_n =I_nA = A$.
 
+\subsection{Matrix Multiplication \(\mod n \)}
+
+Matrix multiplication modulo \( n \) follows the same rules as standard matrix multiplication, but each entry in the resulting matrix is reduced modulo \( n \). That is, given matrices \( A \) and \( B \), their product \( C = AB \) satisfies:
+\[
+C_{ij} = \left( \sum_{k} A_{ik} B_{kj} \right) \mod n.
+\]
+
+\noindent \textbf{Example:} Let \( n = 5 \) and consider:
+\[
+A = \begin{bmatrix} 3 & 4 \\ 2 & 1 \end{bmatrix}, \quad
+B = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}.
+\]
+Computing the entries as usual:
+\[
+AB = \begin{bmatrix} 
+(3\cdot1 + 4\cdot3) & (3\cdot2 + 4\cdot4) \\ 
+(2\cdot1 + 1\cdot3) & (2\cdot2 + 1\cdot4) 
+\end{bmatrix} 
+= \begin{bmatrix} 15 & 22 \\ 5 & 8 \end{bmatrix}.
+\]
+Reducing modulo \( 5 \):
+\[
+AB \equiv \begin{bmatrix} 0 & 2 \\ 0 & 3 \end{bmatrix} \mod 5.
+\]
