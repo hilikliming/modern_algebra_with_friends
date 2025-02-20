@@ -421,20 +421,238 @@ We can even say more: in a cyclic group, not only do we get a subgroup for each 
 \label{sec:HW9}
 \index{Homework 009@Homework \#9}
 
+Recall that isomorphism is an \textit{equivalence relation} on the class \( \mathfrak{G} \) of all groups \(( G \sim \overline{G} \iff G \approx \overline{G} )\),  
+so \( \mathfrak{G} \) is partitioned into \textbf{isomorphism classes}.  
+\textit{The Structure Theorem for Finite Abelian Groups} gives a complete list of representatives in ``\textit{standard form}"  
+for the different classes of abelian groups of a particular order. \\ \steezybreak
+
+
+\begin{enumerate}
+    \item What are the representatives for the different isomorphism classes of abelian groups with order 36? \\ \steezybreak
+    
+    \item To which of the classes you found in (1) does \( \mathbb{Z}_4 \times \mathbb{Z}_3 \times \mathbb{Z}_3 \) belong, and why? \\ \steezybreak
+
+    \item Give 10 nonisomorphic abelian groups of order \( 1,620 = 2^2 \cdot 3^4 \cdot 5 \). \\ \steezybreak
+
+    \item In the \textit{noncommutative division ring} \( \H \), calculate \( (rs)^{-1} \)  
+    where \( r = 4i - 2j + 3k \) and \( s = i - j + 2k \). \\ \steezybreak
+\end{enumerate}
+\vspace{0.1in}
+\begin{tcolorbox}
+    For problem 5 we introduce a new definition. We already have a definition for \( Z(\text{group}) \) (i.e. the center of a group, introduced in Exam I).  
+    A ring \( R \) is an \textit{abelian group} under \( + \), so if we think in terms of groups,  
+    we get \( Z(R) = R \), trivial no matter what \( R \) is (which tells us nothing).  So we define \( Z(\text{ring}) \) using \( \cdot \) instead of \( + \):
+\end{tcolorbox}
+
+\begin{definition}[Center of a Ring]   
+    Given ring $R$, the \textit{center} of ring $R$ is defined as:
+    \begin{align*}
+        Z(R) &= \{ r \in R \mid rs = sr \ \forall \ s \in R \} \\
+        &= \text{\{ring elements which commute under } \cdot \text{ with }everything \text{ in } R \}
+    \end{align*}
+\end{definition}
+\begin{enumerate}
+    \setcounter{enumi}{4}
+    \item Given the definition above, Prove that \( Z(\H) = \mathbb{R} \).  \\ \steezybreak
+
+    \textbf{Hint for \( \subseteq \):} A quaternion that commutes with everything in \( \H \) must commute with \( i \).  \\ \steezybreak
+\end{enumerate}
+
+\begin{enumerate}
+    \setcounter{enumi}{5} % Continue numbering from previous list
+
+    \item \textbf{Personal Rings} (Choose one from Next Page) 
+
+    Construct the \textit{Cayley table} and \textit{multiplication table} for your personal ring;  
+    keep a minimal list of \textit{relations}.  \\ \steezybreak
+
+    List the \textit{zero-divisors} in your ring, if you have any.  \\ \steezybreak
+
+    Finally, \textit{where does your ring belong} in the ``ALL RINGS'' diagram done in class? (Figure \ref{fig:ring-classifications}) \\ \steezybreak
+
+
+    \item Make a list of the subgroups in your ring.  
+    Identify which ones are \textit{subrings}, and which ones are \textit{(2-sided) ideals}.
+\end{enumerate}
+\newpage
+\subsection{Personal Rings (CHOOSE ONE)}
+\begin{enumerate}
+    \setlength{\itemsep}{5pt} % Adjusts spacing between items
+    \item[\#1)] \( A = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}, \quad 
+                  B = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix} 
+                  \quad \text{in } M_2(\Z_2) \)
+    
+    \item[\#2)] \( A = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} 
+                  \quad \text{in } M_2(\Z_3) \)
+    
+    \item[\#3)] \( A = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 0 & 1 \end{pmatrix} 
+                  \quad \text{in } M_3(\Z_2) \)
+    
+    \item[\#4)] \( A = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}, \quad 
+                  B = \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix} 
+                  \quad \text{in } M_2(\Z_2) \)
+    
+    \item[\#5)] \( A = \begin{pmatrix} 0 & 2 \\ 1 & 2 \end{pmatrix} 
+                  \quad \text{in } M_2(\Z_3) \)
+    
+    \item[\#6)] \( A = \begin{pmatrix} 0 & 0 & 1 \\ 1 & 0 & 1 \\ 0 & 1 & 0 \end{pmatrix} 
+                  \quad \text{in } M_3(\Z_2) \)
+    
+    \item[\#7)] \( A = \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}, \quad 
+                  B = \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix} 
+                  \quad \text{in } M_2(\Z_2) \)
+    
+    \item[\#8)] \( A = \begin{pmatrix} 0 & 1 \\ 1 & 1 \end{pmatrix} 
+                  \quad \text{in } M_2(\Z_3) \)
+    
+    \item[\#9)] \( A = \begin{pmatrix} 0 & 2 \\ 1 & 1 \end{pmatrix} 
+                  \quad \text{in } M_2(\Z_3) \)
+    
+    \item[\#10)] \( A = \begin{pmatrix} 0 & 2 \\ 2 & 0 \end{pmatrix} 
+                   \quad \text{in } M_2(\Z_4) \)
+    
+    \item[\#11)] \( A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}, \quad 
+                   B = \begin{pmatrix} 0 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0 \end{pmatrix} 
+                   \quad \text{in } M_3(\Z_2) \)
+    \item[\#12)] \( A = \begin{pmatrix} 2 & 2 \\ 2 & 2 \end{pmatrix} 
+                   \quad \text{in } M_2(\Z_4) \)
+    \item[\#13)] \( A = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}, \quad 
+                  B = \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix} 
+                  \quad \text{in } M_2(\Z_2) \)
+    \item[\#14)] \( A = \begin{pmatrix} 0 & 2 \\ 0 & 0 \end{pmatrix} 
+                   \quad \text{in } M_2(\Z_4) \)
+    \item[\#15)] \( A = \begin{pmatrix} 0 & 1 \\ 2 & 0 \end{pmatrix} 
+                  \quad \text{in } M_2(\Z_3) \)
+    \item[\#16)] \( A = \begin{pmatrix} 0 & 2 \\ 1 & 0 \end{pmatrix} 
+                  \quad \text{in } M_2(\Z_3) \)
+\end{enumerate}
+
+\newpage
+
 \section{Homework \# 10}
 \markright{\sffamily\normalsize Homework \# 10} % manually set the section header
 \label{sec:HW10}
 \index{Homework 010@Homework \#10}
 
+\begin{enumerate}
+    \setlength{\itemsep}{10pt} % Adjusts spacing between items
+    \item Denote the multiplicative identities in commutative rings $R$ and $R'$ by $1$ and $1'$, respectively. Assume that $\phi: R \to R'$ is a nontrivial ring homomorphism, and that $\phi(1) \neq 1'$. Prove that $\phi(1)$ is a zero-divisor in $R'$. \\ \steezybreak
+
+\end{enumerate}
+\begin{definition}[Centralizer]
+    In a noncommutative ring $R$, the \emph{centralizer} of an element $x$, denoted $\mathcal{C}(x)$, is defined as the set of elements which commute with $x$ under multiplication in $R$:
+\begin{align*}
+    \mathcal{C}(x) = \{ r \in R \mid rx = xr \}.
+\end{align*}
+\end{definition}
+\begin{enumerate}
+    \setcounter{enumi}{1}
+    
+    \item Given the definition above, Prove that $\mathcal{C}(x)$ is a subring of $R$. \\ \steezybreak
+\end{enumerate}
+
+\begin{definition}[Annihilator]
+    In a ring $R$ with ideal $U$, the \emph{annihilator} of $U$, denoted $\operatorname{Ann}(U)$, is defined as:
+\[
+\operatorname{Ann}(U) = \{ a \in R \mid au = 0 \ \ \forall \ u \in U \}.
+\]
+In words, $\operatorname{Ann}(U)$ is the set of ring elements which left-multiply \textit{every} element in $U$ to $0$. 
+\end{definition}
+
+\begin{enumerate}
+\setcounter{enumi}{2}
+\setlength{\itemsep}{10pt} % Adjusts spacing between items
+    \item Given the definition above, Prove that $\operatorname{Ann}(U)$ is a (two-sided) ideal in $R$.
+
+    \item In your personal ring, for each ideal $U$, find $\operatorname{Ann}(U)$. \\ \steezybreak
+\end{enumerate}
+\begin{definition}[Direct Product of Rings]
+    The \emph{direct product of rings} $R$ and $S$ is defined as the Cartesian product:
+    \begin{align*}
+        R \times S = \{ (r,s) \mid r \in R, \, s \in S \}.
+    \end{align*}
+    By a routine proof, it can be shown that $R \times S$ is a ring under component-wise operations:
+    \begin{align*}
+        (r,s) + (r',s') = (r + r', s + s'), \quad (r,s) (r',s') = (rr', ss').
+    \end{align*}
+\end{definition}
+\begin{enumerate}
+    \setcounter{enumi}{4}
+    \setlength{\itemsep}{10pt} % Adjusts spacing between items
+    \item Show that $R \times S$ is not an integral domain by identifying a pair of zero-divisors in $R \times S$.
+
+    \item We've seen that the ideals in $\Z$ all have the form $n\Z$, where we may assume that $n$ is a nonnegative integer. Since $1\Z = \Z$ and $0\Z = \{0\}$, let's leave out these trivial cases and assume $a$ and $b$ are integers $\geq 2$. We know that $a\Z \cap b\Z$ is an ideal in $\Z$, so there must be some $n \in \Z^{+}$ such that
+    \[
+    a\Z \cap b\Z = n\Z.
+    \]
+    Determine $n$ for each of the following intersections, then make a conjecture describing $n$ in terms of $a$ and $b$.
+    \begin{enumerate}
+        \item $3\Z \cap 6\Z$
+        \item $3\Z \cap 5\Z$
+        \item $12\Z \cap 18\Z$
+        \item Conjecture: $a\Z \cap b\Z = n\Z$ where $n = \, ?$
+    \end{enumerate}
+
+    \item Same problem as (6), but with $+$ instead of $\cap$.
+\end{enumerate}
+
+\newpage 
+
 \section{Homework \# 11}
 \markright{\sffamily\normalsize Homework \# 11} % manually set the section header
 \label{sec:HW11}
 \index{Homework 011@Homework \#11}
+\vspace{0.1in}
+\begin{definition}[Idempotent]
+    An element $a$ in a ring $R$ is \textit{idempotent} if $a$ is its own square:
+    \begin{align*}
+        a \text{ idempotent } \iff a^2=a
+    \end{align*}
+\end{definition}
+\begin{enumerate}
+    \setlength{\itemsep}{10pt} % Adjusts spacing between items
+    \item Prove that if every element in a ring $R$ is idempotent, then $R$ is commutative. 
+    
+    \textbf{Hint:} Let $a, b \in R$ and consider $a + b$.
+
+    \item Every nontrivial ring has at least two idempotents, namely $0$ and $1$. Prove that if $R$ has a third idempotent $x$, with $x \neq 0$, $x \neq 1$, then $R$ must have a fourth idempotent, different from the other three.
+
+    \item $\Z_{195}$ is not a field ($195$ is not prime), so not all elements of $\Z_{195}$ have inverses, but some do. Explain how you know $46^{-1}$ exists in $\Z_{195}$, then use the algorithm discussed in class to find the element in $\Z_{195}$ which is $46^{-1}$.
+
+    \item Prove that the ring $\Z_2 \times \Z_6$ has no quotient field of order $4$.
+
+    \item In $\Z[i]$, find the quotient $q$ and remainder $r$ satisfying
+    \[
+    21 + 15i = q(4 - 2i) + r
+    \]
+    \textul{with $d(r)$ as small as possible}.
+
+    \item In $\Z_7[x]$, express $GCD(f(x), g(x))$ as a $\Z_7[x]$-linear combination of $f(x)$ and $g(x)$, where:
+    \begin{align*}
+        f(x) &= x^4 + 2x^3 + x + 2,\\
+        \text{ and  } g(x) &= x^3 + 6x^2 + 4x + 6.
+    \end{align*}
+\end{enumerate}
+\newpage 
 
 \section{Homework \# 12}
 \markright{\sffamily\normalsize Homework \# 12} % manually set the section header
 \label{sec:HW12}
 \index{Homework 012@Homework \#12}
+Factor these polynomials as a unit times monic irreducibles; if the polynomial is irreducible as given, explain how you know.  \\ \steezybreak
 
-\vspace{0.35cm}
-\textit{If you're feeling generous, feel free to add the \href{https://www.dropbox.com/sh/759pwsjyc3ix0jy/AADBiIq0ZkDsvyEG6fMvSxJta/Abstract\%20Algebra\%20Homework\%20Sets?dl=0&subfolder_nav_tracking=1}{other homework problems} you have worked through so far... I will try to get them all in here eventually!}
+    \textbf{(2 points each – graded ALL or ZIP)} \\ \steezybreak
+    
+    \begin{enumerate}
+        \setlength{\itemsep}{15pt} % Adjusts spacing between items
+        \item $f(x) = 3x^3 + 2x^2 + 1$ in $\Z_5[x]$
+        \item $f(x) = 2x^3 + x^2 + x - 1$ in $\C[x]$, given that $f(x)$ has a root in $\Q$.
+        \item $f(x) = x^4 - 21x^2 + 81x - 6$ in $\Q[x]$
+        \item $f(x) = 4x^3 + 4x^2 + 3x$ in $\Z_5[x]$
+        \item $f(x) = x^4 - 4x^2 - 5$ in $\R[x]$
+        \item $f(x) = x^3 + 6x^2 + 5x + 1$ in $\Z_7[x]$
+        \item $f(x) = 6x^5 - 10x^3 + 15x - 30$ in $\Q[x]$
+    \end{enumerate}
+
+%\vspace{0.35cm}
+%\textit{If you're feeling generous, feel free to add the \href{https://www.dropbox.com/sh/759pwsjyc3ix0jy/AADBiIq0ZkDsvyEG6fMvSxJta/Abstract\%20Algebra\%20Homework\%20Sets?dl=0&subfolder_nav_tracking=1}{other homework problems} you have worked through so far... I will try to get them all in here eventually!}
