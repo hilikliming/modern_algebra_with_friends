@@ -26,45 +26,140 @@ Homework sets, a copy of this text (updated regularly), and homework solutions w
 \noindent Chapter 0 is meant to serve as a reference for symbols and terminology used in the main course material (Chapter 1 onward). On its own, this first Chapter is a doozy and we are going to throw all sorts of new notation at you. \textit{Don't be intimidated}. You do not need to understand or memorize all of this right away; the utility of these new notations will become apparent as you progress further through the text. Treat this chapter as a reference for the main course material that begins in Chapter 1. The authors recommend that readers who are familiar with mathematical induction already read sections 0.7 and 0.8. For readers who have never seen induction before, as to not distract from the more important intuition, we would prefer you skip 0.7 and 0.8 and read 0.8.1 first, then return to those sections after the underlying argument for the principle of induction is understood.
 
 Lastly, when reading this material, read slowly and carefully and try to explain the argument out loud as if another were listening. Don't just read it aloud, really think about what the claim or statement is asserting. There is very little redundancy in mathematical writing so it pays dividends to read slowly, carefully, and to re-read many times until the argument is so clear that you could write it down again in your own words. When I read a new book or article in my field, the first 2-3 reads through I am just letting the new notations, jargon, definitions, and claims wash over me, I want to see the way the author uses these terms first and then I try to understand them more carefully. You can do it, you can piece it together! Just take baby steps to make your foundation solid. \newpage
+
 \section{Common Notation seen in Herstein's book and this book}
-$\blacksquare$ Denotes the end of a proof. Some authors  use the symbol \index{$\blacksquare$} $\square$\\ \\
-$\exists$ read as `` There exists" \index{$\exists$} -- this symbol is commonly referred to as the ``existential quantifier"\\ \\
-$\forall$ read as ``for all" \index{$\forall$} -- this symbol is commonly referred to as the ``universal quantifier"\\ \\
-$\therefore \ $  read as ``therefore" \index{$\therefore \ $}\\ \\
-$\because \ $ read as ``because" (we will use this symbol very rarely, usually we will just say "because")  \index{$\because \ $}\\ \\
-$a\in A$ read as ``$a$ is an element of $A$" or ``$a$ in $A$" \index{$\in$} \\ \\
-$a\not\in A$ read as ``$a$ is \textit{not} an element of $A$" or ``$a$ not in $A$" \\ \\ \index{$\not\in$}
-$\ni$ read as ``for which" or "who exhibits (\textit{pl.} exhibit ) the property..." or "who has (\textit{pl.} have ) the property..." \index{$\ni$}\\ \\
+This section presents commonly used mathematical symbols grouped into three categories: logical symbols, set-theoretic symbols, and proof-structuring symbols.
+
+\subsection{Logic Notation: Quantifiers, Implication, and Falsum/Contradiction}
+
+\begin{center}
+\begin{tabular}{|c|l|}
+    \hline
+    \textbf{Symbol} & \textbf{Meaning and Reading} \\
+    \hline
+    $\forall$ & Universal quantifier, read as ``for all". \index{$\forall$}\\
+    $\exists$ & Existential quantifier, read as ``there exists". \index{$\exists$} \\
+    $\implies$ & Read as ``implies'' \index{$\implies$}\\
+    $A \implies B$ & Implication, read as ``$A$ implies $B$", ``if $A$ then $B$", or ``$A$ only if $B$". \\
+    $\iff$ & Logical equivalence, read as ``if and only if" (iff), ``is equivalent to". \index{$\iff$}\\
+    $\lnot A$ & Negation, read as ``not A". \index{$\lnot$}\\
+    $\lnot B \implies \lnot A$ & Contrapositive of $A \implies B$. \\
+    $\Rightarrow\Leftarrow$ & Denotes a contradiction. Read as ``contradiction". \index{$\Rightarrow \Leftarrow$} \\
+    \hline
+\end{tabular}
+\end{center}
+
+\paragraph{Necessary and Sufficient Conditions}
+$A \implies B$ can also be interpreted as ``$A$ is sufficient for $B$" or ``$B$ is necessary for $A$". If both $A \implies B$ and $B \implies A$ hold, then $A \iff B$, meaning $A$ and $B$ are equivalent. In this case, we also say that ``$A$ is necessary and sufficient for $B$" and vice versa.
+
+\paragraph{Different Ways to Read $A \implies B$}
+$A \implies B$ can be read as any of the following equivalent ways: ``$A$ implies $B$", ``if $A$ then $B$", ``$A$ only if $B$"\footnote{This is important, for further clarification, see this resource: \href{https://criticalthinkeracademy.com/courses/propositional-logic/lectures/51574}{here (link)}}. We sometimes also say "$A$ is \textit{sufficient} for $B$" or "$B$ is \textit{necessary} for $A$". \\
+
+An example may help illuminate the equivalence between these five interpretations: Let $A=$``the match is burning'' and $B=$ ``there is oxygen in the room'', each of these five expressions tell us the same thing (namely, $A \implies B$) \footnote{Note that swapping $B$ and $A$ gives a wholly different meaning, who is to say that just because there is oxygen the match ought to be lit? They mean entirely different things.}:
+\begin{enumerate}
+    \item The fact that the match is burning, implies there is oxygen in the room.
+    \item If the match is burning, then there must be oxygen in the room.
+    \item The match is burning only if there is oxygen in the room.
+    \item The fact that the match is burning is sufficient information to conclude that there is oxygen in the room.
+    \item The presence of oxygen in the room is necessary for the match to be burning.
+\end{enumerate}
+Notice the difference in usage between ``if'' in 2. and ``only if'' in 3.
+\begin{center}
+    if (antecedent) then (consequent)  \\
+(antecedent) only if (consequent) \\
+\end{center}
+
+\noindent The typical method of proof for proving a statement of the form ``if $A$ then $B$'' is to first assume $A$ is true and show that $B$ can be derived from that assumption.
+
+\noindent Note that a statement of the form ``if $A$ then $B$'' does not say $A$ is true, nor does it say $B$ is true, it simply says \textit{if} $A$ can be shown to be true, \textit{then} we can conclude $B$ is true. 
+
+%In this way, any conditional of the form ``if $A$ then $B$'' for which the antecedent $A$ is always false, is, somewhat non-intuitively (and trivially), \textit{true}. For example the statement ``if $0=1$ then Jack is a monkey's uncle" is (trivially) \textit{true} because the antecedent is always false. 
+
+% In classical logic, the truth table of the if-then/implication can be summarized as:
+% \begin{align*}
+%     \begin{array}{c|c|c}
+%         A & B & A \implies B \\
+%         \hline
+%         T & T & T \\
+%         T & F & F \\
+%         F & T & T \\
+%         F & F & T \\
+%         \end{array}
+% \end{align*}
+
+
+\paragraph{Different Ways to Read $A \iff B$}
+$A\iff B$ can also be read as ``$A$ if and only if $B$", ``$B$ if and only if $A$", ``$A$ iff $B$", ``$B$ iff $A$", ``$A$ is equivalent to $B$", ``$B$ is equivalent to $A$". Lastly, this expression could also be read `` $A$ implies $B$ and $B$ implies $A$" or "$B$ implies $A$ and $A$ implies $B$". We emphasize the last two interpretations because iff statements (i.e. statements that use $\iff$) should be thought of as pairs of implications, one implication $LHS\implies RHS$ and another implication $RHS \implies LHS$. (LHS is left-hand-side here.)\\
+
+\noindent The method of proof for proving a statement of the form ``$A$ if and only if $B$'' is to first assume $A$ is true and show that $B$ follows (can be derived from that assumption); and then assume $B$ is true and show that $A$ follows. That is we combine a proof of $A\implies B$ with a proof of $B \implies A$, these two together are proof of $A\iff B$.
+
+\paragraph{Equivalence Between an Implication and Its Contrapositive}  
+The contrapositive of an implication \( A \implies B \) is the statement \( \lnot B \implies \lnot A \), which is obtained by taking the contraposition of the original implication. In classical logic we have that  
+\[
+    (\lnot B \implies \lnot A) \iff (A\implies B)
+\]  
+(i.e., these expressions are always equivalent). This is often useful for proofs—rather than proving \( A\implies B \) directly, we can establish the same result by proving its contrapositive \( \lnot B \implies \lnot A \).  
+
+The intuition for the equivalence between an implication and its contrapositive consists of two parts:  
+\begin{enumerate}  
+    \item ``If \( B \) is \textit{always} true when \( A \) is true (\( A\implies B \)), then when \( B \) is false, \( A \) must also be false (\( \lnot B \implies \lnot A \)).''  
+    \item ``If \( A \) is \textit{always} false when \( B \) is false (\( \lnot B \implies \lnot A \)), then when \( A \) is true, \( B \) must be true (\( A\implies B \)).''  
+\end{enumerate}  
+Examples of proof by contrapositive and proof by contradiction are given in the sub-sections below.  
+
+\paragraph{Conditional Statements}
+A sentence of the form ``if $A$ then $B$'' (denoted $A \Rightarrow B$) is itself a statement. Just as statements $A$ and $B$ can be true or false, the statement $A \implies B$ can also be true or false. Similarly, a sentence of the form ``$A$ if and only if $B$'' (denoted $A \iff B$) is also a statement whose truth value can be evaluated. 
+
+For example, let $A$ be ``Charlie is a human being'' and $B$ be ``Charlie was born on planet Earth.'' Then both $A \implies B$ and $A \iff B$ are statements that can be evaluated for truth. 
+For the sake of argument we should note that to date, it is true that all humans have been born on the planet earth \footnote{At least it is true as of February 24th, 2025; we have yet to see a human being born anywhere but on planet earth, perhaps this will be a poor example in the future!}. Given this context, the first of these is always true, if we assume that Charlie is a human, then since he is a human, he was certainly born on planet earth. However the second of these statements isn't necessarily true... sure the left hand side implies the right hand side (as before) but from the right hand side \textit{alone} can we infer that Charlie is a human? What if Charlie were a dog born on planet earth? Surely that does not entail that Charlie is a human!
+
+
+\subsection{Set Theory Notation}
+
+\begin{center}
+\begin{tabular}{|c|l|}
+    \hline
+    \textbf{Symbol} & \textbf{Meaning and Reading} \\
+    \hline
+    $a \in A$ & ``$a$ is an element of $A$" or ``$a$ in $A$". \index{$\in$} \\
+    $a \not\in A$ & ``$a$ is \textit{not} an element of $A$". \index{$\not\in$} \\
+    $\ni$ & ``For which" or "who exhibits the property...". \index{$\ni$}\\
+    $|$ & ``For which" (used in set-builder notation). \\
+    $a \in A \ni P(a)$ & ``$a$ is an element of $A$ for which $P(a)$ is true". \\
+    \hline
+\end{tabular}
+\end{center}
 
 \begin{tcolorbox}
 \begin{center}
-NOTE: in this book \hl{$\in \neq \ni $}, i.e. "element of" and "element-wise for which" are \textit{not} the same symbol and  \underline{\hl{DO NOT mean the same thing}}.
+\textbf{NOTE:} In this book, \hl{$\in \neq \ni$}, meaning "element of" and "element-wise for which" are \textit{not} the same symbol and \underline{\hl{DO NOT mean the same thing}}.
 \end{center}
 \end{tcolorbox}
-%or "who has (\textit{pl.} have ) the property" \\ \\ %(although some books will use $\in$ and $\ni$ interchangeably)
-$| \ \ $ also read as ``for which" or "who exhibit the property..." or "who have the property..."; however this will almost always be used when referring to \textit{collections/sets} of elements "for which" a property holds (i.e. not element-wise), e.g. 
+
+\noindent The vertical bar  $| \ \ $ also read as ``for which" or "who exhibit the property..." or "who have the property..." is almost always used when referring to \textit{collections/sets} of elements "for which" a property holds (i.e. not element-wise), it commonly appears in set builder notation (to be introduced in section 0.3) e.g. 
 \begin{align}
     \{x\in \Z | 22\leq x < 27\}  \nonumber \\
     &= \{ \text{the subset of $\Z$ for which members are $\geq 22$ AND $<27$} \} \nonumber \\
     &= \{22,23,24,25,26\}\nonumber
 \end{align}
-  \\ \\%or "who has (\textit{pl.} have ) the property" \\ \\ %(although some books will use $\in$ and $\ni$ interchangeably)
-$a\in A \ni P(a)$ read as `` $a$ is an element of $A$ for which Property $P(a)$ is true"\\ \\
-$\implies$ read as ``implies"\\ \\
-$A\implies B$ can be read as any of the following equivalent ways: ``A implies B", ``if A then B", ``A only if B" \footnote{This is important, if you need clarification look \href{https://criticalthinkeracademy.com/courses/propositional-logic/lectures/51574}{here (link)}}. We sometimes also say "$A$ is \textit{sufficient} for $B$" or "$B$ is \textit{necessary} for $A$"\\ \\ 
-$\Leftrightarrow$ read as ``is equivalent to" or ``if and only if", also commonly written ``iff"\\ \\
-If both ``$A$ only if $B$" is true (i.e. $A\implies B$, or, $A$ is true only if $B$ is true) and ``if $B$ then $A$" is true (i.e. $B\implies A$, or, if $B$ is true, then $A$ is true), then we say ``$A$ if and only if $B$" or "$A\iff B$" and the statements $A$ and $B$ are equivalent (see below). In this scenario we may also say "$A$ is \textit{necessary and sufficient} for $B$" or "$B$ is \textit{necessary and sufficient} for $A$" \\ \\
-$A\iff B$ can also be read as ``$A$ if and only if $B$", ``$B$ if and only if $A$", ``$A$ iff $B$", ``$B$ iff $A$", ``$A$ is equivalent to $B$", ``$B$ is equivalent to $A$" lastly, this expression could also be read `` $A$ implies $B$ and $B$ implies $A$" or "$B$ implies $A$ and $A$ implies $B$". We emphasize the last two interpretations because iff statements (i.e. statements that use $\iff$) should be thought of as pairs of implications, one implication $LHS\implies RHS$ and another implication $RHS \implies LHS$. (LHS is left-hand-side here.)\\ \\
-$\lnot A$ read ``not $A$" is called the negation of statement $A$ \\(e.g. $\lnot(\lnot A)\iff A$ and $x\neq y \iff \lnot(x=y)$ \ \ ) \\ \\
-$\lnot B \implies \lnot A$ is called the contraposition of implication $A \implies B$. We have that $\lnot B \implies \lnot A \iff A\implies B$ (i.e. these expressions are equivalent, this is often useful for proofs, instead of proving $A\implies B$ we can prove $\lnot B \implies \lnot A$)\\ \\
-The intuition for an implications equivalence with its contraposition is two parts: 
-\begin{enumerate}
-    \item ``If $B$ is \textit{always} true when $A$ is true ($A\implies B$), then if $B$ isn't true, $A$ must not be true ($\lnot B \implies \lnot A$)".
-    \item ``If $A$ is \textit{always} false when $B$ is false ($\lnot B \implies \lnot A$), then if $A$ is true, $B$ must be true ($A\implies B$)".
-\end{enumerate}
-Examples of proof by contrapositive and proof by contradiction are given in the sub-sections below.
 
-\noindent In this text, the shorthand for ``contradiction" is a pair of arrows running into one another ``$\Rightarrow\Leftarrow$" so read this as ``contradiction".
+\subsection{Proof Structure Symbols}
+
+\begin{center}
+\begin{tabular}{|c|l|}
+    \hline
+    \textbf{Symbol} & \textbf{Meaning and Reading} \\
+    \hline
+    $\blacksquare$ & Denotes the end of a proof. Some authors use $\square$. \index{$\blacksquare$}\\
+    $\therefore$ & read as ``Therefore". \index{$\therefore$}\\
+    $\because$ & read as ``Because" (used rarely). \index{$\because$} \\
+    \hline
+\end{tabular}
+\end{center}
+
+Each of these symbols will be used throughout this text as needed, with careful attention to their proper meaning and context.
+\newpage
+
 \section{A Word About Axioms in This Book}
 \label{sec:axioms}
 As of January 11th, 2021, Merriam-Webster defines the noun ``Axiom" as:
