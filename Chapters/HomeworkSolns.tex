@@ -129,3 +129,165 @@
 \end{tcolorbox}
 \vspace{-0.2in}
 \section{Homework \#2 Solutions}
+\begin{enumerate}
+    \item Compute $GCD(a, b)$ using the Euclidean algorithm:
+          \begin{align*}
+              138,000 &= 1 \cdot 102,810 + 35,190 \\
+              102,810 &= 2 \cdot 35,190 + 32,430 \\
+              35,190 &= 1 \cdot 32,430 + 2,760 \\
+              32,430 &= 11 \cdot 2,760 + 2,070 \\
+              2,760 &= 1 \cdot 2,070 + 690 \\
+              2,070 &= 3 \cdot 690 + 0 \ \leftarrow \text{DONE;}
+          \end{align*}
+          Since the remainder is now $0$, $GCD$ is the last non-zero remainder: $GCD(a, b) = 690.$
+
+
+    \item To express $GCD(a, b)$ as a linear combination:
+    
+    Throw away last equation; stack matrices $L\rightarrow R$ with quotients bottom to top; form in $\begin{bmatrix} 0 & 1 \\ 1 & -q \end{bmatrix}$
+          \[
+          \underset{\substack{5^{th} q \nearrow  }}{\begin{bmatrix} 0 & 1 \\ 1 & -1 \end{bmatrix}}
+          \underset{\substack{4^{th} q \nearrow  }}{\begin{bmatrix} 0 & 1 \\ 1 & -11 \end{bmatrix}}
+          \underset{\substack{3^{rd} q \nearrow  }}{\begin{bmatrix} 0 & 1 \\ 1 & -1 \end{bmatrix}}
+          \underset{\substack{2^{nd} q \nearrow  }}{\begin{bmatrix} 0 & 1 \\ 1 & -2 \end{bmatrix}}
+          \underset{\substack{1^{st} q \nearrow  }}{\begin{bmatrix} 0 & 1 \\ 1 & -1 \end{bmatrix}}
+          = 
+          \begin{bmatrix} * & * \\ 38 & -51 \end{bmatrix}
+          \]
+          Thus, we express $GCD(a, b)$ as:
+          \[
+          GCD(a, b) = 38a - 51b.
+          \]
+          So $n = 38$, $m = -51$.
+
+    \item Given: $a, b, c \in \Z$, with $GCD(a, b) = 1$ and $GCD(a, c) = 1$.\\
+    Prove: $GCD(a, bc) = 1$.\\
+
+          \textit{Proof:}  
+          \begin{align*}
+            \text{By Lemma 1.3.1, since } &GCD(a, b) = 1 \implies \exists \ s, t \in \Z \ni \ 1=sa+tb \\
+          \text{Similarly, since } &GCD(a, c) = 1 \implies \exists \ n, m \in \Z \ni \ 1 = na + mc.
+          \end{align*}
+          Now we can get $1$ as a linear combination of $a$ and $bc$:
+          \begin{align*}
+            1 = 1\cdot 1 = (sa+tb)(na+mc) &= sana + samc +tbna +tbmc \\
+            &= \underbrace{(san + smc + tbn)}_{\in \Z}a + \underbrace{(tm)}_{\in \Z}bc
+          \end{align*}
+          The $GCD(a,bc)$ exists by Lemma 1.3.1; let's say it is $d$. \\
+          Then $d|a$ and $d|bc$, so by Observation \#4 about divisions $d|(\substack{\text{linear combination} \\ \text{we found above}})$
+          Since the linear combination equals $1$, we have $d|1$, so by Observation \#1 about divisions, $d=\pm 1$, but $GCD$ is defined as a \textit{positive} integer, so $d$ must be $1$. \\
+          $\therefore \ \ GCD(a,bc)=1$. $\blacksquare$
+          \newpage 
+    \item Given $n, m, a \in \Z$, with $GCD(n, m) = 1$, and $n \mid a$ and $m \mid a$, \\
+    Prove: $nm \mid a$. (so must express $a$ as an integer times $nm$) \\
+
+          \noindent \textit{Proof:}  
+          \begin{align*}
+            \text{First, } &n \mid a \implies \ \exists \ k \in \Z \ni \ a = kn.  & \\
+            & m \mid a \implies \ \exists \ l \in \Z \ni \ a = l m  & (\text{by defn of ``divides''})
+          \end{align*}
+          $GCD(n, m) = 1 \underset{L 1.3.1}{\implies} \ \exists \ x, y \in \Z \ni 1 = xn+ym$ \\
+          Multiply this last equation by $a$:
+          \begin{align*}
+            a = a(xn + ym) = \underset{\substack{\uparrow \ \ \ \ \ \ \ \ \ \uparrow \ \ \ \ \\ a=lm \ \ \ \ \ \ \ \ \ a=kn \ \ \ \ }}{axn+aym} &= (lm)xn + (kn)ym \\ 
+            &= \underbrace{(lx+ky)}_{\in \Z}nm
+          \end{align*}
+          $\therefore \ \ nm | a$. \ \ \ $\blacksquare$
+\end{enumerate}
+
+\begin{enumerate}
+    \setcounter{enumi}{4} % Continue from previous numbering
+
+    \item Given: $GCD(a, n) = 1$, and $\Z$ is partitioned by $\equiv \mod n$.  \\
+          Prove: If $b \in [a]$, then $GCD(b, n) = 1$. \\
+
+          \textit{Proof:}  
+          Take $b \in [a]$. Then $b \equiv a \mod{n}$, so $n \mid (b - a)$, that is:
+          \[
+          \exists \ k \in \Z \ni b - a = kn.
+          \]
+          We also have $GCD(a, n) = 1$, so by Lemma 1.3.1, $\exists \ x, y \in \Z \ni 1 = xa + yn.$ \\
+          We know $GCD(b, n)$ exists; let's call it $d$. [Idea: If I can get $1$ as a linear combination of $b$ and $n$, then it can be finished off like the end of the problem (3) proof]. 
+          \begin{align*}
+            1 = xa+yn \underset{\substack{\uparrow \\ b-a=kn \\ \text{so }a=b-kn}}{=} x(b-kn)+yn &= xb-wkn+yn \\
+            &= \underset{\substack{\uparrow \\ \in \Z}}{x}b+ \underbrace{(y-xk)}_{\in \Z}n
+          \end{align*}
+          Now $d|b$ and $d|n$, so $d| \underbrace{\overset{\substack{lin. comb.}}{xb+(y-xk)n}}_{1}$ \ \ (again, by Observation \#4 about divisions [Prop 1.3.1 part 4]). \\
+          Since $d|1$ and $d$ is a positive integer (it's a GCD), we must have $d = 1$. So $b$ and $n$ are relatively prime. Since $b$ was an arbitrary element of $[a]$, every element in $[a]$ is relatively prime to $n$.
+
+    \item There are 4 possible Cayley tables for a group of order $4$, and each is symmetric across the main diagonal, proving that \textbf{every group of order 4 is abelian}.
+
+    \begin{center}
+        \begin{minipage}{0.45\textwidth}
+            \centering
+            \[
+            \begin{array}{c||cccc}
+                \cdot & e & a & b & c \\
+                \hline \hline
+                e & e & a & b & c \\
+                a & a & b & c & e \\
+                b & b & c & e & a \\
+                c & c & e & a & b
+            \end{array}
+            \]
+            If $a \cdot a = b$, you obtain this table.
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.45\textwidth}
+            \centering
+            \[
+            \begin{array}{c||cccc}
+                \cdot & e & a & b & c \\
+                \hline \hline
+                e & e & a & b & c \\
+                a & a & c & e & b \\
+                b & b & e & c & a \\
+                c & c & b & a & e
+            \end{array}
+            \]
+            If $a \cdot a = c$, you obtain this one.
+        \end{minipage}
+    \end{center}
+
+    \begin{center}
+        \begin{minipage}{0.45\textwidth}
+            \centering
+            \[
+            \begin{array}{c||cccc}
+                \cdot & e & a & b & c \\
+                \hline \hline
+                e & e & a & b & c \\
+                a & a & e & c & b \\
+                b & b & c & a & e \\
+                c & c & b & e & a
+            \end{array}
+            \]
+            If $a \cdot a = e$, then you obtain either:\\
+            i) This table, with $b \cdot b = a$.
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.45\textwidth}
+            \centering
+            \[
+            \begin{array}{c||cccc}
+                \cdot & e & a & b & c \\
+                \hline \hline
+                e & e & a & b & c \\
+                a & a & e & c & b \\
+                b & b & c & e & a \\
+                c & c & b & a & e
+            \end{array}
+            \]
+            ii) Or this table, with $b \cdot b = e$.
+        \end{minipage}
+    \end{center}
+
+    Since all possible Cayley tables are symmetric, every group of order $4$ is abelian.
+\end{enumerate}
+
+\newpage
+\begin{tcolorbox}
+    I encourage you to give each of the homework sets an honest attempt before looking at the solutions, you will get much more out of reading the solutions if you have first spent time carefully thinking about the problems on your own!
+\end{tcolorbox}
+\vspace{-0.2in}
+\section{Homework \#3 Solutions}
