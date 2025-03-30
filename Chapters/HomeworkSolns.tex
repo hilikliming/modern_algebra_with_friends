@@ -292,4 +292,41 @@
 \vspace{-0.2in}
 \section{Homework \#3 Solutions}
 
+\begin{enumerate}
+    \item Let $m$ be the \# of $e$'s OFF the main diagonal in $G$'s cayley table, the problem is to show that $m$ is even. \\
+    \textit{Proof:} $\forall \ x \in G$ $x$ either is its own inverse ($x=x^{-1}$) or not. If so $x=x^{-1} \implies x \cdot x = e$ so in the Cayley table $e$ appears in the row for $x$ ON the main diagonal, in the column for $x$:
+     \[
+            \begin{array}{c||c|c|c}
+                \cdot & \cdots & x & \cdots \\  
+                \hline \hline
+                 \vdots & \ddots &  &   \\ \hline
+                x &  & e &   \\ \hline
+                \vdots &  &   & \ddots
+            \end{array}
+    \] Such elements contribute $0$ to the value of $m$. \\ \steezybreak
+
+    Now suppose that $x$ is not its own inverse. As a group element, $x$ \textit{has} an inverse, so there must be some element $y$ in $G$, $y\neq x$ with $xy=e$. In the table, $xy=e$ means $e$ appears in the row for $x$ and the column for $y$. Since $xy=e$ gives $x=y^{-1}$ and $y=x^{-1}$ it is also true that $yx=e$, so $e$ appears again in mirror image across the diagonal in the row for $y$ and column for $x$. \\
+    
+    \[
+            \begin{array}{c||c|c|c|c|c}
+                \cdot & \cdots & x & \cdots &y &\cdots  \\  
+                \hline \hline
+                 \vdots & \ddots &  &   & &\\ \hline
+                x &  & \ddots &   & e &\\ \hline
+                \vdots &  &   & \ddots & &  \\ \hline
+                y & & e & &  \ddots& \\ \hline
+                \vdots & & & & & \ddots
+            \end{array}
+    \] 
+    Each such pair of inverses contributes $2$ to the value of $m$. Further, uniqueness of inverses guarantees that no element has more than one inverse to pair with it.\\
+    
+    So we conclude: \\
+
+    $m=2k$ where $k$ is the number of pairings of \textit{different} elements which are inverses with each other. $\blacksquare$
+    \item Every group of even order has at least one element of order $2$.\\
+\textit{Proof:} As proved in problem (1) $G$ has an even number (say $2k$, $k\in \N = \{0,1,2, \cdots \}$) of $e$'s off the main diagonal of its Cayley table. Also in its Cayley table, $G$ must have at least one $e$ ON the main diagonal in the $e$-row: $e\cdot e = e$ 
+\end{enumerate}
+
+
+
 \textit{to be continued!}
