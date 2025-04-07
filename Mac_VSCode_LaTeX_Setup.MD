@@ -6,7 +6,7 @@ This short guide walks you through setting up LaTeX Workshop in VSCode on macOS 
 
 ### 1. Install LaTeX Workshop Extension in VSCode
 - Open the Extensions pane in VSCode.
-- Search for `LaTeX Workshop` and install it.
+- Search for `LaTeX Workshop` (By James Yu) and install it.
 
 ### 2. Install MacTeX
 - Download and install [MacTeX.pkg](https://tug.org/mactex/mactex-download.html)
