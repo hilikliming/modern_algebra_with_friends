@@ -1,6 +1,6 @@
 # Setting Up LaTeX Workshop in VSCode (with MAWF Build Support)
 
-This guide walks you through setting up LaTeX Workshop in VSCode on macOS, including custom build support for the LeGrand Orange Book template (used by MAWF).
+This short guide walks you through setting up LaTeX Workshop in VSCode on macOS (this is how I prefer to compile the text and work on updates), including custom build support for the LeGrand Orange Book template (used by MAWF).
 
 ---
 
