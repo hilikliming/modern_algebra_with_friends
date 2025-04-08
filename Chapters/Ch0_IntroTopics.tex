@@ -208,7 +208,7 @@ The \textit{union} of the two sets $A$ and $B$, written as $A\cup B$, is the set
     A\cup B = \{x\in \Omega |x\in A \text{ or } x\in B \} \nonumber
 \end{align}
 \end{definition}
-Let's read the above definition of $A\cup B$ in more regular speech, this equation says "$A$ union $B$ equals the set of elements $x$ for which $x$ is a member of $A$ \textbf{or} $x$ is a member of $B$" we are using "$x$" here as a \textit{variable} and we mean that any such member $x$ who is either in $A$ \textbf{or} in $B$ (or possibly both!) is a member of this set $A$ union $B$. \\ \\
+Let's read the above definition of $A\cup B$ in more regular speech, this equation says "$A$ union $B$ equals the set of elements $x$ for which $x$ is a member of $A$ \textbf{or} $x$ is a member of $B$". We are using "$x$" here as a \textit{variable} and we mean that any such member $x$ who is either in $A$ \textbf{or} in $B$ (or possibly both!) is a member of this set $A$ union $B$. \\ \\
 Figure \ref{fig:set_union_example} depicts a the union of two sets, $A$ and $B$.
 \begin{figure}[h!]
     \centering
@@ -239,12 +239,12 @@ Given two sets $A$ and $B$, then the \textit{difference set} written as $A - B$ 
 \end{align}
 \end{definition}
 Note that we could define the difference set $A- B$ %lightly more generally by defining it in terms of some ``universe" set $\Omega$ who contains all the sets we are considering as subsets, i.e. $A,B \subset \Omega$. 
-In another way using an idea known as set complement. In this case we would have $A- B=A\cap B^C$ where $B^C$ is referred to as the complement of set $B$ and it is defined as $B^C=\{x\in \Omega| x\not \in B\}$. For this reason, $A-B$ is sometimes called "the complement of $B$ in $A$". This form will almost never come up in this text but we mention it for interested readers who may go on to study Measure Theory (i.e. Probability), as it is an extremely convenient way to rewrite the difference of two sets when dealing with proofs in Measure Theory. 
+in another way using an idea known as set complement. In this case we would have $A- B=A\cap B^C$ where $B^C$ is referred to as the complement of set $B$ and it is defined as $B^C=\{x\in \Omega| x\not \in B\}$. For this reason, $A-B$ is sometimes called "the complement of $B$ in $A$". This form will almost never come up in this text but we mention it for interested readers who may go on to study Measure Theory (i.e. Probability), as it is an extremely convenient way to rewrite the difference of two sets when dealing with proofs in Measure Theory. 
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.9\textwidth]{Figures/Complements View of Set Minus.pdf}
-    \caption{Complements View of Set Minus: on the left side of the intersection, set $A$ is shaded in, on the right side of the intersection set $B^C$ ($B$'s complement in universe $\Omega$) is shaded in, now it is easy to see that $A$'s intersection with $B^C$ (i.e. the portion these two shaded regions have in common) is simply $A-B$, or "the parts of $A$ that are not in $B$".}
+    \caption{Complements View of Set Minus: on the left side of the intersection, set $A$ is shaded in, on the right side of the intersection set $B^C$ ($B$'s complement in universe $\Omega$) is shaded in; now it is easy to see that $A$'s intersection with $B^C$ (i.e. the portion these two shaded regions have in common) is simply $A-B$, or "the parts of $A$ that are not in $B$".}
     \label{fig:complements_view_set_minus}
 \end{figure}
 \newpage
@@ -291,9 +291,9 @@ Without going into too much detail we want to briefly introduce the concept of c
     The \textit{cardinality} of a set \(A\), denoted \(|A|\), is, roughly speaking, the "number of elements" in \(A\). \\
 
     \noindent For finite sets, \(|A|\) is the total count of elements in \(A\). For example, if \(A = \{1, 2, 3\}\), then \(|A| = 3\). \\
-    \noindent As another example, if \(B=\{green, red, blue, red, orange\}\) then $|B|=4$. \ \footnote{Recall the footnote from Section \ref{sec:axioms}.}\\ 
+    \noindent As another example, if \(B=\{green, red, blue, red, orange\}\) then $|B|=4$.\footnote{Recall the footnote from Section \ref{sec:axioms}.}\\ 
     
-    \noindent \textbf{A More Complete Definition\footnote{Revisit after you have begun Chapter 1 material}} \\ \steezybreak
+    \noindent \textbf{A More Complete Definition\footnote{Revisit after you have begun Chapter 1 material}} 
 
     \noindent For sets in general, \textit{cardinality} is determined by comparing a set \(A\) to another set \(B\) using a \textit{bijection} \footnote{To be covered in the next chapter, see Definition \ref{def:surj_inj_bij}}, which is a one-to-one correspondence between the elements of \(A\) and \(B\):
     \begin{align}
