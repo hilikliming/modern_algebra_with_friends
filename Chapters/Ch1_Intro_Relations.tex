@@ -313,7 +313,7 @@ $\sigma :S \rightarrow T$.
 \textbf{$\Leftarrow$:} \\Assume that $\mu$ exists with the stated properties; show that this forces $\sigma$ to be a bijection. We will begin by showing $\sigma$ is injective through a contradiction \steezybreak\\
 \textit{$\sigma$ Inj:} Suppose $\sigma$ is not injective $\implies \exists \ s_1,s_2\in S \ni s_1\neq s_2$ and $\sigma(s_1)=\sigma(s_2)$. But we know $\mu \circ \sigma = I_s$ which means $\mu\circ \sigma (s_1) = \mu\circ \sigma(s_2) = s_1=s_2$ $\Rightarrow\Leftarrow$ $s_1$ and $s_2$ were assumed non-equal!! So $\sigma$ must be injective.\steezybreak\\
 Now, we will show that $\sigma$ is also surjective if such a $\mu$ exists.\steezybreak\\
-\textit{$\sigma$ Surj:} Take arbitrary $t\in T$. $t= I_t(t)= (\sigma\circ\mu)(t)=\sigma(\mu(t))$ and $\mu(t)\in S$ so $\mu(t)$ serves as a preimage for $t$ under $\sigma$. Therefore $\sigma$ is surjective. \\ 
+\textit{$\sigma$ Surj:} Take arbitrary $t\in T$. $t= I_T(t)= (\sigma\circ\mu)(t)=\sigma(\mu(t))$ and $\mu(t)\in S$ so $\mu(t)$ serves as a preimage for $t$ under $\sigma$. Therefore $\sigma$ is surjective. \\ 
 
 \noindent Now to show the other implication (i.e. show LHS of Lemma 1.2.3 $\implies$ RHS) \\
 \textbf{$\Rightarrow$:} \\ We assume $\sigma$ is a bijection, now we have to:
@@ -327,7 +327,7 @@ Now, we will show that $\sigma$ is also surjective if such a $\mu$ exists.\steez
 \noindent\textbf{2)} Is $\mu$ well-defined (is $\mu$ actually a mapping/function)? Can $t$ have more than one pre-image (this would result in more than one value for $\mu(t)$ making $\mu$ not a function)?\steezybreak\\
 NO! $t$ cannot have more than one pre-image because having $s_1\neq s_2$ and $\sigma(s_1)=\sigma(s_2)=t$ would violate injectivity of $\sigma$. So $\mu$ is well-defined.\steezybreak\\
 
-\noindent\textbf{3)} Take $s\in S$, $(\mu\circ \sigma)(s)=\mu(\sigma(s))=\mu(t)=s=I_s(s)$. $\therefore (\mu\circ \sigma)= I_S$\steezybreak\\
+\noindent\textbf{3)} Take $s\in S$, $(\mu\circ \sigma)(s)=\mu(\sigma(s))=\mu(t)=s=I_S(s)$. $\therefore (\mu\circ \sigma)= I_S$\steezybreak\\
 
 Take $t\in T$, $(\sigma\circ \mu)(t)= \sigma(\mu(t))=\sigma(s)=t=I_T(t)$. $\therefore (\sigma\circ \mu) = I_T$. $\blacksquare$ \steezybreak\\
 
