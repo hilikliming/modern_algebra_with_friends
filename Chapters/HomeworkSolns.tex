@@ -324,9 +324,84 @@
 
     $m=2k$ where $k$ is the number of pairings of \textit{different} elements which are inverses with each other. $\blacksquare$
     \item Every group of even order has at least one element of order $2$.\\
-\textit{Proof:} As proved in problem (1) $G$ has an even number (say $2k$, $k\in \N = \{0,1,2, \cdots \}$) of $e$'s off the main diagonal of its Cayley table. Also in its Cayley table, $G$ must have at least one $e$ ON the main diagonal in the $e$-row: $e\cdot e = e$ 
+\textit{Proof:} As proved in problem (1) $G$ has an even number (say $2k$, $k\in \N = \{0,1,2, \cdots \}$) of $e$'s off the 
+main diagonal of its Cayley table. Also in its Cayley table, $G$ must have at least one $e$ ON the main diagonal in the $e$-row: $e\cdot e = e$. This accounts for $2k+1$ $e$'s in the table so far, with \textit{all} the $e$'s off the main diagonal having been counted. \steezybreak
+
+Since there is exactly one $e$ in each row and exactly one row for each element of $G$, the total number of $e$'s in the Cayley table is exactly $o(G)$. But $o(G)$ is even by hypothesis and must be at least as big as $2k+1$, which is odd. Thus there must be at least one more $e$ \textit{on} the main diagonal and it must be in some $x$-row where $x\neq e$ (we already counted the $e$ from the $e$-row).
+Since $x\neq e$ and $x\cdot x = x^2 =e$ we have $o(x)=2$. $\blacksquare$
+\newpage 
+\item $H = \left\{ \begin{pmatrix}
+r & s \\ t & u
+\end{pmatrix} \Big| \ \ r,s,t,u \in \R, \ \ ru-st \neq 0, \ \ r+t=1, s+u =1 \right\} \ < \ GL_2(\R)$.
+
+\textit{Proof:} $I = \begin{pmatrix}
+    1 & 0 \\ 0 & 1
+\end{pmatrix} \in H$ so $H\neq \emptyset$, and $H\subseteq GL_2(\R)$ so we may use L2.4.1:
+\begin{enumerate}[i)]
+    \item Closure: Take $A=\begin{pmatrix}
+        a & b \\ c&d
+    \end{pmatrix} \in H$ and $W=\begin{pmatrix}
+        w & x \\ y&z
+    \end{pmatrix} \in H.$
+
+    Then $AW = \begin{pmatrix}
+        aw+by & ax+bz \\ 
+        cw+dy & cx+dz
+    \end{pmatrix}$.
+
+    $AW$ is certainly in $GL_2(\R)$ which is closed, so it inherits size $2\times 2$, real entries, and invertibility.
+
+    It remains to show that the columns of $AW$ sum to $1$:
+    \begin{align*}
+        \text{From }A \text{ we have }a+c&=1 \text{ and }b+d=1.\\ 
+        \text{From }W \text{ we have }w+y&=1 \text{ and }x+z=1.
+    \end{align*}
+    \begin{align*}
+        \text{(Check $1^{st}$ column): }&(aw+by)+(cw+dy) &= \underbrace{(a+c)}_{1}w+\underbrace{(b+d)}_{1}y&=w+y=1 \\
+        \text{(Check $2^{nd}$ column): }&(ax+bz)+(cx+dz) &= \underbrace{(a+c)}_{1}x+\underbrace{(b+d)}_{1}z&= x+z = 1 
+    \end{align*}
+    So $H$ is closed.
+    \item Take $A$ as above. $A\in GL_2(\R) \ \implies A^{-1}\in GL_2(\R)$ so we know $A^{-1}$ is size $2\times 2$ with real entries and is invertible. Again, it remains to show $A^{-1}$ has columns that sum to $1$.
+    \begin{align*}
+        A^{-1} = \frac{1}{ad-bc} \begin{pmatrix}
+            d & -b \\ -c & a
+        \end{pmatrix}
+    \end{align*}
+    We have from $A$ that $a+c =1$ and $b+d=1$
+    \begin{align*}
+        &1^{st}\text{ column:} \frac{d-c}{ad-bc} &= \frac{d-c}{(1-c)d-(1-d)c} &= \frac{d-c}{d-cd-c+dc} &= \frac{d-c}{d-c} &= 1 \\
+        &2^{nd}\text{ column:} \frac{-b + a}{ad-bc} &= \frac{-b+a}{a(1-b)-b(1-a)} &= \frac{-b+a}{a-ab-b+ba} &= \frac{-b+a}{a-b} &= 1.
+    \end{align*}
+    So every element in $H$ has an inverse in $H$ $\ \therefore$ by L2.4.1,  $H<GL_2(\R)$. $\blacksquare$
+\end{enumerate}
+\item Prove that if every non-trivial element of $G$ has order $2$, then $G$ is abelian.
+
+\textit{Proof:} First note that $e$ is its own inverse: $e^{-1}=e$ because $e\cdot e = e$.
+
+If $x$ is non-trivial (i.e. $x\neq e$) then hypothesis $\implies \ o(x)=2 \implies x^2 = e \ \implies x=x^{-1}$. So in this group, every element is its own inverse. 
+
+Take $x,y \in G$. Then $yx = y^{-1}x^{-1} \underset{\substack{\uparrow \\ L2.3.1 (d)}}{=} (xy)^{-1} = xy$.
+
+$\therefore \ \ G $ is abelian. $\blacksquare$.
+
+\item Prove that if $x^2y^2 = (xy)^2 \ \forall \ x,y \in G$, then $G$ is abelian.
+
+\textit{Proof:} Take $x,y \in G$
+\begin{align*}
+    xxyy = x^2y^2 \underset{\substack{\uparrow \\ hyp.}}{=} (xy)^2 = xyxy
+\end{align*}
+Then Lemma 2.3.2 says we may right-cancel $y$ to get $xxy = xyx$, then left-cancel $x$ to get $xy=yx$. 
+\begin{align*}
+    \therefore \ G \text{ is abelian. }\blacksquare 
+\end{align*}
 \end{enumerate}
 
+\newpage
 
+\begin{tcolorbox}
+    I encourage you to give each of the homework sets an honest attempt before looking at the solutions, you will get much more out of reading the solutions if you have first spent time carefully thinking about the problems on your own!
+\end{tcolorbox}
+\vspace{-0.2in}
+\section{Homework \#4 Solutions}
 
 \textit{to be continued!}
