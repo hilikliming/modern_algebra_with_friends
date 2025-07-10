@@ -404,4 +404,41 @@ Then Lemma 2.3.2 says we may right-cancel $y$ to get $xxy = xyx$, then left-canc
 \vspace{-0.2in}
 \section{Homework \#4 Solutions}
 
+\begin{enumerate}
+    \item Prove that if $a\in G$ and $a^m=e$ then $o(a)|m$. \\
+    \textit{Proof: } Divide $m$ by $o(a)$ with Euclidean algorithm: $\exists \ q,r \in \Z \ni m = q\cdot o(a)+r, \text{ where } 0\leq r < o(a)$, then
+    \begin{align*}
+        e &\underset{\substack{\uparrow \\ hyp.}}{=} a^m 
+        = a^{qo(a)+r} 
+        \underset{\substack{\uparrow \\ laws \\ of \\ exp.}}{=} [a^{o(a)}]^{q} 
+        \underset{\substack{\uparrow \\ defn. \ of \\ o(a)}}{=} e^q\cdot a^r 
+        =a^r  \\ 
+        \text{ So, } a^r &= e
+    \end{align*}
+    now $o(a)$ is the \textit{smallest positive} integer that, when used as a power, gives $e$ so $a^r=e$ along with $r<o(a)$ implies that $r$ is \textit{not} positive, otherwise the definition of $o(a)$ is violated. Since $0\leq r $, the only possible value for $r$ is $0$. \\
+    $\therefore$ $m=\underset{\in \Z}{q}\cdot o(a)$, so $o(a)|m$. $\blacksquare$ 
+
+    \item $\forall a,b \in G$ show that $o(ab)=o(ba)$. \\
+\textit{Proof:} suppose that $o(ab)=n$ and $o(ba)=m$ \\
+\begin{align*}
+    o(ab)=n &\implies \underbrace{(ab)(ab) \cdots (ab)}_{n \ times} = e \underset{Assoc. \ in \ G}{\implies} a\underbrace{(ba)(ba) \cdots (ba)}_{n-1 \ times}b = e 
+\end{align*} 
+Now, $a,b \in G \implies \ \exists \ a^{-1}, b^{-1}\in G$, so we multiple by $a^{-1}$ on left and $b^{-1}$ on the right to get
+\begin{align*}
+    \underbrace{(ba)(ba)\cdots (ba)}_{n-1 \ times} = a^{-1}b^{-1} \underset{L \ 2.3.1(d)}{=} (ba)^{-1}
+\end{align*}
+Now multiply both sides by $ba$ to get
+$(ba)^n=e$. Since $m$ is the smallest positive integer that, when used as a power on $ba$, gives $e$, we have $m\leq n$. A similar strategy starting with $(ba)^m = e$ gives $n\leq m$. 
+$\therefore \ n=m. \ \ \ \blacksquare$ 
+
+\item $\boxed{\text{cyclic }\implies \text{ abelian}}$ \\
+\textit{Proof: } suppose that $G$ is cyclic. Then $\exists$ a generator $g\in G \ni \ G=\{g^k | k \in \Z\}$. Take $x,y \in G$. Then $\exists \ m,n \in \Z \ni x=g^m, \ y=g^n$. \\
+
+So $xy = g^m g^n \underset{\substack{\uparrow \\ Laws \ of \\ Exps.}}{=} g^{m+n} \underset{\substack{\uparrow \\ \Z \ abelian \\ under \ +}}{=} g^{n+m} = g^ng^m = yx$. $\therefore \ G$ is abelian. $\blacksquare$ 
+
+\item $\forall a \in G, \ N(a) = \{g \in G | ga = ag \} $
+
+\end{enumerate}
+
+
 \textit{to be continued!}
