@@ -391,6 +391,63 @@ Let $a,b\in \R, a<b$ we denote the following sets:
 % $(a,b]= \{r\in \R \ | \ a< r\leq b \} \subset \R$, and lastly, \\
 % $[a,b]= \{r\in \R \ | \ a\leq r \leq b \} \subset \R$ \\ 
 \noindent A key observation about the above interval notations is that square brackets, "$[$" or "$]$", are used when a given "endpoint" (i.e. $a$ or $b$) \textit{is} a member of the subset. Round brackets, "$($" or "$)$", are used when a given "endpoint" \textit{is not} a member of the subset. From examples above this means $a\not \in (a,b]$ but $b\in (a,b]$ and similarly $a,b\in [a,b]$, but $a\not \in (a,b)$ and $b \not \in (a,b)$.
+\newpage
+
+\section{Valid Algebraic Manipulations of Inequalities}
+
+The following table summarizes some algebraic transformations that preserve the truth of inequalities over the real numbers (and hence hold for inequalities of elements from any subset of the reals). This is by no means an exhaustive list but contains some useful ones that should be familiar from gradeschool and high school mathematics. All variables are assumed to be real unless otherwise noted.
+
+\renewcommand{\arraystretch}{1.4} % Increase vertical spacing
+
+\begin{center}
+\begin{tabular}{|p{3.5cm}|p{11.1cm}|}
+\hline
+\textbf{Rule/Transformation} & \textbf{Valid Implications} \\
+\hline
+Transitivity &
+\( a \geq b \text{ and } b \geq c \implies a \geq c \) \\
+& \( a > b \text{ and } b > c \implies a > c \) \\
+\hline
+Addition/Subtraction &
+\( a \geq b \implies a + c \geq b + c \quad \text{for all } c \in \mathbb{R} \) \\
+\hline
+Multiplication &
+\( a \geq b \text{ and } c > 0 \implies ac \geq bc \) \\
+& \( a \geq b \text{ and } c < 0 \implies ac \leq bc \) \\
+\hline
+Reciprocals &
+\(a>0 \implies \frac{1}{a}>0\) \\
+&\( 0 < a \leq b \implies \frac{1}{a} \geq \frac{1}{b} \) \\
+& \( a \leq b < 0 \implies \frac{1}{a} \geq \frac{1}{b} \) \\
+\hline
+Additive Bounds$^\dagger$ &
+\( a_1 \leq b_1 \text{ and } a_2 \leq b_2 \implies a_1 + a_2 \leq b_1 + b_2 \) \\
+\hline
+Multiplicative Bounds$^\dagger$ &
+\( 0 \leq a \leq b \text{ and } 0 \leq c \leq d \implies ac \leq bd \) \\
+\hline
+Division$^\dagger$ &
+\( a \geq b \text{ and } c > 0 \implies \frac{a}{c} \geq \frac{b}{c} \) \\
+& \( a \geq b \text{ and } c < 0 \implies \frac{a}{c} \leq \frac{b}{c} \) \\
+\hline
+Squaring (non-negative)$^\dagger$ &
+\( 0 \leq a \leq b \implies a^2 \leq b^2 \) \\
+\hline
+Monotonic Functions$^{\dagger\dagger}$ &
+\( f \text{ monotone increasing on domain } D \text{ and } a,b \in D \text{ with } a \geq b \implies f(a) \geq f(b) \) \\
+& \( f \text{ monotone decreasing on domain } D \text{ and } a,b \in D \text{ with } a \geq b \implies f(a) \leq f(b) \) \\
+\hline
+Absolute Value &
+\( |a| \geq 0 \) \\
+& \( |a| \leq b \iff -b \leq a \leq b \) \\
+& \( |a| \geq b \text{ and } b \geq 0 \implies a \leq -b \text{ or } a \geq b \) \\
+\hline
+\end{tabular}
+\end{center}
+$\dagger$ These can actually be proven from the first four rules, try it for yourself! \\
+$\dagger\dagger$ This simply follows from the definition of monotone increasing/decreasing, some familiar monotone increasing functions include $\log(x)$ (whose domain is $D=\R^+ \subset \R$), $\exp(x)$ (whose domain is $\R$), and $x^3$ (whose domain is $\R$).
+
+\newpage
 
 \section{Proof by Contrapositive Example} Let $x\in \mathbb{Z}$ and suppose we have statements $A=$``$x^2$ is even" and $B=$``$x$ is even", and wish to prove $A\implies B$, we can instead prove $\lnot B \implies \lnot A$ where $\lnot B=$``$x$ is not even" and $\lnot A=$``$x^2$ is not even". This latter statement is equivalent to the former and a proof by contraposition goes as follows: suppose that $x$ is not even, then $x$ is odd. The product of two odd numbers is odd, hence $x^2 = x\cdot x$ is odd. Thus $x^2$ is not even. Having proved the contrapositive, we can then infer that the original statement is true, i.e. that $A \implies B$ \\ \\
 \href{https://www.math.toronto.edu/preparing-for-calculus/3_logic/we_3_negation.html}{Click Here for help with negating logical expressions. (See table at end of webpage)}\\
