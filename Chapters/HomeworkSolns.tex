@@ -436,9 +436,136 @@ $\therefore \ n=m. \ \ \ \blacksquare$
 
 So $xy = g^m g^n \underset{\substack{\uparrow \\ Laws \ of \\ Exps.}}{=} g^{m+n} \underset{\substack{\uparrow \\ \Z \ abelian \\ under \ +}}{=} g^{n+m} = g^ng^m = yx$. $\therefore \ G$ is abelian. $\blacksquare$ 
 
-\item $\forall a \in G, \ N(a) = \{g \in G | ga = ag \} $
+\item $\forall \ a \in G, \ N(a) = \{g \in G | ga = ag \} $
+\begin{enumerate}[a)]
+    \item We're given $a\in G$, we'll use Lemma 2.4.1 to show $N(a)<G$.
+    First, $N(a) \subseteq G$ by its definition and since $ea = ae$, $e\in N(a)$ so $N(a)\neq \emptyset$. \\
+    Next, closure: Take $x,y \in N(a)$, then
+    \begin{align*}
+        (xy)a \underset{assoc. \ in \ G}{=} x(ya) \underset{y\in N(a)}{=} x(ay) \underset{assoc.}{=} (xa)y \underset{x\in N(a)}{=} (ax)y \underset{assoc.}{=}a(xy), \\ 
+        \therefore \ xy \in N(a).
+    \end{align*}
+    Finally, inverses: Take $x\in N(a)$, then $ax=xa$, since $x^{-1} \in G$ take it and r-multiply both sides
+    \begin{align*}
+        a = xax^{-1} \\
+    \end{align*}
+    and then again on the left
+    \begin{align*}
+        x^{-1}a= ax^{-1}
+    \end{align*}
+    so $x^{-1}\in N(a)$. By Lemma 2.4.1 $N(a)<G$. $\blacksquare$
+
+    \item In $S_3$ $N(I)=S_3$ since every element commutes with $I$. \\
+    $N(\sigma) = \{I, \sigma \}$ \\
+    $N(\tau) = \{I, \tau \}$ \\
+    $N(\sigma \tau) = \{I, \sigma\tau, \tau\sigma \}$ \\
+    $N( \tau \sigma) = \{I, \tau\sigma, \sigma\tau \}$ \\
+    $N(\sigma \tau \sigma) = \{I, \sigma \tau \sigma \}$
+    \begin{tcolorbox}
+        Note that $N(a)$ always contains $e$ and $a$ and the order of $N(a)$ must divide $o(G)$ \\ (part (a) with Lagrange). 
+    \end{tcolorbox}
+    \item If $G$ is abelian then $\forall \ a \in G, \ N(a)=G $ because \textul{every} element commutes with $a$. So in an abelian group $G$ ALL the normalizers equal $G$ (i.e. are trivial subgroups).
+\end{enumerate}
+
+\item 
+\begin{enumerate}[a)]
+    \item $G = \Z_{54} = \{0,1,2, \cdots, 53 \}$ under $+ \mod 54$
+    \begin{align*}
+        H =\langle 20 \rangle &= \{20, 40, 6, 26, 46, 12, 32, 52, 18, 38, 4, 24, 44, 10, 30, 50, 16, 36, 2, 22, 42, 8, 28, 48, 14, 34, 0\}  \\ 
+        &= \{ \text{ even integers in }G \} \\
+        o(H) = 27 \\
+        \\
+        K = \langle 18 \rangle &= \{18, 36, 0 \} \\
+        o(K)= 3 
+    \end{align*}
+    Note that $K<H$ as well as $K<G$.
+
+    \item 
+    \begin{align*}
+        i_G(H)= \frac{o(G)}{o(H)}= \frac{54}{27} = 2    
+    \end{align*}
+    So there are $2$ right cosets of $H$ in $G$ ($H$ itself and the other one is the other half of $G$, the odds).
+    \begin{align*}
+        i_H(K)= \frac{o(H)}{o(K)} = \frac{27}{3} = 9 \text{ and } i_G(K) = \frac{o(G)}{o(K)}= \frac{54}{3} = 18.
+    \end{align*}
+
+    \item There are $9$ right cosets of $K$ in $H$; they partition $H$ and each has $3$ elts. 
+    \begin{align*}
+        K0 &= \{0, 18, 36\} \ \ \ \ K6 = \{6, 24,42\} \ \ \ \ \ \ \ \ K12 = \{12, 30, 48\}   \\
+        K2 &= \{2, 20, 38\} \ \ \ \ K8 = \{8, 26, 44\} \ \ \ \ \ \ \ \ K14 = \{14, 32, 50\}  \\
+        K4 &= \{4, 22, 40\} \ \ \ \ K10 = \{10, 28, 46\} \ \ \ \ K16 = \{16, 34, 52\}  \\
+    \end{align*}
+\end{enumerate}
+\item Reduce $41^{1581} \mod 21$. \\
+Use the Euler Corollary to Lagrange's Thm: for $n\in \Z^+$ and $a\in \Z$ with $GCD(a,n)=1$, $a^{\phi} \equiv 1 \mod n$. Here $n=21$, $a=41$ with $GCD(41,21)=1$, so we need $\phi(21)$ \\
+$G_{21}= \{1,2,4,5,8,10,11,13,16,17,19,20\}$, so $\phi(21)=o(G_{21}=12)$, and Euler says $41^{12}\equiv 1 \mod 21$.
 
 \end{enumerate}
 
+
+% \begin{tcolorbox}
+%     I encourage you to give each of the homework sets an honest attempt before looking at the solutions, you will get much more out of reading the solutions if you have first spent time carefully thinking about the problems on your own!
+% \end{tcolorbox}
+% \vspace{-0.2in}
+% \section{Homework \#5 Solutions}
+
+
+
+
+% \begin{tcolorbox}
+%     I encourage you to give each of the homework sets an honest attempt before looking at the solutions, you will get much more out of reading the solutions if you have first spent time carefully thinking about the problems on your own!
+% \end{tcolorbox}
+% \vspace{-0.2in}
+% \section{Homework \#6 Solutions}
+
+
+
+% \begin{tcolorbox}
+%     I encourage you to give each of the homework sets an honest attempt before looking at the solutions, you will get much more out of reading the solutions if you have first spent time carefully thinking about the problems on your own!
+% \end{tcolorbox}
+% \vspace{-0.2in}
+% \section{Homework \#7 Solutions}
+
+
+
+% \begin{tcolorbox}
+%     I encourage you to give each of the homework sets an honest attempt before looking at the solutions, you will get much more out of reading the solutions if you have first spent time carefully thinking about the problems on your own!
+% \end{tcolorbox}
+% \vspace{-0.2in}
+% \section{Homework \#8 Solutions}
+
+
+
+% \begin{tcolorbox}
+%     I encourage you to give each of the homework sets an honest attempt before looking at the solutions, you will get much more out of reading the solutions if you have first spent time carefully thinking about the problems on your own!
+% \end{tcolorbox}
+% \vspace{-0.2in}
+% \section{Homework \#9 Solutions}
+
+
+
+% \begin{tcolorbox}
+%     I encourage you to give each of the homework sets an honest attempt before looking at the solutions, you will get much more out of reading the solutions if you have first spent time carefully thinking about the problems on your own!
+% \end{tcolorbox}
+% \vspace{-0.2in}
+% \section{Homework \#10 Solutions}
+
+
+
+
+% \begin{tcolorbox}
+%     I encourage you to give each of the homework sets an honest attempt before looking at the solutions, you will get much more out of reading the solutions if you have first spent time carefully thinking about the problems on your own!
+% \end{tcolorbox}
+% \vspace{-0.2in}
+% \section{Homework \#11 Solutions}
+
+
+
+
+% \begin{tcolorbox}
+%     I encourage you to give each of the homework sets an honest attempt before looking at the solutions, you will get much more out of reading the solutions if you have first spent time carefully thinking about the problems on your own!
+% \end{tcolorbox}
+% \vspace{-0.2in}
+% \section{Homework \#12 Solutions}
 
 \textit{to be continued!}

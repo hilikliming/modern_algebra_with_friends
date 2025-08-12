@@ -451,6 +451,7 @@ innerbottommargin=5pt]{cBox}
 \setlength\ecart{1.2cm-\esp}
 \newcommand{\thepartimage}{}%
 \newcommand{\partimage}[1]{\renewcommand{\thepartimage}{#1}}%
+
 \def\@part[#1]#2{%
 \ifnum \c@secnumdepth >-2\relax%
 \refstepcounter{part}%
@@ -472,6 +473,8 @@ innerbottommargin=5pt]{cBox}
 \end{tikzpicture}};
 \end{tikzpicture}}%
 \@endpart}
+
+
 \def\@spart#1{%
 \startcontents%
 \phantomsection

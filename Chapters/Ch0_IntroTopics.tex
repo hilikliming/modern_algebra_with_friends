@@ -23,7 +23,7 @@ Homework sets, a copy of this text (updated regularly), and homework solutions w
 
 % \jjh{\href{https://youtube.com/playlist?list=PLW3u28VuDAHJNrf3JCgT0GG_rjFVz0-j9}{Another wonderful resource as you venture further into this material are Dr. Aviv Censor's lectures on Algebra (Algebra 1M Technion University). Dr. Censor covers many topics featured in this book and uses very similar conventions to our book. Thank you Dr. Censor and Technion U for making these videos public!!!}}\\
 \bigbreak
-\noindent Chapter 0 is meant to serve as a reference for symbols and terminology used in the main course material (Chapter 1 onward). On its own, this first Chapter is a doozy and we are going to throw all sorts of new notation at you. \textit{Don't be intimidated}. You do not need to understand or memorize all of this right away; the utility of these new notations will become apparent as you progress further through the text. Treat this chapter as a reference for the main course material that begins in Chapter 1. The authors recommend that readers who are familiar with mathematical induction already read sections 0.7 and 0.8. For readers who have never seen induction before, as to not distract from the more important intuition, we would prefer you skip 0.7 and 0.8 and read 0.8.1 first, then return to those sections after the underlying argument for the principle of induction is understood.
+\noindent Chapter 0 is meant to serve as a reference for symbols and terminology used in the main course material (Chapter 1 onward). On its own, this first Chapter is a doozy and we are going to throw all sorts of new notation at you. \textit{Don't be intimidated}. You do not need to understand or memorize all of this right away; the utility of these new notations will become apparent as you progress further through the text. Treat this chapter as a reference for the main course material that begins in Chapter 1. The authors recommend that readers who are familiar with mathematical induction already read sections \ref{sec:InductionExample} through \ref{sec:WhyInductionWorks}. For readers who have never seen induction before, as to not distract from the more important intuition, we would prefer you skip these and read \ref{sec:ChongInduction} first, then return to those sections after the underlying argument for the principle of induction is understood.
 
 Lastly, when reading this material, read slowly and carefully and try to explain the argument out loud as if another were listening. Don't just read it aloud, really think about what the claim or statement is asserting. There is very little redundancy in mathematical writing so it pays dividends to read slowly, carefully, and to re-read many times until the argument is so clear that you could write it down again in your own words. When I read a new book or article in my field, the first 2-3 reads through I am just letting the new notations, jargon, definitions, and claims wash over me, I want to see the way the author uses these terms first and then I try to understand them more carefully. You can do it, you can piece it together! Just take baby steps to make your foundation solid. \newpage
 
@@ -136,7 +136,7 @@ For the sake of argument we should note that to date, it is true that all humans
 \end{center}
 \end{tcolorbox}
 
-\noindent The vertical bar  $| \ \ $ also read as ``for which" or "who exhibit the property..." or "who have the property..." is almost always used when referring to \textit{collections/sets} of elements "for which" a property holds (i.e. not element-wise), it commonly appears in set builder notation (to be introduced in section 0.3) e.g. 
+\noindent The vertical bar  $| \ \ $ also read as ``for which" or "who exhibit the property..." or "who have the property..." is almost always used when referring to \textit{collections/sets} of elements "for which" a property holds (i.e. not element-wise), it commonly appears in set builder notation (to be introduced in section \ref{sec:BasicSetTheory}) e.g. 
 \begin{align}
     \{x\in \Z | 22\leq x < 27\}  \nonumber \\
     &= \{ \text{the subset of $\Z$ for which members are $\geq 22$ AND $<27$} \} \nonumber \\
@@ -157,7 +157,65 @@ For the sake of argument we should note that to date, it is true that all humans
 \end{tabular}
 \end{center}
 \newpage
+\section{Logical Connectives and Their Truth Tables}
 
+In propositional logic, statements (or \emph{propositions}) can be combined using
+\emph{logical connectives}. We denote \emph{conjunction} (logical ``and'') by the symbol $\land$,
+and \emph{disjunction} (logical ``or'') by the symbol $\lor$.
+Given two propositions $P$ and $Q$:
+
+\begin{itemize}
+    \item $P \land Q$ is \emph{true} if and only if \emph{both} $P$ and $Q$ are true.
+    \item $P \lor Q$ is \emph{true} if at least one of $P$ or $Q$ is true.
+\end{itemize}
+
+\noindent Below are the truth tables for the standard logical connectives:
+
+\begin{center}
+\begin{tabular}{c c | c c c c c c}
+$P$ & $Q$ & $\lnot P$ & $P \land Q$ & $P \lor Q$ & $P \Rightarrow Q$ & $P \Leftrightarrow Q$ & $\lnot P \lor Q$ \\
+\hline
+T & T & F & T & T & T & T & T \\
+T & F & F & F & T & F & F & F \\
+F & T & T & F & T & T & F & T \\
+F & F & T & F & F & T & T & T \\
+\end{tabular}
+\end{center}
+
+\noindent Here:
+\begin{itemize}
+    \item $\lnot P$ (\emph{negation}) is true when $P$ is false.
+    \item $P \Rightarrow Q$ (\emph{implication/if-then}) is false only when $P$ is true and $Q$ is false.
+    \item $P \Leftrightarrow Q$ (\emph{biconditional/if-and-only-if}) is true when $P$ and $Q$ have the same truth value.
+\end{itemize}
+
+\noindent Here's how to read this table, on the left we have two propositions $P$ and 
+$Q$ which might be true and might be false. Depending on their truth value, the 
+expressions on the right side of the table take on different truth values. For example, 
+$\lnot P$, the negation of $P$ always takes on the opposite truth value of $P$ itself. 
+If we look at the conjunction of $P$ and $Q$ (denoted $P\land Q$) we see that $P$ and 
+$Q$ is only true when both $P$ is true and $Q$ is true. On the other hand $P\lor Q$ is 
+true when either $P$ or $Q$ (or both) are true. \steezybreak \\
+
+\noindent It should be noted that an equivalent form of $P \Rightarrow Q$ is $\lnot P \lor Q$ (note how they have identical truth tables).
+
+
+\section{Negating Logical Connectives and Quantifiers}
+This table provides a resource for negating the most common types of expressions that we will encounter in this class:
+\begin{center}
+  \begin{tabular}{|c|c|}\hline
+     \textbf{Statement: $S$} & \textbf{Negation of Statement: $\lnot S$}   \\ \hline
+     $A$ and $B$ & $\lnot A$ or $\lnot B$  \\ \hline
+     $A$ or $B$ & $\lnot A$ and $\lnot B$  \\ \hline 
+     if $A$ then $B$ & $A$ and $\lnot B$  \\ \hline
+     $\forall \ x, \ P(x)$ & $\exists \ x \ni \lnot P(x)$  \\ \hline
+     $\exists \ x \ni \ P(x)$ & $\forall \ x, \lnot P(x)$  \\ \hline
+\end{tabular}  
+\end{center}
+The first two rows in this table are often referred to as DeMorgan's Laws 1 \& 2 respectively (or sometimes DeMorgans ``and'' negation law and Demorgan's ``or'' negation law.) \steezybreak
+
+\noindent The reader should also take a moment to meditate on the negations of the universal and existential quantifiers. It should agree with your intuition that if we can't say \textul{all} $x$'s obey $P$, then there must exist an $x$ for which ``not $P$'' holds. Similarly if there doesn't exist a single $x$ for which $P$ holds, then forall $x$ we have ``not $P$''.
+\newpage 
 \section{A Word About Axioms in This Book}
 \label{sec:axioms}
 As of January 11th, 2021, Merriam-Webster defines the noun ``Axiom" as:
@@ -175,9 +233,12 @@ This book is not a set theory or foundations of mathematics course so we will ta
     \text{ and } &\implies \exists \ -a,-b \in \Z \ \ \ &\text{i.e. every integer has an additive opposite or "negative" that is an integer}\nonumber \\
      \text{ and } &\implies a\cdot b\in \Z \ \ \ &\text{i.e. the product of two integers is always an integer}\nonumber
 \end{align} 
+Further, the fundamentals of grade-school algebra, such as the manipulations mentioned in Section \ref{sec:ManipulatingInequalities}, can be used without providing justification.
+
 All of this being said, using the tools of first order logic that you will learn along the way, if you wished to, you could ``begin again" with some weaker assumptions and build your way back up to showing that e.g. adding, subtracting, or multiplying two integers gives another integer, or that every integer $a\in\Z$ has an opposite $-a\in\Z$. 
 
 \section{Basic Set Theory Definitions}
+\label{sec:BasicSetTheory}
 Given a set $S$ we will consistently use the notation $A=\{a\in S\ |\ P(a)\}$ to read `` $A$ is the set of all elements in $S$ for which the property $P$ is true". This notation is commonly referred to as \textbf{set builder} notation \index{set builder notation}. We read the vertical bar `` $|$ " as ``for which" or sometimes ``such that", we will also commonly use the symbol $\ni$ to indicate ``for which" or ``such that" when we are referring to individual elements, e.g. $a\in A \ni a>0$ is read as `` $a$ is an element of $A$ for which $a>0$" or ``$a$ is an element of $A$ such that $a$ is greater than zero". \\ \\
 \noindent Here is a simple example of this \textbf{set builder} notation in use, let $P(a)=$ "$a \text{ is even}$". \\
 Then $\{a\in \Z | P(a)\} = \{...,-4,-2,0,2,4,6,...\} = \{ \text{the set of all even integers}\}$ \\ \\
@@ -394,11 +455,16 @@ Let $a,b\in \R, a<b$ we denote the following sets:
 \newpage
 
 \section{Valid Algebraic Manipulations of Inequalities}
+\label{sec:ManipulatingInequalities}
 
-The following table summarizes some algebraic transformations that preserve the truth of inequalities over the real numbers (and hence hold for inequalities of elements from any subset of the reals). This is by no means an exhaustive list but contains some useful ones that should be familiar from gradeschool and high school mathematics. All variables are assumed to be real unless otherwise noted.
+The following table summarizes some algebraic transformations that preserve the truth of inequalities over the real numbers (and hence hold for inequalities of elements from any subset of the reals). This is by no means an exhaustive list but contains some useful ones that should be familiar from gradeschool and high school mathematics. All variables are assumed to be real unless otherwise noted. \steezybreak \\
+
+\noindent Note: Any implication stated for $a \ge b$ also holds for the stricter case 
+$a > b$ (and trivially for $a = b$). Therefore, it is unnecessary to list both forms; 
+the $\ge$ case subsumes the $>$ case.
 
 \renewcommand{\arraystretch}{1.4} % Increase vertical spacing
-
+\vspace{-0.2in}
 \begin{center}
 \begin{tabular}{|p{3.5cm}|p{11.1cm}|}
 \hline
@@ -406,64 +472,86 @@ The following table summarizes some algebraic transformations that preserve the 
 \hline
 Transitivity &
 \( a \geq b \text{ and } b \geq c \implies a \geq c \) \\
-& \( a > b \text{ and } b > c \implies a > c \) \\
+%& \( a > b \text{ and } b > c \implies a > c \) \\
 \hline
 Addition/Subtraction &
 \( a \geq b \implies a + c \geq b + c \quad \text{for all } c \in \mathbb{R} \) \\
+%& \( a > b \implies a + c > b + c \quad \text{for all } c \in \mathbb{R} \) \\
 \hline
 Multiplication &
 \( a \geq b \text{ and } c > 0 \implies ac \geq bc \) \\
 & \( a \geq b \text{ and } c < 0 \implies ac \leq bc \) \\
+%& \( a > b \text{ and } c > 0 \implies ac > bc \) \\
+%& \( a > b \text{ and } c < 0 \implies ac < bc \) \\
 \hline
 Reciprocals &
 \(a>0 \implies \frac{1}{a}>0\) \\
 &\( 0 < a \leq b \implies \frac{1}{a} \geq \frac{1}{b} \) \\
 & \( a \leq b < 0 \implies \frac{1}{a} \geq \frac{1}{b} \) \\
+%&\( 0 < a < b \implies \frac{1}{a} > \frac{1}{b} \) \\
+%& \( a < b < 0 \implies \frac{1}{a} > \frac{1}{b} \) \\
 \hline
 Additive Bounds$^\dagger$ &
 \( a_1 \leq b_1 \text{ and } a_2 \leq b_2 \implies a_1 + a_2 \leq b_1 + b_2 \) \\
+%& \( a_1 < b_1 \text{ and } a_2 < b_2 \implies a_1 + a_2 < b_1 + b_2 \) \\
 \hline
 Multiplicative Bounds$^\dagger$ &
 \( 0 \leq a \leq b \text{ and } 0 \leq c \leq d \implies ac \leq bd \) \\
+%& \( 0 < a < b \text{ and } 0 < c < d \implies ac < bd \) \\
 \hline
 Division$^\dagger$ &
 \( a \geq b \text{ and } c > 0 \implies \frac{a}{c} \geq \frac{b}{c} \) \\
 & \( a \geq b \text{ and } c < 0 \implies \frac{a}{c} \leq \frac{b}{c} \) \\
+%& \( a > b \text{ and } c > 0 \implies \frac{a}{c} > \frac{b}{c} \) \\
+%& \( a > b \text{ and } c < 0 \implies \frac{a}{c} < \frac{b}{c} \) \\
 \hline
 Squaring (non-negative)$^\dagger$ &
 \( 0 \leq a \leq b \implies a^2 \leq b^2 \) \\
+%&\( 0 \leq a < b \implies a^2 < b^2 \) \\
 \hline
 Monotonic Functions$^{\dagger\dagger}$ &
 \( f \text{ monotone increasing on domain } D \text{ and } a,b \in D \text{ with } a \geq b \implies f(a) \geq f(b) \) \\
 & \( f \text{ monotone decreasing on domain } D \text{ and } a,b \in D \text{ with } a \geq b \implies f(a) \leq f(b) \) \\
+%& \( f \text{ monotone increasing on domain } D \text{ and } a,b \in D \text{ with } a > b \implies f(a) > f(b) \) \\
+%& \( f \text{ monotone decreasing on domain } D \text{ and } a,b \in D \text{ with } a > b \implies f(a) < f(b) \) \\
 \hline
 Absolute Value &
 \( |a| \geq 0 \) \\
 & \( |a| \leq b \iff -b \leq a \leq b \) \\
 & \( |a| \geq b \text{ and } b \geq 0 \implies a \leq -b \text{ or } a \geq b \) \\
+%& \( |a| < b \iff -b < a < b \) \\
+%& \( |a| > b \text{ and } b \geq 0 \implies a < -b \text{ or } a > b \) \\
 \hline
 \end{tabular}
 \end{center}
-$\dagger$ These can actually be proven from the first four rules, try it for yourself! \\
+\vspace{-0.1in}
+$\dagger$ These can be proven from the first four rules (Trans., Add., Mult., and Rec.), try it for yourself! \\
 $\dagger\dagger$ This simply follows from the definition of monotone increasing/decreasing, some familiar monotone increasing functions include $\log(x)$ (whose domain is $D=\R^+ \subset \R$), $\exp(x)$ (whose domain is $\R$), and $x^3$ (whose domain is $\R$).
 
 \newpage
 
-\section{Proof by Contrapositive Example} Let $x\in \mathbb{Z}$ and suppose we have statements $A=$``$x^2$ is even" and $B=$``$x$ is even", and wish to prove $A\implies B$, we can instead prove $\lnot B \implies \lnot A$ where $\lnot B=$``$x$ is not even" and $\lnot A=$``$x^2$ is not even". This latter statement is equivalent to the former and a proof by contraposition goes as follows: suppose that $x$ is not even, then $x$ is odd. The product of two odd numbers is odd, hence $x^2 = x\cdot x$ is odd. Thus $x^2$ is not even. Having proved the contrapositive, we can then infer that the original statement is true, i.e. that $A \implies B$ \\ \\
+\section{Proof by Contrapositive Example} 
+\label{sec:ContrapositiveExample}
+Let $x\in \mathbb{Z}$ and suppose we have statements $A=$``$x^2$ is even" and $B=$``$x$ is even", and wish to prove $A\implies B$, we can instead prove $\lnot B \implies \lnot A$ where $\lnot B=$``$x$ is not even" and $\lnot A=$``$x^2$ is not even". This latter statement is equivalent to the former and a proof by contraposition goes as follows: suppose that $x$ is not even, then $x$ is odd. The product of two odd numbers is odd, hence $x^2 = x\cdot x$ is odd. Thus $x^2$ is not even. Having proved the contrapositive, we can then infer that the original statement is true, i.e. that $A \implies B$ \\ \\
 \href{https://www.math.toronto.edu/preparing-for-calculus/3_logic/we_3_negation.html}{Click Here for help with negating logical expressions. (See table at end of webpage)}\\
 
 \noindent This is not to be confused with proof by contradiction. In proof by contradiction we have statement $A\implies B$ that we wish to show. To accomplish this, we begin by assuming $A$ is true \textit{and} that $B$ is false and we will arrive at a contradiction (denoted as $\Rightarrow\Leftarrow$) that is a direct consequence of our incorrect assumption about $B$, meaning the only possibility is that our assumption about $B$ being false when $A$ is true was incorrect, meaning that if $A$ is true then $B$ must be true too, giving us the desired result: $A \implies B$ 
-\newpage
-\noindent\section{Proof by Contradiction (a.k.a. 
-\textit{Reductio ad absurdum}) Example:} In this example\footnote{ A reader who is familiar with intuitionistic logic may scoff at this example for Reductio ad absurdum as it relies on Indirect Proof (In some camps, RAA is the same as ``Proof of Negation" from Int. Logic, and what I called RAA here would be referred to as Indirect Proof). We will be working with Classical Logic for the time being, and under those rules, this is all fine. I will present the natural deduction rules we've been using ( see Dr. Mark Jago's excellent lectures here: \textcolor{orange}{\href{https://www.youtube.com/watch?v=dlUkeN7KqVA&t=8s}{Propositional Logic/Classical Natural Deduction}/ \href{https://www.youtube.com/watch?v=C30w5vZypXE}{First-Order Logic}}) towards the end of the text and allude to logics that relax assumptions like double negation elimination and indirect proof. Stick with us, you may enjoy the presentation of the algebraic topics covered here \smiley } we will prove an implication using \textit{Reductio ad absurdum} or proof by contradiction. Given statements $A= "x^2 \text{ is even}"$, and $B= "x \text{ is even}"$, we could show $A\implies B$ through the following contradiction: Assume $A$ true and $\lnot B$ true, that is assume ``$x^2 \text{ is even}$" and ``$x \text{ is not even}$", now since $x$ is odd, and the product of two odds is odd, $x\cdot x$ is odd, but $x\cdot x=x^2$ and $x^2$ was assumed even! $\Rightarrow\Leftarrow$ (contradiction!). What we have shown is that $\lnot B$ cannot be true when $A$ is true. So our only option left is to conclude that if $A$ is true, then $B$ is true, i.e. $A\implies B$
 
-\section{Proof by Induction Example} Mathematical induction is a technique of proof that is essentially used to prove that a statement $P(n)$ holds for \textit{every} natural number $n = 0, 1, 2, 3, ...$ ; that is, the overall statement is a sequence of infinitely many cases $P(0), \ P(1), \ P(2), \ P(3), \ ...$ \\
+\noindent\section{Proof by Contradiction (a.k.a. 
+\textit{Reductio ad absurdum}) Example:} 
+\label{sec:RAAExample}
+In this example\footnote{ A reader who is familiar with intuitionistic logic may scoff at this example for Reductio ad absurdum as it relies on Indirect Proof (In some camps, RAA is the same as ``Proof of Negation" from Int. Logic, and what I called RAA here would be referred to as Indirect Proof). We will be working with Classical Logic for the time being, and under those rules, this is all fine. I will present the natural deduction rules we've been using ( see Dr. Mark Jago's excellent lectures here: \textcolor{orange}{\href{https://www.youtube.com/watch?v=dlUkeN7KqVA&t=8s}{Propositional Logic/Classical Natural Deduction}/ \href{https://www.youtube.com/watch?v=C30w5vZypXE}{First-Order Logic}}) towards the end of the text and allude to logics that relax assumptions like double negation elimination and indirect proof. Stick with us, you may enjoy the presentation of the algebraic topics covered here \smiley } we will prove an implication using \textit{Reductio ad absurdum} or proof by contradiction. Given statements $A= "x^2 \text{ is even}"$, and $B= "x \text{ is even}"$, we could show $A\implies B$ through the following contradiction: Assume $A$ true and $\lnot B$ true, that is assume ``$x^2 \text{ is even}$" and ``$x \text{ is not even}$", now since $x$ is odd, and the product of two odds is odd, $x\cdot x$ is odd, but $x\cdot x=x^2$ and $x^2$ was assumed even! $\Rightarrow\Leftarrow$ (contradiction!). What we have shown is that $\lnot B$ cannot be true when $A$ is true. So our only option left is to conclude that if $A$ is true, then $B$ is true, i.e. $A\implies B$
+
+\section{Proof by Induction Example}
+\label{sec:InductionExample}
+Mathematical induction is a technique of proof that is essentially used to prove that a statement $P(n)$ holds for \textit{every} natural number $n = 0, 1, 2, 3, ...$ ; that is, the overall statement is a sequence of infinitely many cases $P(0), \ P(1), \ P(2), \ P(3), \ ...$ \\
 \noindent A proof by induction consists of two cases. The first, the base case (or basis), proves the statement for $n = 0$ without assuming any knowledge of other cases. The second case, the induction step, proves that if the statement holds for any given case $n\geq 0$, then it must also hold for the next case $n + 1$. These two steps establish that the statement holds for every natural number $n$. The base case does not necessarily begin with $n = 0$, but often with $n = 1$, and possibly with any fixed natural number $n = N$, establishing the truth of the statement for all natural numbers $n \geq N$. Now we will give an example of this approach of proof in order to prove the following fact about sums of natural numbers:
 \begin{align}
     \sum_{k=1}^{n} k = \frac{n(n+1)}{2} \ \ \ \forall n \in \N \nonumber
 \end{align}
-In the proof below we will begin by establishing the result for a \textit{base case} where $n=1$. Then, in the \textit{induction step}, we will \textit{assume} that it holds for some $n\geq 1$ and we will show that assuming this $\implies$ $n+1$ also satisfies the property. The base case, together with the induction step, show that the rule is obeyed by all natural numbers $n\geq 1$ in a domino sort of effect, since $n=1$ (base) case plus the induction step implies that $n=2$ holds, then $n=2$ plus induction step implies $n=3$ holds, and so on and so forth. The principle of induction is a formal statement of this intuitive reasoning.\\
-\textit{Proof:}\\
+In the proof below we will begin by establishing the result for a \textit{base case} where $n=1$. Then, in the \textit{induction step}, we will \textit{assume} that it holds for some $n\geq 1$ and we will show that assuming this $\implies$ $n+1$ also satisfies the property. The base case, together with the induction step, show that the rule is obeyed by all natural numbers $n\geq 1$ in a domino sort of effect, since $n=1$ (base) case plus the induction step implies that $n=2$ holds, then $n=2$ plus induction step implies $n=3$ holds, and so on and so forth. The principle of induction is a formal statement of this intuitive reasoning. The proof begins on the next page.\\
+\newpage 
+\noindent \textit{Proof:}\\
 \noindent\textit{Base case:} Let $n=1$, then it is obvious that $\sum_{k=1}^1 k = 1 = \frac{1\cdot(2)}{2}=1$\\
 \textit{Induction step:} Suppose for $n\geq 1$ it is true that 
 \begin{align}
@@ -505,7 +593,78 @@ In the last sentence of the \textit{induction step}, we said ``lastly, we note t
 
 %(If you want even more explaining read my comment in the Ch0\_IntroTopics.tex below this sentence)\\ \\
 
-\subsection{Induction in Fewer Words (Taken from Chong/\.Zak An Intro to Optimization 4 ed.)}
+\section{Why Induction Works: A Rigorous Justification}
+\label{sec:WhyInductionWorks}
+% Mathematical induction is often introduced through analogy and intuition—such as
+% falling dominoes or climbing an infinite ladder. While these images are helpful,
+% they hide the logical machinery that makes induction a valid method of proof.
+% In this section, we present more formal justification. \\
+Upon first reading about induction, many readers may feel that the conclusion doesn't 
+follow immediately from the two assumptions (base and inductive steps). Sure the base
+case shows $P$ holds for the base $N$, and of course applying modus ponens via the 
+induction step to that  base gives $P$ holding for $N+1$ but why should we be allowed to 
+continually apply modus ponens without actually doing/saying so?
+\begin{align*} 
+    P(N) &\text{ and }  P(N)\Rightarrow P(N+1) \ \ \ &\therefore \ P(N+1). \\
+    P(N+1) &\text{ and }  P(N+1)\Rightarrow P(N+2) \ \ \ &\therefore \ P(N+2). \\
+    &\vdots
+\end{align*}
+The problem is with what `'..." means. What it really means is an argument by induction. 
+But it still remains to show that the argument by induction works. Intuitively, 
+we all can see why induction works. But that way of "seeing" might be circular. 
+Basically, we "see" that induction holds because of the "..." heuristic above. 
+But this assumes that induction works!
+
+Here we will briefly show that once the base case
+$P(N)$ has been established, and the induction step 
+$\forall \ n \ge N, \  (P(n) \Rightarrow P(n+1))$ has been proven, 
+there cannot exist a $k \ge N$ such that $\lnot P(k)$.
+We show that repeated application of \emph{modus ponens} is not merely an
+informal convenience, but a logically sound consequence of the axioms
+underpinning the natural numbers.
+
+\noindent \textit{Proof:} We will prove this via a contraposition argument 
+\begin{align*}
+    A\Rightarrow B \iff \lnot B \Rightarrow \lnot A
+\end{align*}
+First, recall that statements of the form $P\Rightarrow Q$ can equivalently be written $Q\lor \lnot P$
+
+\noindent Now, suppose $\exists \ k\geq N \text{ that is the first number for which }\lnot P(k)$ (this is our statement $A$) well then either
+\begin{align*}
+    k=N \implies \lnot P(N)
+\end{align*}
+or 
+\begin{align*}
+    k>N &\implies P(k-1) \ \ \ \ \ \ \ \text{(remember }k \text{ is assumed to be the *first* number that } P \text{ doesn't hold for.)}\\
+    &\implies P(k-1)\land \lnot P(k) \\
+    &\implies \exists \ n\geq N, \  P(n)\land \lnot P(n+1)
+\end{align*}
+So from statement $A$ we can infer $\lnot P(N)\lor (\exists \ n\geq N, \  P(n)\land \lnot P(n+1))$ (this is our statement $B$)
+So we have established that 
+\begin{align*}
+    ``\exists \ k\geq N \text{ that is the first number for which }\lnot P(k)" \Longrightarrow ``\lnot P(N)\lor (\exists \ n\geq N, \  P(n)\land \lnot P(n+1))".
+\end{align*}
+Now, applying contraposition we have 
+\begin{align*}
+    \lnot(\lnot P(N)\lor (\exists \ n\geq N, \  P(n)\land \lnot P(n+1))) \Longrightarrow \lnot (\exists \ k\geq N \text{ that is the first number for which }\lnot P(k))
+\end{align*}
+And simplifying the left hand side of this implication with DeMorgan we have
+\begin{align*}
+    P(N)\land \lnot (\exists \ n\geq N, \  P(n)\land \lnot P(n+1)) \Longrightarrow \lnot (\exists \ k\geq N \text{ that is the first number for which }\lnot P(k))
+\end{align*}
+Negating the existential quantifier and applying DeMorgan once more we have
+\begin{align*}
+    P(N)\land (\forall \ n\geq N, \  P(n+1)\lor \lnot P(n)) \Longrightarrow \lnot (\exists \ k\geq N \text{ that is the first number for which }\lnot P(k))
+\end{align*}
+Finally, rewriting the right side of the conjunction as an implication
+\begin{align*}
+    P(N)\land (\forall \ n\geq N, \  P(n) \Rightarrow P(n+1)) \Longrightarrow \lnot (\exists \ k\geq N \text{ that is the first number for which }\lnot P(k))
+\end{align*}
+And there we have it, from the two parts of an induction proof holding (the base and the induction step) we cannot have a $k$ who is the first to break the chain (hence we cannot have any $k$ for which $P$ does not hold).
+
+\newpage
+\section{Induction in Fewer Words (from Chong/\.Zak An Intro to Optimization 4 ed.)}
+\label{sec:ChongInduction}
 The principle of mathematical induction may be stated as follows. \\ \\
 Assume that a given property of positive integers, $P(\cdot)$, satisfies the following conditions:
 \begin{itemize}
@@ -518,19 +677,6 @@ property.\\
 The principle of induction is easily understood using the following intuitive argument. If the number
 $1$ possesses the given property, then the second condition implies that the number $2$ possesses the
 property. But, then again, the second condition implies that the number $3$ possesses this property, and so on. The principle of induction is a formal statement of this intuitive reasoning.
-\newpage
-\section{Negating Logical Expressions}
-This table provides a resource for negating the most common types of expressions that we will encounter in this class:
-\begin{center}
-  \begin{tabular}{|c|c|}\hline
-     \textbf{Statement: $S$} & \textbf{Negation of Statement: $\lnot S$}   \\ \hline
-     $A$ or $B$ & $\lnot A$ and $\lnot B$  \\ \hline 
-     $A$ and $B$ & $\lnot A$ or $\lnot B$  \\ \hline
-     if $A$ then $B$ & $A$ and $\lnot B$  \\ \hline
-     $\forall \ x, \ P(x)$ & $\exists \ x \ni \lnot P(x)$  \\ \hline
-     $\exists \ x \ni \ P(x)$ & $\forall \ x, \lnot P(x)$  \\ \hline
-\end{tabular}  
-\end{center}
 
 %% EVEN MORE EXPLAINING %%
 % There are many work-arounds to see that this Theorem is obviously false. Two of these approaches include: 
