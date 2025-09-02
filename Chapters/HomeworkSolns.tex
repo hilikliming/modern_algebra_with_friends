@@ -497,26 +497,135 @@ So $xy = g^m g^n \underset{\substack{\uparrow \\ Laws \ of \\ Exps.}}{=} g^{m+n}
     \end{align*}
 \end{enumerate}
 \item Reduce $41^{1581} \mod 21$. \\
-Use the Euler Corollary to Lagrange's Thm: for $n\in \Z^+$ and $a\in \Z$ with $GCD(a,n)=1$, $a^{\phi} \equiv 1 \mod n$. Here $n=21$, $a=41$ with $GCD(41,21)=1$, so we need $\phi(21)$ \\
-$G_{21}= \{1,2,4,5,8,10,11,13,16,17,19,20\}$, so $\phi(21)=o(G_{21}=12)$, and Euler says $41^{12}\equiv 1 \mod 21$.
+Use the Euler Corollary to Lagrange's Thm: for $n\in \Z^+$ and $a\in \Z$ with $GCD(a,n)=1$, $a^{\phi} \equiv 1 \mod n$. \\ 
 
+Here $n=21$, $a=41$ with $GCD(41,21)=1$, so we need $\phi(21)$ \\
+
+$G_{21}= \{1,2,4,5,8,10,11,13,16,17,19,20\}$, so $\phi(21)=o(G_{21}=12)$, and Euler says $41^{12}\equiv 1 \mod 21$. \\
+
+Now,
+\begin{align*}
+    41^{1581}\mod 21 &\equiv 41^{12\cdot 131 + 9} \mod 21 \\ 
+    &\equiv (41^{12})^{131}41^{9} \mod 21 \\
+    &\equiv (1)^{131}41^{9} \mod 21 \\
+    &\equiv 41^9 \mod 21 \\
+    &\equiv (20)^9 \mod 21 \ \ \ \ \ \ (\text{reduce }41 \mod 21) \\
+    &\equiv (-1)^{9}\mod 21 \ \ \ \ \ (\text{note that }20 \equiv -1 \mod 21) \\
+    &\equiv (-1) \mod 21 \\
+    &\equiv 20 \mod 21 
+\end{align*}
+(note that for $\mod 21$ your final answer ends up in the window $\{0,1,2,\cdots, 19, 20\}$)
 \end{enumerate}
+\newpage
+
+\begin{tcolorbox}
+    I encourage you to give each of the homework sets an honest attempt before looking at the solutions, you will get much more out of reading the solutions if you have first spent time carefully thinking about the problems on your own!
+\end{tcolorbox}
+\vspace{-0.2in}
+\section{Homework \#5 Solutions}
+
+\begin{enumerate}
+    \item In Test 1 we showed $Z(G)<G$ where $Z(G)=\{z\in G \ | \ zg=gz \forall g \in G \}$. \\ 
+    To show $Z(G)\triangleleft G$, take $g\in G$ and $x \in Z(G)$ 
+    Then 
+    \begin{align*}
+        gxg^{-1} = xgg^{-1} = x e = x \in Z(G)
+    \end{align*}
+    Since $Z(G)$ absorbs conjugates $Z(G)\triangleleft G$. $\blacksquare$ 
+
+    \item Personal groups
+    \item We proved in the book (Example \ref{ex:DecomposeGLtoSL}) that $r$ has to be $\det M$, so $r=6-8 = -2$, so we want 
+    $\begin{pmatrix}
+        1 &4 \\ 2&6
+    \end{pmatrix} = \begin{pmatrix}
+        -2 & 0 \\ 0 & 1
+    \end{pmatrix} M'$ where $M' \in SL_2(\R)$ \\
+    To satisfy this equation 
+    \begin{align*}
+        M' &= \begin{pmatrix}
+        -2 & 0 \\ 0 & 1
+    \end{pmatrix}^{-1} \begin{pmatrix}
+        1 &4 \\ 2&6
+    \end{pmatrix} \\
+    &= \begin{pmatrix}
+        -\frac{1}{2} & 0 \\ 0 & 1
+    \end{pmatrix}  \begin{pmatrix}
+        1 &4 \\ 2&6
+    \end{pmatrix} \\
+    &= \begin{pmatrix}
+        -\frac{1}{2} & -2 \\ 2 & 6
+    \end{pmatrix} \ \ \ \ \ \ (\text{Note that the determinant of this matrix is }1 \text{ so it's in }SL_2(\R))
+    \end{align*}
+    $\therefore \ M = \begin{pmatrix}
+        -2 & 0 \\ 0 & 1
+    \end{pmatrix} \begin{pmatrix}
+        -\frac{1}{2} & -2 \\ 2 & 6
+    \end{pmatrix}$
+
+    \item \begin{enumerate}[a)]
+        \item $\sigma : \R^2 \rightarrow \R$ (operations are componentwise $+$, and $+$, respectively).\\
+        $\sigma((x,y))=y$ \\
+        To prove $\sigma$ is a homomorphism: Take $(a,b), \ (c,d)\in \R^2$
+        \begin{align*}
+            \sigma[(a,b)\cdot (c,d)] = \sigma[(a+c,b+d)] = b+d = \sigma[(a,b)]+\sigma[(c,d)]
+        \end{align*}
+        To prove $\sigma$ is surjective take $r\in \R$, then $r$ has a preimage $(0,r)\in \R^2$ under $\sigma$: $\sigma[(0,r)]=r$
+
+        Now, 
+        \begin{align*}
+            \ker(\sigma) = \{(x,y) \in \R^2 \ | \ \sigma((x,y))= e\} = \{(x,y)\in \R^2 \ | \ y=0\} = \{(x,0) \ | \ x\in \R\}
+        \end{align*}
+        (i.e. the $x$-axis in the $xy$-plane)
+        \item $\sigma : \R^2 \rightarrow \R$ \\
+        $\sigma((x,y))= x+y$ \\
+        To prove $\sigma$ is a homomorphism: Take $(a,b), \ (c,d)\in \R^2 $
+        \begin{align*}
+            \sigma[(a,b)+(c,d)] &= \sigma[(a+c,b+d)] \\
+            &= (a+c)+(b+d) \\ 
+            &= (a+b) + (c+d) \ \ \ \ \ \ \ (assoc. \ in \ \R, \ an \ abelian \ group \ under \ +) \\
+            &= \sigma[(a,b)]+ \sigma[(c,d)]
+        \end{align*}
+        To prove $\sigma$ is surjective, take $r\in \R$, then $r$ has preimage $(0,r)$ under $\sigma$: $\sigma[(0,r)]=0+r=r$.
+        \begin{align*}
+            \ker(\sigma) = \{(x,y)\in \R^2 \ | \ x+y=0\} = \{(x,y)\in \R^2 \ | \ y=-x \}
+        \end{align*}
+        (i.e. the line in the $xy$-plane which bisects quadrants II and IV).
+    \end{enumerate}
+    \item $G$ abelian with odd order. Show $\phi: G \rightarrow G$ given by $\phi(g)=g^2$ is an isomorphism. \\
+    \textit{Proof:} \\
+    $\phi$ is a homomorphism: Take $g,h \in G$
+    \begin{align*}
+        \phi(gh) = (gh)^2 = ghgh \underset{G \ abelian}{=} gghh = g^2h^2 = \phi(g)\phi(h).
+    \end{align*} \\
+    $\phi$ is injective: we will use $\boxed{\phi \ inj. \iff \ker(\phi)=\{e\}}$ ( ``Proposition'' right after L2.7.3). \\
+    Certainly $\{e\} \subseteq \ker(\phi)$, so we only need to show $\ker(\phi) \subseteq \{e\}$. Take $k\in \ker(\phi)$, then $e=\phi(k)=k^2$, so $o(k)$ in $G$ is either $1$ or $2$. Lagrange cor. 1 says $o(k)|o(G)$, so since $2 \not | \ o(G)$, because $o(G)$ is odd, $o(k)\neq 2$. So $o(k)=1 \implies k=e$, and $\ker(\phi) \subseteq \{e\}$. \steezybreak \\
+    $\phi$ is surjective: Take $g\in G$, we must find a preimage for $g$, i.e. an element in $G$ whose square is $g$. Now, $o(G)$ odd $\implies \ \exists \ k\in \Z \ni o(G)=2k+1$. Then
+    \begin{align*}
+        e \underset{Lagrange \ cor. \ 2}{=} g^{2k+1} = g^{2k}g.
+    \end{align*}
+    multiply each side on the left by $(g^{2k})^{-1}$
+    \begin{align*}
+        (g^{2k})^{-1}= g
+    \end{align*}
+    Rearranging via laws of exponents:
+    \begin{align*}
+        g=(g^{-k})^2
+    \end{align*}
+    So $g^{-k}\in G$ is the preimage for $g$ under $\phi$. \\
+    $\therefore \ \phi$ is an isomorphism. $\blacksquare$
+\end{enumerate}
+\newpage 
 
 
-% \begin{tcolorbox}
-%     I encourage you to give each of the homework sets an honest attempt before looking at the solutions, you will get much more out of reading the solutions if you have first spent time carefully thinking about the problems on your own!
-% \end{tcolorbox}
-% \vspace{-0.2in}
-% \section{Homework \#5 Solutions}
 
-
-
-
-% \begin{tcolorbox}
-%     I encourage you to give each of the homework sets an honest attempt before looking at the solutions, you will get much more out of reading the solutions if you have first spent time carefully thinking about the problems on your own!
-% \end{tcolorbox}
-% \vspace{-0.2in}
-% \section{Homework \#6 Solutions}
+\begin{tcolorbox}
+    I encourage you to give each of the homework sets an honest attempt before looking at the solutions, you will get much more out of reading the solutions if you have first spent time carefully thinking about the problems on your own!
+\end{tcolorbox}
+\vspace{-0.2in}
+\section{Homework \#6 Solutions}
+\begin{enumerate}
+    \item If $o(G)$ and $o(\bar{G})$ are relatively prime, and $\phi: G \rightarrow \bar{G}$ is a homomorphism, then $\phi$ is the trivial map.
+\end{enumerate}
 
 
 
