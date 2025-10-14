@@ -50,7 +50,7 @@ Note that Example \ref{ex:firstExample} is an equivalence relation, but Example 
 The relation ``equals" (``=") is an equivalence relation on $\mathbb{R}, \mathbb{Q}, \mathbb{Z}$ (i.e. on reals, rationals and integers). In fact, an equivalence relation is a generalization of equality, measuring equality up to some property.
 \end{example}
 % \noindent\textbf{Example 3:} The relation ``equals" (``=") is an equivalence relation on $\mathbb{R}, \mathbb{Q}, \mathbb{Z}$ (i.e. on reals, rationals and integers) \steezybreak\\
-\begin{definition}[Even]
+\begin{definition}[Even]\label{def:even}
 $n\in \mathbb{Z}$ is \textit{even} iff $n$ is an integer multiple of $2$ \\
 that is, \\
 $n\in \mathbb{Z} \text{ is}\textit{ even }\Leftrightarrow \exists \ k \in \mathbb{Z}$ such that $n=2k$
@@ -68,17 +68,94 @@ $x\sim y \iff x-y \text{ is even}$\steezybreak\\
 \textit{Transitivity:} Assume $x\sim y$ and $y \sim z$. These expression imply the existence of two integers. The first expression implies $\exists \ k\in \mathbb{Z}$ such that $x-y=2k$ and the second expression implies $\exists \ l \in \mathbb{Z}$ such that $y-z=2l$. Using these we can see that $x-z=x-y+y-z=2k+2l=2*(k+l)$ since $k+l$ is a sum of integers, it is itself an integer so $x-z$ is even which implies $x\sim z$. So we have shown that assuming $x\sim y \text{ and } y\sim z \implies x\sim z \ \forall x,y,z \in \mathbb{Z}$. $\ \ \ \blacksquare$
 \end{example}
 \subsection{Understanding the First Proof}
-Since this was the first proof in the course material we would like to take a few paragraphs to unpack the reasoning in the proof above. \steezybreak\\
-\noindent We are asked to show that the relation defined in example 1.1.4 ($x\sim y \iff x-y \text{ is even}$) on $\Z$ is an equivalence relation. To do this we are required to show the defined relation exhibits three properties: reflexivity, symmetry, transitivity. We started by showing $\sim$ on $\Z$ has the reflexivity property. If we re-read the definition of reflexivity we see this property is a statement that pertains to \textit{every} element $a\in A$ for a relation that is defined on set $A$ (in this example $A=\Z$), it says that $\sim$ is reflexive on $A$ iff it is true that $a$ is related to itself for all $a\in A$. The reader may now be re-reading the proof and asking themselves ``So to prove $\sim$ is reflexive on $A$, don't we have to prove the reflexive property (i.e. $a\sim a$) holds for \textit{all} of the $a's$ in $A$? It looks like we only considered one?" This brings us to a very important point! \steezybreak\\
+% Since this was the first proof in the course material we would like to take a few paragraphs to unpack the reasoning in the proof above. \steezybreak\\
+% \noindent We are asked to show that the relation defined in example 1.1.4 ($x\sim y \iff x-y \text{ is even}$) on $\Z$ is an equivalence relation. To do this we are required to show the defined relation exhibits three properties: reflexivity, symmetry, transitivity. We started by showing $\sim$ on $\Z$ has the reflexivity property. If we re-read the definition of reflexivity we see this property is a statement that pertains to \textit{every} element $a\in A$ for a relation that is defined on set $A$ (in this example $A=\Z$), it says that $\sim$ is reflexive on $A$ iff it is true that $a$ is related to itself for all $a\in A$. The reader may now be re-reading the proof and asking themselves ``So to prove $\sim$ is reflexive on $A$, don't we have to prove the reflexive property (i.e. $a\sim a$) holds for \textit{all} of the $a's$ in $A$? It looks like we only considered one?" This brings us to a very important point! \steezybreak\\
 
-\noindent The first of these questions is certainly valid, and yes, we \textit{do} need to show this property holds for \textit{all} of the $x\in \Z$. However, the second question is a little misleading. We did consider a single $x\in \Z$, but this $x$ was \textit{arbitrary}, we did not pick $1$, or $2$ or $-664$, we instead chose "$x$", a \textit{variable}, to represent an arbitrary member of the set $\Z$ and then we \underline{only} made statements and inferences about $x$ that are true for \textbf{every} member of $\Z$ (i.e. we never used special properties of a specific member who $x$ could have been, such as $1$ or $2$, all we knew about $x$ is that it is an integer, and by being an integer it inherited any properties that are true for all integers). As a result, statements and inferences that were made about $x$ apply to \textit{all} members of the set $\Z$. \steezybreak\\
-With this in mind let's break down each of the sentences in this proof starting with the reflexivity line. We first say ``Take $x\in\Z$, then $x-x=0$", we begin by considering an arbitrary representative of the set (that we call ``$x$" providing us a handle, so to speak, for "an arbitrary element of $\Z$") on which the relation is defined. We then note that for ANY element in $\Z$ it's true that $x-x=0$. Then we have another equality that says $=2*0$, this equality is pointing out that $x-x$ is an integer multiple of $2$, the integer is $0$. From here we simply look back at the definition of "even" and we see that $x-x$ is even. Then since the defined relation is an $\iff$ (i.e. a pair of implications) this means that $x\sim x \implies x-x \text{ is even}$ (we don't use this direction) AND it means that $x-x \text{ is even}\implies x\sim x$ (we use this direction). Using the latter of these implications, since we showed that $x-x$ is even, this implies that $x\sim x$, lastly, since our $x$ was chosen arbitrarily we have shown the property holds for all of the possible members of $\Z$. Hopefully, this clarifies proof of the reflexivity portion.\steezybreak\\
-Next we will discuss the part of the proof that pertained to showing the symmetry property. Let's look back at the definition of a symmetric relation. In Defn 1.1.2 we say that relation $\sim$ on set $A$ is symmetric iff $x\sim y \implies y\sim x \ \forall \ x,y \in A$. In more plain speech this says a relation is symmetric iff \textit{whenever} it is true that $x\sim y$ this \textit{implies} it is also true that $y\sim x$. So to show symmetry, we must first assume that there is a related pair $x,y$ in $A$ for which $x\sim y$ that \textit{could} exist, and we show \textit{if such a pair exists} then it implies that $y\sim x$.
+% \noindent The first of these questions is certainly valid, and yes, we \textit{do} need to show this property holds for \textit{all} of the $x\in \Z$. However, the second question is a little misleading. We did consider a single $x\in \Z$, but this $x$ was \textit{arbitrary}, we did not pick $1$, or $2$ or $-664$, we instead chose "$x$", a \textit{variable}, to represent an arbitrary member of the set $\Z$ and then we \underline{only} made statements and inferences about $x$ that are true for \textbf{every} member of $\Z$ (i.e. we never used special properties of a specific member who $x$ could have been, such as $1$ or $2$, all we knew about $x$ is that it is an integer, and by being an integer it inherited any properties that are true for all integers). As a result, statements and inferences that were made about $x$ apply to \textit{all} members of the set $\Z$. \steezybreak\\
+% With this in mind let's break down each of the sentences in this proof starting with the reflexivity line. We first say ``Take $x\in\Z$, then $x-x=0$", we begin by considering an arbitrary representative of the set (that we call ``$x$" providing us a handle, so to speak, for "an arbitrary element of $\Z$") on which the relation is defined. We then note that for ANY element in $\Z$ it's true that $x-x=0$. Then we have another equality that says $=2*0$, this equality is pointing out that $x-x$ is an integer multiple of $2$, the integer is $0$. From here we simply look back at the definition of "even" and we see that $x-x$ is even. Then since the defined relation is an $\iff$ (i.e. a pair of implications) this means that $x\sim x \implies x-x \text{ is even}$ (we don't use this direction) AND it means that $x-x \text{ is even}\implies x\sim x$ (we use this direction). Using the latter of these implications, since we showed that $x-x$ is even, this implies that $x\sim x$, lastly, since our $x$ was chosen arbitrarily we have shown the property holds for all of the possible members of $\Z$. Hopefully, this clarifies proof of the reflexivity portion.\steezybreak\\
+% Next we will discuss the part of the proof that pertained to showing the symmetry property. Let's look back at the definition of a symmetric relation. In Defn 1.1.2 we say that relation $\sim$ on set $A$ is symmetric iff $x\sim y \implies y\sim x \ \forall \ x,y \in A$. In more plain speech this says a relation is symmetric iff \textit{whenever} it is true that $x\sim y$ this \textit{implies} it is also true that $y\sim x$. So to show symmetry, we must first assume that there is a related pair $x,y$ in $A$ for which $x\sim y$ that \textit{could} exist, and we show \textit{if such a pair exists} then it implies that $y\sim x$.
 
-We begin by assuming there are some $x,y\in \Z$ with $x\sim y$ because symmetry is a property concerned with related pairs, we don't \textit{need} to consider an arbitrary $x\not\sim y$ because all we want to show is that: \textit{if there were} some pair where $x\sim y$ is true \textit{then} $y\sim x$ must also be true. \steezybreak\\
-Let's break this symmetry part down. We first say ``Assume $x\sim y$, then $x-y$ is even", We begin by assuming there could be some related pair $x\sim y$ and we want to show if such a related pair exists then it is also true that $y\sim x$. We infer that $x-y$ is even because the assumption said $x\sim y$ and the definition of $\sim$ for this example tells us that $x\sim y \implies x-y \text{ is even}$. Then we say ``which means $\exists \ k\in \Z$ such that $x-y=2k$" This is just applying the definition of "even" after we confirmed that $x-y$ must be even. Lastly we say `` From here we can see $y-x=-(x-y)=-2k=2(-k)$, since $k\in \Z$, $-k\in \Z$ so $y-x$ is even too and we have $y\sim x$". So after having established that $x-y$ is even, we take a look at what $y-x$ is and realize that $x-y$ even \textit{implies} $y-x$ even since every integer $k\in \Z$ has an additive opposite $-k\in \Z$. Since we considered an arbitrary related pair (i.e. arbitrary $x,y\in \Z$ for which $x\sim y$) and we showed that just based on the fact that $x,y$ were integers and the way the equivalence relation is defined, this implies that $y\sim x$ must be true too.\steezybreak\\
-Lastly, we will discuss the reasoning for the transitive step of the proof. In a similar fashion to the symmetric proof, in order to show a relation $\sim$ is \textit{transitive} we must consider an arbitrary triple $x,y,z \in \Z$ for which $x\sim y$ and $y\sim z$ and we must show that assuming $x\sim y$ and $y\sim z$ \textit{implies} that $x\sim z$.\steezybreak\\
-We begin by assuming an arbitrary pair of relations $x\sim y$ and $y\sim z$ are true and we want to show that with the way $\sim$ is defined, it implies that $x$ must be related to $z$. We say ``These expressions imply the existence of two integers", this is because $x\sim y\implies x-y \text{ even }\implies \exists \ k\in \Z \ni x-y=2k$ AND $y\sim z\implies y-z \text{ even}\implies \exists \ l\in \Z \ni y-z=2l$. Next we realize that $x-z$ can be rewritten as the sum of $x-y$ and $y-z$ (both of whom are even) and we see that $x-z$ must too be even, then by the definition of the relation $x-z \text{ even}\implies x\sim z$. Again, since we showed this for an arbitrary triple $x,y,z\in \Z$ for which $x\sim y$ and $y\sim z$ using only properties that were assumed true for the argument (i.e. $x\sim y$ and $y\sim z$) or that are true for all integers, it is true for all triples $x,y,z\in \Z$ for which $x\sim y$ and $y\sim z$.
+% We begin by assuming there are some $x,y\in \Z$ with $x\sim y$ because symmetry is a property concerned with related pairs, we don't \textit{need} to consider an arbitrary $x\not\sim y$ because all we want to show is that: \textit{if there were} some pair where $x\sim y$ is true \textit{then} $y\sim x$ must also be true. \steezybreak\\
+% Let's break this symmetry part down. We first say ``Assume $x\sim y$, then $x-y$ is even", We begin by assuming there could be some related pair $x\sim y$ and we want to show if such a related pair exists then it is also true that $y\sim x$. We infer that $x-y$ is even because the assumption said $x\sim y$ and the definition of $\sim$ for this example tells us that $x\sim y \implies x-y \text{ is even}$. Then we say ``which means $\exists \ k\in \Z$ such that $x-y=2k$" This is just applying the definition of "even" after we confirmed that $x-y$ must be even. Lastly we say `` From here we can see $y-x=-(x-y)=-2k=2(-k)$, since $k\in \Z$, $-k\in \Z$ so $y-x$ is even too and we have $y\sim x$". So after having established that $x-y$ is even, we take a look at what $y-x$ is and realize that $x-y$ even \textit{implies} $y-x$ even since every integer $k\in \Z$ has an additive opposite $-k\in \Z$. Since we considered an arbitrary related pair (i.e. arbitrary $x,y\in \Z$ for which $x\sim y$) and we showed that just based on the fact that $x,y$ were integers and the way the equivalence relation is defined, this implies that $y\sim x$ must be true too.\steezybreak\\
+% Lastly, we will discuss the reasoning for the transitive step of the proof. In a similar fashion to the symmetric proof, in order to show a relation $\sim$ is \textit{transitive} we must consider an arbitrary triple $x,y,z \in \Z$ for which $x\sim y$ and $y\sim z$ and we must show that assuming $x\sim y$ and $y\sim z$ \textit{implies} that $x\sim z$.\steezybreak\\
+% We begin by assuming an arbitrary pair of relations $x\sim y$ and $y\sim z$ are true and we want to show that with the way $\sim$ is defined, it implies that $x$ must be related to $z$. We say ``These expressions imply the existence of two integers", this is because $x\sim y\implies x-y \text{ even }\implies \exists \ k\in \Z \ni x-y=2k$ AND $y\sim z\implies y-z \text{ even}\implies \exists \ l\in \Z \ni y-z=2l$. Next we realize that $x-z$ can be rewritten as the sum of $x-y$ and $y-z$ (both of whom are even) and we see that $x-z$ must too be even, then by the definition of the relation $x-z \text{ even}\implies x\sim z$. Again, since we showed this for an arbitrary triple $x,y,z\in \Z$ for which $x\sim y$ and $y\sim z$ using only properties that were assumed true for the argument (i.e. $x\sim y$ and $y\sim z$) or that are true for all integers, it is true for all triples $x,y,z\in \Z$ for which $x\sim y$ and $y\sim z$.
+
+Since this was the first proof in the course material we would like to take a few 
+paragraphs to unpack the reasoning in the proof above. \steezybreak\\
+\noindent We are asked to show that the relation defined in example 1.1.4 
+($x\sim y \iff x-y \text{ is even}$) on $\Z$ is an equivalence relation. To do this we 
+are required to show the defined relation exhibits three properties: reflexivity, 
+symmetry, transitivity. We started by showing $\sim$ on $\Z$ has the reflexivity 
+property. If we re-read the definition of reflexivity we see this property is a 
+statement that pertains to \textit{every} element $a\in A$ for a relation that is 
+defined on set $A$ (in this example $A=\Z$), it says that $\sim$ is reflexive on $A$ 
+iff $a$ is related to itself for all $a\in A$. The reader may now be 
+re-reading the proof and asking themselves ``So to prove $\sim$ is reflexive on $A$, 
+don't we have to prove the reflexive property (i.e. $a\sim a$) holds for \textit{all} 
+of the $a's$ in $A$? It looks like we only considered one?" This brings us to a very 
+important point! \\
+
+\noindent The first of these questions is certainly valid, and yes, we \textit{do} need 
+to show this property holds for \textit{all} of the $x\in \Z$. However, the second 
+question is a little misleading. We did consider a single $x\in \Z$, but this $x$ was 
+\textit{arbitrary}, we did not pick $1$, or $2$ or $-664$, we instead chose "$x$", a 
+\textit{variable}, to represent an arbitrary member of the set $\Z$ and then we 
+\underline{only} made statements and inferences about $x$ that are true for 
+\textbf{every} member of $\Z$ (i.e. we never used special properties of a specific 
+member who $x$ could have been, such as $1$ or $2$, all we knew about $x$ is that it is 
+an integer, and by being an integer it inherited any properties that are true for all 
+integers). As a result, statements and inferences that were made about $x$ apply to 
+\textit{all} members of the set $\Z$. \steezybreak\\
+With this in mind let's break down each of the parts of this proof starting with the 
+reflexivity line. \steezybreak\\
+
+\textit{Reflexivity:}  
+To show $\sim$ is reflexive, we need to prove that $x \sim x$ for all $x \in \Z$. The 
+proof begins, “Take $x \in \Z$, then $x - x = 0 = 2\cdot 0$.” Here, $x - x = 0$ shows 
+that the difference between any integer and itself is zero, and writing $0 = 2\cdot 0$ 
+shows that this difference is an even number.\footnote{Remember, by Defn \ref{def:even} 
+an integer is even if and only if it can be written as an \textit{integer multiple} of 
+$2$.} By the definition of the relation, if $x - y$ is even, then $x \sim y$. Applying 
+this definition, we conclude $x \sim x$. Because $x$ was arbitrary, this holds for every 
+integer, so $\sim$ is reflexive. \steezybreak\\
+
+\textit{Symmetry:}  
+A relation is symmetric if $x \sim y$ implies $y \sim x$ for all $x, y \in \Z$. To prove 
+this, we start by assuming $x \sim y$. \footnote{Note, to prove a statement of the form 
+if $A$ then $B$ you start by assuming $A$ and show $B$ follows from that assumption. In 
+this part of the proof we are trying to show \textit{forall} $x$, $y$ something like 
+``if $P(x,y)$ then $Q(x,y)$'' holds. So we start with arbitrary $x$, $y$ (for the sake of the 
+forall introduction) and then we assume $x\sim y$ (for the sake of the if-then) } \footnote{
+Also note that we don't need to consider an arbitrary $x\not\sim y$ because all we want to 
+show is that: \textit{if there were} some pair where $x\sim y$ is true \textit{then} 
+$y\sim x$ must also be true. To reiterate (this is a common stumbling point) when we 
+prove an ``if $A$ then $B$'' statement, we are not proving $A$ nor are we proving $B$, 
+we are proving that if $A$ can be shown to be true then $B$ must follow. This is why the 
+method of proof for statements of the form ``if $A$ then $B$'' is to first assume $A$ 
+and show $B$ follows; it may very well be the case that your antecedent $A$ could never 
+be true but that won't necessarily prevent you from proving a statement of the form 
+``if $A$ then $B$''.} 
+From the definition of $\sim$, this means 
+$x - y = 2k$ for some integer $k$. Then we can rewrite $y - x = -(x - y) = -2k = 2(-k)$. 
+Since $-k$ is also an integer, $y - x$ is even. Therefore, $y \sim x$. Because we did 
+not assume anything special about $x$ or $y$, this argument applies to all integers, 
+showing that $\sim$ is symmetric. \steezybreak\\
+
+\textit{Transitivity:}  
+Finally, a relation is transitive if whenever $x \sim y$ and $y \sim z$, it follows that 
+$x \sim z$.  
+Assume $x \sim y$ and $y \sim z$. By definition, this means there exist integers $k$ and 
+$l$ such that $x - y = 2k$ and $y - z = 2l$. Adding these gives:
+\[
+x - z = (x - y) + (y - z) = 2k + 2l = 2(k + l).
+\]
+Because the sum of two integers $k + l$ is also an integer, $x - z$ is even. Therefore, 
+$x \sim z$. Since our choices of $x$, $y$, and $z$ were arbitrary, $\sim$ is transitive 
+on $\Z$. \steezybreak\\
+
+\noindent By verifying all three properties, we have shown that $\sim$ is reflexive, symmetric, 
+and transitive, and hence an \textbf{equivalence relation} on the set of integers $\Z$.
+
 
 
 \subsection{Equivalence Classes}
