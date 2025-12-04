@@ -1,6 +1,6 @@
 # Modern Algebra with Friends
 
-This repository contains the LaTeX source files for *Modern Algebra With Friends*. The text is inspired by Dr. Katherine Magurn's Fall 2012 MATH 421 course at Miami University in Oxford, OH. In this work, we attempt to preserve her unique ability to make dense material accessible to all learners, so that others may bask in the warm light she brought to learning mathematics.
+This repository contains the LaTeX source files for *Modern Algebra With Friends*. The text is inspired by Dr. Katherine Magurn's Fall 2012 MATH 421 course at Miami University in Oxford, OH. In this work, we attempt to preserve her unique ability to make dense material accessible to all learners, so that others may bask in the warm light she brought to learning mathematics. 
 
 ---
 
