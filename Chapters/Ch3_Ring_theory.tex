@@ -2,10 +2,6 @@
 % CHAPTER 3
 % %%%%%%%%%%%%%%%%%%
 
-% This chapter's gonna be dense like the last one.\steezybreak\\
-% We will begin with a discussion of unital and non-unital rings (\textit{rngs} lol) and we will look closely at a non-commutative ring whose elements commute with real numbers (Quaternions). We will discuss integral domains and then divisions rings which will naturally lead to more finite ring examples and then we will quickly introduce fields as commutative division rings. (don't worry we will include a venn diagram to simplify these differences between Groups, Rings, Integral Domains, and Commutative division rings (fields) ). Then we will discuss ring homomorphisms, Ideals, and Quotient Rings. Then we will look at Euclidean and Polynomial rings and we will build up some elementary results of Galois Theory. Then a bunch of Field/Ring thms will be staring us in the face and we will dive deeper with fields in Ch. 4 (setting the stage for a discussion of Modules and Vector Spaces).
-
-
 \chapterimage{Pictures/Math_wallpaper_big.jpeg} % Chapter heading image
 
 \chapter{Ring Theory}
@@ -406,34 +402,34 @@ Suppose $R$ is an integral domain (w/ ``$1$"). Think of $R$ as an additive group
 \end{align}
 \begin{definition}[Characteristic of Integral Domain]
 \begin{enumerate}
-    \item Integral domain $R$ has characteristic $0$, denoted $\characterisic(R)=0$, if the only $m\in \Z$ satisfying $1^m=0$ is $m=0$.
-    \item If $\characterisic(R)\neq 0$, then $\characterisic(R)=o(1)$
+    \item Integral domain $R$ has characteristic $0$, denoted $\characteristic(R)=0$, if the only $m\in \Z$ satisfying $1^m=0$ is $m=0$.
+    \item If $\characteristic(R)\neq 0$, then $\characteristic(R)=o(1)$
 \end{enumerate}
 \end{definition}
 
 \begin{example}
-    $\Z$, $\R$, $\Q$, and $\C$ all have $\characterisic(R)=0$
+    $\Z$, $\R$, $\Q$, and $\C$ all have $\characteristic(R)=0$
 \end{example}
 \newpage
 \begin{example}
-    $\Z_p$, $p$ prime, has $\characterisic(R)=p$ \ \ \ \ \ ($\underbrace{1+1+\cdots +1}_{p \text{ times}} = 0$)
+    $\Z_p$, $p$ prime, has $\characteristic(R)=p$ \ \ \ \ \ ($\underbrace{1+1+\cdots +1}_{p \text{ times}} = 0$)
 \end{example}
 \noindent The Characteristic of an Integral Domain R is $o(1)=$ the order of the multiplicative identity in the additive group $R$.
 \begin{align}
-    \text{if }o(1)&=\infty \ \text{ then }\characterisic(R)=0 \nonumber \\
-    \text{if }o(1)&=m\in \Z^{+} \ \text{ then }\characterisic(R)=m \nonumber
+    \text{if }o(1)&=\infty \ \text{ then }\characteristic(R)=0 \nonumber \\
+    \text{if }o(1)&=m\in \Z^{+} \ \text{ then }\characteristic(R)=m \nonumber
 \end{align}
 The characteristic affects the calculations in $R$: \\ 
 Take $x,y\in R$
 \begin{align}
-    \text{Say }R \text{ has }\characterisic(R)=0, \text{ then} \nonumber \\
+    \text{Say }R \text{ has }\characteristic(R)=0, \text{ then} \nonumber \\
     (x+y)^2 &= (x+y)(x+y) \nonumber \\
     &= x^2+xy+yx+y^2 \nonumber \\
     &= x^2 + 2xy + y^2  \ \ \ (R\text{ comm.}) \nonumber 
 \end{align}
 Above we use additive notation $g+g=2g$ after recognizing that $R$ int. domain implies $R$ commutative.
 \begin{align}
-    \text{Say }R \text{ has }\characterisic(R)=2, \text{ then} \nonumber \\
+    \text{Say }R \text{ has }\characteristic(R)=2, \text{ then} \nonumber \\
     (x+y)^2 &= x^2 + 2xy + y^2  \nonumber \\
     &= x^2+\underbrace{(1+1)}_{\substack{o(1)=2 \\ \text{ so this is }0, \\ 0\cdot r = 0 \ (L3.2.1)}}xy+y^2 \nonumber \\
     &= x^2+y^2 \nonumber

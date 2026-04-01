@@ -6,13 +6,7 @@
 
 \chapter{Preliminaries}
 If you see a mistake in this document, or want further clarification somewhere, please open an issue on the book's \href{https://github.com/hilikliming/modern_algebra_with_friends}{\textul{github repository}}, or send me an email at jack.hall618@gmail.com \steezybreak \\
-% \jjh{This is Jack's color}, \\
-% \dts{This is Dan's color},\\
-% \jsh{This is Jessie's color} \\ %% Use the command \jsh{ <insert comment here> } %% okie
-% \jap{This is Jake's color}\\
-% \kvdv{This is Kiki's color}
-% (see lines 57-61 newcommand definitions in the main.tex for this document)\\ \\
-\noindent 
+\noindent
 \begin{tcolorbox}
     \begin{center}
 \jjh{\href{https://www.dropbox.com/sh/759pwsjyc3ix0jy/AACv98R1Zpjvbaz2VhH4aH4ca?dl=0&fbclid=IwAR10ePsYI76S-MwDbBpH9fpoEbdxvyOlHs9PeaP2ZvY8SbJu1KPTxjMissA}{The Dropbox folder for this course can be found here. \\
@@ -21,7 +15,6 @@ Homework sets, a copy of this text (updated regularly), and homework solutions w
 \end{tcolorbox}
 
 
-% \jjh{\href{https://youtube.com/playlist?list=PLW3u28VuDAHJNrf3JCgT0GG_rjFVz0-j9}{Another wonderful resource as you venture further into this material are Dr. Aviv Censor's lectures on Algebra (Algebra 1M Technion University). Dr. Censor covers many topics featured in this book and uses very similar conventions to our book. Thank you Dr. Censor and Technion U for making these videos public!!!}}\\
 \bigbreak
 \noindent Chapter 0 is meant to serve as a reference for symbols and terminology used in the main course material (Chapter 1 onward). On its own, this first Chapter is a doozy and we are going to throw all sorts of new notation at you. \textit{Don't be intimidated}. You do not need to understand or memorize all of this right away; the utility of these new notations will become apparent as you progress further through the text. Treat this chapter as a reference for the main course material that begins in Chapter 1. The authors recommend that readers who are familiar with mathematical induction already read sections \ref{sec:InductionExample} through \ref{sec:WhyInductionWorks}. For readers who have never seen induction before, as to not distract from the more important intuition, we would prefer you skip these and read \ref{sec:ChongInduction} first, then return to those sections after the underlying argument for the principle of induction is understood.
 
@@ -71,22 +64,7 @@ Notice the difference in usage between ``if'' in 2. and ``only if'' in 3.
 
 \noindent The typical method of proof for proving a statement of the form ``if $A$ then $B$'' is to first assume $A$ is true and show that $B$ can be derived from that assumption.
 
-\noindent Note that a statement of the form ``if $A$ then $B$'' does not say $A$ is true, nor does it say $B$ is true, it simply says \textit{if} $A$ can be shown to be true, \textit{then} we can conclude $B$ is true. 
-
-%In this way, any conditional of the form ``if $A$ then $B$'' for which the antecedent $A$ is always false, is, somewhat non-intuitively (and trivially), \textit{true}. For example the statement ``if $0=1$ then Jack is a monkey's uncle" is (trivially) \textit{true} because the antecedent is always false. 
-
-% In classical logic, the truth table of the if-then/implication can be summarized as:
-% \begin{align*}
-%     \begin{array}{c|c|c}
-%         A & B & A \implies B \\
-%         \hline
-%         T & T & T \\
-%         T & F & F \\
-%         F & T & T \\
-%         F & F & T \\
-%         \end{array}
-% \end{align*}
-
+\noindent Note that a statement of the form ``if $A$ then $B$'' does not say $A$ is true, nor does it say $B$ is true, it simply says \textit{if} $A$ can be shown to be true, \textit{then} we can conclude $B$ is true.
 
 \paragraph{Different Ways to Read $A \iff B$}
 $A\iff B$ can also be read as ``$A$ if and only if $B$", ``$B$ if and only if $A$", ``$A$ iff $B$", ``$B$ iff $A$", ``$A$ is equivalent to $B$", ``$B$ is equivalent to $A$". Lastly, this expression could also be read `` $A$ implies $B$ and $B$ implies $A$" or "$B$ implies $A$ and $A$ implies $B$". We emphasize the last two interpretations because iff statements (i.e. statements that use $\iff$) should be thought of as pairs of implications, one implication $LHS\implies RHS$ and another implication $RHS \implies LHS$. (LHS is left-hand-side here.)\\

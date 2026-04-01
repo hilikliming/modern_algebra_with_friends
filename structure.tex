@@ -22,8 +22,6 @@
 \usepackage{graphicx} % Required for including pictures
 \graphicspath{{Pictures/}} % Specifies the directory where pictures are stored
 
-\usepackage{lipsum} % Inserts dummy text
-
 \usepackage{tikz} % Required for drawing custom shapes
 
 \usepackage[english]{babel} % English language/hyphenation
@@ -73,7 +71,7 @@
 \usepackage[style=numeric,citestyle=numeric,sorting=nyt,sortcites=true,autopunct=true,autolang=hyphen,hyperref=true,abbreviate=false,backref=true,backend=biber]{biblatex}
 
 
-\addbibresource{bibliography.bib} % BibTeX bibliography file
+% bibliography.bib is loaded via \addbibresource in main.tex
 \defbibheading{bibempty}{}
 
 \usepackage{calc} % For simpler calculation - used for spacing the index letter headings correctly
@@ -188,29 +186,6 @@
     \renewcommand{\headrulewidth}{0.5pt} % Add the header rule
 }
 
-
-% % OLD HEADERS CODE BELOW (START) (07/26/2024) 
-% % ( I modified plain style so it omits chapter/section text and just has the page number) to set a specific page to this plain style just use \thispagestyle{plain}
-
-% \pagestyle{fancy} % Enable the custom headers and footers
-
-% \renewcommand{\chaptermark}[1]{\markboth{\sffamily\normalsize\bfseries\chaptername\ \thechapter.\ #1}{}} % Styling for the current chapter in the header
-% \renewcommand{\sectionmark}[1]{\markright{\sffamily\normalsize\thesection\hspace{5pt}#1}{}} % Styling for the current section in the header
-
-% \fancyhf{} % Clear default headers and footers
-% \fancyhead[LE,RO]{\sffamily\normalsize\thepage} % Styling for the page number in the header
-% \fancyhead[LO]{\rightmark} % Print the nearest section name on the left side of odd pages
-% \fancyhead[RE]{\leftmark} % Print the current chapter name on the right side of even pages
-% %\fancyfoot[C]{\thepage} % Uncomment to include a footer
-
-% \renewcommand{\headrulewidth}{0.5pt} % Thickness of the rule under the header
-
-% \fancypagestyle{plain}{% Style for when a plain pagestyle is specified
-% 	\fancyhead{}\renewcommand{\headrulewidth}{0pt}%
-% }
-
-% % OLD CODE ABOVE (END) (07/26/2024)
-
 % Removes the header from odd empty pages at the end of chapters
 \makeatletter
 \renewcommand{\cleardoublepage}{
@@ -288,10 +263,6 @@
 \newcounter{dummy}
 \newcounter{dummy_lemma}
 \newcounter{dummy_example}
-% \newcounter{lemma_c}
-% \newcounter{prop_c}
-% \newcounter{theorem_c}
-% \newcounter{corr_c}
 \numberwithin{dummy}{section}
 \numberwithin{dummy_lemma}{section}
 \numberwithin{dummy_example}{section}
@@ -310,8 +281,6 @@
 \newtheorem{corollaryT}[dummy_lemma]{Corollary}
 \theoremstyle{ocrenum}
 \newtheorem{proposition}[dummy]{Proposition}
-%\newtheorem{lemma}[dummy_lemma]{Lemma}
-
 \newtheorem{lemmaT}[dummy_lemma]{Lemma}
 \newtheorem*{lemmaT*}{Lemma}
 \newtheorem*{theoremeT*}{Theorem}
@@ -554,7 +523,6 @@ innerbottommargin=5pt]{cBox}
 
 \usepackage{hyperref}
 \hypersetup{hidelinks,colorlinks=false,breaklinks=true,urlcolor=ocre,bookmarksopen=false}
-% \hypersetup{hidelinks,backref=true,pagebackref=true,hyperindex=true,colorlinks=false,breaklinks=true,urlcolor=ocre,bookmarks=true,bookmarksopen=false}
 
 \usepackage{bookmark}
 \bookmarksetup{
