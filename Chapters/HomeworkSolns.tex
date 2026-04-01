@@ -625,6 +625,86 @@ Now,
 \section{Homework \#6 Solutions}
 \begin{enumerate}
     \item If $o(G)$ and $o(\bar{G})$ are relatively prime, and $\phi: G \rightarrow \bar{G}$ is a homomorphism, then $\phi$ is the trivial map.
+    \textit{Proof:} First, to satisfy the hypothesis of the First Isomorphism Theorem, we make $\phi$ surjective by replacing $\bar{G}$ with the subgroup $\phi(G)$. Denote the kernel of $\phi$ by $K$. Then we have:
+    
+    \begin{center}
+        \begin{minipage}{0.45\textwidth}
+                \includegraphics[width=\textwidth]{Figures/Homework 6 Solution Figure.png}
+        \end{minipage}
+        \begin{minipage}{0.45\textwidth}
+            by First Isomorphism Theorem $G/K \approx \phi(G)$, so all their structural features are the same including orders:
+    \begin{align*}
+        o(G/K)=o(\phi(G))
+    \end{align*}
+    so $\boxed{o(G)=\underbrace{o(K)}_{\substack{an \\ integer}}\cdot o(\phi(G))} \ \ \ (\star)$ \steezybreak \\
+        \end{minipage}
+    \end{center}
+    
+    Looking for a way to use the rel. prime hypothesis we must bring in $o(\bar{G})$; Since $\phi(G)< \bar{G}$, Lagrange gives $o(\phi(G))| o(\bar{G})$, note that $(\star)$ says that $o(\phi(G))|o(G)$ as well. 
+    So $o(\phi(G))$ is a common divisor of $o(G)$ and $o(\bar{G})$ and as such must divide $GCD(o(G),o(\bar{G}))$ (Defn. of GCD). Then
+    \begin{align*}
+        o(\phi(G))| GCD(o(G),o(\bar{G})) \implies o(\phi(G))=1.
+    \end{align*}
+    Since $\phi(G)$ has only one element and $\phi(G)<\bar{G}$, that element must be $\bar{e}$, so we have $\phi(G)=\{\bar{e}\}$. 
+    In other words $\phi$ sends every element in $G$ to $\bar{e}$ in $\bar{G}$. Thus the original $\phi: G \rightarrow \bar{G}$ is the trivial map. $\blacksquare$
+
+    \item $D_{12}= \langle a,b \rangle$ with relations $a^{12}=e, \ b^2=e, \ ba=a^{11}b$. So $H=\langle a^2 \rangle = \{a^2, a^4, a^6, a^8, a^{10}, e \}$
+    \begin{enumerate}[a)]
+        \item Form $ghg^{-1}$ where $g$ is a generator of $D_{12}$ and $h$ is a generator of $H$:
+        \begin{align*}
+            a(a^2)a^{-1} &= aa^2a^{11} = a^14 = a^2 \in H \\
+            b(a^2)b^{-1} &= ba^2b = (a^{11})^2bb = a^{22} = a^10 \in H
+        \end{align*}
+        It follows from the discussion of shortcut \#5 in subsection \ref{subsec:EasyWaysNormalSubgroup} that $ghg^{-1}\in H \ \forall g \in G, \forall h \in H$.\\
+        $\therefore \ H \triangleleft D_{12}$.
+        \item Since $i_{D_{12}}(H) = \frac{o(D_{12})}{o(H)} = \frac{24}{6}= 4$, we expect $4$ cosets, of which the first is $He$.
+        \begin{align*}
+            He = H &= \{a^2, a^4, a^6, a^8, a^{10}, e\} = Ha^2 = Ha^4 = \dots \ etc. \\
+            Ha &= \{a, a^3, a^5, a^7, a^9, a^{11}\} = Ha^3 = Ha^5 = \dots  \\
+            Hb &= \{b, a^2b, a^4b, a^6b, a^8b, a^{10}b\} = Ha^2b = Ha^4b = \dots \\
+            Hab &= \{ab, a^3b, a^5b, a^7b, a^9b, a^{11}b\} = Ha^3b = Ha^5b = \dots 
+        \end{align*}
+        Note my chosen names were $H, \ Ha, \ Hb, \ Hab$ we very well could have chosen other names like $Ha^2$, $Ha^3$, $Ha^2b$, and $Ha^3b$ but I chose these for my presentation.
+    \end{enumerate}
+    \newpage 
+    \item 
+
+    \begin{center}
+        \begin{minipage}{0.45\textwidth}
+            \begin{tabular}{c||c|c|c|c}
+                $D_{12}/H$ & $H$ & $Ha$ & $Hb$ & $Hab$ \\ \hline \hline
+                $H$ & $H$ & $Ha$ & $Hb$ & $Hab$ \\ \hline
+                $Ha$ & $Ha$& $H$ & $Hab$ & $Hb$ \\ \hline
+                $Hb$ & $Hb$ & $Hab$ & $H$ & $Ha$ \\ \hline
+                $Hab$ & $Hab$ & $Hb$ & $Ha$ & $H$ \\ 
+            \end{tabular}
+        \end{minipage}
+        \begin{minipage}{0.45\textwidth}
+            Since $H\triangleleft D_{12}$ by problem $2a$, $D_{12}/H$ is a group under the operation 
+            \begin{align*}
+                Hx \ &\cdot \ Hy = H x \ \cdot \ y \\
+                &\substack{\nwarrow \\ op. \ in \\ D_{12}/H} \ \ \ \ \ \ \ \ \  \substack{\uparrow \\ op. \ in \\ D_{12}}
+            \end{align*}
+            Note that $H$ ($=He$) is the ``$e$'' in $D_{12}/H$. \\
+            e.g. $Hb \cdot Ha = Hba = Ha^{11}b \underset{\substack{\uparrow \\ sticking \ to \\ the \ chosen \\ name \ of \ the \\ coset.}}{=} Hab $ 
+        \end{minipage}
+    \end{center}
+    
+    \item  
+    \begin{enumerate}[a)]
+        \item Prove $G$ is abelian $\iff$ $[x,y]=e, \forall \ x,y \in G$.
+        \textit{Proof:}
+        \begin{align*}
+            G \text{ abelian } &\iff \forall \ x,y \in G, \ xy = yx \\
+            &\iff \forall \ x,y \in G, \ xyx^{-1}=y \\
+            &\iff \forall \ x,y \in G, \ xyx^{-1}y^{-1} = e \iff \forall \ x,y \in G, \ [x,y]=e. \ \ \blacksquare
+        \end{align*}
+        \item Prove $\forall \ g \in G $ $g[x,y]g^{-1}= [gxg^{-1}, gyg^{-1}].$
+        \textit{Proof:} I'll start on the right
+        \begin{align*}
+            [gxg^{-1}, gyg^{-1}] &= 
+        \end{align*}
+    \end{enumerate}
 \end{enumerate}
 
 
