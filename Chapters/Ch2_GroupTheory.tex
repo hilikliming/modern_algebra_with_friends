@@ -46,7 +46,8 @@ The \textit{order} of $G$, denoted $o(G)$ is the number of elements in $G$. \\ I
     \item $G=\Z_n$ under the operation defined by $[a]+[b]=[a+b]$ is a finite abelian group of order $n$.
 \end{enumerate}
 \subsection{The Cayley Table}
-For this discussion we will consider the group $\Z_4=\{[0],[1],[2],[3]\}=\{4\Z,4\Z+1,4\Z+2,4\Z+3\}$. \steezybreak\\
+For this discussion we will consider the group $\Z_4=\{[0],[1],[2],[3]\}=\{4\Z,4\Z+1,4\Z+2,4\Z+3\}$.\steezybreak
+
 \noindent The ``Cayley Table" displays all possible ``products" of $a\cdot b=ab$ for $a,b\in G$. A simple example of \textit{how} to compute the entries of the Cayley table for an arbitrary group of order 4 is given below in Table \ref{tab:Cayley_dummy}. It should be noted that a proper Cayley table will represent the products in their simplest form, i.e. as one of the elements $e,a,b,...$ listed along the top or left side of the table. We demonstrate this in the next table for $\Z_4$, Table \ref{tab:Cayley_Z4}, where rather than writing $[1]\cdot [0]$ or $[2]\cdot [2]$ we instead write the result of the ``product" itself, i.e. the elements $[1]$ and $[0]$ respectively.
 \begin{table}[h!]
     \centering
@@ -100,7 +101,8 @@ Using this table we can confirm again for ourselves that $\Z_4$ is a group under
     \item $GL_2(\R)=\{\text{invertible } 2\times 2 \text{ matrices with entries in } \R\}$, Matrix $M$ is invertible $\iff  \ \det(M)\neq 0$ (This is a linear algebra fact that is proven in any standard LA course, take as a given); if $M= 	\left(\begin{matrix}
 a & b \\
 c & d 
-\end{matrix}\right) \text{ then } \det(M)=ad-bc$. Under the operation ``$\cdot$" of matrix multiplication, $GL_2(\R)$ is an infinite non-abelian group. This group is called `` general linear group of degree 2 with real entries". Let's prove it's a non-abelian infinite group, we will start by showing it is infinite and non-abelian under the suggested ``$\cdot$" (matrix multiplication), and then we will proceed to show it satisfies the 4 properties of a group. Note, below $\Z^+ = \{n\in \Z| n>0\}$, denotes the positive integers (does not include 0)\steezybreak\\
+\end{matrix}\right) \text{ then } \det(M)=ad-bc$. Under the operation ``$\cdot$" of matrix multiplication, $GL_2(\R)$ is an infinite non-abelian group. This group is called `` general linear group of degree 2 with real entries". Let's prove it's a non-abelian infinite group, we will start by showing it is infinite and non-abelian under the suggested ``$\cdot$" (matrix multiplication), and then we will proceed to show it satisfies the 4 properties of a group. Note, below $\Z^+ = \{n\in \Z| n>0\}$, denotes the positive integers (does not include 0)\steezybreak
+
 \end{enumerate}
 \noindent \textit{Proof:} $\forall n \in \Z^+, \left(\begin{matrix}
 n & 0 \\
@@ -148,7 +150,8 @@ So, it has infinite elements and does not have the abelian property under the op
     \item \textit{Identity: } $e$ in this group is the identity map $I_S$
     \item \textit{Inverses: } By Lemma 1.2.3 we have that $\forall \sigma \in S_n,  \exists \sigma^{-1}\in S_n \ni \sigma\circ\sigma^{-1}=\sigma^{-1}\circ\sigma=I_S$
 \end{enumerate}
-$\therefore S_n$ is a group under $\circ$.\steezybreak\\
+$\therefore S_n$ is a group under $\circ$.\steezybreak
+
 \noindent $S_n$ is called the symmetric group of degree $n$. Alternate notation for this group is $A(S)$ `` Automorphisms of $S$ " this notation is sometimes used for finite $S$ and \textit{always} used for infinite $S$.
 
 \subsection{An Example with $S_3$:} Construct the Cayley Table for $S_3$.
@@ -172,7 +175,8 @@ $\therefore S_n$ is a group under $\circ$.\steezybreak\\
     \caption{Cayley Table for group $S_3$}
     \label{tab:Cayley_S3}
 \end{table}
-Note that because $\tau\sigma\neq \sigma \tau$ we have a non-abelian group. \steezybreak\\
+Note that because $\tau\sigma\neq \sigma \tau$ we have a non-abelian group. \steezybreak
+
 \noindent The diagram in Figure \ref{fig:S3elts} shows the various bijections that make up the elements of $S_3$, using these mappings we can see some basic facts just by following the points through the composed mappings:
 \begin{align}
     \sigma^2&= I \nonumber \\
@@ -183,8 +187,9 @@ So,
 \begin{align}
     \sigma\tau\sigma \circ \tau\sigma = \sigma(\tau\sigma\tau)\sigma= \sigma(\sigma\tau\sigma)\sigma=\sigma^2\tau\sigma^2=I\tau I=\tau \nonumber 
 \end{align}
-With these facts observed you should be able to fill in the rest of the Cayley table!\steezybreak\\
-Now that we have gotten our feet wet with some groups and some ideas relating to their structure, we will prove some elementary facts that hold for all groups. Remember a group is defined by a set $G$ and a group operation $\cdot$ and it obeys four properties.\vspace{-0.5cm}
+With these facts observed you should be able to fill in the rest of the Cayley table!\steezybreak
+
+\noindent Now that we have gotten our feet wet with some groups and some ideas relating to their structure, we will prove some elementary facts that hold for all groups. Remember a group is defined by a set $G$ and a group operation $\cdot$ and it obeys four properties.\vspace{-0.5cm}
 \section{Some Elementary Results:} 
 \begin{lemma}[Elementary Results with Groups]
 If $G$ is a group with operation ``$\cdot$", then
@@ -238,8 +243,9 @@ Exponents on group elements are defined as follows:
 \begin{align}
     (a^k)^{-1}=(a\cdot a\cdot a \cdot ... \cdot a)^{-1} = a^{-1}\cdot a^{-1}\cdot a^{-1} \cdot ... \cdot a^{-1}\nonumber 
 \end{align}
-Where the last equality is established by repeatedly applying part (d) of Lemma 2.3.1. \steezybreak\\
-Note also: any power of $e$ is $e$, i.e. $e^{-k}=(e^{-1})^k=e$
+Where the last equality is established by repeatedly applying part (d) of Lemma 2.3.1. \steezybreak
+
+\noindent Note also: any power of $e$ is $e$, i.e. $e^{-k}=(e^{-1})^k=e$
 \end{definition}
 
 \begin{proposition}[Law of Exponents]
@@ -335,7 +341,8 @@ $ab=\left(\begin{matrix}
 \end{matrix}\right)\underset{\text{mult. mod 9}}{=}\left(\begin{matrix}
 2 & 3 \\
 6 & 4 
-\end{matrix}\right)$\steezybreak\\
+\end{matrix}\right)$\steezybreak
+
 \end{example}
 \begin{example}[Constructing a Group from Generators]
 \phantomsection
@@ -457,9 +464,12 @@ $G$ is a group with $\emptyset\neq H\subset G$, \\
 \end{align}
 i.e. these two properties are necessary and sufficient for $H<G$.\\
 \textit{Proof:} \\
-\noindent $\Rightarrow:$ Assume $H<G$, then $H$ is a group so closure and inverse properties hold.\steezybreak\\
-\noindent $\Leftarrow:$ Assume closure and inverse properties hold in $H$, it remains to show that $H$ has the associative property and that $H$ has an identity element.\steezybreak\\
-\noindent Associativity in $H$ is ``inherited" from $G$: $\forall x,y,z \in H, x(yz)=(xy)z$ because $H\subset G$ so $x,y,z$ are also in $G$ which is associative.\steezybreak\\
+\noindent $\Rightarrow:$ Assume $H<G$, then $H$ is a group so closure and inverse properties hold.\steezybreak
+
+\noindent $\Leftarrow:$ Assume closure and inverse properties hold in $H$, it remains to show that $H$ has the associative property and that $H$ has an identity element.\steezybreak
+
+\noindent Associativity in $H$ is ``inherited" from $G$: $\forall x,y,z \in H, x(yz)=(xy)z$ because $H\subset G$ so $x,y,z$ are also in $G$ which is associative.\steezybreak
+
 \noindent Now we will show $e\in G$ is actually in $H$ too! Take $h\in H$, part ii) of the hypothesis says $h^{-1}\in H$, part i) says that $h\cdot h^{-1}\in H$, but $h\cdot h^{-1}=e$, so $e\in H$. $\blacksquare$
 \end{lemma}
 
@@ -517,7 +527,8 @@ Suppose $n\in \Z$, show that $n\Z<\Z$ (thinking of $\Z$ as a group under ``+")\\
 
 \begin{example}
 If $H,K<G$, then $H\cap K < G$.\\
-\textit{Proof:} $H\cap K\subset G$ and $H\cap K\neq \{\}$ since both $H$ and $K$ at least contain $e$, perhaps more.\steezybreak\\
+\textit{Proof:} $H\cap K\subset G$ and $H\cap K\neq \{\}$ since both $H$ and $K$ at least contain $e$, perhaps more.\steezybreak
+
 \noindent If $a,b\in H\cap K$, then
 \begin{align}
     a,b\in H \implies ab\in H \nonumber \\
@@ -555,7 +566,10 @@ $SL_n(\R)$ is the "Special Linear Group of degree $n$ with entries in $\R$".\\
 \end{example}
 
 \begin{definition}[Order of an Element]
-$G$ group, $a\in G$. The \textit{order} of $a$, denoted $o(a)$ is the smallest positive integer $m$ such that $a^m=e$.\steezybreak\\ that is,
+$G$ group, $a\in G$. The \textit{order} of $a$, denoted $o(a)$ is the smallest positive integer $m$ such that $a^m=e$.\steezybreak
+
+\noindent that is,
+
 \begin{align}
     a,a^2,a^3, ..., \underset{\text{first time}}{a^m=e}\nonumber
 \end{align}
@@ -598,7 +612,8 @@ Consider the set $G=\{1,2,3,4,5,6\}$ under multiplication $\mod 7$.
     \label{tab:Cayley_G_7}
 \end{table}
 
-\noindent Symmetry along the main diagonal in this Cayley Table indicates that this group is Abelian. So this is an Abelian Group of order 6. \steezybreak\\
+\noindent Symmetry along the main diagonal in this Cayley Table indicates that this group is Abelian. So this is an Abelian Group of order 6. \steezybreak
+
 \noindent Now then, to explore this group a little more we would like to \textit{Find the order of each element in $G$}:
 \begin{align}
     e^1=e \ \ \ \text{ order of identity is always 1 in every group. So,}  \nonumber \\
@@ -637,8 +652,9 @@ Let's take a shortcut assuming we can use this fact. In the example above, $o(G)
 \begin{definition}[Cyclic Group]
 A group $G$ is \textit{cyclic} $\iff$ $\exists \ x\in G \ni G=\{x^n|n\in \Z\}$. Then $x$ is said to \textit{generate} $G$, denoted $G=\langle x \rangle$
 \end{definition}
-The above notation $G=\langle x \rangle$ could also be read as ``$G$ is cyclic, generated by $x$". \steezybreak\\
-In the example, $G=\langle 3 \rangle=\langle 5 \rangle$ since the powers of either these elements, $5$ or $3$, give all elements of $G$.
+The above notation $G=\langle x \rangle$ could also be read as ``$G$ is cyclic, generated by $x$". \steezybreak
+
+\noindent In the example, $G=\langle 3 \rangle=\langle 5 \rangle$ since the powers of either these elements, $5$ or $3$, give all elements of $G$.
 
 % Generating Subgroups.
 \subsection{Generating Subgroups}
@@ -647,7 +663,8 @@ $G$ group:
 \begin{align}
     \forall \ a\in G, \ \langle a \rangle \underset{\text{def}}{=} \{a^n |n\in \Z\}\nonumber
 \end{align}
-$\langle a \rangle$ is called the \textit{cyclic subgroup of }$G$ \textit{generated by} $a$.\steezybreak\\
+$\langle a \rangle$ is called the \textit{cyclic subgroup of }$G$ \textit{generated by} $a$.\steezybreak
+
 \end{definition}
 To verify that $\langle a \rangle$ is a subgroup of $G$ ($\langle a \rangle<G$) we will use Lemma 2.4.1. \\ 
 First we note that $\langle a \rangle\neq \emptyset, \ \because \ a^0=e\in \langle a \rangle$, so Lemma 2.4.1 applies.\\
@@ -743,8 +760,9 @@ Every subgroup of a cyclic group is cyclic.\\
     Consider the smallest positive integer $n$ such that $a^n\in H$.\\
     \textit{Claim:} $H=\langle a^n \rangle $.\\
     \textit{Proof:} We must show $H\subset \langle a^n \rangle$ and $ \langle a^n \rangle \subset H$ we begin with the latter of the containments.\\
-    $\langle a^n \rangle \subset H:$ Since $a^n\in H$, and $H$ is closed and contains inverses of all its elements, $(a^n)^j\in H \ \forall \ j\in \Z$. $\therefore \langle a^n \rangle \subset H$.\steezybreak\\
-    $ H\subset\langle a^n \rangle :$ Take $h\in H$. $h\in G \implies \exists m\in\Z \ni h=a^m$. Next, we will use the euclidean algorithm to "divide" (we use quotes because $r$ may not equal $0$, "divide" in the grade school sense) $m$ by $n$.
+    $\langle a^n \rangle \subset H:$ Since $a^n\in H$, and $H$ is closed and contains inverses of all its elements, $(a^n)^j\in H \ \forall \ j\in \Z$. $\therefore \langle a^n \rangle \subset H$.\steezybreak
+
+    \noindent $ H\subset\langle a^n \rangle :$ Take $h\in H$. $h\in G \implies \exists m\in\Z \ni h=a^m$. Next, we will use the euclidean algorithm to "divide" (we use quotes because $r$ may not equal $0$, "divide" in the grade school sense) $m$ by $n$.
     \begin{align}
         &\text{Eucl. Alg. } \implies \ \exists \ q,r\in \Z \ni \ m=qn+r, \ \ \text{ where } 0\leq r < n \nonumber \\
         &\text{then  }h=a^m=a^{qn+r}=(a^n)^q a^r \ \ \ \ (\text{Idea: show }r=0)\nonumber
@@ -811,8 +829,9 @@ $H<G$, $a\in G$. Define $Ha=\{ha|h\in H\}$, $Ha$ is called a right coset of $H$ 
 \end{definition}
 \begin{lemma}
 $\forall a\in G, Ha=[a]$.\\
-\textit{Proof:}\steezybreak\\
-\textit{$Ha\subset [a]$:} \\ 
+\textit{Proof:}\steezybreak
+
+\noindent \textit{$Ha\subset [a]$:} \\ 
 Take $ha\in Ha$. We need to get $ha\in [a]$.
 \begin{align}
     ha\in[a] &\iff a\equiv ha \mod H \nonumber\\
@@ -825,8 +844,9 @@ Well let's check what $a(ha)^{-1}$ is.
               &= eh^{-1} \nonumber \\
               &= h^{-1} \nonumber 
 \end{align}
-Since $h\in H$, $h^{-1}\in H$, therefore $ha\in [a]$, and so $H\subset [a]$.\steezybreak\\
-\textit{$[a]\subset Ha$:} \\
+Since $h\in H$, $h^{-1}\in H$, therefore $ha\in [a]$, and so $H\subset [a]$.\steezybreak
+
+\noindent \textit{$[a]\subset Ha$:} \\
 Take $x\in [a]$. Then $a\equiv x \mod H$ so $ax^{-1}\in H$. $H<G$ so $(ax^{-1})^{-1}\in H \underset{L 2.3.1}{\implies} xa^{-1}\in H$. \\
 So $x=x\cdot e=x(a^{-1}a)=(xa^{-1})a\in Ha$. Therefore $H\subset [a]$.\\
 $\therefore Ha=[a]$. $\ \ \ \ \ \ \ \blacksquare$
@@ -869,9 +889,11 @@ If $H$ is finite, then all the right cosets of $G$ have the same number of eleme
 \subsection{Lagrange's Theorem (1770)} 
 Joseph-Louis Lagrange was an Italian-born mathematician who was naturalized as a French citizen during adulthood. He lived from 1736 until 1813. Lagrange's work in number theory and math analysis had great influence on a young \'Evariste Galois (born 1811). Two of Lagrange's doctoral students include Joseph Fourier and Sim\'eon Poisson.
 \setcounter{dummy}{0}
-\begin{theorem}[Lagrange's Theorem] \hspace{0.1in}\steezybreak\\
-If $G$ is a finite order group and $H<G$, then $o(H)|o(G)$.\steezybreak\\
-\textit{Proof:} Suppose $H=\{h_1,...,h_r\}$ where $h_1=e$, so $o(H)=r$. \\
+\begin{theorem}[Lagrange's Theorem] \hspace{0.1in}\steezybreak
+
+\noindent If $G$ is a finite order group and $H<G$, then $o(H)|o(G)$.\steezybreak
+
+\noindent \textit{Proof:} Suppose $H=\{h_1,...,h_r\}$ where $h_1=e$, so $o(H)=r$. \\
 If $H=G$, then $o(G)=r$ so $o(H)|o(G)$.\\
 Now let's consider $H\subset G$ with $H\neq G$. Then $\exists \ a\in G\ni a\not \in H$. So far we can find 2 disjoint cosets:
 \begin{align}
@@ -920,8 +942,9 @@ One should note that when $o(G)$ prime, the proof provided above implies that AN
 \setcounter{dummy_lemma}{0}
 \begin{corollary}[Lagrange Cor. 1]
 $G$ a finite group, then $a\in G \implies o(a)|o(G)$.\\
-\textit{Proof:} Say $o(a)=m$ and consider $H=\langle a \rangle =\{e,a^1,a^2,...,a^{m-1}\}$, note $e=a^0=a^m$.\steezybreak\\
-Are these all different? Suppose $H$ has a repeat:
+\textit{Proof:} Say $o(a)=m$ and consider $H=\langle a \rangle =\{e,a^1,a^2,...,a^{m-1}\}$, note $e=a^0=a^m$.\steezybreak
+
+\noindent Are these all different? Suppose $H$ has a repeat:
 \begin{align}
     a^i=a^j \ &\text{ for some } 0\leq i < j \leq m-1 \nonumber \\
     &\implies a^ia^{-i}=a^{j-i} \nonumber \\
@@ -971,14 +994,20 @@ For this family of groups, we have that $o(G_n)=\phi(n)$. Ok we've introduced en
 
 \setcounter{dummy_lemma}{0}
 \begin{corollary}[Lagrange Cor. 3 (Euler)]
-If $n\in \Z^+$ and $a\in \Z$ with $GCD(a,n)=1$, then $a^{\phi(n)}\equiv 1 \mod n$. \steezybreak\\
-\textit{Proof:} We will consider two cases $n=1$ and $n>1$ and show the fact is true under either scenario. \steezybreak\\
-If $n=1$, then $\phi(1)=1$ and $\forall a \in \Z$, $GCD(a,1)=1$, also $a\equiv 1 \mod 1$ because $1|(a-1)$.\steezybreak\\
-If $n>1$, take any $a\in \Z \ni GCD(a,n)=1$. Euclidean Alg. $\implies \exists \ q,r \in \Z \ni a=qn+r$. Where $0\leq r < n$.\steezybreak\\
-\textit{Claim:} $r\in G_n$ (must show $r\neq 0$, $GCD(r,n)=1$). \\
-\textit{Proof of Claim: }If $r=0$, then $a=qn$, so $n|a$, and $GCD(a,n)=n\neq 1$ $\Rightarrow\Leftarrow$. So $r$ is a positive integer $<  n$. \steezybreak\\
-Say $GCD(r,n)=d$, then $d|r$ and $d|n$, and by observation \#4, $d|a$, a linear combination of $r$ and $n$. Since $d|a$ and $d|n$, $d|GCD(a,n)$. But $GCD(a,n)=1$ by assumption so by observation \#1 about divisions, $\implies d= \pm 1 \implies d= 1$, so $r$ and $n$ are relatively prime $\blacksquare$ (end of proof of supporting claim, Cor. 3 proof continues).\steezybreak\\
-Apply Cor \# 2: $G_n$ finite group, $r\in G_n$. $o(G_n)=\phi(n)$, so $r^{\phi(n)}=1$ ($1$ is $e$ in $G_n$).\\
+If $n\in \Z^+$ and $a\in \Z$ with $GCD(a,n)=1$, then $a^{\phi(n)}\equiv 1 \mod n$. \steezybreak
+
+\noindent \textit{Proof:} We will consider two cases $n=1$ and $n>1$ and show the fact is true under either scenario. \steezybreak
+
+\noindent If $n=1$, then $\phi(1)=1$ and $\forall a \in \Z$, $GCD(a,1)=1$, also $a\equiv 1 \mod 1$ because $1|(a-1)$.\steezybreak
+
+\noindent If $n>1$, take any $a\in \Z \ni GCD(a,n)=1$. Euclidean Alg. $\implies \exists \ q,r \in \Z \ni a=qn+r$. Where $0\leq r < n$.\steezybreak
+
+\noindent \textit{Claim:} $r\in G_n$ (must show $r\neq 0$, $GCD(r,n)=1$). \\
+\textit{Proof of Claim: }If $r=0$, then $a=qn$, so $n|a$, and $GCD(a,n)=n\neq 1$ $\Rightarrow\Leftarrow$. So $r$ is a positive integer $<  n$. \steezybreak
+
+\noindent Say $GCD(r,n)=d$, then $d|r$ and $d|n$, and by observation \#4, $d|a$, a linear combination of $r$ and $n$. Since $d|a$ and $d|n$, $d|GCD(a,n)$. But $GCD(a,n)=1$ by assumption so by observation \#1 about divisions, $\implies d= \pm 1 \implies d= 1$, so $r$ and $n$ are relatively prime $\blacksquare$ (end of proof of supporting claim, Cor. 3 proof continues).\steezybreak
+
+\noindent Apply Cor \# 2: $G_n$ finite group, $r\in G_n$. $o(G_n)=\phi(n)$, so $r^{\phi(n)}=1$ ($1$ is $e$ in $G_n$).\\
 In the language of $\Z$
 \begin{align}
     &r^{\phi(n)}\equiv 1 \mod n\nonumber \\
@@ -1041,7 +1070,7 @@ If $GCD(a,p)=p$, then $p|a$, so
 \end{tcolorbox}
 \newpage
 \section{A Counting Principle}
-The next question that we will explore is the following: Given $H,K < G$, can we make a subgroup from $H$ and $K$ which contains both...\steezybreak\\
+The next question that we will explore is the following: Given $H,K < G$, can we make a subgroup from $H$ and $K$ which contains both...\steezybreak
 
 \noindent What about $H\cup K$? \\ 
 Recall example $G_7=\{1,2,3,4,5,6\}$ under multiply $\mod 7$. We found 
@@ -1059,8 +1088,9 @@ HK = \{hk \ | \ h\in H,k\in K\} \nonumber
 \end{definition}
 
 \begin{lemma}
-$H,K < G$, then $HK < G$ iff $HK=KH$. \steezybreak\\
-\textit{Proof:} \\
+$H,K < G$, then $HK < G$ iff $HK=KH$. \steezybreak
+
+\noindent \textit{Proof:} \\
 $\Leftarrow :$ \\
 Assume $HK=KH$, we will use Lemma 2.4.1, which applies since $HK\neq \emptyset; \ \ e\cdot e = e\in HK$.
 \begin{enumerate}
@@ -1102,9 +1132,11 @@ $G$ abelian means $hk=kh$ $\forall \ h\in H, \ k\in K$. So we get $HK=KH$ for fr
 \end{corollary}
 
 \begin{theorem}
-$H, K$ finite subgroups of $G$. Then $o(HK)= \frac{o(H)o(K)}{o(H\cap K)}$ \steezybreak\\
-(Note, this is true whether or not $HK$ is a subgroup! In the proof you will see we only rely on $H$ and $K$ \textit{themselves} being subgroups, we don't require that $HK$ is a subgroup) \steezybreak\\
-\textit{Proof:} If we list elements of $HK$ including possible duplicates, there would be $o(H)\cdot o(K)$ products in the list. Take $g$ in the list, then 
+$H, K$ finite subgroups of $G$. Then $o(HK)= \frac{o(H)o(K)}{o(H\cap K)}$ \steezybreak
+
+\noindent (Note, this is true whether or not $HK$ is a subgroup! In the proof you will see we only rely on $H$ and $K$ \textit{themselves} being subgroups, we don't require that $HK$ is a subgroup) \steezybreak
+
+\noindent \textit{Proof:} If we list elements of $HK$ including possible duplicates, there would be $o(H)\cdot o(K)$ products in the list. Take $g$ in the list, then 
 \begin{align}
     \exists \ h\in H \text{ and } k\in K \ni g=hk.\nonumber
 \end{align}
@@ -1113,13 +1145,15 @@ How many times does $g$ appear in the list? What other ways are there to write $
     g&=hk=\tilde{h}\tilde{k} \nonumber \\
     &\implies \tilde{h}=hk\tilde{k}^{-1}  \text{ and } \tilde{k}=\tilde{h}^{-1}hk \nonumber
 \end{align}
-Let's call $k\tilde{k}^{-1} =x \in K$. \steezybreak\\
-\textit{Claim:} $\tilde{h}^{-1}h$ is $x^{-1}$.\\
+Let's call $k\tilde{k}^{-1} =x \in K$. \steezybreak
+
+\noindent \textit{Claim:} $\tilde{h}^{-1}h$ is $x^{-1}$.\\
 \textit{Proof of Claim:}
 \begin{align}
     x^{-1}&=(k\tilde{k}^{-1})^{-1}= \tilde{k}k^{-1}=\tilde{h}^{-1}hkk^{-1}=\tilde{h}^{-1}h\cdot e=\tilde{h}^{-1}h. \nonumber
-\end{align}\steezybreak\\
-$\therefore \ x^{-1} \in H < G \implies x \in H, \text{ thus } x\in H\cap K $ \\
+\end{align}\steezybreak
+
+\noindent $\therefore \ x^{-1} \in H < G \implies x \in H, \text{ thus } x\in H\cap K $ \\
 So the only way to write $g$ differently than $hk$ is to write it $(h \star)(\star^{-1}k)$ where $\star \in H \cap K$ and $\star \neq e$. \\
 Now, we note that for $x,y \in H\cap K$ if $x\neq y$ then $hx\neq hy$ by left cancellation. \\
 Conclusion: Running through distinct elements of $H\cap K$ generates all of the ways $g$ can be expressed as (elt H)(elt K) so $g$ appears in the list $o(H\cap K)$ times. 
@@ -1133,8 +1167,9 @@ Hence,
 \end{theorem}
 \newpage
 \begin{corollary}
-$G$ group with $o(G)=pq$, $p,q$ primes, $p>q$, then $G$ has no more than one subgroup of order $p$. \steezybreak\\
-\textit{Proof:} Suppose $H,K<G$ have the same order (Aim: show $H=K$)
+$G$ group with $o(G)=pq$, $p,q$ primes, $p>q$, then $G$ has no more than one subgroup of order $p$. \steezybreak
+
+\noindent \textit{Proof:} Suppose $H,K<G$ have the same order (Aim: show $H=K$)
 \begin{align}
     o(H)&=o(K)=P \ \ \ H,K \subset G \nonumber \\
     o(G)&\geq o(HK) = \frac{o(H)\cdot o(K)}{o(H\cap K)}= \frac{p\cdot p}{o(H\cap K)} > \frac{p\cdot q}{o(H\cap K)} = \frac{o(G)}{o(H\cap K)} \nonumber \\
@@ -1156,8 +1191,9 @@ In the proof of Lagrange's theorem, the reader probably recalls that we used thi
 \begin{align}
     a\equiv b \mod H \iff ab^{-1}\in H \nonumber
 \end{align}
-under which $[x]\underset{L \ 2.4.4}{=}Hx$. \steezybreak\\
-Let us now consider a slightly different relation:
+under which $[x]\underset{L \ 2.4.4}{=}Hx$. \steezybreak
+
+\noindent Let us now consider a slightly different relation:
 \begin{align}
     a\equiv b \mod H \iff a^{-1}b\in H \nonumber
 \end{align}
@@ -1165,9 +1201,11 @@ under this new relation,
 \begin{align}
     [x]=xH= \{xh|h\in H\} \nonumber
 \end{align}
-The classes are left cosets of $H<G$.\steezybreak\\
-\textit{Question:} is the list of left cosets always the same as the list of right cosets? \steezybreak\\
-Given $H<G$, is the list of right cosets of $H$ in $G$ the same as the list of left cosets of $H$ in $G$? Let's look at an example for some guidance.
+The classes are left cosets of $H<G$.\steezybreak
+
+\noindent \textit{Question:} is the list of left cosets always the same as the list of right cosets? \steezybreak
+
+\noindent Given $H<G$, is the list of right cosets of $H$ in $G$ the same as the list of left cosets of $H$ in $G$? Let's look at an example for some guidance.
 \begin{example}
 Consider again the group $S_3$.
 \begin{align}
@@ -1248,7 +1286,8 @@ If $H<G$ and $i_G(H)=2$, then $H\triangleleft G$. \\
 \includegraphics[width=0.65\textwidth]{Figures/as(1).pdf} \\($H=He$ is a right coset, and if there are only two right cosets then the remaining coset must be everything else in $G$, a similar argument can be made for $H's$ left cosets in $G$ )\\
 So $H\triangleleft G$ by L 2.6.2. $\blacksquare$
 \end{corollary}
-Which subgroups have index 2? \ \ $i=2=\frac{o(G)}{o(H)}$ \steezybreak\\
+Which subgroups have index 2? \ \ $i=2=\frac{o(G)}{o(H)}$ \steezybreak
+
 \begin{center}
   $\implies$\ \ \ \ \boxed{o(H)=\frac{1}{2}o(G)}  
 \end{center}\steezybreak
@@ -1265,23 +1304,29 @@ It is true for any subgroup $H<G$ that,
 We use this fact in our proof of the lemma below.
 
 \begin{lemma}
-Suppose $N<G$. $N\triangleleft G \iff Na\cdot Nb = N{ab} \ \forall a,b \in G$ \steezybreak\\
-\textit{Proof:} \steezybreak\\
-$\Rightarrow :$  \ \ \ Assume $N\triangleleft G$\steezybreak\\
-Take $a,b\in G$
+Suppose $N<G$. $N\triangleleft G \iff Na\cdot Nb = N{ab} \ \forall a,b \in G$ \steezybreak
+
+\noindent \textit{Proof:} \steezybreak
+
+\noindent $\Rightarrow :$  \ \ \ Assume $N\triangleleft G$\steezybreak
+
+\noindent Take $a,b\in G$
 \begin{align}
     NaNb=N(aN)b \underset{L \ 2.6.2}{=}N(Na)b=NNab = Nab .\nonumber
 \end{align}
-$\Leftarrow :$ \ \ \ Assume $Na\cdot Nb=Nab \ \forall a,b\in G.$\steezybreak\\
-Take $a\in G$; we'll show $aN=Na$ (so $N\triangleleft G$ by L 2.6.2)\steezybreak\\
-$\subseteq :$ ($aN\subseteq Na$ must be shown)
+$\Leftarrow :$ \ \ \ Assume $Na\cdot Nb=Nab \ \forall a,b\in G.$\steezybreak
+
+\noindent Take $a\in G$; we'll show $aN=Na$ (so $N\triangleleft G$ by L 2.6.2)\steezybreak
+
+\noindent $\subseteq :$ ($aN\subseteq Na$ must be shown)
 \begin{align}
     &NaNa^{-1}=Naa^{-1}=N \nonumber\\
     &\text{Right multiply by } a \nonumber\\
     &\implies NaN=Na \nonumber \\
     &aN=eaN\subseteq NaN=Na , \text{ so } aN\subseteq Na \nonumber
 \end{align}
-$\supseteq :$ ($Na\subseteq aN$ must be shown)\steezybreak\\
+$\supseteq :$ ($Na\subseteq aN$ must be shown)\steezybreak
+
 \begin{align}
     &Na^{-1}Na=Na^{-1}a=N \nonumber \\
     &\text{Right multiply by } a^{-1} \nonumber\\
@@ -1300,8 +1345,9 @@ $\therefore aN=Na$ and so $N\triangleleft G$ by L 2.6.2. $\blacksquare$
     &\overset{L2.6.2}{\iff} gN = Ng \ \ \forall \ g \in G \nonumber \\
     &\overset{L2.6.3}{\iff} NaNb = Nab \ \ \forall \ a,b \in G \nonumber 
 \end{align}
-$N\triangleleft G$ means the set of cosets of $N$ in $G$ has a group structure.\steezybreak\\
-$N\triangleleft G$ means:
+$N\triangleleft G$ means the set of cosets of $N$ in $G$ has a group structure.\steezybreak
+
+\noindent $N\triangleleft G$ means:
 \begin{enumerate}
     \item $N$ absorbs conjugates:
     \begin{align}
@@ -1397,8 +1443,9 @@ So $\Z/n\Z= \{[0],[1],[2],...,[n-1]\}$. So $\Z/n\Z$ and $\Z_n$ are the same grou
 \end{example}
 
 \begin{example}
-Passing from $G\rightarrow G/N$ lets you study properties of $G$ in a smaller group. For instance, oddness or evenness in $\Z$, use $\Z/2\Z$.\steezybreak\\
-$\Z/2\Z=\{[0],[1]\}=\{2\Z+0,2\Z+1\}$ or $Z_2=\{0,1\}$ under addition $\equiv\mod 2$
+Passing from $G\rightarrow G/N$ lets you study properties of $G$ in a smaller group. For instance, oddness or evenness in $\Z$, use $\Z/2\Z$.\steezybreak
+
+\noindent $\Z/2\Z=\{[0],[1]\}=\{2\Z+0,2\Z+1\}$ or $Z_2=\{0,1\}$ under addition $\equiv\mod 2$
 
     \includegraphics[width=0.65\textwidth]{Figures/Z2-cayley-example-later (1).pdf}
 
@@ -1406,22 +1453,27 @@ $\Z/2\Z=\{[0],[1]\}=\{2\Z+0,2\Z+1\}$ or $Z_2=\{0,1\}$ under addition $\equiv\mod
 
 \begin{example}
 \label{ex:DecomposeGLtoSL}
-$M\in GL_2(\R)= \{\text{inv }2\times 2's \text{ with }\R \text{ entries}\}$\steezybreak\\
-\textit{Problem:} Show that $M=\begin{pmatrix}
+$M\in GL_2(\R)= \{\text{inv }2\times 2's \text{ with }\R \text{ entries}\}$\steezybreak
+
+\noindent \textit{Problem:} Show that $M=\begin{pmatrix}
 r & 0 \\
 0 & 1
-\end{pmatrix}M'$ where $r\in \R-\{0\}$ and $det(M')=1$.\steezybreak\\
-We'll use $SL_2(\R)=\{\det 1 \text{ matrices}\}\subset GL_2(\R)$.\steezybreak\\
-\textit{Claim:} $SL_2(\R)\triangleleft GL_2(\R)$, we've already shown $SL_2(\R)<GL_2(R)$ so we only need to show that $SL_2(\R)$ absorbs conjugates.
+\end{pmatrix}M'$ where $r\in \R-\{0\}$ and $det(M')=1$.\steezybreak
+
+\noindent We'll use $SL_2(\R)=\{\det 1 \text{ matrices}\}\subset GL_2(\R)$.\steezybreak
+
+\noindent \textit{Claim:} $SL_2(\R)\triangleleft GL_2(\R)$, we've already shown $SL_2(\R)<GL_2(R)$ so we only need to show that $SL_2(\R)$ absorbs conjugates.
 \begin{align}
     \text{take }A, \text{ a matrix in } GL_2(\R) \text{ and } B \in SL_2(\R)\nonumber\\
     \det(ABA^{-1})=\det(A)\det(B)\det(A^{-1})=\det(A)(1)(\frac{1}{\det(A)}= (1)(1)=1 \nonumber \\
     \text{So } ABA^{-1}\in SL_2(\R) \nonumber \\
     \therefore SL_2(\R) \triangleleft GL_2(R) \nonumber 
 \end{align}
-So $GL_2(\R)/SL_2(\R)$ is a group.\steezybreak\\
-\includegraphics[width=0.5\textwidth]{Figures/aside_sl2(R).pdf}\steezybreak\\
-Recall: The cosets are the equivalence classes under "$\equiv \mod H$".
+So $GL_2(\R)/SL_2(\R)$ is a group.\steezybreak
+
+\includegraphics[width=0.5\textwidth]{Figures/aside_sl2(R).pdf}\steezybreak
+
+\noindent Recall: The cosets are the equivalence classes under "$\equiv \mod H$".
 \begin{align}
     A\equiv B \mod SL_2(\R) &\iff AB^{-1}\in SL_2(\R) \nonumber \\
     &\implies \det(AB^{-1})=1 \nonumber \\
@@ -1559,7 +1611,7 @@ Evaluation map.
 \end{align}
 \end{example}
 
-\textit{More examples of Homomorphisms can be found in Herstein's Topics in Algebra 2 ed.  pgs. 55-56}\steezybreak\\
+\textit{More examples of Homomorphisms can be found in Herstein's Topics in Algebra 2 ed.  pgs. 55-56}\steezybreak
 
 \begin{lemma}
 $N\triangleleft G$,
@@ -1620,7 +1672,7 @@ Note, $K\neq \{\}$ because $e\in K$ by L 2.7.2 (i). $K$ is also commonly denoted
 \end{definition}
 
 \begin{lemma}
-$\phi:G\rightarrow \bar{G}$ hom. with kernel $K$. Then $K\triangleleft G$. \steezybreak\\
+$\phi:G\rightarrow \bar{G}$ hom. with kernel $K$. Then $K\triangleleft G$. \steezybreak
 
 \noindent \textit{Proof:} We know $e\in K$ so $K$ is non-empty and L 2.4.1 applies (we begin by showing $K<G$ then to show 'normal' part we will show $K$ absorbs conjugates).
 \begin{enumerate}[label=\roman*)]
@@ -1659,9 +1711,11 @@ $\Rightarrow \ :$ Assume $\phi$ injective.\\
     \therefore k \text{ must be }e; \ K=\{e\} \nonumber
 \end{align}
 $\Leftarrow \ :$ Assume $K=\{e\}$.\\
-Injective means distinct elements stay distinct. We will use contraposition to show $\phi$ is injective. \steezybreak\\ %(i.e. rather than show $A\implies B$ is true we will show the equivalent contraposition $\lnot B \implies \lnot A$ is true). \\
-(i.e. we want to show $a\neq b \implies \phi(a)\neq \phi(b)$ so we will equivalently show $\phi(a)=\phi(b) \implies a= b$ which is the contraposition of the desired implication.)\steezybreak\\
-By contrapositive: if 2 images are not distinct, then their pre-images are not distinct. Consider:
+Injective means distinct elements stay distinct. We will use contraposition to show $\phi$ is injective. \steezybreak %(i.e. rather than show $A\implies B$ is true we will show the equivalent contraposition $\lnot B \implies \lnot A$ is true). \\
+
+(i.e. we want to show $a\neq b \implies \phi(a)\neq \phi(b)$ so we will equivalently show $\phi(a)=\phi(b) \implies a= b$ which is the contraposition of the desired implication.)\steezybreak
+
+\noindent By contrapositive: if 2 images are not distinct, then their pre-images are not distinct. Consider:
 \begin{align}
     \phi(g_1)=\phi(g_2)\nonumber
 \end{align}
@@ -1737,13 +1791,16 @@ $\phi: G\rightarrow \bar{G}$ group hom., then
 \begin{align}
     \phi(G)= \{\phi(g)\ | \ \forall g\in G\}\nonumber
 \end{align}
-is the \textit{image of }$G$ \textit{under} $\phi$.\steezybreak\\
-Note that $\phi(G)=\bar{G}\iff \phi \text{ is surjective (onto)}$. Prove this as an exercise.
+is the \textit{image of }$G$ \textit{under} $\phi$.\steezybreak
+
+\noindent Note that $\phi(G)=\bar{G}\iff \phi \text{ is surjective (onto)}$. Prove this as an exercise.
 \end{definition}
 \begin{proposition}
-$\phi:G\rightarrow \bar{G}$ group hom.\steezybreak\\
-Then $\phi(G)< \bar{G}$\steezybreak\\
-\textit{Proof:} $\phi(G)$ is non-empty since $\phi(e)=\bar{e}\in \phi(G)$ so L 2.4.1 applies
+$\phi:G\rightarrow \bar{G}$ group hom.\steezybreak
+
+\noindent Then $\phi(G)< \bar{G}$\steezybreak
+
+\noindent \textit{Proof:} $\phi(G)$ is non-empty since $\phi(e)=\bar{e}\in \phi(G)$ so L 2.4.1 applies
 \begin{enumerate}[label=\roman*)]
     \item Closure: take $y,y'\in \phi(G)$, then
     \begin{align}
@@ -1770,8 +1827,9 @@ Then $\phi(G)< \bar{G}$\steezybreak\\
 \end{tcolorbox}
 
 \begin{definition}[Isomorphism]
-An \textit{isomorphism} between groups is a bijective homomorphism. \steezybreak\\
-$G$ and $G^*$ are isomorphic groups, denoted $G\approx G^*$ (or often $G\simeq G^*$, though we prefer the former convention) if $\exists$ an isomorphism from $G$ to $G^*$.
+An \textit{isomorphism} between groups is a bijective homomorphism. \steezybreak
+
+\noindent $G$ and $G^*$ are isomorphic groups, denoted $G\approx G^*$ (or often $G\simeq G^*$, though we prefer the former convention) if $\exists$ an isomorphism from $G$ to $G^*$.
 \begin{align}
     G\approx G^* \iff \exists \ \sigma: G\rightarrow G^* \ni 
     \begin{cases}
@@ -1800,7 +1858,7 @@ some day I will type up handout 3 but for now look at it while you read along, t
 \end{multicols}
 
 \noindent$\boxed{\textbf{Important Fact:}}$ Any two cyclic groups of the same order are isomorphic.\\
-This is true via the map $\phi: \langle a\rangle \rightarrow \langle b \rangle $ (Where $a$ is the generator of one group and $b$ the generator of another) defined by $\phi(a^n)=b^n$, note that the Law of Exponents for groups implies that $\phi$ is a homomorphism. It can be easily checked that $\phi$ is a bijection. \steezybreak\\
+This is true via the map $\phi: \langle a\rangle \rightarrow \langle b \rangle $ (Where $a$ is the generator of one group and $b$ the generator of another) defined by $\phi(a^n)=b^n$, note that the Law of Exponents for groups implies that $\phi$ is a homomorphism. It can be easily checked that $\phi$ is a bijection. \steezybreak
 
 \begin{corollary}
 If $G$ is cyclic of order $n$, then $G$ is isomorphic to $\Z_n$.\\
@@ -1883,12 +1941,13 @@ $K\triangleleft G \implies G/K$ is a quotient group (consisting of cosets of $K$
     \sigma : G \rightarrow G/K \nonumber \\
     \sigma(g)=Kg \nonumber
 \end{align}
-Now, to show $G/K$ and $\bar{G}$ are isomorphic we must demonstrate that there exists a bijective homomorphism between them. We want a $\tau$ like the one in the diagram below.\steezybreak\\
+Now, to show $G/K$ and $\bar{G}$ are isomorphic we must demonstrate that there exists a bijective homomorphism between them. We want a $\tau$ like the one in the diagram below.\steezybreak
 
 \noindent Here's the situation: \\
 \includegraphics[width=0.5\textwidth]{Figures/1stiso_diag1.pdf} \\
-Define $\tau: G/K \rightarrow \bar{G}$ as follows, $\tau(Kg)=\phi(g)$, is $\tau$ well-defined? (i.e. is $\tau$ a mapping?)\steezybreak\\
-Potential problem: $Kg$ can have more than one preimage under $\sigma$.\\
+Define $\tau: G/K \rightarrow \bar{G}$ as follows, $\tau(Kg)=\phi(g)$, is $\tau$ well-defined? (i.e. is $\tau$ a mapping?)\steezybreak
+
+\noindent Potential problem: $Kg$ can have more than one preimage under $\sigma$.\\
 \includegraphics[width=0.5\textwidth]{Figures/1stIso_diag2.pdf}\\
 \begin{align}
     \text{Assume }&Kg=Kg' \nonumber \\
@@ -1975,7 +2034,8 @@ Recall
             (ghg^{-1})^{-1}=(g^{-1})^{-1}h^{-1}g^{-1}=g\underset{\in H}{h^{-1}}g^{-1} \in gHg^{-1} \ \ \ \ \blacksquare \ \ \ \ \text{(Claim 1 Proven)}\nonumber
         \end{align}
     \end{enumerate}
-    \textbf{Claim 2:} $o(gHg^{-1})=o(H)$\steezybreak\\
+    \textbf{Claim 2:} $o(gHg^{-1})=o(H)$\steezybreak
+
     \begin{align}
         \text{Define } &\sigma:H\rightarrow gHg^{-1} \nonumber \\
         &\sigma(h)=ghg^{-1} \nonumber 
@@ -1995,9 +2055,11 @@ Recall
     $\therefore \ \mu=\sigma^{-1}$ so $\sigma$ is a bijection.\\
     So there is a one-to-one correspondence between $gHg^{-1}$ and $H$ so $o(gHg^{-1})=o(H)$. But $H$ is the only subgroup of $o(H)$, $\therefore gHg^{-1}=H$.
     %\textit{This proof is incomplete, it will be finished very soon!!}
-    \item For $H<G$ that don't fit the above criteria (shortcuts 1-4) we can always just check conjugates. Recall that $H\triangleleft G \iff ghg^{-1} \in H \ \forall \ h \in H$ and $\forall \ g \in G$, we now present shortcut \# 5. \steezybreak\\
-    In checking conjugates, it suffices to check generators \textit{only}, because all elements are built from generators. For example: Let $G=\langle a,b \rangle$ $H= \langle x,y \rangle$. Then we must check: $axa^{-1}$, $bxb^{-1}$, $aya^{-1}$, $byb^{-1} \ \ \in H$? \steezybreak\\
-    If each one of these is $\in H$, then $H\triangleleft G$ because all other conjugates reduce to products...\\
+    \item For $H<G$ that don't fit the above criteria (shortcuts 1-4) we can always just check conjugates. Recall that $H\triangleleft G \iff ghg^{-1} \in H \ \forall \ h \in H$ and $\forall \ g \in G$, we now present shortcut \# 5. \steezybreak
+
+    \noindent In checking conjugates, it suffices to check generators \textit{only}, because all elements are built from generators. For example: Let $G=\langle a,b \rangle$ $H= \langle x,y \rangle$. Then we must check: $axa^{-1}$, $bxb^{-1}$, $aya^{-1}$, $byb^{-1} \ \ \in H$? \steezybreak
+
+    \noindent If each one of these is $\in H$, then $H\triangleleft G$ because all other conjugates reduce to products...\\
     for example $xy\in H$, $ab\in G$\\
     \begin{align}
         (ab)xy(ab)^{-1}&=abxyb^{-1}a^{-1} \nonumber \\
@@ -2019,6 +2081,7 @@ $n\in \Z, \ n \geq 3$. The \textit{Dihedral Group} denoted $D_n$ consists of rot
     D_3 & \ \ \ \ \text{ (symmetry group of triangle)}\nonumber \\
     &= \{ \text{rotations and reflections which send a regular tri-gon to itself} \} \nonumber
 \end{align}
+\newpage
 \includegraphics[width=0.75\textwidth]{Figures/Dihedral Group Example_1.pdf}
 
 \hspace{-0.5in}\includegraphics[width=1.1\textwidth]{Figures/Dihedral Group Example_2.pdf}\\
@@ -2059,8 +2122,9 @@ $D_3$ has the following set of minimal relations
              Group: &$D_3$ &$D_4$&$D_5$&$D_6$&$D_7$ \\ \hline 
     \end{tabular}
     
-    Note $D_7$ corresponds to the symmetries of a "heptagon" $\smiley{}$. Also note that since $o(D_3)=6$ then by Lagrange, if $H < D_3 \ \implies o(H)$ can be $1,\underbrace{2,3}_{\text{primes}}$ or $6$. \steezybreak\\
-    Lagrange Cor \#5: groups of prime order are cyclic. \\
+    Note $D_7$ corresponds to the symmetries of a "heptagon" $\smiley{}$. Also note that since $o(D_3)=6$ then by Lagrange, if $H < D_3 \ \implies o(H)$ can be $1,\underbrace{2,3}_{\text{primes}}$ or $6$. \steezybreak
+
+    \noindent Lagrange Cor \#5: groups of prime order are cyclic. \\
     \begin{align}
         \{\underset{1}{e},\underset{3}{a},\underset{3}{a^2},\underset{2}{b},\underset{2}{ab},\underset{2}{a^2 b}\} \nonumber
     \end{align}
@@ -2086,8 +2150,9 @@ $D_3$ has the following set of minimal relations
 Arthur Cayley (1821-1895) -- set down modern definition of Groups. He was a total G-daddy dog. Used to be a lawyer, Cambridge picked him up to work in Mathematics.
 
 \subsection*{Automorphic bijections as permutations}
-Suppose $S$ is a set with $n$ elements. A bijection of $S$ to itself can be viewed as a permutation of the elements of $S$. Recall $S_3=\{\text{bijections on a set of $3$ elements.}\}$\steezybreak\\
-Element $\sigma\tau$ in $S_3$ was this bijection:\\
+Suppose $S$ is a set with $n$ elements. A bijection of $S$ to itself can be viewed as a permutation of the elements of $S$. Recall $S_3=\{\text{bijections on a set of $3$ elements.}\}$\steezybreak
+
+\noindent Element $\sigma\tau$ in $S_3$ was this bijection:\\
 \begin{center}
     \includegraphics[width=0.3\textwidth]{Figures/Permutations_Cayley_1.pdf} 
 \end{center}
@@ -2107,10 +2172,12 @@ Every group $G$ is isomorphic to a subgroup of $A(G)$.
 %(for finite $G$) (idk if that's true, any group can act on itself by left product and this is exactly how we define tau and then psi... I believe this proof holds for any G! (finite or infinite!) although the beginning of part 1's explanation is easier to think of in terms of finite G... but nothing stops you from imagining an infinite cayley table and the "b-row" intuition doesn't stop us from constructing a well-defined mapping \tau_g for each (even infinitely many ) g \in G!
 \textit{Proof:} 
 \begin{enumerate}
-   \item Each row in the Cayley table for $G$ is a permutation of $G$'s elements and each permutation produces a bijection from $G\rightarrow G$.\\%$\blacksquare$ \steezybreak\\
-\hrule
-%Boy that was quick... how about an example to crystallize the argument above...\steezybreak\\
-\textbf{Example:} $b$-row of Cayley table gives $y$ values for the map "L-multiply by $b$"
+   \item Each row in the Cayley table for $G$ is a permutation of $G$'s elements and each permutation produces a bijection from $G\rightarrow G$.\\%$\blacksquare$ \steezybreak
+
+\noindent \hrule
+%Boy that was quick... how about an example to crystallize the argument above...\steezybreak
+
+\noindent \textbf{Example:} $b$-row of Cayley table gives $y$ values for the map "L-multiply by $b$"
 \begin{align}
     &\tau_b : G\rightarrow G \nonumber \\
     &\tau_b(x)=bx \ \forall \ x \in G \nonumber 
@@ -2343,9 +2410,11 @@ Where 1st-5th denote the application of cycles 1 through 5 of the non-reduced ex
 \end{example}
 
 \begin{example}
-\textbf{Problem:} Suppose $\theta = (1,3,9)(2,4,8,5)(6,10,7)\in S_{10}$. Find the order of $\theta \in S_{10}$. \steezybreak\\
-We first note that $S_{10}$ has order $10!=3,628,800$, so counting powers might not be the most efficient approach... let's take a brief detour to think about the order of a cycle... \steezybreak\\
-\textbf{Aside:} What's the order of an $m$-cycle?
+\textbf{Problem:} Suppose $\theta = (1,3,9)(2,4,8,5)(6,10,7)\in S_{10}$. Find the order of $\theta \in S_{10}$. \steezybreak
+
+\noindent We first note that $S_{10}$ has order $10!=3,628,800$, so counting powers might not be the most efficient approach... let's take a brief detour to think about the order of a cycle... \steezybreak
+
+\noindent \textbf{Aside:} What's the order of an $m$-cycle?
 \begin{align}
     (s,t,u,v,w) \nonumber
 \end{align}
@@ -2363,8 +2432,9 @@ So, for $n$ power, cycle shifts each element $n$ spaces
 \begin{align}
     (s,t,u,v,w)^5=I=(s)(t)(u)(v)(w)\nonumber
 \end{align}
-If power is $r$, the resulting cycle sends each element $r$ slots to the right. We conclude that the order of an $m-$cycle is the length of the cycle, $m$. \steezybreak\\
-Back to the problem... What's the order of $\theta \in S_{10}$? It should be the smallest $k\in \Z$ so that $\theta^k= I = e \in S_{10}$
+If power is $r$, the resulting cycle sends each element $r$ slots to the right. We conclude that the order of an $m-$cycle is the length of the cycle, $m$. \steezybreak
+
+\noindent Back to the problem... What's the order of $\theta \in S_{10}$? It should be the smallest $k\in \Z$ so that $\theta^k= I = e \in S_{10}$
 \begin{align}
     \theta^k&=[(1,3,9)(2,4,8,5)(6,10,7)]^k \nonumber \\
     &= \underbrace{(1,3,9)^k}_{\text{order }3}\underbrace{(2,4,8,5)^k}_{\text{order }4}\underbrace{(6,10,7)^k}_{\text{order }3} \nonumber
@@ -2382,8 +2452,9 @@ All other elements are sent to themselves under $(a_1,a_2)$.
 \end{definition}
 
 \begin{lemma}
-Every permutation can be written as a product of transpositions. \steezybreak\\
-\textit{Proof:} By Lemma 2.10.1, it is enough to prove this can be done on cycles, consider an arbitrary $n$-cycle:
+Every permutation can be written as a product of transpositions. \steezybreak
+
+\noindent \textit{Proof:} By Lemma 2.10.1, it is enough to prove this can be done on cycles, consider an arbitrary $n$-cycle:
 \begin{align}
     (a_1, \dots, a_n)=(a_1,a_2)(a_1,a_3)(a_1,a_4)\dots(a_1,a_n). \ \ \blacksquare \nonumber
 \end{align}
@@ -2440,8 +2511,9 @@ $n\in \Z$, $n\geq 2$. Suppose $A_n$ is the subset of $S_n$ consisting of all eve
 \begin{align}
     A_n \triangleleft S_n \ \ \text{and} \ \ \  o(A_n)=\frac{n!}{2}\nonumber
 \end{align} \\
-\noindent \textit{Proof:} We will begin by showing $A_n < S_n$ then we will show $A_n\triangleleft S_n$ and finally we will show $o(A_n)=o(S_n)/2 = n!/2$. \steezybreak\\
-$\boxed{A_n < S_n}$ We first note that $I\in A_n$ because it is an even permutation, so we can use Lemma 2.4.2 because $S_n$ is finite ($o(S_n)=n!$). Thus, we need only show that $A_n$ is closed. \steezybreak \\ 
+\noindent \textit{Proof:} We will begin by showing $A_n < S_n$ then we will show $A_n\triangleleft S_n$ and finally we will show $o(A_n)=o(S_n)/2 = n!/2$. \steezybreak
+
+\noindent $\boxed{A_n < S_n}$ We first note that $I\in A_n$ because it is an even permutation, so we can use Lemma 2.4.2 because $S_n$ is finite ($o(S_n)=n!$). Thus, we need only show that $A_n$ is closed. \steezybreak \\ 
 Take $\sigma, \tau \in A_n$, $\sigma$ and $\tau$ are both even permutations.
 \begin{align}
     &\sigma \text{ even }\implies \sigma \text{ decomposes into }2k \text{ transpositions for } k\in \Z \nonumber \\
@@ -2452,8 +2524,9 @@ Take $\sigma, \tau \in A_n$, $\sigma$ and $\tau$ are both even permutations.
     &\therefore \sigma \tau \in A_n. \ A_n\text{ is closed.} \nonumber \\
     &\therefore A_n < S_n. \nonumber
 \end{align}\\
-\noindent $\boxed{A_n \triangleleft S_n}$ Now we'll show $A_n$ is the kernel of a homomorphism and $A_n \triangleleft S_n$ will follow by Lemma 2.7.3. \steezybreak\\
-Define $\psi : S_n \rightarrow \{-1,1\} \text{ under multiplication}$ (tiny group) its Cayley table looks like this 
+\noindent $\boxed{A_n \triangleleft S_n}$ Now we'll show $A_n$ is the kernel of a homomorphism and $A_n \triangleleft S_n$ will follow by Lemma 2.7.3. \steezybreak
+
+\noindent Define $\psi : S_n \rightarrow \{-1,1\} \text{ under multiplication}$ (tiny group) its Cayley table looks like this 
 \begin{tabular}{r|rr}
 $\cdot$ & $1$  & $-1$ \\ \hline
 $1$     & $1$  & $-1$ \\
@@ -2526,10 +2599,11 @@ Then the order 3 elements
 %     (1,3,2) \nonumber \\
 % \end{align}
 Notice how the order 3 elements come in pairs $\alpha, \alpha^2$ e.g. $(1,2,3)= \alpha$ and $(1,3,2) = \alpha^2$ \\
-Lastly $A_4$ has a single element of order 1, $(1)(2)(3)(4)$. \steezybreak\\
+Lastly $A_4$ has a single element of order 1, $(1)(2)(3)(4)$. \steezybreak
+
 \noindent Now consider $J=\{(1,2)(3,4), (1,3)(2,4), (1,4)(2,3), e\}$, it can easily be seen that $J$ is closed. (Each product of order 2 elements give third) so $J<A_4$ however $J\not < H$ because $4\not | \ 6$, so $H$ can have at most one element of order 2.
 
-If $H$ has no element of order 2 then $H$ consists of $e$ and 5 order 3 elements, but order 3 elements travel in pairs $\Rightarrow \Leftarrow$. \steezybreak\\
+If $H$ has no element of order 2 then $H$ consists of $e$ and 5 order 3 elements, but order 3 elements travel in pairs $\Rightarrow \Leftarrow$. \steezybreak
 
 \noindent So $H$ must have exactly 1 order 2 element, call it $\delta$. \\
 \noindent Say $\delta = (a,b)(c,d)$. But if we conjugate $\delta$ with the 3-cycle $(a,b,c)$ then
@@ -2542,17 +2616,20 @@ If $H$ has no element of order 2 then $H$ consists of $e$ and 5 order 3 elements
 $\therefore$ Lagrange's converse is false. $\blacksquare$
 
 \subsubsection{Importance of Alternating Groups (Example 2)}
-In alternating groups, non-trivial normal subgroups are very sparse. \steezybreak\\
-$A_4$ has 8 non-trivial normal sub-groups, only 1 is normal in $A_4$. In fact, for $n\geq 5$ $A_n$ has \textit{none}!
+In alternating groups, non-trivial normal subgroups are very sparse. \steezybreak
+
+\noindent $A_4$ has 8 non-trivial normal sub-groups, only 1 is normal in $A_4$. In fact, for $n\geq 5$ $A_n$ has \textit{none}!
 
 \begin{definition}[Simple Group]
-Group $G$ is \textit{simple} if it has no non-trivial normal subgroups. \steezybreak\\
+Group $G$ is \textit{simple} if it has no non-trivial normal subgroups. \steezybreak
+
 \noindent or:  $G$ simple $\iff$ the only subgroups $\triangleleft G$ are $G$ and $\langle e \rangle$.
 \end{definition}
 
 \noindent $\boxed{\textbf{Major Fact:}\ \ \ A_n \text{ is simple for } n\geq 5}$\\
-\textit{Several proofs for the above fact exist, many of which are conceptually quite simple, but can get a little lengthy, for this reason we have omitted proof of this fact for the time being... I encourage the reader to explore these proofs on their own.} \steezybreak\\
-For a general quadratic polynomial in one variable $ax^2+bx+c=0$ we have all learned that the roots can be solved in radicals (i.e. using only addition, subtraction, multiplication, division, raising to integer powers, and the extraction of nth roots) via the following formula:
+\textit{Several proofs for the above fact exist, many of which are conceptually quite simple, but can get a little lengthy, for this reason we have omitted proof of this fact for the time being... I encourage the reader to explore these proofs on their own.} \steezybreak
+
+\noindent For a general quadratic polynomial in one variable $ax^2+bx+c=0$ we have all learned that the roots can be solved in radicals (i.e. using only addition, subtraction, multiplication, division, raising to integer powers, and the extraction of nth roots) via the following formula:
 \begin{align}
     x = \frac{-b\pm \sqrt{b^2-4ac}}{2a} \nonumber \ \ \ \ \ \ \ \textit{(Babylonian, Hindu, Egyptian and Chinese solutions all existed since BCE)}
 \end{align}
@@ -2573,12 +2650,14 @@ $x=??$
 Abelian groups are named in honor of Abel.
 \section{The Class Equation}
 \begin{definition}[Conjugacy between Elements]
-Let $a\in G$, $G$ a group. \steezybreak\\
-Element $b\in G$ is \textit{conjugate} to $a$ $\iff$ $\exists \ g\in G \ni \ gag^{-1}=b$.
+Let $a\in G$, $G$ a group. \steezybreak
+
+\noindent Element $b\in G$ is \textit{conjugate} to $a$ $\iff$ $\exists \ g\in G \ni \ gag^{-1}=b$.
 \end{definition}
 
 \begin{lemma}
-Conjugacy is an equivalence relation. \steezybreak\\
+Conjugacy is an equivalence relation. \steezybreak
+
 \noindent \textit{Proof:} 
 \begin{enumerate}[label=\roman*)]
     \item \textit{Reflexivity:} $a$ is conjugate to itself because $a = eae^{-1}$
@@ -2603,7 +2682,8 @@ The equivalence class of $a\in G$ under conjugacy is the \textit{conjugate class
     C(a)= \{x \in G | x \text{ is conjugate to } a\}
 \end{align}
 \end{definition}
-For a finite group $G$, we can describe $o(G)$ in terms of the conjugate classes. \steezybreak\\
+For a finite group $G$, we can describe $o(G)$ in terms of the conjugate classes. \steezybreak
+
 \includegraphics[width=0.95\textwidth]{Figures/Conjugacy_Partition.png}
 \begin{align}
     o(G) = \sum_{\substack{\text{one elt. }\\a \text{ from} \\ \text{each conj. class}}}(\text{\# of elts in }C(a)) \nonumber
@@ -2628,9 +2708,11 @@ Proving $\star$ will give us \textit{the class equation}:
 \begin{align}
     i(N(a))= \text{ the number of left cosets of }N(a) \text{ in }G
 \end{align}
-We must show the number of distinct conjugates is the same as the number of left cosets of $N(a)$. \steezybreak\\
-Plan: set up a mapping (as simply as possible), then try to show it's a bijection. \steezybreak\\
-Define $\sigma:C(a)\rightarrow \{\text{left cosets of }N(a)\}$ by 
+We must show the number of distinct conjugates is the same as the number of left cosets of $N(a)$. \steezybreak
+
+\noindent Plan: set up a mapping (as simply as possible), then try to show it's a bijection. \steezybreak
+
+\noindent Define $\sigma:C(a)\rightarrow \{\text{left cosets of }N(a)\}$ by 
 \begin{align}
     \sigma(gag^{-1})=gN(a)
 \end{align}
@@ -2650,7 +2732,8 @@ To be well-defined, $\sigma$ must send each element from the source set to one a
 \end{align}
 So $\sigma$ is well-defined. \\
 \noindent \textit{$\sigma$ is surjective:} Take $yN(a) \in \text{codomain}$\\
-$\sigma(yay^{-1})=yN(a)$, so $yay^{-1}$ serves as a preimage for $yN(a)$ \steezybreak\\
+$\sigma(yay^{-1})=yN(a)$, so $yay^{-1}$ serves as a preimage for $yN(a)$ \steezybreak
+
 \noindent \textit{$\sigma$ is injective:} We want to show that this can't happen \\
 \begin{center}
     \includegraphics[width=0.4\textwidth]{Figures/noninjective.png}
@@ -2692,8 +2775,9 @@ Use class equation:
 \begin{align}
     o(G)= \sum_{\substack{\text{one  '}a'  \\\text{from each} \\ \text{conj. class}}} \frac{o(G)}{o(N(a))} = \beta + \sum_{\substack{\text{one $a$ } \\\text{from each }\\ \text{class outside} \\ Z(G)}} \frac{o(G)}{o(N(a))}\nonumber
 \end{align}
-Notice for the sum after the second equality, $N(a)<G$ but $N(a)\not = G$ because each $a$ in this sum is \textit{outside} $Z(G)$ so these $a$'s don't commute with everything. \steezybreak\\
-Lagrange says $o(N(a))|o(G)=p^n$, so $o(N(a))$ is one of these: $1,p,p^2, \dots , p^{n-1}$. Say it's $p^{K_a}$, $K_a<n$ since $N(a)\not = G$, we have
+Notice for the sum after the second equality, $N(a)<G$ but $N(a)\not = G$ because each $a$ in this sum is \textit{outside} $Z(G)$ so these $a$'s don't commute with everything. \steezybreak
+
+\noindent Lagrange says $o(N(a))|o(G)=p^n$, so $o(N(a))$ is one of these: $1,p,p^2, \dots , p^{n-1}$. Say it's $p^{K_a}$, $K_a<n$ since $N(a)\not = G$, we have
 \begin{align}
     p^n = \beta + \sum_{\substack{\text{one }a \\ \text{for each} \\ \text{conj. class} \\ \text{outside }Z(G)}} \frac{p^n}{p^{K_a}} = \beta + \sum p^{n-K_a}\nonumber
 \end{align}
@@ -2701,32 +2785,40 @@ Solve for $\beta$:
 \begin{align}
     \beta = p^n - \sum p^{n-K_a} \nonumber
 \end{align}
-Now, $p$ divides the right side so $p|\beta$. \steezybreak\\
-If $\beta = 1$ then $p|1$, since no prime divides 1 $\Rightarrow\Leftarrow$, so $\beta \not = 1$. \\ So $\beta > 1$ and $G$ has non-trivial center. $\blacksquare$
+Now, $p$ divides the right side so $p|\beta$. \steezybreak
+
+\noindent If $\beta = 1$ then $p|1$, since no prime divides 1 $\Rightarrow\Leftarrow$, so $\beta \not = 1$. \\ So $\beta > 1$ and $G$ has non-trivial center. $\blacksquare$
 \end{theorem}
 
 \subsubsection*{Application \# 2 (Corollary to Thm 2.11.2)}
 In the proof below we use a new symbol $A\subsetneqq B$ to indicate that $A$ is a strict subset of $B$, this symbol is equivalent to $A \subset B$ \textit{and} $B \not \subset A$
 \begin{corollary}
-A group of order $p^2$ ($p$ prime) is abelian. \steezybreak\\
-\noindent \textit{Proof:} Suppose $o(G)=p^2$, we will show $Z(G)=G$.\steezybreak\\
-Now, $Z(G)<G \ \ \implies o(Z(G)) = 1, \ p, \ \text{ or} \underbrace{p^2}_{\text{we want this}}$. \steezybreak\\
-By Thm 2.11.2, $Z(G)$ is bigger than $\{e\}$ so order of $Z(G)$ is not $1$. What if $o(Z(G))= p$?
+A group of order $p^2$ ($p$ prime) is abelian. \steezybreak
+
+\noindent \textit{Proof:} Suppose $o(G)=p^2$, we will show $Z(G)=G$.\steezybreak
+
+\noindent Now, $Z(G)<G \ \ \implies o(Z(G)) = 1, \ p, \ \text{ or} \underbrace{p^2}_{\text{we want this}}$. \steezybreak
+
+\noindent By Thm 2.11.2, $Z(G)$ is bigger than $\{e\}$ so order of $Z(G)$ is not $1$. What if $o(Z(G))= p$?
 \begin{center}
     \includegraphics[width=0.5\textwidth]{Figures/Center_of_G.png}
 \end{center}
-Then $\exists \ a \in G \ni \ a \not\in Z(G)$ \steezybreak\\
-Consider $N(a)$: 
+Then $\exists \ a \in G \ni \ a \not\in Z(G)$ \steezybreak
+
+\noindent Consider $N(a)$: 
 \begin{align}
     \underset{a\not \in }{Z(G)} \subsetneqq &\underset{a\in}{N(a)}, \text{ so order of }N(a)>p \nonumber \\ 
     \text{Now, since }N(a) < G, \ \ o(N(a))>p &\implies o(N(a))=p^2 \nonumber \\
     &\implies N(a) = G \nonumber \\
     &\implies a \text{ commutes with everything!} \Rightarrow\Leftarrow
 \end{align}
-($\Rightarrow\Leftarrow$ because $a\not\in Z(G)$) \steezybreak\\
-This contradiction gives that $o(Z(G))\not = p$ \steezybreak\\
-So $o(Z(G))$ must be $p^2$, thus $Z(G)=G$ \steezybreak\\
-$\therefore$ $G$ is abelian. $\blacksquare$
+($\Rightarrow\Leftarrow$ because $a\not\in Z(G)$) \steezybreak
+
+\noindent This contradiction gives that $o(Z(G))\not = p$ \steezybreak
+
+\noindent So $o(Z(G))$ must be $p^2$, thus $Z(G)=G$ \steezybreak
+
+\noindent $\therefore$ $G$ is abelian. $\blacksquare$
 \end{corollary}
 
 How much information do you get about a group from its order?
@@ -2775,10 +2867,15 @@ If $n=p^\alpha m$ where $p$ is a prime number, and if $p^r|m$ but $p^{r+1}\not |
     &= m\cdot \frac{ (p^\alpha m -1) \dots (p^\alpha m - i) \dots (p^\alpha m - p^\alpha +1)}{ (p^\alpha -1) \dots (p^\alpha - i) \dots (p^\alpha - p^\alpha +1)}
 \end{align}
 The question is, What power of $p$ divides ${p^\alpha m \choose p^\alpha}$? We will show that $p^r | {p^\alpha m \choose p^\alpha}$ but $p^{r+1} \not | {p^\alpha m \choose p^\alpha}$. \\
-\textit{Proof:} Let $m\geq 1$, and $0<i<p^\alpha$, with $m,i,p,\alpha,\beta \in \Z$. \steezybreak\\ In order to prove our claim, we will begin by showing that the fraction on the right of equation (2.7) cannot provide any factors of $p$ since each numerator term that could provide a factor of $p$ will cancel with a corresponding term in the numerator. That is, we will begin by proving the following claim. \steezybreak\\
-\textit{Claim 1: } $p^\beta | p^\alpha m - i \ \iff p^\beta | p^\alpha - i$  for $0<i<p^\alpha$\steezybreak\\
-\textit{Proof of Claim 1:}\steezybreak\\
-\textbf{$\Leftarrow$ :} Suppose $p^\beta | p^\alpha -i $
+\textit{Proof:} Let $m\geq 1$, and $0<i<p^\alpha$, with $m,i,p,\alpha,\beta \in \Z$.\steezybreak
+
+\noindent In order to prove our claim, we will begin by showing that the fraction on the right of equation (2.7) cannot provide any factors of $p$ since each numerator term that could provide a factor of $p$ will cancel with a corresponding term in the numerator. That is, we will begin by proving the following claim. \steezybreak
+
+\noindent \textit{Claim 1: } $p^\beta | p^\alpha m - i \ \iff p^\beta | p^\alpha - i$  for $0<i<p^\alpha$\steezybreak
+
+\noindent \textit{Proof of Claim 1:}\steezybreak
+
+\noindent \textbf{$\Leftarrow$ :} Suppose $p^\beta | p^\alpha -i $
 \begin{align}
   &\implies \exists \ h \in \Z \ni hp^\beta = p^\alpha - i \ \ \ \ \ (\text{Note, }i<p^\alpha \implies h > 0)\nonumber \\
   &\implies i = p^\alpha - hp^\beta \nonumber \\
@@ -2806,16 +2903,18 @@ The question is, What power of $p$ divides ${p^\alpha m \choose p^\alpha}$? We w
     &= p^\alpha \underbrace{((1-m)+gp^{\overbrace{\scriptstyle\beta-\alpha}^{>0}})}_{\in \Z} \nonumber \\
     &\implies p^\alpha | p^\alpha - i \ \ \Rightarrow\Leftarrow \nonumber 
 \end{align}
-So $\beta < \alpha \ \ \implies (p^{\alpha-\beta}-p^{\alpha-\beta}m+g)\in \Z$ $ \ \ \ \implies \ \ p^\beta | p^\alpha - i$. This completes the proof of claim 1. \steezybreak\\
-With Claim 1 established we can now see that if there were some numerator term $p^\alpha m - i$ for $0<i<p^\alpha$ that has a power of $p$ as a factor then there is \textit{necessarily} a corresponding term in the denominator ($p^\alpha -i$) which cancels this power of $p$. This means if any power of $p$ divides ${p^\alpha m \choose p^\alpha}$ it must do so by dividing the $m$ out front in equation (2.7). Thus
+So $\beta < \alpha \ \ \implies (p^{\alpha-\beta}-p^{\alpha-\beta}m+g)\in \Z$ $ \ \ \ \implies \ \ p^\beta | p^\alpha - i$. This completes the proof of claim 1. \steezybreak
+
+\noindent With Claim 1 established we can now see that if there were some numerator term $p^\alpha m - i$ for $0<i<p^\alpha$ that has a power of $p$ as a factor then there is \textit{necessarily} a corresponding term in the denominator ($p^\alpha -i$) which cancels this power of $p$. This means if any power of $p$ divides ${p^\alpha m \choose p^\alpha}$ it must do so by dividing the $m$ out front in equation (2.7). Thus
 \begin{align}
     p^r | {p^\alpha m \choose p^\alpha} \text{ but } p^{r+1} \not | {p^\alpha m \choose p^\alpha} \ \ \ \ \ \ \blacksquare \nonumber 
 \end{align}
 %Looking at this number how we have it written out in the last line, we can see that except for the term $m$ in the numerator, the power of $p$ dividing $(p^\alpha m -i)$ is the same as that dividing $p^\alpha$
 
 \begin{theorem}[Sylow's Theorem (Sylow \#1)]
-$G$ finite. If $p$ is prime and $p^\alpha|o(G)$ then $G$ has a subgroup of order $p^\alpha$ \steezybreak\\
-\textit{Proof:}
+$G$ finite. If $p$ is prime and $p^\alpha|o(G)$ then $G$ has a subgroup of order $p^\alpha$ \steezybreak
+
+\noindent \textit{Proof:}
 Let $\mathcal{M}$ be the set of all subsets of $G$ which have $p^\alpha$ elements. Since $p^\alpha | o(G)$, $o(G)$ can be written $o(G)=p^\alpha m$ for some $m\in \Z \ni m \geq 1$. Thus $\mathcal{M}$ has ${p^\alpha m \choose p^\alpha}$ elements. Given $M_1 , M_2 \in \mathcal{M}$ ($M_1$ is a subset of $G$ having $p^\alpha$ elements, and likewise so is $M_2$ ) define $M_1 \sim M_2$ if there exists an element $g \in G$ such that $M_1 = M_2g$. It is immediate to verify that this defines an equivalence relation on $\mathcal{M}$.
 \begin{enumerate}[label=\roman*)]
     \item Reflexivity: $M_1=M_1e$, $e\in G$
@@ -2835,10 +2934,12 @@ Let $\mathcal{M}$ be the set of all subsets of $G$ which have $p^\alpha$ element
 \end{enumerate}
 
 
-We claim that there is at least one equivalence class of elements in $\mathcal{M}$ such that the number of elements in this class is not a multiple of $p^{r+1}$, for if $p^{r+1}$ is a divisor of the size of each equivalence class, then $p^{r+1}$ would be a divisor of the number of elements in $\mathcal{M}$ (remember observation 4 about division and that an equivalence relation on a set partitions the set). Since $\mathcal{M}$ has ${p^\alpha m \choose p^\alpha}$ elements and $p^{r+1} \not | {p^\alpha m \choose p^\alpha}$ this cannot be the case. Let ${M_1, \dots , M_n}$ be such an equivalence class in $\mathcal{M}$ where $p^{r+1}\not | \ n $. By our very definition of equivalence in $\mathcal{M}$, if $g \in G$, for each $i = 1, \dots , n$, $M_ig = M_j$ for some $j, 1 \leq j \leq n$. We let $H = \{g \in G | M_1g = M_1 \}$. Clearly $H$ is a subgroup of $G$ by Lemma 2.4.2, for if $a, b \in H$, then $M_1a = M_1 $ and $ M_1 b = M_1$ therefore $M_1ab = (M_1a)b = M_1b =M_1$. We would like to show $o(H)=p^\alpha$. We first claim that $n\cdot o(H) =o(G)$. \steezybreak\\
-\textit{Proof of Claim:}
-We will prove that $no(H)=o(G)$ by first showing that there is a bijection from $\{Ha | a \in G\}$ to $\{M_1,\dots M_n\}$. \steezybreak\\
-Let $C= \{Ha|a\in G\}$ be the set of right cosets of $H$. Then,
+We claim that there is at least one equivalence class of elements in $\mathcal{M}$ such that the number of elements in this class is not a multiple of $p^{r+1}$, for if $p^{r+1}$ is a divisor of the size of each equivalence class, then $p^{r+1}$ would be a divisor of the number of elements in $\mathcal{M}$ (remember observation 4 about division and that an equivalence relation on a set partitions the set). Since $\mathcal{M}$ has ${p^\alpha m \choose p^\alpha}$ elements and $p^{r+1} \not | {p^\alpha m \choose p^\alpha}$ this cannot be the case. Let ${M_1, \dots , M_n}$ be such an equivalence class in $\mathcal{M}$ where $p^{r+1}\not | \ n $. By our very definition of equivalence in $\mathcal{M}$, if $g \in G$, for each $i = 1, \dots , n$, $M_ig = M_j$ for some $j, 1 \leq j \leq n$. We let $H = \{g \in G | M_1g = M_1 \}$. Clearly $H$ is a subgroup of $G$ by Lemma 2.4.2, for if $a, b \in H$, then $M_1a = M_1 $ and $ M_1 b = M_1$ therefore $M_1ab = (M_1a)b = M_1b =M_1$. We would like to show $o(H)=p^\alpha$. We first claim that $n\cdot o(H) =o(G)$. \steezybreak
+
+\noindent \textit{Proof of Claim:}
+We will prove that $no(H)=o(G)$ by first showing that there is a bijection from $\{Ha | a \in G\}$ to $\{M_1,\dots M_n\}$. \steezybreak
+
+\noindent Let $C= \{Ha|a\in G\}$ be the set of right cosets of $H$. Then,
 \begin{align}
     |C| = \frac{o(G)}{o(H)} 
 \end{align}
@@ -2858,7 +2959,8 @@ Now $no(H) = o(G) = p^\alpha m$; since $p^{r+1}\not | n$ and $p^{r+\alpha}|p^{\a
 
 \begin{example}
 Consider $A_4$ whose order is $o(A_4)= \frac{4!}{2} = 12 =2^2\cdot 3$ \\ 
-\noindent Sylow \#1 $\implies$ $A_4$ has subgroups of order $2,2^2$ and $3$ \steezybreak\\
+\noindent Sylow \#1 $\implies$ $A_4$ has subgroups of order $2,2^2$ and $3$ \steezybreak
+
 \noindent Sylow \#1 tells us nothing about $6$ because $6$ is not a prime power.
 \end{example}
 
@@ -2885,33 +2987,43 @@ Sylow \#2 says that if you know one $p-$Sylow subgroup $H$, you can find the res
 \begin{theorem}[Sylow \#3]
 Suppose $p^m|o(G)$ but $p^{m+1}\not | o(G)$. The number of $p-$Sylow subgroups in $G$:
 \begin{enumerate}
-    \item divides $\frac{o(G)}{p^m}$ (the index of the $p-$Sylow subgroup) \steezybreak\\
+    \item divides $\frac{o(G)}{p^m}$ (the index of the $p-$Sylow subgroup) \steezybreak
+
     \noindent AND
     \item is congruent to $1\mod p$ \ \ \ (i.e. is $1+kp$ for some $k\in \Z$)
 \end{enumerate}
 \end{theorem}
 \begin{example}
-Let $o(G)=12=2^2\cdot 3$ \steezybreak\\
-Sylow \#1 guarantees that $G$ has $2-$Sylow subgroup(s) of order $4$, $3-$Sylow subgroup(s) of order 3, and at least one subgroup of order $2$. \steezybreak\\
-How many $2-$Sylow subgroups are there? \steezybreak\\
-Sylow \#3 says the number of $2-$Sylow subgroups must divide the index of $2-$Sylow (12/4 = 3) and must be congruent to 1 mod 2 so there are either 1 or 3 $2-$Sylow subgroups. \steezybreak\\
-($A_4$ has one subgroup of order 4; $D_6$ has 3 subgroups of order 4) \steezybreak\\
-How many $3-$Sylow subgroups? Well the first part of Sylow \#3 tells us the number of $3-$Sylow subgroups divide $\frac{12}{3}=4$ making 1, 2, and 4 candidates, the second part of Sylow \#3 says the number must be $\equiv 1\mod 3$ which eliminates $2$ as a candidate, so there must be 1 or 4 $3-$Sylow subgroups. \steezybreak\\
-($A_4$ has 4 ; $D_6$ has 1)
+Let $o(G)=12=2^2\cdot 3$ \steezybreak
+
+\noindent Sylow \#1 guarantees that $G$ has $2-$Sylow subgroup(s) of order $4$, $3-$Sylow subgroup(s) of order 3, and at least one subgroup of order $2$. \steezybreak
+
+\noindent How many $2-$Sylow subgroups are there? \steezybreak
+
+\noindent Sylow \#3 says the number of $2-$Sylow subgroups must divide the index of $2-$Sylow (12/4 = 3) and must be congruent to 1 mod 2 so there are either 1 or 3 $2-$Sylow subgroups. \steezybreak
+
+\noindent ($A_4$ has one subgroup of order 4; $D_6$ has 3 subgroups of order 4) \steezybreak
+
+\noindent How many $3-$Sylow subgroups? Well the first part of Sylow \#3 tells us the number of $3-$Sylow subgroups divide $\frac{12}{3}=4$ making 1, 2, and 4 candidates, the second part of Sylow \#3 says the number must be $\equiv 1\mod 3$ which eliminates $2$ as a candidate, so there must be 1 or 4 $3-$Sylow subgroups. \steezybreak
+
+\noindent ($A_4$ has 4 ; $D_6$ has 1)
 \newpage
 \end{example}
 
 \subsection*{Applications of Sylow Theorems}
 \begin{enumerate}
-    \item Prove no group of order $50$ is simple. \steezybreak\\
-    \includegraphics[width=0.575\textwidth]{Figures/order50_no_normal.pdf} \steezybreak\\
-    \textit{Proof:} $G$ group with order $o(G)=50=2\cdot 5^2$, $G$ has subgroups of order $2, 5, 25$. Consider one of the subgroups of order $25$, call it $H$
+    \item Prove no group of order $50$ is simple. \steezybreak
+
+    \includegraphics[width=0.575\textwidth]{Figures/order50_no_normal.pdf} \steezybreak
+
+    \noindent \textit{Proof:} $G$ group with order $o(G)=50=2\cdot 5^2$, $G$ has subgroups of order $2, 5, 25$. Consider one of the subgroups of order $25$, call it $H$
     \begin{align}
         &i_G(H)=2 \ \ \overset{Cor \ 2.6.2}{\Longrightarrow} \ \  H\triangleleft G \nonumber \\
         &\therefore G \text{ is not simple.} \ \ \blacksquare \nonumber
     \end{align}
-    \item Any two groups of order $15$ are isomorphic. \steezybreak\\
-    \textit{Proof: } Suppose $G$ is a group and $o(G)=15=3\cdot 5$\\
+    \item Any two groups of order $15$ are isomorphic. \steezybreak
+
+    \noindent \textit{Proof: } Suppose $G$ is a group and $o(G)=15=3\cdot 5$\\
     Sylow \#1 $\implies$ $\exists$ in $G$ at least one subgroup of order $3$ and one of order $5$.\\
     Sylow \#3 $\implies$ \# of $5-$Sylow subgroups must divide $\frac{15}{5}=3$ (so $1$ or $3$) AND must be $\equiv 1\mod 5$ $\implies$ there is exactly 1 subgroup of order $5$, call it $H$\\
     Sylow \#3 $\implies$ \# of $3-$Sylow subgroups must divide $\frac{15}{3}=5$ (so $1$ or $5$) AND must be $\equiv 1\mod 3$ $\implies$ $G$ has exactly one subgroup of order $3$, call it $K$.\\
@@ -2926,13 +3038,18 @@ How many $3-$Sylow subgroups? Well the first part of Sylow \#3 tells us the numb
         &\text{If }o(x)=5, \text{ then } \langle x\rangle = H \nonumber \\
         &\Rightarrow\Leftarrow x\not \in H \nonumber
     \end{align}
-    So the order of $x$ must be $15$. \steezybreak\\
-    So $\langle x \rangle = G$. \steezybreak\\
-    $\therefore \ \ G$ is cyclic. \\
+    So the order of $x$ must be $15$. \steezybreak
+
+    \noindent So $\langle x \rangle = G$. \steezybreak
+
+    \noindent $\therefore \ \ G$ is cyclic. \\
     So any group of order $15$ is cyclic. If $o(G)=o(\bar{G})=15$ then $G$ and $\bar{G}$ are isomorphic because any 2 cyclic groups of the same order are isomorphic (important fact right before the 1st Isomorphism Theorem). $\ \ \ \ \blacksquare$
-    \item Any group of order 20,449 is abelian. \steezybreak\\
-    \noindent \textit{Proof:} Let $o(G)=20,449=11^2\cdot 13^2$ \steezybreak\\
-    Sylow \#3 $\implies$ \# of 11-Sylow subgroup(s) divides $\frac{o(G)}{11^2}=13^2$ : \# is $1$, $13$, or $13^2$. Also, \# $\equiv 1 \mod 11$, remove 13 because $13\equiv 2\mod 11$ and $13^2\equiv 4\mod 11$. So $G$ has exactly $1$ 11-Sylow subgroup, call it $H$. \steezybreak\\
+    \item Any group of order 20,449 is abelian. \steezybreak
+
+    \noindent \textit{Proof:} Let $o(G)=20,449=11^2\cdot 13^2$ \steezybreak
+
+    \noindent Sylow \#3 $\implies$ \# of 11-Sylow subgroup(s) divides $\frac{o(G)}{11^2}=13^2$ : \# is $1$, $13$, or $13^2$. Also, \# $\equiv 1 \mod 11$, remove 13 because $13\equiv 2\mod 11$ and $13^2\equiv 4\mod 11$. So $G$ has exactly $1$ 11-Sylow subgroup, call it $H$. \steezybreak
+
     \begin{align}
         o(H)&=11^2=121 \nonumber \\
         H &\text{ is abelian (order }p^2) \nonumber \\
@@ -2972,7 +3089,8 @@ How many $3-$Sylow subgroups? Well the first part of Sylow \#3 tells us the numb
 \setcounter{dummy}{2}
 \setcounter{section}{11}
 \begin{theorem}[Cauchy's Theorem]
-If $p$ is prime and $p|o(G)$ then $G$ has an element of order $p$. \steezybreak\\
+If $p$ is prime and $p|o(G)$ then $G$ has an element of order $p$. \steezybreak
+
 \noindent \textit{Proof:} $p|o(G) \ \implies \ G$ has a subgroup $H$ of order $p$ (Sylow \#1). 
 \begin{align}
     o(H) \text{ prime }&\implies H \text{ is cyclic }\nonumber \\
@@ -2985,8 +3103,9 @@ If $p$ is prime and $p|o(G)$ then $G$ has an element of order $p$. \steezybreak\
 
 \begin{enumerate}
 \setcounter{enumi}{3}
-    \item Prove: No group of order $125$ is simple. \steezybreak\\ 
-    $o(G)=125=5^3$, The $5$-Sylow subgroup has order $125$ -- it is $G$.
+    \item Prove: No group of order $125$ is simple. \steezybreak
+
+    \noindent $o(G)=125=5^3$, The $5$-Sylow subgroup has order $125$ -- it is $G$.
     \begin{align}
         o(G)=p^n \implies Z(G)\neq \{e\} \nonumber
     \end{align}
@@ -3008,7 +3127,8 @@ Let $G$ and $\bar{G}$ be groups of orders $m$ and $n$ respectively. The (externa
 \end{definition}
 
 \begin{proposition}
-    $G\times \bar{G}$ is a group of order $nm$ under \textit{component-wise product}.\steezybreak\\
+    $G\times \bar{G}$ is a group of order $nm$ under \textit{component-wise product}.\steezybreak
+
     \begin{align}
         (g,\bar{g})\circ (h,\bar{h}) = (g \underset{\cdot \text{ in } G}{\cdot} h \ \ , \ \  \bar{g}\underset{\cdot \text{ in }\bar{G}}{\cdot}\bar{h}) \nonumber
     \end{align}
@@ -3037,7 +3157,8 @@ Let $G$ and $\bar{G}$ be groups of orders $m$ and $n$ respectively. The (externa
         and by uniqueness of inverses $(g^{-1},\bar{g}^{-1})$ \textul{is} $(g,\bar{g})^{-1}$. \\
     \end{enumerate}
     $o(G\times \bar{G})$ is the number of possible pairs $(g,\bar{g})$ with $g\in G$ ($o(G)=n$ choices), $\bar{g}\in \bar{G}$ ($o(\bar{G})=m$ choices).
-    \noindent $\therefore \ $ number of pairs $=o(G)\cdot o(\bar{G})=n\cdot m$. $\blacksquare$ \steezybreak\\
+    \noindent $\therefore \ $ number of pairs $=o(G)\cdot o(\bar{G})=n\cdot m$. $\blacksquare$ \steezybreak
+
     \noindent Also note that if $G$ and $\bar{G}$ are abelian, $G\times \bar{G}$ is abelian:
         \begin{align}
             (x,\bar{x})(y,\bar{y})=(xy,\bar{x}\bar{y}) = (yx,\bar{y}\bar{x})=(y,\bar{y})(x,\bar{x}). \nonumber
@@ -3108,13 +3229,16 @@ Interestingly, unlike in the previous example, there is no element here with ord
 \end{example}
 \newpage
 \begin{proposition}
-    If $G$ and $\bar{G}$ are cyclic, then $G\times \bar{G}$ is cyclic $\iff$ order of $G$ and order of $\bar{G}$ are relatively prime. \steezybreak\\
-    \textit{Proof}: We want to prove the following for cyclic groups $G$ and $\bar{G}$: 
+    If $G$ and $\bar{G}$ are cyclic, then $G\times \bar{G}$ is cyclic $\iff$ order of $G$ and order of $\bar{G}$ are relatively prime. \steezybreak
+
+    \noindent \textit{Proof}: We want to prove the following for cyclic groups $G$ and $\bar{G}$: 
     \begin{align}
         G\times\bar{G} \text{ cyclic } \iff GCD(o(G),o(\bar{G}))=1 \nonumber
     \end{align}
-We will begin by showing RHS $\implies$ LHS. \steezybreak\\
-\noindent \textbf{$\Leftarrow$ :} \steezybreak\\
+We will begin by showing RHS $\implies$ LHS. \steezybreak
+
+\noindent \textbf{$\Leftarrow$ :} \steezybreak
+
 \noindent Suppose $G$ and $\bar{G}$ are cyclic groups with $o(G)=n$, $o(\bar{G})=m$ and $GCD(m,n)=1$. We must show that $G\times \bar{G}$ has an element of order $nm$ (i.e. a generator)
 \begin{align}
     G \text{ cyclic }\implies \exists \ a \in G \ni G= \langle a \rangle \nonumber \\
@@ -3124,7 +3248,8 @@ What is the order of $(a,\bar{a})$ (we hope it's $nm$)
 \begin{align}
     (a,\bar{a})^{nm} \underset{\text{componentwise}}{=} (a^{nm},\bar{a}^{nm}) =((a^n)^m,(\bar{a}^m)^n) = ((e)^m,(\bar{e})^n)=(e,\bar{e}). \nonumber
 \end{align}
-By the result from problem \#1 of HW\#4 $\implies$ $o((a,\bar{a}))|nm$, call $o((a,\bar{a}))=s$. \steezybreak\\
+By the result from problem \#1 of HW\#4 $\implies$ $o((a,\bar{a}))|nm$, call $o((a,\bar{a}))=s$. \steezybreak
+
 \begin{center}
 \boxed{s \ | \ nm} 
 \end{center}
@@ -3145,21 +3270,26 @@ Then, by observation \#2 from Section 1.3 $\implies \ \ s=\pm mn \ \implies s=mn
     &\therefore (a,\bar{a}) \text{ generates } G\times \bar{G} \nonumber \\
     &\therefore G\times \bar{G} \text{ is cyclic.} \nonumber
 \end{align}
-\noindent \textbf{$\Rightarrow$ :} \steezybreak\\
+\noindent \textbf{$\Rightarrow$ :} \steezybreak
+
 \noindent Assume $G\times \bar{G}$ cyclic with $o(G)=n$, $o(\bar{G})=m$ and suppose $GCD(n,m)=d$.
 
 \begin{align}
 &d | n \implies \exists x\in \Z \ni n=xd \nonumber \\
 &d | m \implies \exists y\in \Z \ni m=yd \nonumber
 \end{align}
-$G\times \bar{G}$ cyclic $\implies \ \exists $ an elt. $(g,\bar{g})\in G\times \bar{G}$ with order $nm=xdyd$. \steezybreak\\
-But $(g,\bar{g})^{xyd} = (g^{xyd},\bar{g}^{xyd})=((g^{xd})^y, (\bar{g}^{yd})^x)$ \steezybreak\\
-Lagrange Corr. \#2 $\implies$ $(e^y,\bar{e}^x)=(e,\bar{e})$, thus $xyd \geq xdyd \implies 1\geq d$ but $d$ is a positive integer $\therefore$ $d$ must $=1$.\steezybreak\\
-$\therefore GCD(n,m)=1$. $\blacksquare$
+$G\times \bar{G}$ cyclic $\implies \ \exists $ an elt. $(g,\bar{g})\in G\times \bar{G}$ with order $nm=xdyd$. \steezybreak
+
+\noindent But $(g,\bar{g})^{xyd} = (g^{xyd},\bar{g}^{xyd})=((g^{xd})^y, (\bar{g}^{yd})^x)$ \steezybreak
+
+\noindent Lagrange Corr. \#2 $\implies$ $(e^y,\bar{e}^x)=(e,\bar{e})$, thus $xyd \geq xdyd \implies 1\geq d$ but $d$ is a positive integer $\therefore$ $d$ must $=1$.\steezybreak
+
+\noindent $\therefore GCD(n,m)=1$. $\blacksquare$
 \end{proposition}
 
-All of these ideas may be extended to $K$ groups ($K>2$). \steezybreak\\
-$G_1\times G_2 \times \dots \times G_K$ is a group under component-wise product, $o(G_1\times G_2\times \dots \times G_K)=o(G_1)\cdot o(G_2) \dots \cdot o(G_K)$. If $G_1$, $G_2$, ..., $G_K$ are cyclic, then $G_1\times G_2\times \dots \times G_K$ is cyclic $\iff$ $GCD(o(G_i),o(G_j))=1 \ \forall \text{ pairs } 1\leq i,j\leq K, i\neq j$.
+All of these ideas may be extended to $K$ groups ($K>2$). \steezybreak
+
+\noindent $G_1\times G_2 \times \dots \times G_K$ is a group under component-wise product, $o(G_1\times G_2\times \dots \times G_K)=o(G_1)\cdot o(G_2) \dots \cdot o(G_K)$. If $G_1$, $G_2$, ..., $G_K$ are cyclic, then $G_1\times G_2\times \dots \times G_K$ is cyclic $\iff$ $GCD(o(G_i),o(G_j))=1 \ \forall \text{ pairs } 1\leq i,j\leq K, i\neq j$.
 
 \steezybreak
 \begin{tcolorbox}
@@ -3205,9 +3335,11 @@ So $D_3 \approx \langle (1,2,3)(4,5,6), (1,4)(2,6)(3,5) \rangle < S_6$
 
 \section*{Direct Products and Isomorphisms}
 \subsection*{Rule \# 1 regarding Direct Products and Isomorphisms}
-\textit{Claim:} If $G\approx G'$, then $G\times \bar{G}\approx G'\times \bar{G}$ \steezybreak\\
-\textit{Proof:} $G\approx G' \implies \exists \ \text{bijective hom. }\theta : G\rightarrow G'$ \steezybreak\\
-Define 
+\textit{Claim:} If $G\approx G'$, then $G\times \bar{G}\approx G'\times \bar{G}$ \steezybreak
+
+\noindent \textit{Proof:} $G\approx G' \implies \exists \ \text{bijective hom. }\theta : G\rightarrow G'$ \steezybreak
+
+\noindent Define 
 \begin{align}
     \tau: G\times \bar{G} \rightarrow G'\times \bar{G} \nonumber \\
     \tau(g,\bar{g}) = (\theta(g),\bar{g}) \nonumber
@@ -3220,9 +3352,11 @@ $\tau$ is a homomorphism, to see this, take $(g,\bar{g}), (h,\bar{h})\in G\times
     &= (\theta(g),\bar{g})(\theta(h),\bar{h}) \nonumber \\
     &= \tau(g,\bar{g})\tau(h,\bar{h}) \nonumber
 \end{align}
-$\tau$ is surjective: take $(g',\bar{g})\in G'\times \bar{G}$ \steezybreak\\
-$\theta$ surj. $\implies \ \exists \ g\in G \ni \theta(g)=g'$, so $\tau(g,\bar{g})=(\theta(g),\bar{g})=(g',\bar{g})$ so $(g,\bar{g})$ serves as a preimage for $(g',\bar{g})$. \steezybreak\\
-$\tau$ is injective: Earlier we learned that a homomorphism is injective iff its kernel is trivial. So $\tau$ injective $\iff$ $\ker\tau$ contains only the identity element. Let's check $\ker\tau$. Take $(g,\bar{g})\in \ker\tau$. Then:
+$\tau$ is surjective: take $(g',\bar{g})\in G'\times \bar{G}$ \steezybreak
+
+\noindent $\theta$ surj. $\implies \ \exists \ g\in G \ni \theta(g)=g'$, so $\tau(g,\bar{g})=(\theta(g),\bar{g})=(g',\bar{g})$ so $(g,\bar{g})$ serves as a preimage for $(g',\bar{g})$. \steezybreak
+
+\noindent $\tau$ is injective: Earlier we learned that a homomorphism is injective iff its kernel is trivial. So $\tau$ injective $\iff$ $\ker\tau$ contains only the identity element. Let's check $\ker\tau$. Take $(g,\bar{g})\in \ker\tau$. Then:
 \begin{align}
     (e',\bar{e})=\tau(g,\bar{g})= (\theta(g),\bar{g}) \ \ \nonumber \\
     \therefore \bar{g}=\bar{e} \nonumber \\
@@ -3231,17 +3365,20 @@ $\tau$ is injective: Earlier we learned that a homomorphism is injective iff its
     \therefore (e,\bar{e}) \text{ is the only elt in }\ker\tau.  \ \ \blacksquare \nonumber
 \end{align}
 \subsection*{Rule \# 2 regarding Direct Products and Isomorphisms}
-\textit{Claim:} $G\times \bar{G}\approx \bar{G}\times G$ \steezybreak\\
-\textit{Proof:} Define $\theta: G\times \bar{G}\rightarrow \bar{G}\times G$ by $\theta(g,\bar{g})=(\bar{g},g)$ \steezybreak\\
-$\theta$ is a homomorphism:
+\textit{Claim:} $G\times \bar{G}\approx \bar{G}\times G$ \steezybreak
+
+\noindent \textit{Proof:} Define $\theta: G\times \bar{G}\rightarrow \bar{G}\times G$ by $\theta(g,\bar{g})=(\bar{g},g)$ \steezybreak
+
+\noindent $\theta$ is a homomorphism:
 \begin{align}
     \theta[(g,\bar{g})(h,\bar{h})]&= \theta[gh,\bar{g}\bar{h}] \nonumber\\
     &=(\bar{g}\bar{h},gh) \nonumber \\
     &= (\bar{g},g)(\bar{h},h) \nonumber \\
     &= \theta(g,\bar{g})\theta(h,\bar{h}) \nonumber
 \end{align}
-$\theta$ is surjective: Take $(\bar{g},g)\in \bar{G}\times G$, its preimage is $(g,\bar{g})$ \steezybreak\\
-$\theta$ is 1-1 (injective): Take $(g,\bar{g})\in \ker\theta$ then
+$\theta$ is surjective: Take $(\bar{g},g)\in \bar{G}\times G$, its preimage is $(g,\bar{g})$ \steezybreak
+
+\noindent $\theta$ is 1-1 (injective): Take $(g,\bar{g})\in \ker\theta$ then
 \begin{align}
     &(\bar{e},e)=\theta(g,\bar{g})=(\bar{g},g) \nonumber \\
     &\therefore \text{ the only elt in }\ker\theta \text{ is } (e,\bar{e}) \ (\text{ the identity in } G\times \bar{G}) \nonumber \\
@@ -3249,7 +3386,8 @@ $\theta$ is 1-1 (injective): Take $(g,\bar{g})\in \ker\theta$ then
 \end{align}
 
 \begin{example}
-Below we look at $\Z_2\times \Z_3$ and compare it with $\Z_3\times \Z_2$. We can think of the bijection between them as prescribing a "renaming" of the elements in one group to the elements in another. \steezybreak\\ 
+Below we look at $\Z_2\times \Z_3$ and compare it with $\Z_3\times \Z_2$. We can think of the bijection between them as prescribing a "renaming" of the elements in one group to the elements in another. \steezybreak
+
 \begin{center}
     \includegraphics[width=0.5\textwidth]{Figures/IsomorphicDirectProduct1.pdf}
 \end{center}
@@ -3266,8 +3404,9 @@ Both $\theta$ and $\tau$ are isomorphisms (bijective homomorphisms) the proof is
 
 \section*{Routine Check before Exam 2}
 \begin{example}
-\textbf{Problem:} Write $\Z_{12}\times \Z_{16}$ as a direct product of groups of prime power order. \steezybreak\\
-$\Z_{12}$ is cyclic of order $12=2^2\cdot 3$.\\
+\textbf{Problem:} Write $\Z_{12}\times \Z_{16}$ as a direct product of groups of prime power order. \steezybreak
+
+\noindent $\Z_{12}$ is cyclic of order $12=2^2\cdot 3$.\\
 $\Z_3\times \Z_4$ has order $12$ and is cyclic, because $GCD(3,4)=1$.\\
 $\therefore$ $\Z_{12}\approx \Z_3\times \Z_4$. \\
 Similarly, $\Z_6 \approx \Z_2\times \Z_3$. \\
@@ -3297,8 +3436,9 @@ Similarly, $\Z_{18}\approx \Z_2\times \Z_9$
 \end{example}
 
 \begin{corollary}[Corollary of Rules \#1-\#3 for Direct Products of Groups]
-Any direct product of finite cyclic groups is isomorphic to a direct product of cyclic groups of prime power order. \steezybreak\\
-\textit{Proof:}\\
+Any direct product of finite cyclic groups is isomorphic to a direct product of cyclic groups of prime power order. \steezybreak
+
+\noindent \textit{Proof:}\\
 Consider $G_1\times G_2 \times \cdots \times G_k$ Where $G_i$ is cyclic of order $n_i$. Then $G_i\approx \Z_{n_i} \ \forall \ 1\leq i \leq k$.
 \begin{align}
     \therefore G_1\times G_2\times \cdots \times G_k \approx \underbrace{\Z_{n_1}\times \Z_{n_2}\times \cdots \times \Z_{n_k}}_{\text{Now proceed as in previous examples}} \nonumber
@@ -3321,15 +3461,18 @@ $G_3\approx \Z_{45}$
 \end{example}
 
 \begin{theorem}[Fundamental Structure Theorem for Finite Abelian Groups]
-Every finite abelian group is isomorphic to a direct product of cyclic groups. \steezybreak\\
-The standard form of the direct product is:
+Every finite abelian group is isomorphic to a direct product of cyclic groups. \steezybreak
+
+\noindent The standard form of the direct product is:
 \begin{align}
     \Z_{d_1}\times \Z_{d_2}\times\cdots \times \Z_{d_m} \ \ \text{ where }\ \ \ d_i|d_{i+1} \ \forall \ 1\leq i \leq m-1 \nonumber
-\end{align} \steezybreak\\
-Two groups $\Z_{d_1}\times \Z_{d_2}\times \cdots \times \Z_{d_m}$ and $\Z_{d_1'}\times \Z_{d_2'}\times \cdots \times \Z_{d_k'}$ are isomorphic $\iff$ $k=m$ and $d_i'=d_i \ \ \forall \ 1\leq i\leq k$. \steezybreak\\
-(i.e. Finite Abelian groups are isomorphic $\iff$ they have the same standard form). \steezybreak\\
+\end{align} \steezybreak
 
-\textit{Proof:} We will hold off on proof of this for now... I need one more proof earlier in the text to make this a lot easier to pull off... I will basically use Herstein's approach from pages 109-111 of \href{https://marinazahara22.files.wordpress.com/2013/10/i-n-herstein-topics-in-algebra-2nd-edition-1975-wiley-international-editions-john-wiley-and-sons-wie-1975.pdf}{Topics in Algebra 2 Ed.} which you can read yourself if you are curious. For now, I want you to be able to use this powerful result so we can continue our exploration.
+\noindent Two groups $\Z_{d_1}\times \Z_{d_2}\times \cdots \times \Z_{d_m}$ and $\Z_{d_1'}\times \Z_{d_2'}\times \cdots \times \Z_{d_k'}$ are isomorphic $\iff$ $k=m$ and $d_i'=d_i \ \ \forall \ 1\leq i\leq k$. \steezybreak
+
+\noindent (i.e. Finite Abelian groups are isomorphic $\iff$ they have the same standard form). \steezybreak
+
+\noindent \textit{Proof:} We will hold off on proof of this for now... I need one more proof earlier in the text to make this a lot easier to pull off... I will basically use Herstein's approach from pages 109-111 of \href{https://marinazahara22.files.wordpress.com/2013/10/i-n-herstein-topics-in-algebra-2nd-edition-1975-wiley-international-editions-john-wiley-and-sons-wie-1975.pdf}{Topics in Algebra 2 Ed.} which you can read yourself if you are curious. For now, I want you to be able to use this powerful result so we can continue our exploration.
 \end{theorem}
 \newpage
 \begin{example}
@@ -3493,8 +3636,9 @@ Know how to take orders of elements. Here are some other facts that are useful t
     \text{ divides }p (1 \text{ or }p)\\
     \equiv 1\mod q \ (\text{can't eliminate either})
 \end{cases}$\\
-Both of the above scenarios can occur. \steezybreak\\
-In fact, it can be shown that if $p\not \equiv 1 \mod q$, $G$ has exactly one subgroup of order $q\ \ \implies G$ is cyclic.
+Both of the above scenarios can occur. \steezybreak
+
+\noindent In fact, it can be shown that if $p\not \equiv 1 \mod q$, $G$ has exactly one subgroup of order $q\ \ \implies G$ is cyclic.
 \begin{align}
     o(G)=&77=7\cdot 11 \nonumber \\
     &11\equiv 4 \mod 7 \nonumber \\

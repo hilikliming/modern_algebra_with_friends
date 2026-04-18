@@ -56,7 +56,7 @@ $n\in \mathbb{Z} \text{ is}\textit{ even }\Leftrightarrow \exists \ k \in \mathb
 \end{definition}
 \begin{example}
 Prove that $\sim$ is an equivalence relation on $\mathbb{Z}$:\\
-$x\sim y \iff x-y \text{ is even}$\steezybreak\\
+$x\sim y \iff x-y \text{ is even}$\steezybreak
 
 \noindent\textbf{Proof:} To prove we must show $\sim$ is reflexive, symmetric, and transitive on $\mathbb{Z}$.\\
 \textit{Reflexivity:} Take $x\in \mathbb{Z}$, then $x-x=0=2*0$, since $0\in \mathbb{Z}$, $x-x$ is even. $\implies x\sim x \ \forall x \in \mathbb{Z}$\\
@@ -65,7 +65,8 @@ $x\sim y \iff x-y \text{ is even}$\steezybreak\\
 \end{example}
 \subsection{Understanding the First Proof}
 Since this was the first proof in the course material we would like to take a few 
-paragraphs to unpack the reasoning in the proof above. \steezybreak\\
+paragraphs to unpack the reasoning in the proof above. \steezybreak
+
 \noindent We are asked to show that the relation defined in example 1.1.4 
 ($x\sim y \iff x-y \text{ is even}$) on $\Z$ is an equivalence relation. To do this we 
 are required to show the defined relation exhibits three properties: reflexivity, 
@@ -89,11 +90,12 @@ question is a little misleading. We did consider a single $x\in \Z$, but this $x
 member who $x$ could have been, such as $1$ or $2$, all we knew about $x$ is that it is 
 an integer, and by being an integer it inherited any properties that are true for all 
 integers). As a result, statements and inferences that were made about $x$ apply to 
-\textit{all} members of the set $\Z$. \steezybreak\\
-With this in mind let's break down each of the parts of this proof starting with the 
-reflexivity line. \steezybreak\\
+\textit{all} members of the set $\Z$. \steezybreak
 
-\textit{Reflexivity:}  
+\noindent With this in mind let's break down each of the parts of this proof starting with the 
+reflexivity line. \steezybreak
+
+\textit{Reflexivity:}
 To show $\sim$ is reflexive, we need to prove that $x \sim x$ for all $x \in \Z$. The 
 proof begins, “Take $x \in \Z$, then $x - x = 0 = 2\cdot 0$.” Here, $x - x = 0$ shows 
 that the difference between any integer and itself is zero, and writing $0 = 2\cdot 0$ 
@@ -101,9 +103,9 @@ shows that this difference is an even number.\footnote{Remember, by Defn \ref{de
 an integer is even if and only if it can be written as an \textit{integer multiple} of 
 $2$.} By the definition of the relation, if $x - y$ is even, then $x \sim y$. Applying 
 this definition, we conclude $x \sim x$. Because $x$ was arbitrary, this holds for every 
-integer, so $\sim$ is reflexive. \steezybreak\\
+integer, so $\sim$ is reflexive. \steezybreak
 
-\textit{Symmetry:}  
+\textit{Symmetry:}
 A relation is symmetric if $x \sim y$ implies $y \sim x$ for all $x, y \in \Z$. To prove 
 this, we start by assuming $x \sim y$. \footnote{Note, to prove a statement of the form 
 if $A$ then $B$ you start by assuming $A$ and show $B$ follows from that assumption. In 
@@ -123,9 +125,9 @@ From the definition of $\sim$, this means
 $x - y = 2k$ for some integer $k$. Then we can rewrite $y - x = -(x - y) = -2k = 2(-k)$. 
 Since $-k$ is also an integer, $y - x$ is even. Therefore, $y \sim x$. Because we did 
 not assume anything special about $x$ or $y$, this argument applies to all integers, 
-showing that $\sim$ is symmetric. \steezybreak\\
+showing that $\sim$ is symmetric. \steezybreak
 
-\textit{Transitivity:}  
+\textit{Transitivity:}
 Finally, a relation is transitive if whenever $x \sim y$ and $y \sim z$, it follows that 
 $x \sim z$.  
 Assume $x \sim y$ and $y \sim z$. By definition, this means there exist integers $k$ and 
@@ -135,7 +137,7 @@ x - z = (x - y) + (y - z) = 2k + 2l = 2(k + l).
 \]
 Because the sum of two integers $k + l$ is also an integer, $x - z$ is even. Therefore, 
 $x \sim z$. Since our choices of $x$, $y$, and $z$ were arbitrary, $\sim$ is transitive 
-on $\Z$. \steezybreak\\
+on $\Z$. \steezybreak
 
 \noindent By verifying all three properties, we have shown that $\sim$ is reflexive, symmetric, 
 and transitive, and hence an \textbf{equivalence relation} on the set of integers $\Z$.
@@ -150,8 +152,10 @@ Given an equivalence relation $\sim$  on $A$ and $a\in A$, the \textit{equivalen
 \end{equation}
 That is, the equivalence class of $a$, $cl(a)$, is the subset of elements in $A$ who are related to $a$.
 \end{definition}
-% \noindent\textbf{Defn:} Given $\sim$ an equivalence relation on $A$ and $a\in A$, the equivalence class of $a$ is defined as follows: \steezybreak\\
-% $cl(a)=\{x\in A | x \sim a\}$\steezybreak\\
+% \noindent\textbf{Defn:} Given $\sim$ an equivalence relation on $A$ and $a\in A$, the equivalence class of $a$ is defined as follows: \steezybreak
+
+% $cl(a)=\{x\in A | x \sim a\}$\steezybreak
+
 \noindent Looking back at the equivalence relation $\sim$ defined in example 1.1.4 on $\Z$, what's $cl(0)$?\\
 \begin{align}
     cl(0)&= \{x\in \mathbb{Z}| x\sim 0\} \nonumber\\
@@ -178,16 +182,19 @@ Let $A_1, A_2, \cdots , A_n$ be subsets of set $A$. Subsets $A_1, A_2, ..., A_n$
 % \begin{enumerate}[(i)]
 %     \item $\bigcup_{i=1}^n A_i=A$ (union gives $A$)
 %     \item $A_i\cap A_j = \emptyset \ \ \ \forall\  i\neq j, \ i\leq j, \ j\leq n$ (subsets are mutually disjoint)
-% \end{enumerate}\steezybreak\\
+% \end{enumerate}\steezybreak
+
 \begin{theorem}[Fundamental Theorem of Equivalence Relations]                           \hspace{0.4in}
 \begin{enumerate}
     \item The equivalence classes of an equivalence relation $\sim$ on $A$ partition $A$.
     \item Any partition of $A$ gives rise to an equivalence relation $\sim$ on $A$
 \end{enumerate}
 \steezybreak
-\textit{Proof of (1):} Assume $\sim$ is an equivalence relation on $A$ with classes $A_1,A_2,...A_n$. First, we will show $\bigcup_{i=1}^n A_i=A$, to prove two sets $S,T$ are equal we must show $S\subset T$ and $T\subset S$.\steezybreak\\
-take $a\in \bigcup_{i=1}^n A_i$, then $a$ is in some $A_i$ and $A_i\subset A$ by definition of equivalence classes, $\implies a \in A$ since $a$ was chosen arbitrarily we have shown $\bigcup_{i=1}^n A_i \subset A$. Now to show the other containment:\steezybreak\\
-take $a\in A$, reflexivity says that $a\sim a$ therefore $a\in cl(a)$ and so $a\in \bigcup_{i=1}^n A_i$, so $A\subset \bigcup_{i=1}^n A_i$.\steezybreak\\
+\textit{Proof of (1):} Assume $\sim$ is an equivalence relation on $A$ with classes $A_1,A_2,...A_n$. First, we will show $\bigcup_{i=1}^n A_i=A$, to prove two sets $S,T$ are equal we must show $S\subset T$ and $T\subset S$.\steezybreak
+
+\noindent take $a\in \bigcup_{i=1}^n A_i$, then $a$ is in some $A_i$ and $A_i\subset A$ by definition of equivalence classes, $\implies a \in A$ since $a$ was chosen arbitrarily we have shown $\bigcup_{i=1}^n A_i \subset A$. Now to show the other containment:\steezybreak
+
+\noindent take $a\in A$, reflexivity says that $a\sim a$ therefore $a\in cl(a)$ and so $a\in \bigcup_{i=1}^n A_i$, so $A\subset \bigcup_{i=1}^n A_i$.\steezybreak
 
 Next we must show that different classes are disjoint. Take any two classes $cl(a)=A_i$ and $cl(b)=A_j$. Suppose $x\in A_i\cap A_j$ (we will show that assuming this intersection has even 1 element implies $A_i$ and $A_j$  are the same sets, meaning  when you pick any two equivalence classes $A_i$ and $A_j$ either $A_i$ and $A_j$ are the same equivalence class or they share no elements).
 \begin{align}
@@ -206,7 +213,7 @@ $\blacksquare$
 \begin{definition}[Mapping (Function)]
 $\sigma$ is a \textit{mapping} from $S$ (domain/source set) to $T$ (co-domain/target set), denoted $\sigma: S \rightarrow T$ if $\sigma$ associates $\forall \ s \in S$ one and only one element $\sigma(s)\in T$
 \end{definition}
-\noindent We call $\sigma(s)$ the \textit{image} of $s$ under $\sigma$.\steezybreak\\ 
+\noindent We call $\sigma(s)$ the \textit{image} of $s$ under $\sigma$.\steezybreak
 
 \begin{figure}[ht!]
     \centering
@@ -224,7 +231,8 @@ We may denote the \textit{image} of set $S$ under $\sigma$:
 \begin{definition}[Pre-image (under a mapping)]
 Element $s\in S$ is called a \textit{pre-image} of $t\in T$ if $\sigma(s)=t$
 \end{definition}
-%\noindent\textbf{Defn:} Element $s\in S$ is called a \textit{pre-image} of $t\in T$ if $\sigma(s)=t$\steezybreak\\
+%\noindent\textbf{Defn:} Element $s\in S$ is called a \textit{pre-image} of $t\in T$ if $\sigma(s)=t$\steezybreak
+
 \begin{definition}[Inverse Image (of an element under a mapping)]
 The \textit{inverse image} of $t$, denoted $\sigma^{-1}(t)$ is the set of all pre-images of $t$:
 \begin{align}
@@ -248,13 +256,18 @@ When denoting mappings, Herstein prefers the notation $s\sigma$ rather than $\si
 \index{Injective}
 \index{Bijective}
 \label{def:surj_inj_bij}
-A mapping $\sigma: S\rightarrow T$ is \textit{surjective (a.k.a. onto)} if $\forall t\in T \ \exists \ s\in S \ni \sigma(s)=t$. (So $\sigma$ is surjective if every $t\in T$ has a pre-image)\steezybreak\\
-A mapping $\sigma: S\rightarrow T$ is \textit{injective (a.k.a. one-to-one)} if $s_1\neq s_2 \implies \sigma(s_1)\neq \sigma(s_2)$. \\(So $\sigma$ is injective if distinct elements in $S$ \textit{stay} distinct when $\sigma$ is applied)\steezybreak\\
-A mapping $\sigma: S\rightarrow T$ is \textit{bijective (a.k.a. a one-to-one correspondence)} if $\sigma$ is both injective \textit{and} surjective.\footnote{An injective mapping is often called an \textit{injection}\index{Injection}. A surjective mapping is often called a \textit{surjection}\index{Surjection}. A bijective mapping is often called a \textit{bijection}\index{Bijection}.}
+A mapping $\sigma: S\rightarrow T$ is \textit{surjective (a.k.a. onto)} if $\forall t\in T \ \exists \ s\in S \ni \sigma(s)=t$. (So $\sigma$ is surjective if every $t\in T$ has a pre-image)\steezybreak
+
+\noindent A mapping $\sigma: S\rightarrow T$ is \textit{injective (a.k.a. one-to-one)} if $s_1\neq s_2 \implies \sigma(s_1)\neq \sigma(s_2)$. \\(So $\sigma$ is injective if distinct elements in $S$ \textit{stay} distinct when $\sigma$ is applied)\steezybreak
+
+\noindent A mapping $\sigma: S\rightarrow T$ is \textit{bijective (a.k.a. a one-to-one correspondence)} if $\sigma$ is both injective \textit{and} surjective.\footnote{An injective mapping is often called an \textit{injection}\index{Injection}. A surjective mapping is often called a \textit{surjection}\index{Surjection}. A bijective mapping is often called a \textit{bijection}\index{Bijection}.}
 \end{definition}
-% \noindent\textbf{Defn:} A mapping $\sigma: S\rightarrow T$ is \textit{surjective (a.k.a. onto)} if $\forall t\in T \ \exists \ s\in S \ni \sigma(s)=t$. (So $\sigma$ is surjective if every $t\in T$ has a pre-image)\steezybreak\\
-% A mapping $\sigma: S\rightarrow T$ is \textit{injective (a.k.a. one-to-one)} if $s_1\neq s_2 \implies \sigma(s_1)\neq \sigma(s_2)$. (So $\sigma$ is injective if distinct elements in $S$ \textit{stay} distinct when $\sigma$ is applied)\steezybreak\\
-% A mapping $\sigma: S\rightarrow T$ is \textit{bijective (a.k.a. a one-to-one correspondence)} if $\sigma$ is both injective \textit{and} surjective.\steezybreak\\
+% \noindent\textbf{Defn:} A mapping $\sigma: S\rightarrow T$ is \textit{surjective (a.k.a. onto)} if $\forall t\in T \ \exists \ s\in S \ni \sigma(s)=t$. (So $\sigma$ is surjective if every $t\in T$ has a pre-image)\steezybreak
+
+% A mapping $\sigma: S\rightarrow T$ is \textit{injective (a.k.a. one-to-one)} if $s_1\neq s_2 \implies \sigma(s_1)\neq \sigma(s_2)$. (So $\sigma$ is injective if distinct elements in $S$ \textit{stay} distinct when $\sigma$ is applied)\steezybreak
+
+% A mapping $\sigma: S\rightarrow T$ is \textit{bijective (a.k.a. a one-to-one correspondence)} if $\sigma$ is both injective \textit{and} surjective.\steezybreak
+
 \begin{definition}[Equality of Mappings (Equality of Functions)]
 Mappings $\sigma : S \rightarrow T$ and $\tau: S \rightarrow T$ are equal if:
 \begin{equation}
@@ -277,15 +290,16 @@ For mappings $\sigma: S\rightarrow T$, $\tau: T\rightarrow U$ the composition of
 % \end{equation}
 \newpage
 \begin{notation}
-The symbol $\circ$ is commonly read ``after", so $\tau \circ \sigma$ would read ``tau after sigma" which makes sense when we think of wrapping functions around each other (tau gets applied after sigma gets applied), however Herstein prefers another convention that treats $\circ$ more like ``then".\steezybreak\\
-Herstein writes the composition $(\tau \circ \sigma)(s)$ in this way: $ (s)(\sigma \circ \tau)$ so when reading Herstein notation we can think of $\circ$ as ``then" and it is essentially saying ``apply sigma to $s$, then apply tau). This can be confusing af but I will try to consistently use the ``after" notation because I like to think of $f(g(x))=(f\circ g) (x)$
+The symbol $\circ$ is commonly read ``after", so $\tau \circ \sigma$ would read ``tau after sigma" which makes sense when we think of wrapping functions around each other (tau gets applied after sigma gets applied), however Herstein prefers another convention that treats $\circ$ more like ``then".\steezybreak
+
+\noindent Herstein writes the composition $(\tau \circ \sigma)(s)$ in this way: $ (s)(\sigma \circ \tau)$ so when reading Herstein notation we can think of $\circ$ as ``then" and it is essentially saying ``apply sigma to $s$, then apply tau). This can be confusing af but I will try to consistently use the ``after" notation because I like to think of $f(g(x))=(f\circ g) (x)$
 \end{notation}
 
 \subsection{Some Examples of Mappings}
 \begin{example}
 The Identity Map for set $S$,  $I_S: S\rightarrow S$ defined by $I_S(s)=s$, this mapping is also commonly written as just $I: S\rightarrow S$ (i.e. no subscript) when it is obvious which set's identity mapping we are referring to.
 \end{example}
-%\noindent\textbf{Example 1:} The Identity Map for set $S$,  $I_S: S\rightarrow S$ defined by $I_S(s)=s$, this mapping is also commonly written as just $I: S\rightarrow S$ (i.e. no subscript) when it is obvious which set's identity mapping we are referring to\steezybreak\\
+%\noindent\textbf{Example 1:} The Identity Map for set $S$,  $I_S: S\rightarrow S$ defined by $I_S(s)=s$, this mapping is also commonly written as just $I: S\rightarrow S$ (i.e. no subscript) when it is obvious which set's identity mapping we are referring to\steezybreak
 
 \begin{example}
 Below we give an example of composition of mappings where $S=T=U=\{1,2,3\}$ (see figure \ref{fig:composition_example} below)
@@ -301,15 +315,18 @@ Below we give an example of composition of mappings where $S=T=U=\{1,2,3\}$ (see
 \begin{definition}[Power set]
 The \textit{power set} $S^{*}$ of a set $S$ is the collection of all subsets of $S$.
 \end{definition}
-%\noindent\textbf{Defn:} The power set $S^{*}$ of a set $S$ is the collection of all subsets of $S$.\steezybreak\\
-\textbf{Example of a power set:} $S=\{1,2,3\}$ has power set $S^*=\{\{1\},\{2\},\{3\},\{2,3\},\{1,3\},\{1,2\},\emptyset,S\}$. If $S$ has $n$ elements, then $S^*$ has $2^n$ elements. \\
+%\noindent\textbf{Defn:} The power set $S^{*}$ of a set $S$ is the collection of all subsets of $S$.\steezybreak
+
+\noindent \textbf{Example of a power set:} $S=\{1,2,3\}$ has power set $S^*=\{\{1\},\{2\},\{3\},\{2,3\},\{1,3\},\{1,2\},\emptyset,S\}$. If $S$ has $n$ elements, then $S^*$ has $2^n$ elements. \\
 \noindent \textbf{\textit{Note(!):}} $S^{*}$'s elements are \textit{subsets} of $S$, not elements of $S$, e.g. $\{\{1\},\{2\}\}\neq \{1,2\}$ and $1\not \in \{\{1\},\{2\}\}$ but $1\in \{1,2\}$, the first set has elements that are \textit{subsets} (of numbers/integers) but the second set has elements that are \textit{numbers/integers}.
 \begin{example}
 The standard map from a set to its equivalence classes $\tilde{S}^*\subset S^*$.\\ 
 Suppose $\sim$ is an equivalence relation on $S$, each equivalence class is a member of $S^*$. Define $\tau:S\rightarrow \tilde{S}^*$ by $\tau(s)=cl(s)$ (i.e. $\tau$ takes $s$ to the class in which it sits/belongs). This map is surjective but not injective.
 \end{example}
-% \noindent\textbf{Example 3:} The standard map from a set to its equivalence classes.\steezybreak\\
-% Suppose $\sim$ is an equivalence relation on $S$, each equivalence class is a member of $S^*$. Define $\tau:S\rightarrow S^*$ by $\tau(s)=cl(s)$ (i.e. $\tau$ takes $s$ to the class in which it sits/belongs). This map is surjective but not injective.\steezybreak\\
+% \noindent\textbf{Example 3:} The standard map from a set to its equivalence classes.\steezybreak
+
+% Suppose $\sim$ is an equivalence relation on $S$, each equivalence class is a member of $S^*$. Define $\tau:S\rightarrow S^*$ by $\tau(s)=cl(s)$ (i.e. $\tau$ takes $s$ to the class in which it sits/belongs). This map is surjective but not injective.\steezybreak
+
 % \textbf{Associative Law of Composition (Lemma 1.2.1)}\\
 % If $\sigma:S\rightarrow T$ and $\tau: T \rightarrow U$ and $\mu: U \rightarrow V$, then:
 % \begin{equation}
@@ -363,18 +380,23 @@ so $s$ is a pre-image of $v$ meaning $\tau\circ \sigma$ is also surjective.
 % \end{equation}
 % so $s$ is a pre-image of $v$ meaning $\tau\circ \sigma$ is also surjective.
 
-% 2) Take $s_1,s_2\in S \ni s_1\neq s_2$, then $\sigma$ injective $\implies$ $\sigma(s_1)\neq\sigma(s_2)$. $\tau$ injective $\implies \tau[\sigma(s_1)]\neq \tau[\sigma(s_2)] \implies (\tau \circ \sigma)$ keeps distinct elements distinct (so $\tau \circ \sigma$ is injective). $\blacksquare$ \steezybreak\\
+% 2) Take $s_1,s_2\in S \ni s_1\neq s_2$, then $\sigma$ injective $\implies$ $\sigma(s_1)\neq\sigma(s_2)$. $\tau$ injective $\implies \tau[\sigma(s_1)]\neq \tau[\sigma(s_2)] \implies (\tau \circ \sigma)$ keeps distinct elements distinct (so $\tau \circ \sigma$ is injective). $\blacksquare$ \steezybreak
+
 \begin{lemma}
 $\sigma :S \rightarrow T$.
 \begin{equation}
     \sigma \text{ is a bijection} \iff \exists \ \mu: T\rightarrow S \ni \mu\circ \sigma = I_S \text{ and } \sigma\circ \mu = I_T\nonumber
 \end{equation}
-(The method of proof for an equivalence $\Leftrightarrow$ is to show each side implies the other)\steezybreak\\
-\textbf{Proof:} we will begin with showing the $\Leftarrow$ direction.\\
-\textbf{$\Leftarrow$:} \\Assume that $\mu$ exists with the stated properties; show that this forces $\sigma$ to be a bijection. We will begin by showing $\sigma$ is injective through a contradiction \steezybreak\\
-\textit{$\sigma$ Inj:} Suppose $\sigma$ is not injective $\implies \exists \ s_1,s_2\in S \ni s_1\neq s_2$ and $\sigma(s_1)=\sigma(s_2)$. But we know $\mu \circ \sigma = I_s$ which means $\mu\circ \sigma (s_1) = \mu\circ \sigma(s_2) = s_1=s_2$ $\Rightarrow\Leftarrow$ $s_1$ and $s_2$ were assumed non-equal!! So $\sigma$ must be injective.\steezybreak\\
-Now, we will show that $\sigma$ is also surjective if such a $\mu$ exists.\steezybreak\\
-\textit{$\sigma$ Surj:} Take arbitrary $t\in T$. $t= I_T(t)= (\sigma\circ\mu)(t)=\sigma(\mu(t))$ and $\mu(t)\in S$ so $\mu(t)$ serves as a preimage for $t$ under $\sigma$. Therefore $\sigma$ is surjective. \\ 
+(The method of proof for an equivalence $\Leftrightarrow$ is to show each side implies the other)\steezybreak
+
+\noindent \textbf{Proof:} we will begin with showing the $\Leftarrow$ direction.\\
+\textbf{$\Leftarrow$:} \\Assume that $\mu$ exists with the stated properties; show that this forces $\sigma$ to be a bijection. We will begin by showing $\sigma$ is injective through a contradiction \steezybreak
+
+\noindent \textit{$\sigma$ Inj:} Suppose $\sigma$ is not injective $\implies \exists \ s_1,s_2\in S \ni s_1\neq s_2$ and $\sigma(s_1)=\sigma(s_2)$. But we know $\mu \circ \sigma = I_s$ which means $\mu\circ \sigma (s_1) = \mu\circ \sigma(s_2) = s_1=s_2$ $\Rightarrow\Leftarrow$ $s_1$ and $s_2$ were assumed non-equal!! So $\sigma$ must be injective.\steezybreak
+
+\noindent Now, we will show that $\sigma$ is also surjective if such a $\mu$ exists.\steezybreak
+
+\noindent \textit{$\sigma$ Surj:} Take arbitrary $t\in T$. $t= I_T(t)= (\sigma\circ\mu)(t)=\sigma(\mu(t))$ and $\mu(t)\in S$ so $\mu(t)$ serves as a preimage for $t$ under $\sigma$. Therefore $\sigma$ is surjective. \\ 
 
 \noindent Now to show the other implication (i.e. show LHS of Lemma 1.2.3 $\implies$ RHS) \\
 \textbf{$\Rightarrow$:} \\ We assume $\sigma$ is a bijection, now we have to:
@@ -383,14 +405,15 @@ Now, we will show that $\sigma$ is also surjective if such a $\mu$ exists.\steez
     \item Show $\mu$ is a mapping (each element in $T$ should go to exactly one element in $S$)
     \item Verify the defined $\mu$ satisfies the stated composition properties
 \end{enumerate}
-\textbf{1)} Which element of $S$ should be $\mu(t)$? Well, $\sigma$ surjective $\implies t$ has a pre-image in $S$ or $\exists s\in S \ni \sigma(s)=t$. So let's define $ \mu: T\rightarrow S$ by $\mu(t)=s$ for which $\sigma(s)=t$ (i.e. $\mu(t)$ will always just take $t$ to its pre-image under $\sigma$)\steezybreak\\
+\textbf{1)} Which element of $S$ should be $\mu(t)$? Well, $\sigma$ surjective $\implies t$ has a pre-image in $S$ or $\exists s\in S \ni \sigma(s)=t$. So let's define $ \mu: T\rightarrow S$ by $\mu(t)=s$ for which $\sigma(s)=t$ (i.e. $\mu(t)$ will always just take $t$ to its pre-image under $\sigma$)\steezybreak
 
-\noindent\textbf{2)} Is $\mu$ well-defined (is $\mu$ actually a mapping/function)? Can $t$ have more than one pre-image (this would result in more than one value for $\mu(t)$ making $\mu$ not a function)?\steezybreak\\
-NO! $t$ cannot have more than one pre-image because having $s_1\neq s_2$ and $\sigma(s_1)=\sigma(s_2)=t$ would violate injectivity of $\sigma$. So $\mu$ is well-defined.\steezybreak\\
+\noindent\textbf{2)} Is $\mu$ well-defined (is $\mu$ actually a mapping/function)? Can $t$ have more than one pre-image (this would result in more than one value for $\mu(t)$ making $\mu$ not a function)?\steezybreak
 
-\noindent\textbf{3)} Take $s\in S$, $(\mu\circ \sigma)(s)=\mu(\sigma(s))=\mu(t)=s=I_S(s)$. $\therefore (\mu\circ \sigma)= I_S$\steezybreak\\
+\noindent NO! $t$ cannot have more than one pre-image because having $s_1\neq s_2$ and $\sigma(s_1)=\sigma(s_2)=t$ would violate injectivity of $\sigma$. So $\mu$ is well-defined.\steezybreak
 
-Take $t\in T$, $(\sigma\circ \mu)(t)= \sigma(\mu(t))=\sigma(s)=t=I_T(t)$. $\therefore (\sigma\circ \mu) = I_T$. $\blacksquare$ \steezybreak\\
+\noindent\textbf{3)} Take $s\in S$, $(\mu\circ \sigma)(s)=\mu(\sigma(s))=\mu(t)=s=I_S(s)$. $\therefore (\mu\circ \sigma)= I_S$\steezybreak
+
+\noindent Take $t\in T$, $(\sigma\circ \mu)(t)= \sigma(\mu(t))=\sigma(s)=t=I_T(t)$. $\therefore (\sigma\circ \mu) = I_T$. $\blacksquare$ \steezybreak
 
 \noindent Notation: In light of its role, $\mu$ is renamed $\sigma^{-1}$ (``$\sigma$ inverse") and we can rewrite the lemma like this:
 
@@ -408,27 +431,32 @@ Take $t\in T$, $(\sigma\circ \mu)(t)= \sigma(\mu(t))=\sigma(s)=t=I_T(t)$. $\ther
 % \begin{equation}
 %     \sigma \text{ is a bijection} \iff \exists \ \mu: T\rightarrow S \ni \mu\circ \sigma = I_S \text{ and } \sigma\circ \mu = I_T\nonumber
 % \end{equation}
-% (The method of proof for an equivalence $\Leftrightarrow$ is to show each side implies the other)\steezybreak\\
-% \textbf{Proof:} we will begin with showing the $\Leftarrow$ direction.\\
-% \textbf{$\Leftarrow$:} Assume that $\mu$ exists with the stated properties; show that this forces $\sigma$ to be a bijection. We will begin by showing $\sigma$ is injective through a contradiction \steezybreak\\
-% \textit{$\sigma$ Inj:} Suppose $\sigma$ is not injective $\implies \exists s_1,s_2\in S \ni s_1\neq s_2$ and $\sigma(s_1)=\sigma(s_2)$. But we know $\mu \circ \sigma = I_s$ which means $\mu\circ \sigma (s_1) = \mu\circ \sigma(s_2) = s_1=s_2$ $\Rightarrow\Leftarrow$ $s_1$ and $s_2$ were assumed non-equal!! So $\sigma$ must be injective. Now we will show that $\sigma$ is also surjective if such a $\mu$ exists.\steezybreak\\
-% \textit{$\sigma$ Surj:} Take arbitrary $t\in T$. $t= I_t(t)= (\sigma\circ\mu)(t)=\sigma(\mu(t))$ and $\mu(t)\in S$ so $\mu(t)$ serves as a preimage for $t$ under $\sigma$. Therefore $\sigma$ is surjective. \steezybreak\\
+% (The method of proof for an equivalence $\Leftrightarrow$ is to show each side implies the other)\steezybreak
 
-% \noindent Now to show the other implication (LHS of Lemma 1.2.3 $\implies$ RHS) \steezybreak\\
+% \textbf{Proof:} we will begin with showing the $\Leftarrow$ direction.\\
+% \textbf{$\Leftarrow$:} Assume that $\mu$ exists with the stated properties; show that this forces $\sigma$ to be a bijection. We will begin by showing $\sigma$ is injective through a contradiction \steezybreak
+
+% \textit{$\sigma$ Inj:} Suppose $\sigma$ is not injective $\implies \exists s_1,s_2\in S \ni s_1\neq s_2$ and $\sigma(s_1)=\sigma(s_2)$. But we know $\mu \circ \sigma = I_s$ which means $\mu\circ \sigma (s_1) = \mu\circ \sigma(s_2) = s_1=s_2$ $\Rightarrow\Leftarrow$ $s_1$ and $s_2$ were assumed non-equal!! So $\sigma$ must be injective. Now we will show that $\sigma$ is also surjective if such a $\mu$ exists.\steezybreak
+
+% \textit{$\sigma$ Surj:} Take arbitrary $t\in T$. $t= I_t(t)= (\sigma\circ\mu)(t)=\sigma(\mu(t))$ and $\mu(t)\in S$ so $\mu(t)$ serves as a preimage for $t$ under $\sigma$. Therefore $\sigma$ is surjective. \steezybreak
+
+% \noindent Now to show the other implication (LHS of Lemma 1.2.3 $\implies$ RHS) \steezybreak
+
 % \textbf{$\Rightarrow$:}Now we assume $\sigma$ is a bijection, now we have to:
 % \begin{enumerate}
 %     \item Define a rule called $\mu:T\rightarrow S$
 %     \item Show $\mu$ is a mapping (each element in $T$ should go to exactly one element in $S$)
 %     \item Verify the defined $\mu$ satisfies the stated composition properties
 % \end{enumerate}
-% \textbf{1)} Which element of $S$ should be $\mu(t)$? Well, $\sigma$ surjective $\implies t$ has a preimage in $S$ or $\exists s\in S \ni \sigma(s)=t$. So let's define $ \mu: T\rightarrow S$ by $\mu(t)=s$ for which $\sigma(s)=t$ (i.e. $\mu(t)$ will always just take $t$ to its preimage under $\sigma$)\steezybreak\\
+% \textbf{1)} Which element of $S$ should be $\mu(t)$? Well, $\sigma$ surjective $\implies t$ has a preimage in $S$ or $\exists s\in S \ni \sigma(s)=t$. So let's define $ \mu: T\rightarrow S$ by $\mu(t)=s$ for which $\sigma(s)=t$ (i.e. $\mu(t)$ will always just take $t$ to its preimage under $\sigma$)\steezybreak
 
-% \noindent\textbf{2)} Is $\mu$ well defined? (Is it actually a mapping/function?). Can $t$ have more than one pre-image (this would result in more than one value for $\mu(t)$ making $\mu$ not a function)?\steezybreak\\
-% NO! Because having $s_1\neq s_2$ and $\sigma(s_1)=\sigma(s_2)$ would violate injectivity of $\sigma$. So $\mu$ is well-defined.\steezybreak\\
+% \noindent\textbf{2)} Is $\mu$ well defined? (Is it actually a mapping/function?). Can $t$ have more than one pre-image (this would result in more than one value for $\mu(t)$ making $\mu$ not a function)?\steezybreak
 
-% \noindent\textbf{3)} Take $s\in S$, $(\mu\circ \sigma)(s)=\mu(\sigma(s))=\mu(t)=s=I_s(s)$. $\therefore (\mu\circ \sigma)= I_S$\steezybreak\\
+% NO! Because having $s_1\neq s_2$ and $\sigma(s_1)=\sigma(s_2)$ would violate injectivity of $\sigma$. So $\mu$ is well-defined.\steezybreak
 
-% Take $t\in T$, $(\sigma\circ \mu)(t)= \sigma(\mu(t))=\sigma(s)=t=I_T(t)$. $\therefore (\sigma\circ \mu) = I_T$. $\blacksquare$ \steezybreak\\
+% \noindent\textbf{3)} Take $s\in S$, $(\mu\circ \sigma)(s)=\mu(\sigma(s))=\mu(t)=s=I_s(s)$. $\therefore (\mu\circ \sigma)= I_S$\steezybreak
+
+% Take $t\in T$, $(\sigma\circ \mu)(t)= \sigma(\mu(t))=\sigma(s)=t=I_T(t)$. $\therefore (\sigma\circ \mu) = I_T$. $\blacksquare$ \steezybreak
 
 % \noindent Notation: In light of its role, $\mu$ is renamed $\sigma^{-1}$ (``$\sigma$ inverse") and we can rewrite the lemma like this:
 
@@ -439,13 +467,15 @@ Take $t\in T$, $(\sigma\circ \mu)(t)= \sigma(\mu(t))=\sigma(s)=t=I_T(t)$. $\ther
 \section{\texorpdfstring{The Integers (in examples, $a,b,c...\in \mathbb{Z}$)}{The Integers (in examples, a,b,c... elements of Z (the integers)}}
 \label{sec:TheIntegers}
 \textbf{Euclidean Algorithm (Axiom):} Given $a$ and $b\neq 0$, $\exists \ q,r \in \mathbb{Z}\ni a= bq+r$ where $0\leq r<|b|$  \\  
-We call $b$ the divisor, $q$ the quotient, and $r$ the remainder.\steezybreak\\
-\textbf{Examples:}
+We call $b$ the divisor, $q$ the quotient, and $r$ the remainder.\steezybreak
+
+\noindent \textbf{Examples:}
 \begin{example}
 \setstackgap{S}{1.5pt}
 \stackMath\def\stackalignment{r}
-Let $a=143$ and $b=20$\steezybreak\\
-\(
+Let $a=143$ and $b=20$\steezybreak
+
+\noindent \(
 \stackunder{%
   20 \stackon[1pt]{\showdiv{143}}{7}%
 }{%
@@ -474,33 +504,44 @@ How about $a=-143$ and $b=20$?
 \)$\implies \ \ a=bq+r=-143=(20)(-8) + 17$ \\
 \end{example}
 
+\newpage
 \begin{example}
 
-\noindent How about $a=143$ and $b=-20$?\steezybreak\\
-\(
+\noindent How about $a=143$ and $b=-20$?\steezybreak
+
+\noindent \(
 \stackunder{%
   -20 \stackon[1pt]{\showdiv{143}}{-7}%
 }{%
   \Shortstack[l]{{\ph{3000}\underline{140}} \ph{300000}3}%
 }
 \) $\implies \ \ a=bq+r=143=(-20)(-7) + 3$
-\steezybreak\\ \\
+\steezybreak \\
+
 \begin{definition}[Divides (relation)]
 $b\in \Z \ni b\neq 0$. $b$ \textit{divides} $a$ (denoted $b|a$) if $\exists \ m\in \mathbb{Z}\ni a=mb$
-\steezybreak\\
+\steezybreak
+
 \noindent (Note, under Eucl., if $a=b\cdot q + r, \ \ 0\leq r<|b|, \ b\neq 0$, then $b|a \iff r=0$)
 \end{definition}
 \end{example}
 
-%\noindent\textbf{Defn:} $b\in \Z \ni b\neq 0$. $b$ divides $a$ (denoted $b|a$) if $\exists \ m\in \mathbb{Z}\ni a=mb$ \steezybreak\\
-\noindent Here are some useful observations we can make from this new definition.\steezybreak\\
+%\noindent\textbf{Defn:} $b\in \Z \ni b\neq 0$. $b$ divides $a$ (denoted $b|a$) if $\exists \ m\in \mathbb{Z}\ni a=mb$ \steezybreak
+
+\noindent Here are some useful observations we can make from this new definition.\steezybreak
+
 \noindent\textbf{Observation 1:} $b|1\implies b=\pm 1$\\
-\textit{Proof:} $b|1$ means $\exists m\in \mathbb{Z}\ni 1=mb$. There are only 2 possible combinations of integers that satisfy $mb=1$, either $m=b=1$ (i.e. $(1)(1)=1$) or $m=b=-1$ (i.e. $(-1)(-1)=1$) $\implies b=\pm 1$ \steezybreak\\
-\noindent\textbf{Observation 2:} $a|b$ and $b|a$ $\implies$ $b=\pm a$ \steezybreak\\
-\textit{Proof:} $a|b \implies \exists m \in \mathbb{Z} \ni b= ma$. $b|a \implies \exists n \in \mathbb{Z} \ni a= nb$. So $b=ma=mnb$. The first and last expressions ($b=mnb$) imply that $mn=1$, using our previous observation, this forces $m=\pm 1$ $\implies$ $b=\pm a$\steezybreak\\
-\noindent\textbf{Observation 3:} $b|0$ is true for any non-zero $b\in \mathbb{Z}$ because $0=0\cdot b$ is an integer multiple of $b$ ($0\in \mathbb{Z}$ is the integer multiple)\steezybreak\\
-\noindent\textbf{Observation 4:}  $b|a$ and $b|c$ $\implies$ $b|(\text{any linear combination of }a,c)$ \steezybreak\\
-\textit{Proof:} 
+\textit{Proof:} $b|1$ means $\exists m\in \mathbb{Z}\ni 1=mb$. There are only 2 possible combinations of integers that satisfy $mb=1$, either $m=b=1$ (i.e. $(1)(1)=1$) or $m=b=-1$ (i.e. $(-1)(-1)=1$) $\implies b=\pm 1$ \steezybreak
+
+\noindent\textbf{Observation 2:} $a|b$ and $b|a$ $\implies$ $b=\pm a$ \steezybreak
+
+\noindent \textit{Proof:} $a|b \implies \exists m \in \mathbb{Z} \ni b= ma$. $b|a \implies \exists n \in \mathbb{Z} \ni a= nb$. So $b=ma=mnb$. The first and last expressions ($b=mnb$) imply that $mn=1$, using our previous observation, this forces $m=\pm 1$ $\implies$ $b=\pm a$\steezybreak
+
+\noindent\textbf{Observation 3:} $b|0$ is true for any non-zero $b\in \mathbb{Z}$ because $0=0\cdot b$ is an integer multiple of $b$ ($0\in \mathbb{Z}$ is the integer multiple)\steezybreak
+
+\noindent\textbf{Observation 4:}  $b|a$ and $b|c$ $\implies$ $b|(\text{any linear combination of }a,c)$ \steezybreak
+
+\noindent \textit{Proof:} 
 \begin{align}
     b|a &\implies \ \ \exists \ m \in \Z \ni a=mb \nonumber \\
     b|c &\implies \ \ \exists \ n \in \Z \ni c=nb \nonumber
@@ -533,7 +574,9 @@ What is the greatest common divisor of $24$ and $36$? Let's list the divisors th
 \begin{equation}
     \pm 1, \pm 2, \pm 3, \pm 4, \pm 6, \pm 12 \nonumber
 \end{equation}
-Well that seems to be all of them, so the greatest common divisor is the biggest: $12$\steezybreak\\
+Well that seems to be all of them, so the greatest common divisor is the biggest: $12$\steezybreak
+
+\newpage
 \begin{definition}[Greatest Common Divisor]
 The positive integer $c$ is the \textit{greatest common divisor} of $a$ and $b$ denoted $GCD(a,b)$ provided:
 \begin{enumerate}[label=\roman*)]
@@ -584,16 +627,20 @@ At least one of $a,-a,b,-b$ is positive so we may say that $M$ contains positive
     &= (m-qm_0)a+(n- q n_0)b \nonumber\\
     &\therefore r\in M \nonumber
 \end{align}
-Since $c$ is the \textit{smallest positive integer} in $M$, and $0\leq r < c$ and $r\in M$, this implies that $r=0$.\steezybreak\\
-So $c|(ma+nb)$. If $c$ divides everything in $M$, then $c|a$ and $c|b$. Also if $d|a$ and $d|b$ then observation \#4 $\implies$ $d|(\text{the linear combination } m_0a+n_0b)$\steezybreak\\
-$\therefore GCD(a,b)=c=m_0a+n_0b \ \ \ \ \blacksquare$\steezybreak\\
+Since $c$ is the \textit{smallest positive integer} in $M$, and $0\leq r < c$ and $r\in M$, this implies that $r=0$.\steezybreak
+
+\noindent So $c|(ma+nb)$. If $c$ divides everything in $M$, then $c|a$ and $c|b$. Also if $d|a$ and $d|b$ then observation \#4 $\implies$ $d|(\text{the linear combination } m_0a+n_0b)$\steezybreak
+
+\noindent $\therefore GCD(a,b)=c=m_0a+n_0b \ \ \ \ \blacksquare$\steezybreak
+
 \end{lemma}
 % \textbf{Lemma 1.3.1 (Existence of $GCD(a.b)$):} if $a,b\in \Z$ are not both $0$, then $GCD(a,b)$ exists; in fact, $\exists \ m_0,n_0\in \Z \ni $\\
 % \begin{equation}
 %     GCD(a,b)=m_0 a+n_0 b\nonumber
 % \end{equation}
 
-% \noindent\textbf{Proof:} Let $M= \{ma+nb|\forall m,n,\in \Z \}$\steezybreak\\
+% \noindent\textbf{Proof:} Let $M= \{ma+nb|\forall m,n,\in \Z \}$\steezybreak
+
 % $a=(1)\cdot a + (0)\cdot b \in M$\\
 % $b=(0)\cdot a + (1)\cdot b \in M$\\
 % $-a=(-1)\cdot a + (0)\cdot b \in M$\\
@@ -611,9 +658,13 @@ $\therefore GCD(a,b)=c=m_0a+n_0b \ \ \ \ \blacksquare$\steezybreak\\
 %     &= (m-qm_0)a+(n- +q n_0)b \nonumber\\
 %     &\therefore r\in M
 % \end{align}
-% Since $c$ is the \textit{smallest positive integer} in $M$, and $0\leq r < c$ and $r\in M$, this implies that $r=0$.\steezybreak\\
-% So $c|(ma+nb)$. If $c$ divides everything in $M$, then $c|a$ and $c|b$. Also if $d|a$ and $d|b$ then observation \#4 $\implies$ $d|(\text{the linear combination } m_0a+n_0b)$\steezybreak\\
-% $\therefore GCD(a,b)=c=m_0a+n_0b \ \ \ \ \blacksquare$\steezybreak\\
+% Since $c$ is the \textit{smallest positive integer} in $M$, and $0\leq r < c$ and $r\in M$, this implies that $r=0$.\steezybreak
+
+% So $c|(ma+nb)$. If $c$ divides everything in $M$, then $c|a$ and $c|b$. Also if $d|a$ and $d|b$ then observation \#4 $\implies$ $d|(\text{the linear combination } m_0a+n_0b)$\steezybreak
+
+% $\therefore GCD(a,b)=c=m_0a+n_0b \ \ \ \ \blacksquare$\steezybreak
+
+\newpage
 \begin{example}
 Find $GCD(1812,1200)$, to do this, we can use the euclidean algorithm to find GCD by first dividing $a$ by $b$ and then continually dividing the divisor by the remainder (Note: here we will represent $a$ as $a=qb+r$, i.e. writing the quotient first, this is allowed because integers are commutative under multiplication, this view is convenient for the next few examples):
 \begin{align}
@@ -633,9 +684,11 @@ The GCD will be the second to last remainder (last remainder is always 0, i.e. y
 %     588 &=24\cdot24+12 \nonumber\\
 %     24 &=2\cdot12+0 \nonumber\\
 % \end{align}
-% The GCD will be the second to last remainder (last remainder is always 0, i.e. you are done when the remainder =0) so in this case the GCD is $12$. This method is nice because reading these divisions from bottom to top ($\big\uparrow$) shows $12$ is a common divisor of $a$ and $b$ and reading from top to bottom ($\big\downarrow$) shows it is the greatest (since we stop the first time a zero remainder [i.e. a common divisor] appears).\steezybreak\\
+% The GCD will be the second to last remainder (last remainder is always 0, i.e. you are done when the remainder =0) so in this case the GCD is $12$. This method is nice because reading these divisions from bottom to top ($\big\uparrow$) shows $12$ is a common divisor of $a$ and $b$ and reading from top to bottom ($\big\downarrow$) shows it is the greatest (since we stop the first time a zero remainder [i.e. a common divisor] appears).\steezybreak
+
 \begin{example}
-Find $m,n\in \Z \ni GCD(71,31)=m\cdot 71+n\cdot 31$.\steezybreak\\
+Find $m,n\in \Z \ni GCD(71,31)=m\cdot 71+n\cdot 31$.\steezybreak
+
 \begin{align}
     71&= 2\cdot 31+9 \ \implies 9=71-2\cdot 31 \nonumber\\
     31&= 3\cdot 9+4 \ \implies 4=31-3\cdot 9\nonumber\\
@@ -650,7 +703,8 @@ So the $GCD(71,31)=1$ and using the implications we gathered along the way we ca
     &=7\cdot 71+ (-16)\cdot 31\nonumber 
 \end{align}
 \end{example}
-% \noindent \textbf{Example 2} Find $m,n\in \Z \ni GCD(71,31)=m\cdot 71+n\cdot 31$.\steezybreak\\
+% \noindent \textbf{Example 2} Find $m,n\in \Z \ni GCD(71,31)=m\cdot 71+n\cdot 31$.\steezybreak
+
 % \begin{align}
 %     71&= 2\cdot 31+9 \ \implies 9=71-2\cdot 31 \nonumber\\
 %     31&= 3\cdot 9+4 \ \implies 4=31-3\cdot 9\nonumber\\
@@ -753,45 +807,53 @@ We can see that if we record the quotients as we go through the process, we can 
 $p$ is prime $\iff$ $\forall \ n \in \Z $, either $p|n$ or $p$ and $n$ are relatively prime.\\
 \textit{Proof:} \\
 \textbf{$\Rightarrow :$}\\
-Assume $p$ is prime; take arbitrary $n\in\Z$, $GCD(p,n)|p\ \ \implies \ GCD(p,n)$ is $1$ or $p$. If $GCD(p,n)=1$ then we are done since $p,n$ are relatively prime, if $GCD(p,n)=p$ then because $GCD(p,n)|n$ we have $p|n$.\steezybreak\\
-\textbf{$\Leftarrow :$}\\
+Assume $p$ is prime; take arbitrary $n\in\Z$, $GCD(p,n)|p\ \ \implies \ GCD(p,n)$ is $1$ or $p$. If $GCD(p,n)=1$ then we are done since $p,n$ are relatively prime, if $GCD(p,n)=p$ then because $GCD(p,n)|n$ we have $p|n$.\steezybreak
+
+\noindent \textbf{$\Leftarrow :$}\\
 Assume $\forall n \in \Z$, either $p|n$ or $GCD(p,n)=1$. We must show that the only divisors of $p$ are $\pm 1, \pm p$. Let $d$ be a divisor of $p$ (so $d|p$). If we consider our hypothesis again, now thinking of $d$ as one of the $n\in\Z$ we have that either $p|d$ or $GCD(p,d)=1$. If $p|d$ then observation \#2 $\implies$ $d=\pm p$. If $GCD(p,d)=1$ then since $d$ is a common divisor of both $p$ (by assumption on $d$) and $d$ (obvious) and because the $GCD(p,d)$ is the greatest such divisor we have that $d|GCD(p,d)=d|1$ so by observation \# 1 we can conclude $d=\pm 1$. $\therefore \ p$ is prime. $\blacksquare$
 \end{proposition}
 % \textbf{Proposition $\star$:} $p$ is prime $\iff$ $\forall \ n \in \Z $, either $p|n$ or $p$ and $n$ are relatively prime.\\
 % \textit{Proof:} \\
 % \textbf{$\Rightarrow :$}\\
-% Assume $p$ is prime; take arbitrary $n\in\Z$, $GCD(p,n)|p\ \ \implies \ GCD(p,n)$ is $1$ or $p$. If $GCD(p,n)=1$ then we are done since $p,n$ are relatively prime, if $GCD(p,n)=p$ then because $GCD(p,n)|n$ we have $p|n$.\steezybreak\\
+% Assume $p$ is prime; take arbitrary $n\in\Z$, $GCD(p,n)|p\ \ \implies \ GCD(p,n)$ is $1$ or $p$. If $GCD(p,n)=1$ then we are done since $p,n$ are relatively prime, if $GCD(p,n)=p$ then because $GCD(p,n)|n$ we have $p|n$.\steezybreak
+
 % \textbf{$\Leftarrow :$}\\
-% Assume $\forall n \in \Z$, either $p|n$ or $GCD(p,n)=1$. We must show that the only divisors of $p$ are $\pm 1, \pm p$. Let $d$ be a divisor of $p$ (so $d|p$). If we consider our hypothesis again, now thinking of $d$ as one of the $n\in\Z$ we have that either $p|d$ or $GCD(p,d)=1$. If $p|d$ then observation \#2 $\implies$ $d=\pm p$. If $GCD(p,d)=1$ then since $d$ is a common divisor of both $p$ (by assumption on $d$) and $d$ (obvious) and because the $GCD(p,d)$ is the greatest such divisor we have that $d|GCD(p,d)=d|1$ so by observation \# 1 we can conclude $d=\pm 1$. $\therefore \ p$ is prime. $\blacksquare$\steezybreak\\
+% Assume $\forall n \in \Z$, either $p|n$ or $GCD(p,n)=1$. We must show that the only divisors of $p$ are $\pm 1, \pm p$. Let $d$ be a divisor of $p$ (so $d|p$). If we consider our hypothesis again, now thinking of $d$ as one of the $n\in\Z$ we have that either $p|d$ or $GCD(p,d)=1$. If $p|d$ then observation \#2 $\implies$ $d=\pm p$. If $GCD(p,d)=1$ then since $d$ is a common divisor of both $p$ (by assumption on $d$) and $d$ (obvious) and because the $GCD(p,d)$ is the greatest such divisor we have that $d|GCD(p,d)=d|1$ so by observation \# 1 we can conclude $d=\pm 1$. $\therefore \ p$ is prime. $\blacksquare$\steezybreak
+
 \begin{lemma}
 If $a$ is relatively prime to $b$ and $a|(b\cdot c)$, then $a|c$. \\
 \textit{Proof:} $a,b$ rel. prime $\implies$ $GCD(a,b)=1$, by Lemma 1.3.1 $\exists m,n \in \Z \ni 1= GCD(a,b)=ma+nb$. Now if we multiply both sides of this expression by $c$ we have:
 \begin{align}
     c=mac+nbc\nonumber
 \end{align}
-Now, certainly $a|a$, and from our hypothesis we have that $a|(bc)$ so by observation \# 4 about divisions, $a|(m\underline{a}c+ n\underline{bc})$, i.e. $a|c \ \ \blacksquare$ \steezybreak\\
+Now, certainly $a|a$, and from our hypothesis we have that $a|(bc)$ so by observation \# 4 about divisions, $a|(m\underline{a}c+ n\underline{bc})$, i.e. $a|c \ \ \blacksquare$ \steezybreak
+
 \end{lemma}
 % \noindent \textbf{Lemma 1.3.2:} If $a$ is relatively prime to $b$ and $a|(b\cdot c)$, then $a|c$. \\
 % \textit{Proof:} $a,b$ rel. prime $\implies$ $GCD(a,b)=1$, by Lemma 1.3.1 $\exists m,n \in \Z \ni 1= GCD(a,b)=ma+nb$. Now if we multiply both sides of this expression by $c$ we have:
 % \begin{align}
 %     c=mac+nbc\nonumber
 % \end{align}
-% Now, certainly $a|a$, and from our hypothesis we have that $a|(bc)$ so by observation \# 4 about divisions, $a|(m\underline{a}c+ n\underline{bc})$, i.e. $a|c \ \ \blacksquare$ \steezybreak\\
-\setcounter{dummy_lemma}{1}
+% Now, certainly $a|a$, and from our hypothesis we have that $a|(bc)$ so by observation \# 4 about divisions, $a|(m\underline{a}c+ n\underline{bc})$, i.e. $a|c \ \ \blacksquare$ \steezybreak
+
+\noindent \setcounter{dummy_lemma}{1}
 \begin{corollary}
 If $p$ is prime and $p|n_1n_2...n_K,\ \ n_i\in \Z$, then $p|n_i$ for at least one $i \in \{1,2,3,...,K\}$.\\
 \textit{Proof:} By Prop. $\star$, either $p|n_1$ or $GCD(p,n_1)=1$. If $GCD(p,n_1)=1$ then Lemma 1.3.2 $\implies$ $p|n_2n_3...n_K$. Continue applying $\star$, if $GCD(p,n_i)=1$ for all $i$'s up to $K-1$ (i.e. $\forall \ 1\leq i\leq K-1$), then by Lemma 1.3.2 $p|n_K\ \ \ \ \blacksquare$
 \end{corollary}
 % \noindent\textbf{Corollary:} If $p$ is prime and $p|n_1n_2...n_K,\ \ n_i\in \Z$, then $p|n_i$ for at least one $i \in \{1,2,3,...,K\}$.\\
-% \textit{Proof:} By prop $\star$, either $p|n_1$ or $GCD(p,n_1)=1$. If $GCD(p,n_1)=1$ then Lemma 1.3.2 $\implies$ $p|n_2n_3...n_K$. Continue applying $\star$, if $GCD(p,n_i)=1$ for all $i$'s up to $K-1$ (i.e. $\forall \ 1\leq i\leq K-1$), then by Lemma 1.3.2 $p|n_K\ \ \ \ \blacksquare$ \steezybreak\\
-\setcounter{dummy}{0}
+% \textit{Proof:} By prop $\star$, either $p|n_1$ or $GCD(p,n_1)=1$. If $GCD(p,n_1)=1$ then Lemma 1.3.2 $\implies$ $p|n_2n_3...n_K$. Continue applying $\star$, if $GCD(p,n_i)=1$ for all $i$'s up to $K-1$ (i.e. $\forall \ 1\leq i\leq K-1$), then by Lemma 1.3.2 $p|n_K\ \ \ \ \blacksquare$ \steezybreak
+
+\noindent \setcounter{dummy}{0}
 \begin{theorem}[Unique Factorization] 
 Any integer $a>1$ can be factorized uniquely:
 \begin{align}
     a=p_1^{\alpha_1}p_2^{\alpha_2}p_3^{\alpha_3}...p_t^{\alpha_t}\nonumber
 \end{align}
-Where $p_1>p_2>p_3>...>p_t$ are primes for each $\alpha_i>0$.\steezybreak\\
-\noindent\textit{Proof:} We will hold off on the proof of this for now and we will prove it later in greater generality.\steezybreak\\
+Where $p_1>p_2>p_3>...>p_t$ are primes for each $\alpha_i>0$.\steezybreak
+
+\noindent\textit{Proof:} We will hold off on the proof of this for now and we will prove it later in greater generality.\steezybreak
+
 \end{theorem}
 
 \textbf{Example:} $2520=60\cdot 42 = 7^1\cdot 5^1\cdot 3^2 \cdot 2^3$. 
@@ -833,8 +895,9 @@ Which integers $a$ are congruent to $26$ mod $12$? Well the last line in the def
 %     -10\equiv 26 \mod 12 \nonumber
 % \end{equation}
 \begin{lemma}[Part 1] 
-Congruence mod $n$ is an equivalence relation on the integers.\steezybreak\\
-\textit{Proof:} Let $a,b,c\in \Z$
+Congruence mod $n$ is an equivalence relation on the integers.\steezybreak
+
+\noindent \textit{Proof:} Let $a,b,c\in \Z$
 \begin{enumerate}
     \item \textit{Reflexivity:} $a\equiv a\mod n \iff n|(a-a) \iff n|0$. By observation \# 3, $n|0$\\
     $\therefore a\equiv a\mod n$\\
@@ -851,7 +914,8 @@ Congruence mod $n$ is an equivalence relation on the integers.\steezybreak\\
     $\therefore a\equiv c \mod n.\ \ \ \ \ \ \blacksquare$
 \end{enumerate}
 \end{lemma}
-% \textbf{Lemma 1.3.3 (Pt. 1):} Congruence mod $n$ is an equivalence relation on the integers.\steezybreak\\
+% \textbf{Lemma 1.3.3 (Pt. 1):} Congruence mod $n$ is an equivalence relation on the integers.\steezybreak
+
 % \textit{Proof:} Let $a,b,c\in \Z$
 % \begin{enumerate}
 %     \item \textit{Reflexivity:} $a\equiv a\mod n \iff n|(a-a) \iff n|0$. By observation \# 3, $n|0$\\
@@ -889,8 +953,9 @@ Continuing in this way it is clear that the equivalence relation $\equiv \mod 6$
   \Shortstack[l]{{\ph{30}\underline{240}} \ph{300}\underline{08} \text{r=}2}%
 }\nonumber
 \end{align}
-so $cl(248)=cl(2)$ under $\equiv\mod 6$.\steezybreak\\
-\textit{Notation:} The equivalence classes under $\equiv \mod n$ are commonly written in terms of the elements belonging to the class using ``square bracket notation" like so: $[a]=cl(a)$ represents the equivalence class of element $a$. In our previous example we would say that $[248]=[2]$ under $\equiv \mod 6$\\
+so $cl(248)=cl(2)$ under $\equiv\mod 6$.\steezybreak
+
+\noindent \textit{Notation:} The equivalence classes under $\equiv \mod n$ are commonly written in terms of the elements belonging to the class using ``square bracket notation" like so: $[a]=cl(a)$ represents the equivalence class of element $a$. In our previous example we would say that $[248]=[2]$ under $\equiv \mod 6$\\
 \end{example}
 % \textbf{Example} Let's take a look at congruence mod $6$ ($\equiv \mod 6$).
 % \begin{align}
@@ -913,7 +978,8 @@ so $cl(248)=cl(2)$ under $\equiv\mod 6$.\steezybreak\\
 %   \Shortstack[l]{{\ph{30}\underline{240}} \ph{300}\underline{08} \text{r=}2}%
 % }\nonumber
 % \end{align}
-% so $cl(248)=cl(2)$ under $\equiv \mod 6$.\steezybreak\\
+% so $cl(248)=cl(2)$ under $\equiv \mod 6$.\steezybreak
+
 % \textit{Notation:} The equivalence classes under $\equiv \mod n$ are commonly written in terms of the elements belonging to the class using ``square bracket notation" like so: $[a]=cl(a)$ represents the equivalence class of element $a$. In our previous example we would say that $[248]=[2]$ under $\equiv \mod 6$\\
 \setcounter{dummy_lemma}{2}
 \begin{lemma}[Part 2] 
@@ -933,7 +999,8 @@ $\equiv \mod n$ is an equivalence relation on $\Z$ with classes:
     [n-1]&= (n-1)+n\Z = \{kn+(n-1)|k\in \Z \} \nonumber
 \end{align}
 
-\textit{Proof:} We wish to show that the equivalence relation $\equiv\mod n$ from Part 1, partitions $\Z$ into $n$ distinct equivalence classes. Thm 1.1.1 already guarantees that $\equiv\mod n$ partitions $\Z$ since it is an equivalence relation (Part 1 of L 1.3.3). All that remains to show is that there could be no more than $n$ classes and that those $n$ potential classes are in fact all distinct. The example above (Example 1.3.9) almost serves as proof on its own if you think of general $n$ rather than $n=6$ but we will be a little more clear here. \steezybreak\\
+\textit{Proof:} We wish to show that the equivalence relation $\equiv\mod n$ from Part 1, partitions $\Z$ into $n$ distinct equivalence classes. Thm 1.1.1 already guarantees that $\equiv\mod n$ partitions $\Z$ since it is an equivalence relation (Part 1 of L 1.3.3). All that remains to show is that there could be no more than $n$ classes and that those $n$ potential classes are in fact all distinct. The example above (Example 1.3.9) almost serves as proof on its own if you think of general $n$ rather than $n=6$ but we will be a little more clear here. \steezybreak
+
 \noindent Let the equivalence class, under this relation, of $a$ be denoted by $[a]$ 
 we call it the congruence class $\equiv\mod n$ of $a$. Given any integer $a$, by the
 Euclidean algorithm, $a = kn + r$ where $0 \leq r < n$. But then, $a \in [r]$ and
@@ -988,7 +1055,8 @@ In $\Z_{12}=\{[0],[1],...,[11]\}$.
     [a]\cdot[b]&=[a\cdot b] \nonumber
 \end{align}
 %\newpage
-Are these operations well-defined?  What could go wrong? Have a look at Figure \ref{fig:Bad_partition}\steezybreak\\
+Are these operations well-defined?  What could go wrong? Have a look at Figure \ref{fig:Bad_partition}\steezybreak
+
 \newpage
 \begin{figure}[h!]
     \centering
@@ -1028,5 +1096,6 @@ In this way, we can see that the equivalence relation $\equiv\mod n$ generalizes
     \text{odd}+\text{even}&=\text{odd} &\iff &[1]+[0]=[0] \text{ \ \ and }& \text{odd}\cdot \text{even} &=\text{even} &\iff [1]\cdot [0]=[0] \nonumber \\
     \text{odd}+\text{odd}&=\text{even} &\iff &[1]+[1]=[0] \text{ \ \ and }& \text{odd}\cdot \text{odd} &=\text{odd} &\iff [1]\cdot [1]=[1] \nonumber 
 \end{align}
-Another interesting consequence is that, e.g. in $\Z_{10}=\{[0],[1],...,[9]\}$ if we know the equivalence class of $30057=3005\cdot(10)+7 \implies [30057]=[7]$, and the equivalence class of $402=40\cdot(10)+2 \implies [402]=[2]$ then we can immediately determine the equivalence class of $402\cdot 30057$ without ever even computing the full product, it is simply $[2]\cdot[7]=[2\cdot 7]=[14]=[4]$. Lemma 1.3.3 part 3 says this same trick can be applied when considering arbitrary classes $[0], [1], ... , [n-1]$ under the equivalence relation $\equiv \mod n$. \steezybreak\\
+Another interesting consequence is that, e.g. in $\Z_{10}=\{[0],[1],...,[9]\}$ if we know the equivalence class of $30057=3005\cdot(10)+7 \implies [30057]=[7]$, and the equivalence class of $402=40\cdot(10)+2 \implies [402]=[2]$ then we can immediately determine the equivalence class of $402\cdot 30057$ without ever even computing the full product, it is simply $[2]\cdot[7]=[2\cdot 7]=[14]=[4]$. Lemma 1.3.3 part 3 says this same trick can be applied when considering arbitrary classes $[0], [1], ... , [n-1]$ under the equivalence relation $\equiv \mod n$. \steezybreak
+
 \noindent Ok that's it for congruences, next lecture: Groups! $\smiley{}$

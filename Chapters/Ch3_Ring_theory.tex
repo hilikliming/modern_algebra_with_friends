@@ -21,21 +21,24 @@ A non-empty set $R$ is a \textit{ring} if in $R$ there are defined two binary op
     \item $a\cdot (b\cdot c) = (a\cdot b)\cdot c \ \ \forall \ a,b,c \in R$
     \item $a\cdot (b+c) = (a\cdot b)+(a\cdot c)$ and $(b+c)\cdot a = (b\cdot a)+(c\cdot a) \ \ \forall \ a,b,c\in R$
 \end{enumerate}
-Note that (i)-(v) imply that $R$ is an abelian group under $+$. \steezybreak\\
-If $R$ has an element called "$1$" with the property that 
+Note that (i)-(v) imply that $R$ is an abelian group under $+$. \steezybreak
+
+\noindent If $R$ has an element called "$1$" with the property that 
 \begin{align}
     a\cdot 1 = a = 1\cdot a \ \ \ \forall \ a\in R \nonumber
 \end{align}
-Then $R$ is \textit{a ring with unit element}. \steezybreak\\
-If $a\cdot b=b\cdot a \ \ \forall \ a,b\in R$, then $R$ is \textit{a commutative ring}.
+Then $R$ is \textit{a ring with unit element}. \steezybreak
+
+\noindent If $a\cdot b=b\cdot a \ \ \forall \ a,b\in R$, then $R$ is \textit{a commutative ring}.
 \end{definition}
 \newpage
 \begin{definition}[Complex Numbers] 
 \begin{align}
     \mathbb{C} = \{a+bi \ |\ a,b\in \R\} \ \text{ with } i^2=-1 \nonumber
 \end{align}
-In $\mathbb{C}$, addition and multiplication are defined as follows:\steezybreak\\
-Addition:
+In $\mathbb{C}$, addition and multiplication are defined as follows:\steezybreak
+
+\noindent Addition:
 \begin{align}
     (a+bi)+(c+di) \underset{\text{add like terms}}{=} (a+c)+(b+d)i \nonumber
 \end{align}
@@ -50,8 +53,9 @@ Consider the following chain of inclusions
     &\mathbb{C} \ \ \ \ \ \leftarrow \ \R \ \ \leftarrow \mathbb{Q} \leftarrow \Z  \nonumber \\
     &\frac{n}{1}+0i \leftarrow \frac{n}{1} \leftarrow \frac{n}{1} \leftarrow n \nonumber
 \end{align}
-Each of the above are commutative rings with unit element under $\ \cdot$ and $+$ \steezybreak\\
-Let's look at some other examples of rings aside from the integers, rationals, reals and complex numbers:
+Each of the above are commutative rings with unit element under $\ \cdot$ and $+$ \steezybreak
+
+\noindent Let's look at some other examples of rings aside from the integers, rationals, reals and complex numbers:
 \begin{enumerate}\setcounter{enumi}{1}
     \item $2\Z=\{\text{ even integers }\}$ under usual $+$ and $\cdot$ \ \ \\
     \begin{align}
@@ -269,8 +273,9 @@ $A$ and $B$ are zero-divisors
 \begin{example}[Example from Pg 130 \#10 in Herstein Text] \hspace{0.1in }\\
 A commutative ring $R$ is an integral domain $\iff$ $\forall \ a,b,c \in R$ with $a\neq 0$, $ab=ac \implies b=c$
 
-\textit{Proof:} \steezybreak\\
-$\Rightarrow$: Assume $R$ is an integral domain; so $R$ has no zero divisors. Now suppose $ab=ac$ with $a\neq 0$.
+\textit{Proof:} \steezybreak
+
+\noindent $\Rightarrow$: Assume $R$ is an integral domain; so $R$ has no zero divisors. Now suppose $ab=ac$ with $a\neq 0$.
 \begin{align}
     ac\in R &\implies \exists \ -(ac)\in R & (R +\text{ group}) \nonumber \\
     ab+[-(ac)]&= ac + [-(ac)] & \nonumber \\
@@ -301,7 +306,7 @@ Quick takeaways, given $R$ commutative ring,
 \end{align}
 
 \begin{definition}[Division Ring]
-    A ring $R$ with unit element is a \textit{division ring} if its non-zero elements form a group under ``$\cdot$" (i.e. if $R$ has the additional property of multiplicative inverses for all $a\neq 0 \in R$). \steezybreak\\
+    A ring $R$ with unit element is a \textit{division ring} if its non-zero elements form a group under ``$\cdot$" (i.e. if $R$ has the additional property of multiplicative inverses for all $a\neq 0 \in R$). \steezybreak
     
     \noindent Even more compact: $R \text{ div. ring} \iff \forall a \in R \ni a\neq 0, \exists b \in R \ni ab=1$.
 \end{definition}
@@ -310,7 +315,7 @@ Quick takeaways, given $R$ commutative ring,
     $\Z$ is \textul{not} a division ring since $2b=1$ is never true for $b\in \Z$ ($2$'s multiplicative inverse is $\frac{1}{2} \not \in \Z$)
 \end{example}
 \begin{example}
-    $\Q$ is a division ring, so are $\R$, and $\C$. In fact they are all commutative division rings: \steezybreak\\
+    $\Q$ is a division ring, so are $\R$, and $\C$. In fact they are all commutative division rings: \steezybreak
     
     \begin{align}
         \text{Let }  a/b \in \Q \text{ with } a,b\neq 0,  \ &\implies (\frac{a}{b})^{-1} = \frac{b}{a} \nonumber \\
@@ -325,7 +330,8 @@ Quick takeaways, given $R$ commutative ring,
     \begin{align}
         \H = \{a+bi+cj+dk \ | \ a,b,c,d \in \R \} \text{ with } i^2=j^2=k^2=-1, ji = -ij \nonumber
     \end{align}
-    Recall Herstein's device for products of $i$ $j$ and $k$: \includegraphics[width= 0.4\textwidth]{Figures/Herstein_quat_device.pdf} \steezybreak\\
+    Recall Herstein's device for products of $i$ $j$ and $k$: \includegraphics[width= 0.4\textwidth]{Figures/Herstein_quat_device.pdf} \steezybreak
+
     \noindent If $a+bi+cj+dk \in \H$ with $a,b,c,d$ not all zero we can denote $s= a^2+b^2+c^2+d^2$, then
     \begin{align}
         (a+bi+cj+dk)^{-1}&= \frac{a}{s} - \frac{b}{s}i - \frac{c}{s}j - \frac{d}{s}k\nonumber
@@ -352,8 +358,9 @@ A \textit{field} is a commutative division ring.
 
 \subsubsection*{Exercise \#12 from Pg. 130 in Herstein:}
 Prove every field is an integral domain.
-\textit{Proof:} Say $F$ is a field, we'll show that $F$ has no zero divisors: \steezybreak\\
-Suppose $ab=0$ and further assume $a\neq 0$ we must show this setup forces $b=0$
+\textit{Proof:} Say $F$ is a field, we'll show that $F$ has no zero divisors: \steezybreak
+
+\noindent Suppose $ab=0$ and further assume $a\neq 0$ we must show this setup forces $b=0$
 \begin{align}
     a\neq 0 &\implies \exists \ a^{-1}\in F \ \ (F\text{ is a div. ring}) \nonumber \\
     &ab=0 \nonumber \\
@@ -361,13 +368,14 @@ Suppose $ab=0$ and further assume $a\neq 0$ we must show this setup forces $b=0$
     &\implies 1b = a^{-1}0 \nonumber \\
     &\implies b=0 \nonumber
 \end{align}
-So $F$ has no zero divisors. $\blacksquare$ \steezybreak\\
+So $F$ has no zero divisors. $\blacksquare$ \steezybreak
 
 A natural question one might ask, `` are there any finite fields?" will be answered shortly. Recall in $\Z_{10}$ we have that $5\cdot 2 = 0$, $\Z_{10}$ is certainly a ring, but it is not an integral domain and hence is not a field. How about $\Z_{7}$? In fact it is! but we will need to prove two more results to make it very clear, first we will prove ring $\Z_p$, has no zero divisors for $p$ prime (making it a finite integral domain). Then in the lemma that follows we will prove that a finite integral domain is a field.
 
 \begin{proposition}[$p$ prime $\implies \Z_p$ integral domain] 
-$\Z_p$ has no zero divisors for $p$ prime. \steezybreak\\
-\textit{Proof:} Suppose $ab=0$ for $a,b \in \Z_p \ni \ a\neq 0$, we will show $b$ is forced to be zero. 
+$\Z_p$ has no zero divisors for $p$ prime. \steezybreak
+
+\noindent \textit{Proof:} Suppose $ab=0$ for $a,b \in \Z_p \ni \ a\neq 0$, we will show $b$ is forced to be zero. 
 
 \noindent In $\Z$, $ab=0$ means $ab\equiv 0 \mod p$, i.e. $p|ab$. Now, $a\not\equiv 0 \mod p$ means $p\not | a$ so $p$ must divide $b$. Lastly $p|b \implies b\equiv 0 \mod p$
 \begin{align}
@@ -377,7 +385,8 @@ So $\Z_p$ is a finite integral domain. $\blacksquare$
 \end{proposition}
 
 \begin{lemma}[Finite Integral Domain $\implies$ Field] 
-A finite integral domain is a field. \steezybreak\\
+A finite integral domain is a field. \steezybreak
+
 \noindent \textit{Proof:}
 To begin, we note that $R$ finite integral domain $\implies$ $R$ is a commutative ring with ``$1$" in which cancellation holds, and it is finite $R=\{x_1,x_2,\cdots, x_n\}$ $n-$distinct. Let $a\in R$ with $a\neq 0$, we must show that $a^{-1}$ exists in $R$. Consider the list:
 \begin{align}
@@ -554,8 +563,9 @@ Given $\phi: R \rightarrow R'$ ring homomorphism, then
 \end{definition}
 
 \begin{lemma}
-    The ring hom. $\phi : R \rightarrow R'$ is injective $\iff$ $\ker\phi = \{0\}$ \steezybreak\\
-    \textit{Proof:} Apply group theory. $\blacksquare$
+    The ring hom. $\phi : R \rightarrow R'$ is injective $\iff$ $\ker\phi = \{0\}$ \steezybreak
+
+    \noindent \textit{Proof:} Apply group theory. $\blacksquare$
 \end{lemma}
 \subsection*{Examples of Ring Homomorphisms}
 \begin{example}
@@ -575,8 +585,9 @@ Given $\phi: R \rightarrow R'$ ring homomorphism, then
 \end{example}
 
 \begin{example}
-    The identity map: $\phi : R \rightarrow R$ where $\phi(r)=r$ $\forall \ r \in R$ \steezybreak\\
-    $\ker\phi = \{0\}$
+    The identity map: $\phi : R \rightarrow R$ where $\phi(r)=r$ $\forall \ r \in R$ \steezybreak
+
+    \noindent $\ker\phi = \{0\}$
 \end{example}
 
 \begin{example}
@@ -597,8 +608,9 @@ so it is injective. $\phi$ is not surjective because $\frac{2}{3}$ (among many o
 \end{example}
 
 \begin{example}
-Complex conjugation: define $\phi : \C \rightarrow \C $ by $\phi(a+bi)=a-bi= \underset{\substack{MINUS \\ notation \ meaning}}{\underbrace{a+(-b)i}}$ \steezybreak\\
-Consider $a+bi, c+di \in \C$
+Complex conjugation: define $\phi : \C \rightarrow \C $ by $\phi(a+bi)=a-bi= \underset{\substack{MINUS \\ notation \ meaning}}{\underbrace{a+(-b)i}}$ \steezybreak
+
+\noindent Consider $a+bi, c+di \in \C$
 \begin{align}
     \phi((a+bi)+(c+di))= \phi((a+c)+(b+d)i)&= (a+c)-(b+d)i \nonumber \\
     &= (a+c)+(-1)(b+d)i \nonumber \\
@@ -620,7 +632,10 @@ Consider $a+bi, c+di \in \C$
 \begin{align}
     \ker\phi = \{a+bi | \phi(a+bi)=0+0i\} = \{0+0i\} \nonumber
 \end{align}
-so $\phi$ is injective. \steezybreak\\ Furthermore, note that arbitrary complex number $r+si$ has pre-image $r-si$, 
+so $\phi$ is injective.\steezybreak
+
+\noindent Furthermore, note that arbitrary complex number $r+si$ has pre-image $r-si$, 
+
 \begin{align}
     \phi(r-si)=r-(-s)i=r+si \nonumber
 \end{align}
@@ -704,8 +719,9 @@ We will begin by showing $U<R$ under $+$
         a&b \\ c& d
     \end{pmatrix}}_{\in M_2(\Z)} \nonumber
 \end{align}
-We note that every matrix in $M_2(2\Z)$ can be expressed as $2M$ for some $M \in M_2(\Z)$ \steezybreak\\
-Take $A,B \in M_2(2\Z)$, then $\exists \ M_1 M_2 \in M_2(\Z) \ni A=2M_1 \ \text{ and } B=2M_2$
+We note that every matrix in $M_2(2\Z)$ can be expressed as $2M$ for some $M \in M_2(\Z)$ \steezybreak
+
+\noindent Take $A,B \in M_2(2\Z)$, then $\exists \ M_1 M_2 \in M_2(\Z) \ni A=2M_1 \ \text{ and } B=2M_2$
 \item + \textbf{closure:} $A+B=2M_1+2M_2 = 2(M_1+M_2) \in M_2(2\Z)$
 \item \textbf{additive inverses:} Take $A$ as above
 \begin{align}
@@ -788,8 +804,9 @@ If $R$ is a ring with ideal $U$, then
         &= (ab+U)+(ac+U) \nonumber \\
         &= (a+U)(b+U) + (a+U)(c+U) \nonumber
     \end{align}
-    $\therefore \  R/U$ is a ring. \steezybreak\\
-    Furthermore, if $R$ has a multiplicative identity $1$ then so does $R/U$:
+    $\therefore \  R/U$ is a ring. \steezybreak
+
+    \noindent Furthermore, if $R$ has a multiplicative identity $1$ then so does $R/U$:
     \begin{align}
         \underbrace{(1+U)}_{\substack{``1" \\ \text{in }R/U}}(a+U)=(a+U) \nonumber
     \end{align}
@@ -807,26 +824,32 @@ If $R$ is a ring with ideal $U$, then
     \end{align}
     So it is a ring homomorphism. Further, arbitrary $x+U \in R/U$ has preimage $x\in R$, $\sigma(x)=x+U$, so $\sigma$ is surjective.
 
-    Lastly, we want to show that $\ker \sigma = U$. \steezybreak\\
-    \textbf{$\subseteq$:} \steezybreak\\
-    Take $r\in \ker\sigma \ $, $\ \ \underbrace{\sigma(r)}_{r+U}\underset{\substack{\uparrow \\ r\in \ker\sigma}}{=} 0+U=U$ \\ Cosets $r+U$ and $0+U$ are identical so $r\in U$, $r$'s coset is $U$.\\
-    \textbf{$\supseteq$:} \steezybreak\\
-    Take $r\in U$. $U$ is the coset $0+U$ so $r\in U \ \implies \ r$'s coset is $0+U$. \steezybreak\\
-    So $\sigma(r)=r+U=0+U$, now $0+U$ serves as the ``$0$" in $R/U$, $\therefore$ $r\in \ker \sigma$, so $U\subset \ker \sigma$. $\blacksquare$
+    Lastly, we want to show that $\ker \sigma = U$. \steezybreak
+
+    \noindent \textbf{$\subseteq$:} \steezybreak
+
+    \noindent Take $r\in \ker\sigma \ $, $\ \ \underbrace{\sigma(r)}_{r+U}\underset{\substack{\uparrow \\ r\in \ker\sigma}}{=} 0+U=U$ \\ Cosets $r+U$ and $0+U$ are identical so $r\in U$, $r$'s coset is $U$.\\
+    \textbf{$\supseteq$:} \steezybreak
+
+    \noindent Take $r\in U$. $U$ is the coset $0+U$ so $r\in U \ \implies \ r$'s coset is $0+U$. \steezybreak
+
+    \noindent So $\sigma(r)=r+U=0+U$, now $0+U$ serves as the ``$0$" in $R/U$, $\therefore$ $r\in \ker \sigma$, so $U\subset \ker \sigma$. $\blacksquare$
     %to be cont'd... (gotta still show there's a surjective ring hom. and that its kernel is $U$) hopefully we're starting to see the correspondence between role of normal subgroups in G and ideals in R. this lemma should seem uh familiar 
 \end{enumerate}
 
 \end{lemma}
 \newpage
 \begin{theorem}[First Isomorphism Theorem for Rings] 
-If $\phi: R \rightarrow R'$ is a surjective ring homomorphism with kernel $U$, then $R' \approx R/U$ \steezybreak\\
-\textit{Proof:} $U=\ker \phi$ is an ideal of $R$ so $R/U$ is a ring by Lemma 3.4.1. \\  \\
+If $\phi: R \rightarrow R'$ is a surjective ring homomorphism with kernel $U$, then $R' \approx R/U$ \steezybreak
+
+\noindent \textit{Proof:} $U=\ker \phi$ is an ideal of $R$ so $R/U$ is a ring by Lemma 3.4.1. \\  \\
 We have: \\
 \begin{center}
     \includegraphics[width=0.4\textwidth]{Figures/Ring_1st_iso_black.png}
 \end{center}
-Define $\tau: R/U \rightarrow R'$ by $\tau(a+U)= \phi(a)$, this mapping lifts $a+U$ to preimage ``$a$" then applies $\phi$. As in the proof of first isomorphism theorem for groups, $\tau$ is well-defined, bijective, and a group homomorphism (under $+$); it remains to show $\tau$ splits over $\cdot$ \steezybreak\\
-Let $a+U, b+U \in R/U$
+Define $\tau: R/U \rightarrow R'$ by $\tau(a+U)= \phi(a)$, this mapping lifts $a+U$ to preimage ``$a$" then applies $\phi$. As in the proof of first isomorphism theorem for groups, $\tau$ is well-defined, bijective, and a group homomorphism (under $+$); it remains to show $\tau$ splits over $\cdot$ \steezybreak
+
+\noindent Let $a+U, b+U \in R/U$
 \begin{align}
     \tau[(a+U)(b+U)]=\tau[ab+U]=\phi(ab)\underset{\substack{\uparrow \\ \phi \ ring \ hom.}}{=} \phi(a)\phi(b) =\tau[a+U]\tau[b+U]. \ \  \blacksquare \nonumber
 \end{align}
@@ -837,8 +860,9 @@ Let $a+U, b+U \in R/U$
 
 \subsection*{Constructing Ideals} $U,V$ ideals in $R$
 \begin{enumerate}
-    \item $U\cap V < R$\steezybreak\\
-    Check absorption: take $r\in R$, $x\in U\cap V$\\
+    \item $U\cap V < R$\steezybreak
+
+    \noindent Check absorption: take $r\in R$, $x\in U\cap V$\\
     $rx\in U$ by absorption in $U$\\
     $rx\in V$ by absorption in $V$\\
     $\therefore$ $rx\in U\cap V$\\
@@ -2004,7 +2028,7 @@ Recall in $\Z$, $n|m$ and $m|n \ \implies n=\underset{\substack{\uparrow \\ \Z^*
 \begin{corollary}
     All units have the same size, namely $d(1)$, and $d(\text{unit})<d(\text{non-unit})$ \\ \steezybreak
 
-    \textit{Proof: }
+    \noindent \textit{Proof: }
     Take $u\in R^*$, $\exists \ u^{-1}$ (non-zero) \\
     \begin{align*}
         d(u)&\leq d(uu^{-1})=d(1)\\
@@ -2013,7 +2037,7 @@ Recall in $\Z$, $n|m$ and $m|n \ \implies n=\underset{\substack{\uparrow \\ \Z^*
     
     $\implies \ d(u)=d(1)$ \\ \steezybreak
 
-    Take $x\in R \ni x\not \in R^*$
+    \noindent Take $x\in R \ni x\not \in R^*$
     \begin{align*}
         d(u)&=d(1) \underset{L \ 3.7.3}{<}d(1\cdot x) = d(x). \ \ \ \blacksquare
     \end{align*}
@@ -2023,7 +2047,7 @@ Recall in $\Z$, $n|m$ and $m|n \ \implies n=\underset{\substack{\uparrow \\ \Z^*
     \label{def:prime}
     $R$ Euclidean ring, $\pi \in R, \pi \neq 0$. \\ \steezybreak
 
-    $\pi$ is \textit{prime} if whenever $\pi=ab$ for $ab\in R$, 
+    \noindent $\pi$ is \textit{prime} if whenever $\pi=ab$ for $ab\in R$, 
     \begin{align*}
         \text{Either } &a\in R^* \text{ and } b \not\in R^*, \\
         \text{or } &a\not\in R^* \text{ and } b\in R^*
@@ -2102,7 +2126,7 @@ You should be familiar with the following theorems and major results
 Recall from definition \ref{def:prime} that non-zero $\pi \ \text{ prime }\iff \ \pi \text{ factors only as }(\text{unit})(\text{non-unit})$\\
 $\implies \{\text{prime}\}\cap R^*=\emptyset$\\ \steezybreak
 
-Furthermore, Lemma 3.7.3 tells us that given $a,b\in R-\{0\}$, $b\not\in R^* \ \implies \ d(a)<d(ab)$
+\noindent Furthermore, Lemma 3.7.3 tells us that given $a,b\in R-\{0\}$, $b\not\in R^* \ \implies \ d(a)<d(ab)$
 \section*{Factorization in $R$ Euclidean}
 \begin{lemma*}[Factorization Lemma \#1]
     \index{Factorization Lemma \#1}
@@ -2162,7 +2186,7 @@ $R$ Euclidean $r\in R-\{0\}$ and $r\not\in R^*$, then $r$ is a product of finite
 \end{center}
 \textit{Proof: } \\ \steezybreak
 
-Let $S= \{0\} \cup R^* \cup \{\text{primes}\}\cup \{\text{composites}\}$ (we will show $R-S=\emptyset$)\\ \steezybreak
+\noindent Let $S= \{0\} \cup R^* \cup \{\text{primes}\}\cup \{\text{composites}\}$ (we will show $R-S=\emptyset$)\\ \steezybreak
 
 \noindent Suppose $\exists \ x\in R-S$, $x$ isn't prime so it has a factorization other than $(\text{unit})(\text{non-unit})$ (both units or both non-units)
 If $x=ab, a,b \in R^*$ then since $R^*$ group ($\cdot$ closure) $\implies$ $x\in R^* \ \Rightarrow \Leftarrow \ \because x \not\in S$\\ \steezybreak
@@ -2170,7 +2194,7 @@ If $x=ab, a,b \in R^*$ then since $R^*$ group ($\cdot$ closure) $\implies$ $x\in
 \noindent So it must be that $x=ab, a,b \not\in R^*$ (neither $a$ nor $b$ is a unit). \\
 We also note $a,b$ are not $0$ otherwise $x=0$ ($\Rightarrow \Leftarrow \ x\not\in S$). \\ \steezybreak
 
-Consider where the factors lie
+\noindent Consider where the factors lie
 \begin{align*}
     &\text{If }a\in S, \text{ then }a \not \in R^* \ \text{ and }a\neq 0 \\
     &\implies \ a \text{ is the product of finitely many primes}
@@ -2536,7 +2560,7 @@ To find the roots of $p(x) \in \Z[x]$ look among the $\frac{a}{b}$'s where $a|c_
 \begin{example}
     Factor $x^2+1$ into irreducibles in $\Z_5[x]$ if possible. \\ \steezybreak
 
-    In $\Z_5$, check for roots: $\cancel{0}, \ \cancel{1}, \underset{\substack{\uparrow \ \  \uparrow \\ root}}{\ 2, \ 3,} \ \cancel{4}$. \\
+    \noindent In $\Z_5$, check for roots: $\cancel{0}, \ \cancel{1}, \underset{\substack{\uparrow \ \  \uparrow \\ root}}{\ 2, \ 3,} \ \cancel{4}$. \\
     So the roots are $\underset{\substack{\ \ \ \ \ \  \uparrow \\ -2 \mod 5}}{(x+3)}$ and $\underset{\substack{\ \ \ \ \ \  \uparrow \\ -3 \mod 5}}{(x+2)}$
     \begin{align*}
         \therefore \ \ x^2+1 = (x+2)(x+3) = \underset{\substack{\ \ \ \ \ \ \ \ \  \uparrow \ \ \ \ \ \ \uparrow \\ \ \ \ \ \ \ \ \ \  0 \ \ \ \ \ \ 1 }}{x^2 + 5x + 6}
@@ -2613,7 +2637,7 @@ To find the roots of $p(x) \in \Z[x]$ look among the $\frac{a}{b}$'s where $a|c_
 \begin{example}
     In $\Z_{31}[x]$ factor $x^3+22$ if possible. \\ \steezybreak
 
-    $x^3+22$ is degree $3$ so if it factors it is either 
+    \noindent $x^3+22$ is degree $3$ so if it factors it is either 
     \begin{align*}
         &\underset{\text{linear}}{(x - \ \ \ )}\underset{\substack{\text{irred.} \\ \text{quadratic}}}{(x^2 \dots \ )} \\
         \text{or } & \underset{\text{all linear}}{(x-\ \ \ )(x- \ \ \ )(x- \ \ \ )}
