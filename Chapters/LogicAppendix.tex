@@ -742,14 +742,13 @@ What is this saying? Our premises are 1) for all $x$ in our universe of discours
     \item $\exists x [(Kx \wedge \forall y (Ky \to x = y)) \wedge Bx], Kd \vdash Bd$
     \item $\vdash P_a \to \forall x (P_x \lor \neg x = a)$
 \end{enumerate}
-\newpage
+\subsection{Quick Reference for Quantifier and Identity Intro and Elim Rules}
 \begin{center}
-    \subsection{Quick Reference for Quantifier and Identity Intro and Elim Rules} \vspace{0.3in}
     \label{ssec:quant_quick}
-    \includegraphics[width=1.1\textwidth]{Figures/Quant_rules_no_background.png} \\  \vspace{0.3in} \steezybreak 
-    \includegraphics[width=1.1\textwidth]{Figures/Identity_rules_no_background.png} \\ \steezybreak
-    These five rules, along with the fourteen rules for Propositional logic (\ref{ssec:prop_quick}) form the rules for First-Order logic.
+    \includegraphics[width=\textwidth]{Figures/Quant_rules_no_background.png} \\  \vspace{0.1in} \steezybreak 
+    \includegraphics[width=\textwidth]{Figures/Identity_rules_no_background.png} \\ \steezybreak
 \end{center}
+These seven rules, together with the fourteen propositional rules (\ref{ssec:prop_quick}), complete First-Order logic.
 \newpage
 \section{A Brief Discussion on Classical vs. Intuitionistic Logic}
 In the simplest terms, intuitionistic logic is classical logic \textit{without} indirect proof! Keep all the other introduction and elimination rules and do away with indirect proof (IP) and you have intuitionistic logic. Just keep this in the back of your mind and we will discuss some consequences of this.
@@ -890,6 +889,7 @@ discussion of this topic, I highly encourage you to read \href{https://www.rtrue
 \subsection{The Language of Second-Order Logic}
 This subsection is taken from Rob Trueman's Primer on Second Order Logic \cite{truemanSOL}. The vocabulary of Second-Order logic extends that of First-Order logic by adding new variables to go in place of predicates (so we can quantify over predicates as we did over objects in FOL). \\ \steezybreak
 The complete list of all basic symbols in SOL is as follows:
+\vspace{-0.1in}
 \begin{table}[h]
     \centering
     \begin{tabular}{ll}
@@ -920,9 +920,6 @@ Second-order variables can also have any adicity, but to keep things straightfor
 With this basic vocabulary for SOL established, we now turn to constructing sentences. As with FOL, we follow three steps: first, defining atomic formulas; second, forming complex formulas from simpler ones; and finally, identifying which formulas qualify as sentences.
 
 We begin with the definition of a \textit{term} from FOL: \\
-% \begin{center}
-%     \boxed{\text{A $term$ is any name or first-order variable}}
-% \end{center}
 \begin{definition}[Term (FOL/SOL)]
     A $term$ is any name or first-order variable
 \end{definition}
@@ -930,7 +927,7 @@ We begin with the definition of a \textit{term} from FOL: \\
 Next we can define the \textit{atomic formulas} of SOL. This definition, in SOL, is exactly the same as it is for FOL, but with one extra clause, clause
 3. \footnote{That is, if you want the atomic formulas for FOL, just drop 3.}
 
-\begin{definition}[Atomic Formulas (FOL/SOL)] \hspace{0.1in} \\
+\begin{definition}[Atomic Formulas (FOL/SOL)]\leavevmode
     \begin{enumerate}
         \item If $R^n$ is $n$-adic predicate and $t_1 t_2 , \dots, t_n$ are terms, then $R^n t_1 t_2 \dots t_n$ is an atomic formula.
         \item If $t_1$ and $t_2$ are terms, then $t_1=t_2$ is an atomic formula.
