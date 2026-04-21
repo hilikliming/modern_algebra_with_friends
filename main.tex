@@ -71,18 +71,18 @@
 }
 
 % Blackboard bold shortcuts for common number sets
-\def\Z{{\mathbb{Z}}}
-\def\N{{\mathbb{N}}}
-\def\R{{\mathbb{R}}}
-\def\C{{\mathbb{C}}}
-\def\Q{{\mathbb{Q}}}
-\def\H{{\mathbb{H}}}
+\newcommand{\Z}{{\mathbb{Z}}}
+\newcommand{\N}{{\mathbb{N}}}
+\newcommand{\R}{{\mathbb{R}}}
+\newcommand{\C}{{\mathbb{C}}}
+\newcommand{\Q}{{\mathbb{Q}}}
+\renewcommand{\H}{{\mathbb{H}}} % shadows LaTeX's Hungarian umlaut accent; intentional
 \providecommand{\ker}{\text{ker}}
 % Defining bold 0 and bold 1 commonly used to indicate a vector or matrix of zeros or ones.
-\def\0{{\mathbf{0}}}
-\def\1{{\mathbf{1}}}
-\def\mod{\bmod}
-\def\characteristic{\text{char}}
+\newcommand{\0}{{\mathbf{0}}}
+\newcommand{\1}{{\mathbf{1}}}
+\renewcommand{\mod}{\bmod} % shadows LaTeX/amsmath \mod; intentional
+\newcommand{\characteristic}{\text{char}}
 
 %----------------------------------------------------------------------------------------
 %	Special Math Declarations (Above Here)
