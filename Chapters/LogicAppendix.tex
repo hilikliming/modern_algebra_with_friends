@@ -826,8 +826,8 @@ Conversely, if we assume the Law of Excluded Middle, we can justify indirect pro
 Thus, if we accept the Law of Excluded Middle, we can justify indirect proof.
 
 \begin{itemize}
-    \item Intuitionistic logic does not accept the Law of Excluded Middle (LEM) as a general principle because it requires a constructive proof of \( P \) or \( \neg P \).
-    \item Similarly, intuitionistic logic does not accept indirect proof because it does not consider \( \neg \neg P \) to be equivalent to \( P \); that is, showing that \( \neg P \) leads to a contradiction is not enough to conclude that \( P \) is true.
+    \item Intuitionistic logic does not accept the Law of Excluded Middle (LEM) as a general principle because it requires a constructive proof of $ P $ or $ \neg P $.
+    \item Similarly, intuitionistic logic does not accept indirect proof because it does not consider $ \neg \neg P $ to be equivalent to $ P $; that is, showing that $ \neg P $ leads to a contradiction is not enough to conclude that $ P $ is true.
 \end{itemize}
 
 \subsection{Logical Connectives}
@@ -876,8 +876,8 @@ argument like this:
 \end{tcolorbox}
 
 Roughly speaking,  First-Order Logic (FOL) quantifies only variables that range over individuals/objects (elements of a universe of discourse); Second-order logic (SOL) quantifies over individuals \textit{and} predicates/properties! 
-SOL extends FOL by allowing quantification over predicates. What do we mean by this? Well, the quantifiers in FOL let us quantify over objects to say things like this: \(\exists x(Lx\wedge Mx)\), this says
-that there is some object which is both $L$ and $M$. The quantifiers in SOL, on the other hand, let us quantify over properties: \(\exists X(Xb\wedge Xa)\) says that there is
+SOL extends FOL by allowing quantification over predicates. What do we mean by this? Well, the quantifiers in FOL let us quantify over objects to say things like this: $\exists x(Lx\wedge Mx)$, this says
+that there is some object which is both $L$ and $M$. The quantifiers in SOL, on the other hand, let us quantify over properties: $\exists X(Xb\wedge Xa)$ says that there is
 some property which $b$ and $a$ both have.
 
 In the following subsection I will speed-run Rob Trueman's explanation of the Language of Second-Order Logic, this explanation may help clarify some of the FOL discussions in the previous sections as well. 
@@ -893,23 +893,23 @@ The complete list of all basic symbols in SOL is as follows:
 \begin{table}[h]
     \centering
     \begin{tabular}{ll}
-        \textbf{Names} & \( a, b, c, \dots, r \) \\
-        with subscripts, as needed & \( a_1, b_{224}, h_7, m_{32}, \dots \) \\[8pt]
+        \textbf{Names} & $ a, b, c, \dots, r $ \\
+        with subscripts, as needed & $ a_1, b_{224}, h_7, m_{32}, \dots $ \\[8pt]
 
-        \textbf{Predicates (with superscripts)} & \( =, A^1, B^1, \dots, R^1, A^2, B^2, \dots \) \\
-        and with subscripts, as needed & \( A_1^1, B_1^2, R_1^5, A_2^8, J_{25}^{10}, \dots \) \\[8pt]
+        \textbf{Predicates (with superscripts)} & $ =, A^1, B^1, \dots, R^1, A^2, B^2, \dots $ \\
+        and with subscripts, as needed & $ A_1^1, B_1^2, R_1^5, A_2^8, J_{25}^{10}, \dots $ \\[8pt]
 
-        \textbf{First-order variables} & \( s, t, u, v, w, x, y, z \) \\
-        with subscripts, as needed & \( x_1, y_1, z_1, x_2, \dots \) \\[8pt]
+        \textbf{First-order variables} & $ s, t, u, v, w, x, y, z $ \\
+        with subscripts, as needed & $ x_1, y_1, z_1, x_2, \dots $ \\[8pt]
 
-        \textbf{Second-order variables} & \( S, T, U, V, W, X, Y, Z \) \\
-        with subscripts, as needed & \( X_1, Y_1, Z_1, X_2, \dots \) \\[8pt]
+        \textbf{Second-order variables} & $ S, T, U, V, W, X, Y, Z $ \\
+        with subscripts, as needed & $ X_1, Y_1, Z_1, X_2, \dots $ \\[8pt]
 
-        \textbf{Connectives} & \( \neg, \wedge, \vee, \rightarrow, \leftrightarrow \) \\[8pt]
+        \textbf{Connectives} & $ \neg, \wedge, \vee, \rightarrow, \leftrightarrow $ \\[8pt]
 
-        \textbf{Brackets} & \( (, ) \) \\[8pt]
+        \textbf{Brackets} & $ (, ) $ \\[8pt]
 
-        \textbf{Quantifiers} & \( \forall, \exists \)
+        \textbf{Quantifiers} & $ \forall, \exists $
     \end{tabular}
 \end{table}
 
@@ -944,13 +944,13 @@ Next we present the rules for building more complex formulas from simpler ones (
 \begin{definition}[Formula Construction Rules (FOL/SOL)] \hspace{0.1in}\\
     \begin{enumerate}
         \item Every atomic formula is a formula.
-        \item If \( A \) is a formula, then \( \neg A \) is a formula.
-        \item If \( A \) and \( B \) are formulas, then \( (A \wedge B) \) is a formula.
-        \item If \( A \) and \( B \) are formulas, then \( (A \vee B) \) is a formula.
-        \item If \( A \) and \( B \) are formulas, then \( (A \rightarrow B) \) is a formula.
-        \item If \( A \) and \( B \) are formulas, then \( (A \leftrightarrow B) \) is a formula.
-        \item If \( A \) is a formula, \( x \) is a first-order variable, \( A \) contains at least one occurrence of \( x \), and \( A \) contains neither \( \forall x \) nor \( \exists x \), then \( \forall x A \) and \( \exists x A \) are both formulas.
-        \item If \( A \) is a formula, \( X \) is a second-order variable, \( A \) contains at least one occurrence of \( X \), and \( A \) contains neither \( \forall X \) nor \( \exists X \), then \( \forall X A \) and \( \exists X A \) are formulas.
+        \item If $ A $ is a formula, then $ \neg A $ is a formula.
+        \item If $ A $ and $ B $ are formulas, then $ (A \wedge B) $ is a formula.
+        \item If $ A $ and $ B $ are formulas, then $ (A \vee B) $ is a formula.
+        \item If $ A $ and $ B $ are formulas, then $ (A \rightarrow B) $ is a formula.
+        \item If $ A $ and $ B $ are formulas, then $ (A \leftrightarrow B) $ is a formula.
+        \item If $ A $ is a formula, $ x $ is a first-order variable, $ A $ contains at least one occurrence of $ x $, and $ A $ contains neither $ \forall x $ nor $ \exists x $, then $ \forall x A $ and $ \exists x A $ are both formulas.
+        \item If $ A $ is a formula, $ X $ is a second-order variable, $ A $ contains at least one occurrence of $ X $, and $ A $ contains neither $ \forall X $ nor $ \exists X $, then $ \forall X A $ and $ \exists X A $ are formulas.
         \item Nothing else is a formula.
     \end{enumerate}    
 \end{definition}
@@ -1030,12 +1030,12 @@ As before, here are some exercises to practice using the second-order intro and 
 \noindent Prove each of the following:  
 
 \begin{enumerate}
-    \item \( P a, P b \vdash_2 \exists X (X a \wedge X b) \)
-    \item \( F a, \neg F b \vdash_2 \neg \forall Y (Y a \leftrightarrow Y b) \)
-    \item \( \exists X (X a \wedge \neg X b) \vdash_2 \neg a = b \)
-    \item \( \exists X \exists y \neg X y \vdash_2 \neg \forall X \forall y X y \)
-    \item \( \neg \exists x \neg x = a \vdash_2 \forall X (X a \rightarrow \forall x X x) \)
-    \item \( \forall X (X a \rightarrow \forall y (\neg y = a \rightarrow \neg X y)), Q a \vdash_2 \exists Z \neg \exists x \exists y (\neg x = y \wedge (Z x \wedge Z y)) \)
+    \item $ P a, P b \vdash_2 \exists X (X a \wedge X b) $
+    \item $ F a, \neg F b \vdash_2 \neg \forall Y (Y a \leftrightarrow Y b) $
+    \item $ \exists X (X a \wedge \neg X b) \vdash_2 \neg a = b $
+    \item $ \exists X \exists y \neg X y \vdash_2 \neg \forall X \forall y X y $
+    \item $ \neg \exists x \neg x = a \vdash_2 \forall X (X a \rightarrow \forall x X x) $
+    \item $ \forall X (X a \rightarrow \forall y (\neg y = a \rightarrow \neg X y)), Q a \vdash_2 \exists Z \neg \exists x \exists y (\neg x = y \wedge (Z x \wedge Z y)) $
 \end{enumerate}
 
 \newpage
@@ -1096,11 +1096,11 @@ These exercises are taken from \cite{truemanSOL}. \\
 
 Provide proofs for the following:  
 \begin{enumerate}
-    \item \( A a, \neg A b \vdash_2 \exists Y (\neg Y a \wedge Y b) \)
-    \item \( \vdash_2 \exists X \forall x \neg X x \)
-    \item \( \exists Y \forall X \forall z (Y z \leftrightarrow X z) \vdash_2 \bot \)
-    \item \( \vdash_2 \forall Z (\forall Y \forall x (Y x \rightarrow Z x) \rightarrow \forall x Z x) \)
-    \item \( \forall X ((X a \wedge X b) \rightarrow X c), \forall x \forall y (R x y \rightarrow R y x), \exists x R a x \wedge \exists x R b x \vdash_2 \exists y R y c \)
+    \item $ A a, \neg A b \vdash_2 \exists Y (\neg Y a \wedge Y b) $
+    \item $ \vdash_2 \exists X \forall x \neg X x $
+    \item $ \exists Y \forall X \forall z (Y z \leftrightarrow X z) \vdash_2 \bot $
+    \item $ \vdash_2 \forall Z (\forall Y \forall x (Y x \rightarrow Z x) \rightarrow \forall x Z x) $
+    \item $ \forall X ((X a \wedge X b) \rightarrow X c), \forall x \forall y (R x y \rightarrow R y x), \exists x R a x \wedge \exists x R b x \vdash_2 \exists y R y c $
 \end{enumerate}
 
 \section{Soundness, Completeness, and Going Beyond Natural Deduction}
@@ -1133,7 +1133,7 @@ your studies with a foray into Simple Type Theory!
 
 % While natural deduction is an intuitive and widely used system for formal proofs, it is not the only framework available. Another major proof system is \textit{sequent calculus}, 
 % originally developed by \href{https://en.wikipedia.org/wiki/Gerhard_Gentzen}{Gentzen}. Sequent calculus differs from natural deduction in its structure: instead of constructing nested sub-proofs, 
-% it operates with sequents—statements of the form \( \Gamma \vdash \Delta \), indicating that from the assumptions in \( \Gamma \), at least one formula in \( \Delta \) follows. The inference 
+% it operates with sequents—statements of the form $ \Gamma \vdash \Delta $, indicating that from the assumptions in $ \Gamma $, at least one formula in $ \Delta $ follows. The inference 
 % rules of sequent calculus are designed to provide a symmetric treatment of assumptions and conclusions, making it particularly useful in proof theory.
 
 % Sequent calculus also plays a key role in studying non-classical logics, such as modal, linear, and substructural logics, as well as in the foundations of type theory. In particular, it is 

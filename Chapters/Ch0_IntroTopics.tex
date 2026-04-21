@@ -72,16 +72,16 @@ $A\iff B$ can also be read as ``$A$ if and only if $B$", ``$B$ if and only if $A
 \noindent The method of proof for proving a statement of the form ``$A$ if and only if $B$'' is to first assume $A$ is true and show that $B$ follows (can be derived from that assumption); and then assume $B$ is true and show that $A$ follows. That is we combine a proof of $A\implies B$ with a proof of $B \implies A$, these two together are proof of $A\iff B$.
 
 \paragraph{Equivalence Between an Implication and Its Contrapositive}  
-The contrapositive of an implication \( A \implies B \) is the statement \( \lnot B \implies \lnot A \), which is obtained by taking the contraposition of the original implication. In classical logic we have that  
+The contrapositive of an implication $ A \implies B $ is the statement $ \lnot B \implies \lnot A $, which is obtained by taking the contraposition of the original implication. In classical logic we have that  
 \[
     (\lnot B \implies \lnot A) \iff (A\implies B)
 \]  
-(i.e., these expressions are always equivalent). This is often useful for proofs—rather than proving \( A\implies B \) directly, we can establish the same result by proving its contrapositive \( \lnot B \implies \lnot A \).  
+(i.e., these expressions are always equivalent). This is often useful for proofs—rather than proving $ A\implies B $ directly, we can establish the same result by proving its contrapositive $ \lnot B \implies \lnot A $.  
 
 The intuition for the equivalence between an implication and its contrapositive consists of two parts:  
 \begin{enumerate}  
-    \item ``If \( B \) is \textit{always} true when \( A \) is true (\( A\implies B \)), then when \( B \) is false, \( A \) must also be false (\( \lnot B \implies \lnot A \)).''  
-    \item ``If \( A \) is \textit{always} false when \( B \) is false (\( \lnot B \implies \lnot A \)), then when \( A \) is true, \( B \) must be true (\( A\implies B \)).''  
+    \item ``If $ B $ is \textit{always} true when $ A $ is true ($ A\implies B $), then when $ B $ is false, $ A $ must also be false ($ \lnot B \implies \lnot A $).''  
+    \item ``If $ A $ is \textit{always} false when $ B $ is false ($ \lnot B \implies \lnot A $), then when $ A $ is true, $ B $ must be true ($ A\implies B $).''  
 \end{enumerate}  
 Examples of proof by contrapositive and proof by contradiction are given in the sub-sections below.  
 
@@ -137,14 +137,14 @@ For the sake of argument we should note that to date, it is true that all humans
 \newpage
 \section{Logical Connectives and Their Truth Tables}
 
-In propositional logic, statements (or \emph{propositions}) can be combined using
-\emph{logical connectives}. We denote \emph{conjunction} (logical ``and'') by the symbol $\land$,
-and \emph{disjunction} (logical ``or'') by the symbol $\lor$.
+In propositional logic, statements (or \textit{propositions}) can be combined using
+\textit{logical connectives}. We denote \textit{conjunction} (logical ``and'') by the symbol $\land$,
+and \textit{disjunction} (logical ``or'') by the symbol $\lor$.
 Given two propositions $P$ and $Q$:
 
 \begin{itemize}
-    \item $P \land Q$ is \emph{true} if and only if \emph{both} $P$ and $Q$ are true.
-    \item $P \lor Q$ is \emph{true} if at least one of $P$ or $Q$ is true.
+    \item $P \land Q$ is \textit{true} if and only if \textit{both} $P$ and $Q$ are true.
+    \item $P \lor Q$ is \textit{true} if at least one of $P$ or $Q$ is true.
 \end{itemize}
 
 \noindent Below are the truth tables for the standard logical connectives:
@@ -162,9 +162,9 @@ F & F & T & F & F & T & T & T \\
 
 \noindent Here:
 \begin{itemize}
-    \item $\lnot P$ (\emph{negation}) is true when $P$ is false.
-    \item $P \Rightarrow Q$ (\emph{implication/if-then}) is false only when $P$ is true and $Q$ is false.
-    \item $P \Leftrightarrow Q$ (\emph{biconditional/if-and-only-if}) is true when $P$ and $Q$ have the same truth value.
+    \item $\lnot P$ (\textit{negation}) is true when $P$ is false.
+    \item $P \Rightarrow Q$ (\textit{implication/if-then}) is false only when $P$ is true and $Q$ is false.
+    \item $P \Leftrightarrow Q$ (\textit{biconditional/if-and-only-if}) is true when $P$ and $Q$ have the same truth value.
 \end{itemize}
 
 \noindent Here's how to read this table, on the left we have two propositions $P$ and 
@@ -327,14 +327,14 @@ in another way using an idea known as set complement. In this case we would have
 \newpage
 Without going into too much detail we want to briefly introduce the concept of cardinality. Cardinality describes a relationship between sets which compares their relative size.
 \begin{definition}[Cardinality (of a Set)]
-    The \textit{cardinality} of a set \(A\), denoted \(|A|\), is, roughly speaking, the "number of elements" in \(A\). \\
+    The \textit{cardinality} of a set $A$, denoted $|A|$, is, roughly speaking, the "number of elements" in $A$. \\
 
-    \noindent For finite sets, \(|A|\) is the total count of elements in \(A\). For example, if \(A = \{1, 2, 3\}\), then \(|A| = 3\). \\
-    \noindent As another example, if \(B=\{green, red, blue, red, orange\}\) then $|B|=4$.\footnote{Recall the footnote from Section \ref{sec:axioms}.}\\ 
+    \noindent For finite sets, $|A|$ is the total count of elements in $A$. For example, if $A = \{1, 2, 3\}$, then $|A| = 3$. \\
+    \noindent As another example, if $B=\{green, red, blue, red, orange\}$ then $|B|=4$.\footnote{Recall the footnote from Section \ref{sec:axioms}.}\\ 
     
     \noindent \textbf{A More Complete Definition\footnote{Revisit after you have begun Chapter 1 material}} 
 
-    \noindent For sets in general, \textit{cardinality} is determined by comparing a set \(A\) to another set \(B\) using a \textit{bijection} \footnote{To be covered in the next chapter, see Definition \ref{def:surj_inj_bij}}, which is a one-to-one correspondence between the elements of \(A\) and \(B\):
+    \noindent For sets in general, \textit{cardinality} is determined by comparing a set $A$ to another set $B$ using a \textit{bijection} \footnote{To be covered in the next chapter, see Definition \ref{def:surj_inj_bij}}, which is a one-to-one correspondence between the elements of $A$ and $B$:
     \begin{align}
         |A| &= |B| \quad \text{if and only if there exists a bijective function } f: A \to B. \nonumber \\
         |A|&\leq |B| \quad \text{if there exists an injective function }f:A \to B. \nonumber \\
@@ -354,7 +354,7 @@ Without going into too much detail we want to briefly introduce the concept of c
 % For finite sets, these two perspectives collapse into one: you can directly count the elements, and the existence of a bijection between two finite sets corresponds exactly to their element counts being equal.
 % For infinite sets, the "comparison perspective" becomes essential because there’s no direct way to \textit{count} their elements. This comparison through bijections allows us to define and compare their cardinalities rigorously. It gives us a way to say this guy is bigger than this guy even when both are infinite!
 
-\noindent The simplified definition applies only to finite sets but helps build intuition about cardinality as the "size" of a set. The more rigorous definition extends this concept to both finite and infinite sets, enabling us to compare sets such as the natural numbers \(\mathbb{N}\) (\(|\mathbb{N}| = \aleph_0\), pronounced "aleph nought") and the real numbers \(\mathbb{R}\) (\(|\mathbb{R}| = 2^{\aleph_0} > \aleph_0\)). \\ \steezybreak
+\noindent The simplified definition applies only to finite sets but helps build intuition about cardinality as the "size" of a set. The more rigorous definition extends this concept to both finite and infinite sets, enabling us to compare sets such as the natural numbers $\mathbb{N}$ ($|\mathbb{N}| = \aleph_0$, pronounced "aleph nought") and the real numbers $\mathbb{R}$ ($|\mathbb{R}| = 2^{\aleph_0} > \aleph_0$). \\ \steezybreak
 
 \noindent The rigorous definition also aligns with our intuition for finite sets: two finite sets have the same number of elements if and only if a bijection exists between them.
 
@@ -398,9 +398,9 @@ $\mathbb{R}=\{\ \pm \ \dots c_1c_0.c_{-1}c_{-2}\dots \  | \ c_i\in \{0,1,2,3,4,5
 
 \noindent In this final description of the real numbers $\R$ we want to point out:
 \begin{itemize}
-    \item The \(\pm\) indicates that the number can be positive or negative.
-    \item \(c_i\) are the digits of the decimal (base 10) expansion. It is customary to omit trailing and leading $0$'s.
-    \item The index \(i\) represents the position of each digit relative to the decimal point, with \(i=0\) corresponding to the ones place, \(i=-1\) corresponding to the tenths place and so on.
+    \item The $\pm$ indicates that the number can be positive or negative.
+    \item $c_i$ are the digits of the decimal (base 10) expansion. It is customary to omit trailing and leading $0$'s.
+    \item The index $i$ represents the position of each digit relative to the decimal point, with $i=0$ corresponding to the ones place, $i=-1$ corresponding to the tenths place and so on.
     \item When using decimal expansions to define the reals you must take care; realize that a single element may go by more than one representation, e.g. $0.999 \ldots = 1.000 \ldots$ and $2.999 \ldots = 3.000 \ldots$ This ambiguity reflects the fact that decimal expansions are not unique for certain real numbers.
     % \footnote{This will occur in any base, not just base $10$ (decimal). For example, in base $3$ we would write a number like $5.333...$ as $12.1000= (1*3^1 + 2*3^0 + 1*3^{-1})$. $4$ looks like $11.0=(1*3^1 + 1*3^0)$.
     % Our coefficients in front of the powers of $3$ never exceed $2$ (they are $0$, $1$, or $2$) just like in decimal we get to work with $0, 1, 2, ... ,9$ before we have to bring in a new power of $10$
@@ -413,7 +413,7 @@ $\mathbb{R}=\{\ \pm \ \dots c_1c_0.c_{-1}c_{-2}\dots \  | \ c_i\in \{0,1,2,3,4,5
     \footnote{This occurs in any base, not just base $10$. For instance, in base $3$, $5.333\ldots$ becomes $12.1000$ $(1 \cdot 3^1 + 2 \cdot 3^0 + 1 \cdot 3^{-1})$, and $4$ is $11.0$ $(1 \cdot 3^1 + 1 \cdot 3^0)$. Digits in base $3$ are $0$, $1$, or $2$, similar to decimal digits $0$ through $9$. 
     Notably, $0.5$—which is not uniquely represented in base $10$—has a unique ternary representation: $0.111\ldots$ Using the geometric series formula $\sum_{n=0}^\infty ar^n = \frac{a}{1-r}$ with $a=1$ and $r=\frac{1}{3}$, $0.111\ldots = \frac{3}{2} - 1 = \frac{1}{2}$ (we subtract $1=ar^0$ because our number is $\sum_{n=1}^\infty ar^n$). Conversely, $1/3$ lacks a unique 
     ternary form: it could be $0.1000$ or $0.0222\ldots$, whereas in decimal, $0.333\ldots$ is unique.}
-    \item Here we provide a representation of the real numbers via decimal expansions. However, \(\mathbb{R}\) can also be rigorously defined using other constructions, such as Cauchy sequences or Dedekind cuts.
+    \item Here we provide a representation of the real numbers via decimal expansions. However, $\mathbb{R}$ can also be rigorously defined using other constructions, such as Cauchy sequences or Dedekind cuts.
     \item In simpler terms, The real numbers $\R$ are the set of \textit{all} points on the number line, including both rational numbers (fractions) and irrational numbers (non-repeating, non-terminating decimals).
 \end{itemize}
 \subsection{Interval Notation for Interval Subsets in $\R$}
@@ -449,56 +449,56 @@ the $\ge$ case subsumes the $>$ case.
 \textbf{Rule/Transformation} & \textbf{Valid Implications} \\
 \hline
 Transitivity &
-\( a \geq b \text{ and } b \geq c \implies a \geq c \) \\
-%& \( a > b \text{ and } b > c \implies a > c \) \\
+$ a \geq b \text{ and } b \geq c \implies a \geq c $ \\
+%& $ a > b \text{ and } b > c \implies a > c $ \\
 \hline
 Addition/Subtraction &
-\( a \geq b \implies a + c \geq b + c \quad \text{for all } c \in \mathbb{R} \) \\
-%& \( a > b \implies a + c > b + c \quad \text{for all } c \in \mathbb{R} \) \\
+$ a \geq b \implies a + c \geq b + c \quad \text{for all } c \in \mathbb{R} $ \\
+%& $ a > b \implies a + c > b + c \quad \text{for all } c \in \mathbb{R} $ \\
 \hline
 Multiplication &
-\( a \geq b \text{ and } c > 0 \implies ac \geq bc \) \\
-& \( a \geq b \text{ and } c < 0 \implies ac \leq bc \) \\
-%& \( a > b \text{ and } c > 0 \implies ac > bc \) \\
-%& \( a > b \text{ and } c < 0 \implies ac < bc \) \\
+$ a \geq b \text{ and } c > 0 \implies ac \geq bc $ \\
+& $ a \geq b \text{ and } c < 0 \implies ac \leq bc $ \\
+%& $ a > b \text{ and } c > 0 \implies ac > bc $ \\
+%& $ a > b \text{ and } c < 0 \implies ac < bc $ \\
 \hline
 Reciprocals &
-\(a>0 \implies \frac{1}{a}>0\) \\
-&\( 0 < a \leq b \implies \frac{1}{a} \geq \frac{1}{b} \) \\
-& \( a \leq b < 0 \implies \frac{1}{a} \geq \frac{1}{b} \) \\
-%&\( 0 < a < b \implies \frac{1}{a} > \frac{1}{b} \) \\
-%& \( a < b < 0 \implies \frac{1}{a} > \frac{1}{b} \) \\
+$a>0 \implies \frac{1}{a}>0$ \\
+&$ 0 < a \leq b \implies \frac{1}{a} \geq \frac{1}{b} $ \\
+& $ a \leq b < 0 \implies \frac{1}{a} \geq \frac{1}{b} $ \\
+%&$ 0 < a < b \implies \frac{1}{a} > \frac{1}{b} $ \\
+%& $ a < b < 0 \implies \frac{1}{a} > \frac{1}{b} $ \\
 \hline
 Additive Bounds$^\dagger$ &
-\( a_1 \leq b_1 \text{ and } a_2 \leq b_2 \implies a_1 + a_2 \leq b_1 + b_2 \) \\
-%& \( a_1 < b_1 \text{ and } a_2 < b_2 \implies a_1 + a_2 < b_1 + b_2 \) \\
+$ a_1 \leq b_1 \text{ and } a_2 \leq b_2 \implies a_1 + a_2 \leq b_1 + b_2 $ \\
+%& $ a_1 < b_1 \text{ and } a_2 < b_2 \implies a_1 + a_2 < b_1 + b_2 $ \\
 \hline
 Multiplicative Bounds$^\dagger$ &
-\( 0 \leq a \leq b \text{ and } 0 \leq c \leq d \implies ac \leq bd \) \\
-%& \( 0 < a < b \text{ and } 0 < c < d \implies ac < bd \) \\
+$ 0 \leq a \leq b \text{ and } 0 \leq c \leq d \implies ac \leq bd $ \\
+%& $ 0 < a < b \text{ and } 0 < c < d \implies ac < bd $ \\
 \hline
 Division$^\dagger$ &
-\( a \geq b \text{ and } c > 0 \implies \frac{a}{c} \geq \frac{b}{c} \) \\
-& \( a \geq b \text{ and } c < 0 \implies \frac{a}{c} \leq \frac{b}{c} \) \\
-%& \( a > b \text{ and } c > 0 \implies \frac{a}{c} > \frac{b}{c} \) \\
-%& \( a > b \text{ and } c < 0 \implies \frac{a}{c} < \frac{b}{c} \) \\
+$ a \geq b \text{ and } c > 0 \implies \frac{a}{c} \geq \frac{b}{c} $ \\
+& $ a \geq b \text{ and } c < 0 \implies \frac{a}{c} \leq \frac{b}{c} $ \\
+%& $ a > b \text{ and } c > 0 \implies \frac{a}{c} > \frac{b}{c} $ \\
+%& $ a > b \text{ and } c < 0 \implies \frac{a}{c} < \frac{b}{c} $ \\
 \hline
 Squaring (non-negative)$^\dagger$ &
-\( 0 \leq a \leq b \implies a^2 \leq b^2 \) \\
-%&\( 0 \leq a < b \implies a^2 < b^2 \) \\
+$ 0 \leq a \leq b \implies a^2 \leq b^2 $ \\
+%&$ 0 \leq a < b \implies a^2 < b^2 $ \\
 \hline
 Monotonic Functions$^{\dagger\dagger}$ &
-\( f \text{ monotone increasing on domain } D \text{ and } a,b \in D \text{ with } a \geq b \implies f(a) \geq f(b) \) \\
-& \( f \text{ monotone decreasing on domain } D \text{ and } a,b \in D \text{ with } a \geq b \implies f(a) \leq f(b) \) \\
-%& \( f \text{ monotone increasing on domain } D \text{ and } a,b \in D \text{ with } a > b \implies f(a) > f(b) \) \\
-%& \( f \text{ monotone decreasing on domain } D \text{ and } a,b \in D \text{ with } a > b \implies f(a) < f(b) \) \\
+$ f \text{ monotone increasing on domain } D \text{ and } a,b \in D \text{ with } a \geq b \implies f(a) \geq f(b) $ \\
+& $ f \text{ monotone decreasing on domain } D \text{ and } a,b \in D \text{ with } a \geq b \implies f(a) \leq f(b) $ \\
+%& $ f \text{ monotone increasing on domain } D \text{ and } a,b \in D \text{ with } a > b \implies f(a) > f(b) $ \\
+%& $ f \text{ monotone decreasing on domain } D \text{ and } a,b \in D \text{ with } a > b \implies f(a) < f(b) $ \\
 \hline
 Absolute Value &
-\( |a| \geq 0 \) \\
-& \( |a| \leq b \iff -b \leq a \leq b \) \\
-& \( |a| \geq b \text{ and } b \geq 0 \implies a \leq -b \text{ or } a \geq b \) \\
-%& \( |a| < b \iff -b < a < b \) \\
-%& \( |a| > b \text{ and } b \geq 0 \implies a < -b \text{ or } a > b \) \\
+$ |a| \geq 0 $ \\
+& $ |a| \leq b \iff -b \leq a \leq b $ \\
+& $ |a| \geq b \text{ and } b \geq 0 \implies a \leq -b \text{ or } a \geq b $ \\
+%& $ |a| < b \iff -b < a < b $ \\
+%& $ |a| > b \text{ and } b \geq 0 \implies a < -b \text{ or } a > b $ \\
 \hline
 \end{tabular}
 \end{center}
@@ -597,7 +597,7 @@ Here we will briefly show that once the base case
 $P(N)$ has been established, and the induction step 
 $\forall \ n \ge N, \  (P(n) \Rightarrow P(n+1))$ has been proven, 
 there cannot exist a $k \ge N$ such that $\lnot P(k)$.
-We show that repeated application of \emph{modus ponens} is not merely an
+We show that repeated application of \textit{modus ponens} is not merely an
 informal convenience, but a logically sound consequence of the axioms
 underpinning the natural numbers.
 
