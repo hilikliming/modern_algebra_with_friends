@@ -55,3 +55,11 @@ jobs:
         files: "Modern_Algebra_with_Friends_${{ github.ref_name }}.pdf"
       env:
         GITHUB_TOKEN: ${{ secrets.BUILD_PDF_SECRET }}
+
+    - name: Notify Discord
+      run: |
+        curl -X POST -H "Content-Type: application/json" \
+          -d "{\"content\": \"🎉 New MAWF Release Published! **${{ github.ref_name }}** is now available! https://github.com/${{ github.repository }}/releases/tag/${{ github.ref_name }}\"}" \
+          "$DISCORD_WEBHOOK_URL"
+      env:
+        DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
