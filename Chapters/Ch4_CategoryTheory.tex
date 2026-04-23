@@ -9,7 +9,53 @@
 \chapter{A Taste of Category Theory}
 
 \section{What Are We Doing Here?}
-% TODO: see docs/ch4_planning/ch4_outline_v3.md §4.1 (Chunk 4.1)
+We've spent three chapters unpacking three species ($\Z$, groups, and rings), and by now
+we've probably noticed that the same tune keeps playing. Group homomorphisms and ring
+homomorphisms look eerily similar; the direct product of two groups looks eerily like the
+Cartesian product of two sets; the First Isomorphism Theorem for groups reads like the
+same proof as its ring cousin, just with different nouns. Category theory is the language in
+which that tune becomes a single melody.
+
+This chapter is a \textit{taste}, not a first course in category theory. We want three
+ideas in your hands (\textit{categories}, \textit{functors}, and \textit{natural
+transformations}), plus one capstone, \textit{limits}, that ties every universal property we
+meet into a single construction. Each idea will land on a MAWF example you already trust,
+and if you want to go further,
+\href{https://arxiv.org/abs/1803.05316}{Fong and Spivak's \textit{Seven Sketches}}
+\cite{fong2018seven} or Roman's \textit{An Introduction to the Language of Category Theory}
+\cite{roman2017introduction} are two natural next stops.
+
+Category theory itself was invented in 1945 by
+\href{https://en.wikipedia.org/wiki/Samuel_Eilenberg}{Samuel Eilenberg} and
+\href{https://en.wikipedia.org/wiki/Saunders_Mac_Lane}{Saunders Mac Lane} in a paper titled
+\textit{General Theory of Natural Equivalences}. Their actual problem was an annoyance in
+algebraic topology, where the same map kept showing up in different disguises and they wanted
+to say ``the same'' \textit{precisely}. To define a natural transformation they needed
+functors; to define functors they needed categories; and so the language that now reorganizes
+large parts of mathematics got built, a bit accidentally, from the top down. We'll walk the
+same road, in the same order.
+
+\noindent \textbf{Promises.} By the end of this chapter we will:
+\begin{enumerate}[label=\roman*)]
+    \item define categories and see that sets, groups, and rings live in them naturally;
+    \item use the universal property of products to build the direct product of rings
+    \textit{for free}, with no component-wise operation tables required;
+    \item meet functors through forgetful functors and product-as-a-functor;
+    \item meet natural transformations by comparing two different constructions on the same
+    category;
+    \item assemble all of the above into the single notion of a \textit{limit}, and watch
+    products, equalizers, and even the kernels from Chapter 2 fall out as special cases.
+\end{enumerate}
+
+\noindent A friendly warning: Chapter 4 is genuinely more abstract than the chapters before
+it. We will manage the abstraction out loud. Whenever we climb the ladder, we'll come back
+down and cash out what the climb bought us in terms of things you should by now be quite
+familiar with.
+
+Speaking of which: \hyperref[note:ch1-gcd-teaser]{back in Chapter 1 we posed a question to
+the CT-aware reader}. Does the definition of $GCD(a,b)$ look familiar? Can you think of a
+category in which GCD \textit{is} a categorical product? We are now a few sections away from
+being able to answer that, and we will in \S4.4. First, we need categories.
 
 \section{Categories}
 % TODO: see docs/ch4_planning/ch4_outline_v3.md §4.2 (Chunks 4.2a--4.2c)
