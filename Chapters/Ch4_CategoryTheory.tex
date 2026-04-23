@@ -58,8 +58,8 @@ category in which GCD \textit{is} a categorical product? We are now a few sectio
 being able to answer that, and we will in \S4.4. First, we need categories.
 
 \section{Categories}
-Our main object of study in this chapter is the \textit{category}. Before giving the
-formal definition, let's walk through an example we already know informally.
+Our main object of study is the \textit{category}. Before giving the formal
+definition, let's walk through a familiar example informally.
 
 Take the collection of all sets\footnote{The collection of all sets is not itself a
 set. If it were, \href{https://en.wikipedia.org/wiki/Russell\%27s_paradox}{Russell's
@@ -76,13 +76,12 @@ any two objects, the morphisms between them form a set, even when the objects
 themselves do not. Deeper class-theoretic foundations (NBG, Grothendieck universes,
 and the like) are outside this book's scope.} as our \textit{objects}. For any two sets $A$ and $B$,
 take the functions from $A$ to $B$ as our \textit{arrows} (or \textit{morphisms}) from
-$A$ to $B$. Given $f : A \to B$ and $g : B \to C$, we already know how to combine them
-into a new function $g \circ f : A \to C$: just set $(g \circ f)(x) = g(f(x))$. This is
-\textit{composition}. For each set $A$, the identity function $\mathrm{id}_A(x) = x$
-sits naturally in the role of an \textit{identity arrow} on $A$. Composition is
-associative ($((h \circ g) \circ f)(x)$ and $(h \circ (g \circ f))(x)$ both equal
-$h(g(f(x)))$, exactly as we proved in Chapter 1's Associative Law of Composition,
-Lemma~\ref{lem:assoc-comp}), and identities behave the way identities should:
+$A$ to $B$. Given $f : A \to B$ and $g : B \to C$, the \textit{composition}
+$g \circ f : A \to C$ is defined by $(g \circ f)(x) = g(f(x))$. For each set $A$, the
+identity function $\mathrm{id}_A(x) = x$ serves as an \textit{identity arrow} on $A$.
+Composition is associative ($((h \circ g) \circ f)(x)$ and $(h \circ (g \circ f))(x)$
+both equal $h(g(f(x)))$, by Lemma~\ref{lem:assoc-comp}, the Associative Law of
+Composition), and identities behave the way identities should:
 $f \circ \mathrm{id}_A = f$ and $\mathrm{id}_B \circ f = f$ for any $f : A \to B$.
 
 That collection of data (objects, arrows, a composition rule, identities, plus the two
@@ -96,8 +95,8 @@ A \textit{category} $\mathcal{C}$ consists of:
     \item a collection of \textit{objects}, written $\mathrm{ob}(\mathcal{C})$;
     \item for each pair of objects $A, B \in \mathrm{ob}(\mathcal{C})$, a collection
     of \textit{morphisms} (or \textit{arrows}) from $A$ to $B$, written
-    $\mathrm{Hom}_\mathcal{C}(A, B)$ (or just $\mathrm{Hom}(A, B)$ when no confusion
-    can arise); we write $f : A \to B$ to mean $f \in \mathrm{Hom}(A, B)$;
+    $\mathrm{Hom}_\mathcal{C}(A, B)$ (or just $\mathrm{Hom}(A, B)$ when unambiguous);
+    we write $f : A \to B$ to mean $f \in \mathrm{Hom}(A, B)$;
     \item for each composable pair $f : A \to B$ and $g : B \to C$, a
     \textit{composite} $g \circ f : A \to C$;
     \item for each object $A$, an \textit{identity morphism}
@@ -118,19 +117,22 @@ especially when drawing diagrams or cashing abstract claims back out in a concre
 category.
 
 \begin{remark}
-A reasonable first guess at what a category is goes: take a group and drop the
-requirement that every element have an inverse. That's close, but it's not quite right,
-and the difference matters.
+A first guess at what a category is: take a group and drop the requirement that
+every element have an inverse. That's close, but not quite right, and the difference
+matters.
 
-In a group, the operation is \textit{total}. Any two elements multiply. If
-$g, h \in G$, then $gh$ is automatically in $G$, no questions asked.
+In a group, the operation is \textit{total}: any two elements multiply. Our
+Chapter 2 definition spells this out as a separate axiom called
+\textit{closure}. A more modern, equivalent convention treats the binary
+operation as a function $\cdot : G \times G \to G$, in which case closure is
+automatic: every pair in $G \times G$ lands somewhere in $G$ because that's
+what functions do. Either way, $gh$ is in $G$, no questions asked.
 
 In a category, composition is \textit{partial}. The composite $g \circ f$ exists
-\textit{only when} the target of $f$ matches the source of $g$. Every morphism comes
-stamped with a source object and a target object, and before you can even ask ``what
-is the composite?'' you have to ask ``is there a composite?'' Composition in a category
-is governed by a \textit{typing discipline}: the objects tell you which pairs of
-arrows are allowed to compose in the first place.
+\textit{only when} the target of $f$ matches the source of $g$. Every morphism
+carries a source and a target object, and before asking ``what is the composite?''
+you have to ask ``is there one?'' Composition is governed by a \textit{typing
+discipline}: the objects tell you which pairs of arrows can compose.
 
 So categories are not groups with the inverse axiom removed. (That object is called a
 \textit{monoid}, and we'll meet it shortly.) A group is the very degenerate case of
