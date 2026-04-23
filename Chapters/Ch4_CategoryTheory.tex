@@ -58,7 +58,86 @@ category in which GCD \textit{is} a categorical product? We are now a few sectio
 being able to answer that, and we will in \S4.4. First, we need categories.
 
 \section{Categories}
-% TODO: see docs/ch4_planning/ch4_outline_v3.md §4.2 (Chunks 4.2a--4.2c)
+Our main object of study in this chapter is the \textit{category}. Before giving the
+formal definition, let's walk through an example we already know informally.
+
+Take the collection of all sets\footnote{The collection of all sets is not itself a
+set. If it were, \href{https://en.wikipedia.org/wiki/Russell\%27s_paradox}{Russell's
+paradox} would follow. It is a \textit{proper class}. Informally, a \textit{class} is
+any collection of objects specified by a property (``all sets,'' ``all groups''), and a
+class that is too large to be a set is called \textit{proper}. Every set is a class,
+but not every class is a set. This is why our definition says ``collection'' of
+objects rather than ``set'': we need it wide enough to include classes that aren't
+sets. A category is called \textit{small} if both its collection of objects
+and its collection of morphisms form sets; otherwise it is \textit{large}. So
+$\mathbf{Set}$, $\mathbf{Grp}$, and $\mathbf{Ring}$ are all large categories, while
+the divides poset $\mathbf{DivPos}$ we'll meet shortly is small. All of our categories will be \textit{locally small}: for
+any two objects, the morphisms between them form a set, even when the objects
+themselves do not. Deeper class-theoretic foundations (NBG, Grothendieck universes,
+and the like) are outside this book's scope.} as our \textit{objects}. For any two sets $A$ and $B$,
+take the functions from $A$ to $B$ as our \textit{arrows} (or \textit{morphisms}) from
+$A$ to $B$. Given $f : A \to B$ and $g : B \to C$, we already know how to combine them
+into a new function $g \circ f : A \to C$: just set $(g \circ f)(x) = g(f(x))$. This is
+\textit{composition}. For each set $A$, the identity function $\mathrm{id}_A(x) = x$
+sits naturally in the role of an \textit{identity arrow} on $A$. Composition is
+associative ($((h \circ g) \circ f)(x)$ and $(h \circ (g \circ f))(x)$ both equal
+$h(g(f(x)))$, exactly as we proved in Chapter 1's Associative Law of Composition,
+Lemma~\ref{lem:assoc-comp}), and identities behave the way identities should:
+$f \circ \mathrm{id}_A = f$ and $\mathrm{id}_B \circ f = f$ for any $f : A \to B$.
+
+That collection of data (objects, arrows, a composition rule, identities, plus the two
+natural laws they satisfy) is the category $\mathbf{Set}$. Strip away the particular
+words ``sets'' and ``functions'' and keep only the shape of the data, and you get the
+following definition.
+
+\begin{definition}[Category]
+A \textit{category} $\mathcal{C}$ consists of:
+\begin{enumerate}[label=\roman*)]
+    \item a collection of \textit{objects}, written $\mathrm{ob}(\mathcal{C})$;
+    \item for each pair of objects $A, B \in \mathrm{ob}(\mathcal{C})$, a collection
+    of \textit{morphisms} (or \textit{arrows}) from $A$ to $B$, written
+    $\mathrm{Hom}_\mathcal{C}(A, B)$ (or just $\mathrm{Hom}(A, B)$ when no confusion
+    can arise); we write $f : A \to B$ to mean $f \in \mathrm{Hom}(A, B)$;
+    \item for each composable pair $f : A \to B$ and $g : B \to C$, a
+    \textit{composite} $g \circ f : A \to C$;
+    \item for each object $A$, an \textit{identity morphism}
+    $\mathrm{id}_A : A \to A$;
+\end{enumerate}
+satisfying the two axioms:
+\begin{enumerate}[label=(\arabic*)]
+    \item (\textit{Associativity.}) For all composable triples
+    $f : A \to B$, $g : B \to C$, $h : C \to D$,
+    \[ (h \circ g) \circ f \; = \; h \circ (g \circ f). \]
+    \item (\textit{Identity.}) For every $f : A \to B$,
+    \[ f \circ \mathrm{id}_A \; = \; f \; = \; \mathrm{id}_B \circ f. \]
+\end{enumerate}
+\end{definition}
+
+\noindent We'll use ``morphism'' in formal statements and ``arrow'' informally,
+especially when drawing diagrams or cashing abstract claims back out in a concrete
+category.
+
+\begin{remark}
+A reasonable first guess at what a category is goes: take a group and drop the
+requirement that every element have an inverse. That's close, but it's not quite right,
+and the difference matters.
+
+In a group, the operation is \textit{total}. Any two elements multiply. If
+$g, h \in G$, then $gh$ is automatically in $G$, no questions asked.
+
+In a category, composition is \textit{partial}. The composite $g \circ f$ exists
+\textit{only when} the target of $f$ matches the source of $g$. Every morphism comes
+stamped with a source object and a target object, and before you can even ask ``what
+is the composite?'' you have to ask ``is there a composite?'' Composition in a category
+is governed by a \textit{typing discipline}: the objects tell you which pairs of
+arrows are allowed to compose in the first place.
+
+So categories are not groups with the inverse axiom removed. (That object is called a
+\textit{monoid}, and we'll meet it shortly.) A group is the very degenerate case of
+a category with exactly one object, where every pair of arrows composes because there
+is only one source and one target available, \textit{and} every arrow is invertible.
+Most categories are not like that.
+\end{remark}
 
 \section{Set as Home Base: Terminal and Initial Objects}
 % TODO: see docs/ch4_planning/ch4_outline_v3.md §4.3 (Chunks 4.3a--4.3b)
