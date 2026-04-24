@@ -141,6 +141,115 @@ is only one source and one target available, \textit{and} every arrow is inverti
 Most categories are not like that.
 \end{remark}
 
+\noindent Now let's verify that the familiar species from Chapters 1--3 are categories in
+this formal sense. A convention first: throughout Chapter 4, ``ring'' means a
+commutative unital ring, and we strengthen Chapter 3's ring-homomorphism definition
+slightly. For Chapter 4, a \textit{ring homomorphism} $\varphi : R \to R'$ preserves
+$+$ and $\cdot$ (as in Definition~\ref{def:ring-hom}) \textit{and} the multiplicative
+identity: $\varphi(1_R) = 1_{R'}$.\footnote{The one Chapter 3 example this excludes
+is the trivial map $\varphi(a) = 0'$, which sends $1_R$ to $0'$. Every other
+ring-hom example in Chapter 3 satisfies $\varphi(1_R) = 1_{R'}$ automatically, and
+there is a clean reason: any \textit{surjective} ring homomorphism preserves the unit.
+To see this, let $e = \varphi(1_R)$. For any $r' \in R'$, surjectivity gives us
+$r \in R$ with $\varphi(r) = r'$, and then
+$e \cdot r' = \varphi(1_R)\varphi(r) = \varphi(1_R \cdot r) = \varphi(r) = r'$, with
+a symmetric argument on the other side. So $e$ is a two-sided multiplicative
+identity in $R'$, and by uniqueness $e = 1_{R'}$.} This matches the commutative-unital
+setting Chapter 3 settled into and keeps the categorical product story in \S4.4 clean.
+
+\begin{example}[The category $\mathbf{Set}$]
+The informal walkthrough at the start of this section was already the verification.
+Objects are sets, morphisms are functions, composition is function composition,
+identities are identity functions, associativity is Lemma~\ref{lem:assoc-comp}, and
+the identity laws are immediate. So $\mathbf{Set}$ is a category.
+\end{example}
+
+\begin{example}[The category $\mathbf{Grp}$]
+Objects are groups. A morphism from $G$ to $H$ is a group homomorphism
+$\varphi : G \to H$ (Definition~\ref{def:group-hom}). The composite of two
+homomorphisms is again a homomorphism (we worked this out in Chapter 2 as part
+of showing isomorphism is an equivalence relation, Proposition~\ref{prop:iso-equiv-rel},
+transitivity step): if $\varphi : G \to H$ and $\psi : H \to K$ both respect the
+group operation, so does $\psi \circ \varphi$. Identity functions are
+homomorphisms (trivially), and associativity of composition is again
+Lemma~\ref{lem:assoc-comp}. So $\mathbf{Grp}$ is a category.
+
+Back in Chapter 2 we said informally that a homomorphism is a map that
+\textit{splits over products}, meaning $\varphi(ab) = \varphi(a)\varphi(b)$. That
+phrase is about to become much more interesting. In \S4.4 we will meet a
+categorical notion of ``product,'' and then ``splits over products'' will turn out
+to be a literal statement about how $\varphi$ interacts with a universal property.
+For now, file the phrase away.
+\end{example}
+
+\begin{remark}
+Here is a twist worth a moment. We just said the objects of $\mathbf{Grp}$ are
+\textit{groups}, plural, with homomorphisms between them. But a single group $G$,
+on its own, is also a category, in a rather different sense: take one formal
+object $*$, declare the morphisms $* \to *$ to be the elements of $G$, take the
+group operation as composition, and take the identity element $e \in G$ as the
+identity morphism. Every morphism is invertible, because every element of $G$ is.
+This is \textit{not} the same category as $\mathbf{Grp}$. $\mathbf{Grp}$ has many
+objects, with homomorphisms between them; the group-as-a-category has exactly one
+object, and its morphisms \textit{are} the group's elements.
+
+The perspective shift is worth a meditation. Morphisms here are not functions
+between groups; they are \textit{elements of} $G$, and composition is literally
+the group operation.\footnote{If you are itching to see this as function
+composition, identify each $g \in G$ with the left-multiplication map
+$L_g : G \to G$ given by $L_g(x) = gx$. Then $(L_g \circ L_h)(x) = g(hx) = (gh)x
+= L_{gh}(x)$, so $L_g \circ L_h = L_{gh}$: morphism composition matches the
+group operation in the expected order. This is essentially Cayley's Theorem from
+Chapter 2 viewed one abstraction level up. A function-realization like this
+isn't always available, though, as the next example will show. Part of getting
+comfortable with categories is being willing to cast whatever structures are at
+hand, even unexpected or non-function-like ones, into the roles of object,
+morphism, composition, and identity.} We will see this whole move generalize in a
+moment when we meet monoids.
+\end{remark}
+
+\begin{example}[The category $\mathbf{Ring}$]
+Objects are (commutative unital) rings, with ring homomorphisms as morphisms in the
+sense of our Chapter 4 convention above. The composite of two such maps is again a
+ring homomorphism: additivity and multiplicativity follow from the corresponding
+checks for $\varphi$ and $\psi$ separately, and unit-preservation chains directly
+($\psi(\varphi(1_R)) = \psi(1_{R'}) = 1_{R''}$). Identity functions are ring
+homomorphisms, and associativity is inherited from function composition. So
+$\mathbf{Ring}$ is a category.
+\end{example}
+
+\begin{example}[The category $(\Z, \leq)$]
+Objects are integers. For each pair $a, b$, there is exactly \textit{one}
+morphism $a \to b$ if $a \leq b$, and \textit{no} morphism otherwise (so
+$\mathrm{Hom}(a,b)$ is a one-element set when $a \leq b$, and empty otherwise).
+Composition is transitivity of $\leq$: given the morphism $a \to b$ and the
+morphism $b \to c$, the composite is the morphism $a \to c$, which exists
+precisely because $a \leq b$ and $b \leq c$ imply $a \leq c$. The identity
+morphism on $a$ is the arrow $a \to a$ given by reflexivity, $a \leq a$.
+Associativity is automatic: between any two integers there is at most one arrow,
+so any two composites with the same source and target are equal.
+
+This one is worth pausing on. The morphisms here are \textit{not} functions,
+and composition is \textit{not} function composition. A morphism is a witness\footnote{We
+borrow the word \textit{witness} from logic: an object whose existence
+certifies a claim. The morphism $a \to b$ in $(\Z, \leq)$ exists precisely
+when $a \leq b$, so its mere presence records the truth of that fact. There
+is no further data attached to the morphism beyond that, which is why
+$\mathrm{Hom}(a, b)$ is a one-element set when $a \leq b$ and empty
+otherwise.} to the fact ``$a \leq b$''; composition is the statement
+``$\leq$ is transitive'' packaged as a category law; identity is the
+statement ``$\leq$ is reflexive.''
+This is the first hint that ``category'' reaches well past ``collections of sets
+with structure and structure-preserving functions between them.''
+\end{example}
+
+% TODO Chunk 4.2c: DivPos category; monoid-as-one-object-category remark
+% (generalize the group-as-category aside above); isomorphism-in-a-general-category
+% remark (includes Magurn's two-object example per project memory); brief aside
+% handling "are rings one-object categories too?" with a pointer to enrichment
+% (Ab-enriched category) as out-of-scope; synthesis paragraph.
+% See docs/ch4_planning/ch4_outline_v3.md §4.2 bullets 7-9 and drafted asides.
+
 \section{Set as Home Base: Terminal and Initial Objects}
 % TODO: see docs/ch4_planning/ch4_outline_v3.md §4.3 (Chunks 4.3a--4.3b)
 
