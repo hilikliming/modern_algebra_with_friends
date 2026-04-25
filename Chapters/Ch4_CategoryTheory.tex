@@ -147,14 +147,16 @@ commutative unital ring, and we strengthen Chapter 3's ring-homomorphism definit
 slightly. For Chapter 4, a \textit{ring homomorphism} $\varphi : R \to R'$ preserves
 $+$ and $\cdot$ (as in Definition~\ref{def:ring-hom}) \textit{and} the multiplicative
 identity: $\varphi(1_R) = 1_{R'}$.\footnote{The one Chapter 3 example this excludes
-is the trivial map $\varphi(a) = 0'$, which sends $1_R$ to $0'$. Every other
-ring-hom example in Chapter 3 satisfies $\varphi(1_R) = 1_{R'}$ automatically, and
-there is a clean reason: any \textit{surjective} ring homomorphism preserves the unit.
-To see this, let $e = \varphi(1_R)$. For any $r' \in R'$, surjectivity gives us
-$r \in R$ with $\varphi(r) = r'$, and then
-$e \cdot r' = \varphi(1_R)\varphi(r) = \varphi(1_R \cdot r) = \varphi(r) = r'$, with
-a symmetric argument on the other side. So $e$ is a two-sided multiplicative
-identity in $R'$, and by uniqueness $e = 1_{R'}$.} This matches the commutative-unital
+is the trivial map $\varphi(a) = 0'$, which sends $1_R$ to $0'$. All other
+Chapter 3 ring-homs preserve the unit, but for two different reasons: the surjective
+ones (identity, complex conjugation, quotient projection, evaluation) by a clean
+general argument, and the embeddings ($\Z \hookrightarrow \Q$, field of fractions)
+by explicit construction (they are defined to send $1 \mapsto 1$). The surjective
+case is the clean one: let $e = \varphi(1_R)$; for any $r' \in R'$, surjectivity
+gives $r \in R$ with $\varphi(r) = r'$, and then
+$e \cdot r' = \varphi(1_R)\varphi(r) = \varphi(1_R \cdot r) = \varphi(r) = r'$
+(symmetrically on the other side), so $e$ is a two-sided multiplicative identity
+in $R'$ and $e = 1_{R'}$ by uniqueness.} This matches the commutative-unital
 setting Chapter 3 settled into and keeps the categorical product story in \S4.4 clean.
 
 \begin{example}[The category $\mathbf{Set}$]
