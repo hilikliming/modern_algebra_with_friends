@@ -202,7 +202,7 @@ composition, identify each $g \in G$ with the left-multiplication map
 $L_g : G \to G$ given by $L_g(x) = gx$. Then $(L_g \circ L_h)(x) = g(hx) = (gh)x
 = L_{gh}(x)$, so $L_g \circ L_h = L_{gh}$: morphism composition matches the
 group operation in the expected order. This is essentially Cayley's Theorem from
-Chapter 2 viewed one abstraction level up. A function-realization like this
+Chapter 2 in categorical language. A function-realization like this
 isn't always available, though, as the next example will show. Part of getting
 comfortable with categories is being willing to cast whatever structures are at
 hand, even unexpected or non-function-like ones, into the roles of object,
@@ -213,9 +213,10 @@ moment when we meet monoids.
 \begin{example}[The category $\mathbf{Ring}$]
 Objects are (commutative unital) rings, with ring homomorphisms as morphisms in the
 sense of our Chapter 4 convention above. The composite of two such maps is again a
-ring homomorphism: additivity and multiplicativity follow from the corresponding
-checks for $\varphi$ and $\psi$ separately, and unit-preservation chains directly
-($\psi(\varphi(1_R)) = \psi(1_{R'}) = 1_{R''}$). Identity functions are ring
+ring homomorphism, by the same trick we used for groups applied to each of the two
+ring operations; we leave the verification to the reader as a brief exercise.
+Unit-preservation chains directly:
+$\psi(\varphi(1_R)) = \psi(1_{R'}) = 1_{R''}$. Identity functions are ring
 homomorphisms, and associativity is inherited from function composition. So
 $\mathbf{Ring}$ is a category.
 \end{example}
