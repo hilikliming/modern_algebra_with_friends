@@ -8,7 +8,7 @@
 
 \chapter{A Taste of Category Theory}
 
-\section{What Are We Doing Here?}
+\section{What Are We Doing Here?}\label{sec:ch4-intro}
 We've spent three chapters unpacking three species ($\Z$, groups, and rings), and by now
 we've probably noticed that the same tune keeps playing. Group homomorphisms and ring
 homomorphisms look eerily similar; the direct product of two groups looks eerily like the
@@ -55,9 +55,9 @@ familiar with.
 Speaking of which: \hyperref[note:ch1-gcd-teaser]{back in Chapter 1 we posed a question to
 the CT-aware reader}. Does the definition of $GCD(a,b)$ look familiar? Can you think of a
 category in which GCD \textit{is} a categorical product? We are now a few sections away from
-being able to answer that, and we will in \S4.4. First, we need categories.
+being able to answer that, and we will in \S\ref{sec:products}. First, we need categories.
 
-\section{Categories}
+\section{Categories}\label{sec:categories}
 Our main object of study is the \textit{category}. Before giving the formal
 definition, let's walk through a familiar example informally.
 
@@ -157,7 +157,7 @@ gives $r \in R$ with $\varphi(r) = r'$, and then
 $e \cdot r' = \varphi(1_R)\varphi(r) = \varphi(1_R \cdot r) = \varphi(r) = r'$
 (symmetrically on the other side), so $e$ is a two-sided multiplicative identity
 in $R'$ and $e = 1_{R'}$ by uniqueness.} This matches the commutative-unital
-setting Chapter 3 settled into and keeps the categorical product story in \S4.4 clean.
+setting Chapter 3 settled into and keeps the categorical product story in \S\ref{sec:products} clean.
 
 \begin{example}[The category $\mathbf{Set}$]
 The informal walkthrough at the start of this section was already the verification.
@@ -178,7 +178,7 @@ Lemma~\ref{lem:assoc-comp}. So $\mathbf{Grp}$ is a category.
 
 Back in Chapter 2 we said informally that a homomorphism is a map that
 \textit{splits over products}, meaning $\varphi(ab) = \varphi(a)\varphi(b)$. That
-phrase is about to become much more interesting. In \S4.4 we will meet a
+phrase is about to become much more interesting. In \S\ref{sec:products} we will meet a
 categorical notion of ``product,'' and then ``splits over products'' will turn out
 to be a literal statement about how $\varphi$ interacts with a universal property.
 For now, file the phrase away.
@@ -246,30 +246,248 @@ This is the first hint that ``category'' reaches well past ``collections of sets
 with structure and structure-preserving functions between them.''
 \end{example}
 
-% TODO Chunk 4.2c: DivPos category; monoid-as-one-object-category remark
-% (generalize the group-as-category aside above); isomorphism-in-a-general-category
-% remark (includes Magurn's two-object example per project memory); brief aside
-% handling "are rings one-object categories too?" with a pointer to enrichment
-% (Ab-enriched category) as out-of-scope; synthesis paragraph.
-% See docs/ch4_planning/ch4_outline_v3.md §4.2 bullets 7-9 and drafted asides.
+\begin{definition}[Partially Ordered Set]\label{def:poset}
+A \textit{partially ordered set}\index{Partially Ordered Set} (or
+\textit{poset}\index{Poset}) is a set $X$ equipped with a binary relation
+$\leq$ on $X$ that is:
+\begin{enumerate}[label=\roman*)]
+    \item \textit{reflexive}: $x \leq x$ for all $x \in X$;
+    \item \textit{antisymmetric}: $x \leq y$ and $y \leq x$ imply $x = y$;
+    \item \textit{transitive}: $x \leq y$ and $y \leq z$ imply $x \leq z$.
+\end{enumerate}
+Two elements $x, y \in X$ are \textit{incomparable}\index{Incomparable
+elements} if neither $x \leq y$ nor $y \leq x$.
+\end{definition}
 
-\section{Set as Home Base: Terminal and Initial Objects}
+\noindent The example $(\Z, \leq)$ above is the most familiar poset around: the
+integers under their usual order, with reflexivity, antisymmetry, and transitivity
+all standard. In fact $(\Z, \leq)$ has a stronger property: any two integers are
+comparable, making it a \textit{total order}\index{Total Order}. But the poset
+axioms are all the construction below needs. (Dropping antisymmetry from the
+three axioms instead would give the weaker notion of a
+\textit{preorder}\index{Preorder}.) More generally, every
+poset $(X, \leq)$ gives rise to a category in the same way that $(\Z, \leq)$
+did: objects are elements of $X$, and there is a unique morphism $x \to y$
+whenever $x \leq y$. Composition is the transitivity of $\leq$, identity is
+reflexivity, and associativity is free since between any two objects there is
+at most one arrow. The next example takes a less familiar poset (divisibility
+on the positive integers) and runs the same construction.
+
+\begin{example}[The category $\mathbf{DivPos}$]
+First, as a poset: take $X = \Z^+$ with $a \leq b$ defined to mean ``$a$ divides
+$b$'' (Definition~\ref{def:divides}). Reflexivity is immediate: $a \mid a$ since
+$a = 1 \cdot a$. Transitivity: if $a \mid b$ and $b \mid c$, write $b = ma$ and
+$c = nb$, so $c = (nm)a$ and $a \mid c$. Antisymmetry: if $a \mid b$ and
+$b \mid a$ on $\Z^+$, write $b = ma$ and $a = nb$, substitute to get
+$a = (nm)a$, so $nm = 1$ and hence $m = n = 1$, forcing $a = b$. (Pairs of
+positive integers where neither divides the other, like $4$ and $6$, are
+incomparable in this poset.)
+
+Now apply the poset-to-category construction above. Objects are positive
+integers; morphisms are divisibility statements; composition is transitivity;
+identities are reflexivity. So $\mathbf{DivPos}$ is a category.
+
+If the category feels strange, recall that an arrow $a \to b$ is the statement
+that $a$ divides $b$. Composing the arrow $2 \to 6$ with the arrow $6 \to 12$ is
+the statement ``$2$ divides $6$ and $6$ divides $12$, so $2$ divides $12$,''
+which is something you already knew. The category is just bookkeeping for
+divisibility.
+
+This is the category Chapter 1 was teasing back in the GCD aside, and we will
+answer the teaser fully in \S\ref{sec:products} when we meet the categorical product.
+\end{example}
+
+\begin{remark}
+The group-as-a-category trick we just saw has a wider reach. Drop the
+requirement that every arrow be invertible, and what remains of a one-object
+category is still a perfectly good category: a single object $*$, a collection
+of arrows $* \to *$, an associative composition rule, and a two-sided identity
+arrow. The structure on the arrows alone is a set with an associative binary
+operation and a two-sided identity element. Such a thing has a name in algebra:
+it is called a \textit{monoid}\index{Monoid}. So a category with exactly one object is the
+same data as a monoid, and a group is precisely a monoid in which every element
+has an inverse, equivalently, a one-object category in which every arrow is
+invertible. We will see this correspondence sharpen in \S\ref{sec:functors}, when functors
+will let us read ``monoid homomorphism'' off the categorical structure for free.
+\end{remark}
+
+\noindent A curious reader might ask: are rings one-object categories too? Almost,
+but not cleanly. Taking the elements of a ring $R$ as morphisms $* \to *$ under
+multiplication recovers the multiplicative monoid of $R$, but the additive
+structure goes missing entirely. Capturing both operations categorically needs
+the machinery of \textit{enriched categories} (specifically,
+$\mathbf{Ab}$-enriched categories, where the morphism collections themselves
+carry abelian-group structure). That is past our scope.
+
+\begin{definition}[Categorical Isomorphism]\label{def:cat-iso}
+Let $\mathcal{C}$ be a category. A morphism $f : A \to B$ in $\mathcal{C}$ is an
+\textit{isomorphism}\index{Isomorphism!Categorical}
+if there exists a morphism $g : B \to A$ such that
+$g \circ f = \mathrm{id}_A$ and $f \circ g = \mathrm{id}_B$. We say $A$ and $B$
+are \textit{isomorphic}, written $A \cong B$, if such a pair $(f, g)$ exists.
+\end{definition}
+
+\noindent (Chapters 2 and 3 wrote group and ring isomorphism as $A \approx B$;
+in this chapter we switch to $A \cong B$ to match standard category-theory
+notation. The two symbols mean the same thing in $\mathbf{Grp}$ and
+$\mathbf{Ring}$, as the reader can verify by comparing the categorical
+definition above with Definition~\ref{def:group-iso} (group isomorphism) and
+Definition~\ref{def:ring-iso} (ring isomorphism).)
+
+\begin{proposition}\label{prop:iso-equiv-cat}
+
+    In any category $\mathcal{C}$, the relation $\cong$ is an equivalence relation
+on $\mathrm{ob}(\mathcal{C})$.
+
+\noindent \textit{Proof.} \textit{Reflexivity:} $A \cong A$ via the pair
+$(\mathrm{id}_A, \mathrm{id}_A)$, since
+$\mathrm{id}_A \circ \mathrm{id}_A = \mathrm{id}_A$ by the identity axiom.
+\textit{Symmetry:} if $A \cong B$ via $(f, g)$, then $B \cong A$ via $(g, f)$,
+since the same two equations $g \circ f = \mathrm{id}_A$ and
+$f \circ g = \mathrm{id}_B$ now witness $g$ as an isomorphism with inverse $f$.
+\textit{Transitivity:} if $A \cong B$ via $(f, g)$ and $B \cong C$ via $(h, k)$,
+then $A \cong C$ via $(h \circ f, g \circ k)$. Indeed,
+\[
+    (g \circ k) \circ (h \circ f) = g \circ (k \circ h) \circ f
+    = g \circ \mathrm{id}_B \circ f = g \circ f = \mathrm{id}_A,
+\]
+and the equation $(h \circ f) \circ (g \circ k) = \mathrm{id}_C$ follows by the
+symmetric calculation. $\blacksquare$
+\end{proposition}
+
+\noindent This generalizes Chapter 2's Proposition~\ref{prop:iso-equiv-rel}, which
+proved the same thing for the special case $\mathcal{C} = \mathbf{Grp}$. The
+categorical proof is shorter and uses nothing beyond the category axioms.
+
+\noindent The definition lifts cleanly to every category we have seen, and the cash-out
+is exactly what one would hope. In $\mathbf{Set}$, an isomorphism is a bijection;
+since sets carry no structure for morphisms to preserve in the first place,
+``$A \cong B$ in $\mathbf{Set}$'' bottoms out at ``$A$ and $B$ have the same
+cardinality.'' In $\mathbf{Grp}$, it is the bijective homomorphism notion from
+Definition~\ref{def:group-iso}. In $\mathbf{Ring}$, it is the analogous bijective
+unital ring homomorphism. In $\mathbf{DivPos}$ and $(\Z, \leq)$, however, the
+notion collapses to equality. An isomorphism $a \to b$ requires arrows in both
+directions, which means $a \leq b$ and $b \leq a$ in the underlying poset, and
+antisymmetry then forces $a = b$. So in poset categories, ``isomorphic'' just
+means ``equal,'' which will matter later when we say constructions are ``unique
+up to unique isomorphism.''
+
+\begin{example}[A bijective morphism that is not an isomorphism, after Roman]
+Outside the comfort of $\mathbf{Set}$, $\mathbf{Grp}$, $\mathbf{Ring}$, and the
+like, ``bijective morphism'' and ``isomorphism'' can come apart. Roman
+\cite{roman2017introduction} gives a clean illustration. Consider the category
+whose objects are posets and whose morphisms are monotone (order-preserving)
+maps. Take the poset $P = \{a, b\}$ in which $a$ and $b$ are incomparable, and
+the poset $Q = \{0, 1\}$ with $0 < 1$. Define $f : P \to Q$ by $f(a) = 0$ and
+$f(b) = 1$.
+
+\begin{center}
+\begin{tikzpicture}[
+    point/.style={circle, fill=black, inner sep=1.5pt},
+    setblob/.style={draw=gray!60, fill=gray!12, thick},
+    scale=0.95
+]
+    % P container (horizontal ellipse)
+    \draw[setblob] (0.7, 0) ellipse (1.25 and 0.65);
+    \node[font=\itshape, anchor=north] at (0.7, -0.75) {P};
+
+    % P points
+    \node[point, label=below:{$a$}] (a) at (0,0) {};
+    \node[point, label=below:{$b$}] (b) at (1.4,0) {};
+
+    % Q container (vertical ellipse)
+    \draw[setblob] (4.5, 0.7) ellipse (0.65 and 1.25);
+    \node[font=\itshape, anchor=north] at (4.5, -0.75) {Q};
+
+    % Q points
+    \node[point, label=right:{$0$}] (q0) at (4.5,0) {};
+    \node[point, label=right:{$1$}] (q1) at (4.5,1.4) {};
+    \draw[->] (q0) -- (q1);
+
+    % f arrows
+    \draw[->, dashed] (a) to[bend right=42] node[midway, below, font=\footnotesize]{$f$} (q0);
+    \draw[->, dashed] (b) to[bend left=10] node[midway, above, font=\footnotesize]{$f$} (q1);
+\end{tikzpicture}
+\end{center}
+
+As a function, $f$ is a bijection; and since $P$ has no nontrivial order
+relations to preserve, $f$ is monotone vacuously. So $f$ is a bijective
+morphism.
+
+But $f$ is not an isomorphism. The would-be inverse $g : Q \to P$ has to send
+$0 \mapsto a$ and $1 \mapsto b$ as a function. For $g$ to be a morphism in our
+category, $g$ must itself be monotone, which requires $g(0) \leq g(1)$ in $P$,
+i.e., $a \leq b$. But $a$ and $b$ are incomparable in $P$, so $g$ is not
+monotone, hence not a morphism. The set-theoretic inverse exists; the categorical
+inverse does not.
+
+This is a good moment to look back. Chapters 2 and 3 defined isomorphism (of
+groups, of rings) as a \textit{bijective homomorphism}. Two ingredients did
+separate work there: \textit{homomorphism} carried the structure-preservation,
+and \textit{bijection} carried the undoability. The categorical definition
+folds both into a single requirement. A morphism already preserves whatever
+structure its category cares about, by design (the category itself decides
+what counts as ``structure-preserving''), so the categorical definition only
+has to add the undo: an inverse \textit{morphism}, not just an inverse function.
+In $\mathbf{Set}$, $\mathbf{Grp}$, $\mathbf{Ring}$, and similar categories the
+two formulations coincide because every set-theoretic inverse of a bijective
+morphism happens to itself be a morphism. Outside those, only the categorical
+definition captures sameness as we actually mean it. The diagram above makes it
+visually obvious that $P$ and $Q$ are not ``the same'' poset; only $Q$ has an
+order relation, and the categorical notion of isomorphism is what registers that
+distinction. The bijective-morphism notion would mislead us into calling them
+the same.
+\end{example}
+
+\begin{example}[A two-object diagram, after Magurn]
+An early example from \cite{magurn2002algebraic} gives a category that is small
+enough to draw entirely:
+% quiver source: TBD (render in q.uiver.app and update URL on next polish)
+\begin{center}
+\begin{tikzcd}[column sep=large]
+    A \arrow["\mathrm{id}_A", loop left, distance=2em] \arrow[r, bend left, "f"]
+    & B \arrow["\mathrm{id}_B", loop right, distance=2em] \arrow[l, bend left, "g"']
+\end{tikzcd}
+\end{center}
+Two objects $A, B$, two identity morphisms (drawn as loops), and two arrows
+$f : A \to B$ and $g : B \to A$. Nothing else. The composition axiom now forces
+a striking conclusion. The composite $g \circ f$ is a morphism $A \to A$, but
+the only morphism $A \to A$ in the diagram is $\mathrm{id}_A$, so
+$g \circ f = \mathrm{id}_A$. Similarly $f \circ g = \mathrm{id}_B$. So $f$ and
+$g$ are mutual inverses, and $A \cong B$ falls out of the diagram before we have
+written down a single set or function.
+
+The point: a category is specified by its objects, morphisms, and composition
+rule. ``No other arrows'' is real data, not artwork. Saying the diagram is
+complete already encodes the conclusion that $A$ and $B$ are isomorphic.
+\end{example}
+
+\noindent Five categories now sit on our worktable: $\mathbf{Set}$,
+$\mathbf{Grp}$, $\mathbf{Ring}$, $(\Z, \leq)$, and $\mathbf{DivPos}$. The first
+three repackage species we spent three chapters building. The last two are the
+first hint that ``category'' is more flexible than ``a collection of things with
+structure.'' Before we do anything ambitious, we will warm up in $\mathbf{Set}$,
+where every morphism is a function and intuition can carry as much of the
+weight as we want. $\mathbf{Set}$ is Chapter 4's home category, the way $\Z$ was
+Chapter 1's home ring-in-waiting.
+
+\section{Set as Home Base: Terminal and Initial Objects}\label{sec:set-home-base}
 % TODO: see docs/ch4_planning/ch4_outline_v3.md §4.3 (Chunks 4.3a--4.3b)
 
-\section{Products via Universal Property}
+\section{Products via Universal Property}\label{sec:products}
 % TODO: see docs/ch4_planning/ch4_outline_v3.md §4.4 (Chunks 4.4a--4.4d)
 
-\section{Coproducts and the Duality We've Been Using}
+\section{Coproducts and the Duality We've Been Using}\label{sec:coproducts}
 % TODO: see docs/ch4_planning/ch4_outline_v3.md §4.5 (Chunks 4.5a--4.5b)
 
-\section{Functors}
+\section{Functors}\label{sec:functors}
 % TODO: see docs/ch4_planning/ch4_outline_v3.md §4.6 (Chunks 4.6a--4.6c)
 
-\section{Natural Transformations}
+\section{Natural Transformations}\label{sec:nat-trans}
 % TODO: see docs/ch4_planning/ch4_outline_v3.md §4.7 (Chunks 4.7a--4.7c)
 
-\section{Limits}
+\section{Limits}\label{sec:limits}
 % TODO: see docs/ch4_planning/ch4_outline_v3.md §4.8 (Chunks 4.8a--4.8c)
 
-\section{Where to Go From Here}
+\section{Where to Go From Here}\label{sec:where-to}
 % TODO: see docs/ch4_planning/ch4_outline_v3.md §4.9 (Chunk 4.9)
