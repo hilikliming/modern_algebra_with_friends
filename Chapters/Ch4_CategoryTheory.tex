@@ -472,22 +472,61 @@ weight as we want. $\mathbf{Set}$ is Chapter 4's home category, the way $\Z$ was
 Chapter 1's home ring-in-waiting.
 
 \section{Set as Home Base: Terminal and Initial Objects}\label{sec:set-home-base}
-% TODO §4.3: see docs/ch4_planning/ch4_outline_v3.md §4.3 (Chunks 4.3a--4.3b).
-% Promises this section must deliver:
-%   - "warm up in Set before anything ambitious" (§4.2c synthesis paragraph)
-%   - terminal and initial objects in Set first (singleton, empty set)
-%   - the canonical |Hom(1,X)| = |X| peer-back (brief §4g; drafted aside 3g)
-%   - empty-function aside (drafted aside 3d)
+Our first abstract definition is an object specified by how other objects relate
+to it; we will meet two flavors, \textit{terminal} and \textit{initial}.
+
+\begin{definition}[Terminal Object]\label{def:terminal}
+An object $T$ in a category $\mathcal{C}$ is \textit{terminal}\index{Terminal
+Object}\index{Object!Terminal} if for every object $A \in
+\mathrm{ob}(\mathcal{C})$ there is exactly one morphism $A \to T$.
+\end{definition}
+
+\begin{example}[Singletons are terminal in $\mathbf{Set}$]\label{ex:singleton-terminal}
+Let $\{*\}$ be any singleton. For any set $X$, there is exactly one function
+$X \to \{*\}$, namely the constant map sending every element of $X$ to $*$. So
+$\mathrm{Hom}_{\mathbf{Set}}(X, \{*\})$ has exactly one element regardless of
+what $X$ is, and $\{*\}$ is terminal.
+\end{example}
+
+\noindent The claim that singletons are terminal sounds abstract, but it is just
+a re-dressing of an elementary fact about functions. This is a good moment to
+peer back into the weeds.
+
+Morphisms in $\mathbf{Set}$ are functions. A function from any set $X$ to a
+singleton $\{*\}$ has only one choice for where to send each element:
+everything collapses to $*$. So $|\mathrm{Hom}(X, \{*\})| = 1$, no matter what
+$X$ is. That is the definition of terminal, recovered by remembering what a
+function is.
+
+The companion fact runs the other way. A function from $\{*\}$ to a set $X$
+has to send $*$ \textit{somewhere}, and it can send it to exactly one place, so
+there are as many such functions as there are elements of $X$; that is,
+$|\mathrm{Hom}(\{*\}, X)| = |X|$. Morphisms \textit{from} the terminal object
+pick elements. We have been using this implicitly every time we wrote ``let
+$x \in X$'': picking an element of $X$ is the same data as a function
+$\{*\} \to X$.
+
+Both facts get \textit{applied} at the abstract level via the universal
+property of the terminal object. This is the move we will make over and over
+in this chapter. When an abstract claim surprises, peer back into the weeds,
+watch it cash out, then step back up and use the abstract form. The ladder is
+always there.
+
+% TODO §4.3b: see docs/ch4_planning/ch4_outline_v3.md §4.3 (Chunk 4.3b).
+% Remaining promises:
+%   - initial object definition (paired with terminal above)
+%   - empty-function aside (drafted aside 3d) for the ∅-is-initial-in-Set example
+%   - cross-category examples: Grp zero object, Z initial in Ring, DivPos
 %   - tour of poset categories illustrating all four existence patterns:
-%       (Z, leq):           neither initial nor terminal (no smallest or
-%                           largest integer)
+%       (Z, leq):           neither initial nor terminal
 %       DivPos:             1 is initial; no terminal
 %       (P(X), subseteq):   emptyset is initial; X is terminal
 %       subgroup lattice of G: {e} is initial; G is terminal
 %     The subgroup lattice entry is the Ch2 callback -- the reader has been
 %     doing category theory in Ch2 without knowing it.
+%   - uniqueness proposition + dual corollary
 %   - brief existence note: not every category has terminal/initial objects
-%   - sets up the dual story for §4.5 (coproducts)
+%   - duality preview / closing promise sentence bridging to §4.5
 
 \section{Products via Universal Property}\label{sec:products}
 % TODO §4.4: see docs/ch4_planning/ch4_outline_v3.md §4.4 (Chunks 4.4a--4.4d).
