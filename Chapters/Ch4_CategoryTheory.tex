@@ -475,9 +475,18 @@ Chapter 1's home ring-in-waiting.
 % TODO §4.3: see docs/ch4_planning/ch4_outline_v3.md §4.3 (Chunks 4.3a--4.3b).
 % Promises this section must deliver:
 %   - "warm up in Set before anything ambitious" (§4.2c synthesis paragraph)
-%   - terminal and initial objects via universal properties
+%   - terminal and initial objects in Set first (singleton, empty set)
 %   - the canonical |Hom(1,X)| = |X| peer-back (brief §4g; drafted aside 3g)
 %   - empty-function aside (drafted aside 3d)
+%   - tour of poset categories illustrating all four existence patterns:
+%       (Z, leq):           neither initial nor terminal (no smallest or
+%                           largest integer)
+%       DivPos:             1 is initial; no terminal
+%       (P(X), subseteq):   emptyset is initial; X is terminal
+%       subgroup lattice of G: {e} is initial; G is terminal
+%     The subgroup lattice entry is the Ch2 callback -- the reader has been
+%     doing category theory in Ch2 without knowing it.
+%   - brief existence note: not every category has terminal/initial objects
 %   - sets up the dual story for §4.5 (coproducts)
 
 \section{Products via Universal Property}\label{sec:products}
@@ -536,10 +545,17 @@ Chapter 1's home ring-in-waiting.
 %   - product as limit of a discrete 2-object diagram ("oh, that's what
 %     product was" moment)
 %   - coproduct as colimit (short, dual)
+%   - terminal = limit of the empty diagram; initial = colimit of the empty
+%     diagram (closes the §4.3 loop -- the simplest universal-property
+%     objects also fit the limit framework)
+%   - the diagram-shape -> universal-construction table
+%     (empty: terminal/initial; 2-discrete: product/coproduct;
+%      parallel pair: equalizer/coequalizer)
 %   - equalizer + agreement-set peer-back (drafted aside 3h)
 %   - equalizers in Grp = kernels revelation
 %   - coequalizers and quotients remark (drafted aside 3i)
 %   - "unique up to unique isomorphism" extended to general limits
+%   - brief note that not all limits/colimits exist in every category
 %   - general-limits forward-reference
 
 \section{Where to Go From Here}\label{sec:where-to}
@@ -549,4 +565,11 @@ Chapter 1's home ring-in-waiting.
 %     natural transformations + limits
 %   - labeled forward-pointers: adjoints, Yoneda, full limits/colimits,
 %     monads, exponential objects, double-dual
+%   - bicartesian closed categories (CCC + initial + finite coproducts)
+%     short paragraph: a poset BCCC = Heyting algebra = algebraic backbone
+%     of intuitionistic logic. Curry-Howard-Lambek correspondence makes
+%     types/propositions/objects, terms/proofs/morphisms precise. Soil
+%     from which HoTT, dependent type theory, and modern proof assistants
+%     (Lean, Coq) grew. Honors the Brouwer thread the chapter is friendly
+%     to without demanding the reader use any of this machinery.
 %   - closing "we named what you were already doing" aside
