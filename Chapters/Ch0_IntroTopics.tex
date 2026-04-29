@@ -177,7 +177,43 @@ true when either $P$ or $Q$ (or both) are true. \steezybreak \\
 
 \noindent It should be noted that an equivalent form of $P \Rightarrow Q$ is $\lnot P \lor Q$ (note how they have identical truth tables).
 
+\paragraph{Vacuous Truth (The Purple Motorcycle Club).}
+\phantomsection\label{para:purple-motorcycle-club}
+When $P$ is false, $P \Rightarrow Q$ is true regardless of what $Q$ is. This
+surprises most readers the first time. The intuition: ``if $P$ then $Q$"
+promises that whenever $P$ is true, $Q$ is also true; if $P$ is never true,
+the promise has no chance to be broken, and we say it is satisfied
+\textit{vacuously}\index{Vacuous Truth}. The same idea shows up under
+universal quantifiers: a statement ``$\forall x \in S,\ P(x)$" amounts to a
+conjunction of conditionals, one per $x$ (``if $x \in S$ then $P(x)$"). When
+$S$ is empty, every antecedent is false and every conditional is true by the
+rule we just discussed, so the universal holds by default with nothing to
+check.
 
+A favorite illustration of both effects (which we learned from Dr.\ Edwin
+K.\,P.\ Chong) is the \textit{Purple Motorcycle Club}. Membership has exactly
+one rule, ``all your motorcycles must be purple," and you happen to own zero
+motorcycles. Can you join?
+
+You can. Read the rule as a universal: ``$\forall m \in \text{your
+motorcycles},\ m\text{ is purple}$." Your collection is empty, so the
+universal holds vacuously. Or read it as a conditional: ``if $m$ is one of
+your motorcycles, then $m$ is purple." The antecedent is never true, so the
+conditional is never violated; it counts as true across the board. Either
+reading lands at the same conclusion: you qualify. Had the club meant to
+exclude you, they would have needed a stronger rule, something like ``you
+must own at least one motorcycle, and every motorcycle you own must be
+purple." That statement adds an existence requirement the original lacks.
+
+This pattern shows up throughout the book. The fact that
+$\emptyset \subseteq X$ for every set $X$ is a vacuous-truth statement
+(``every element of $\emptyset$ also belongs to $X$"; there are no elements
+of $\emptyset$, so the ``every" is fulfilled trivially), and the
+$\forall$- and $\rightarrow$-introduction rules in the Logic Appendix rely on
+the same structure. Whenever ``every," ``for all," or ``if\ldots then\ldots"
+meets a domain that turns out to be empty, expect the statement to come out
+true by default.
+\newpage 
 \section{Negating Logical Connectives and Quantifiers}
 This table provides a resource for negating the most common types of expressions that we will encounter in this class:
 \begin{center}
@@ -193,7 +229,7 @@ This table provides a resource for negating the most common types of expressions
 The first two rows in this table are often referred to as DeMorgan's Laws 1 \& 2 respectively (or sometimes DeMorgans ``and'' negation law and Demorgan's ``or'' negation law.) \steezybreak
 
 \noindent The reader should also take a moment to meditate on the negations of the universal and existential quantifiers. It should agree with your intuition that if we can't say \textul{all} $x$'s obey $P$, then there must exist an $x$ for which ``not $P$'' holds. Similarly if there doesn't exist a single $x$ for which $P$ holds, then forall $x$ we have ``not $P$''.
-\newpage 
+\newpage
 \section{A Word About Axioms in This Book}
 \label{sec:axioms}
 As of January 11th, 2021, Merriam-Webster defines the noun ``Axiom" as:

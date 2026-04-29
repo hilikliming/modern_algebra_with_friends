@@ -579,6 +579,19 @@ The reader should note that $c$ being \textit{arbitrary} and $x$ not appearing i
     \end{nd}\nonumber\\
     &x \text{ not in } A \nonumber
 \end{align}
+
+\paragraph{The empty-domain edge case.}
+A subtle question hovers over the universal introduction rule: what if the
+domain we are quantifying over has \textit{no} elements? Then there is no
+arbitrary $c$ to pick, and the proof move described above does not even
+start. In that case the universal $\forall x A$ holds anyway, by the
+vacuous-truth reasoning illustrated by
+\hyperref[para:purple-motorcycle-club]{the Purple Motorcycle Club back in
+Chapter~0}: an ``every"-claim with nothing to check is automatically
+satisfied. We mention this for completeness; the domains we quantify over in
+this book are never empty in practice, and ordinary $\forall I$ is the move
+the reader will actually use.
+
 \subsection{Existential Elimination Rule ($\exists E$)}
 Suppose we know $\exists x Fx$ and we know that $\forall x (Fx \rightarrow Gb)$ then you can infer $Gb$
 \begin{equation}
@@ -651,7 +664,7 @@ So the strategy for this proof will be to apply existential elimination, and ult
         \have{8} {\exists x Fx \wedge \exists x Gx} \Ee{2-7}
     \end{nd}\nonumber
 \end{equation}
-\newpage
+
 \subsection{Example practising Universal Introduction}
 Prove $\exists x Fx \rightarrow Ga \vdash \forall x(Fx\rightarrow Ga)$ \vspace{0.1in} \\
 So what is this saying? It says if there is some $x$ such that $Fx$, then it follows that $Ga$, intuitively this should imply that for every $x$ if it is $Fx$ then $Ga$, let's work our way through using universal introduction, we will show that an arbitrary name has the property so all names have it:

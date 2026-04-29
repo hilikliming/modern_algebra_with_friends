@@ -483,14 +483,51 @@ Object}\index{Object!Terminal} if for every object $A \in
 
 \begin{example}[Singletons are terminal in $\mathbf{Set}$]\label{ex:singleton-terminal}
 Let $\{*\}$ be any singleton. For any set $X$, there is exactly one function
-$X \to \{*\}$, namely the constant map sending every element of $X$ to $*$. So
+$X \to \{*\}$: every element of $X$ has only one available image, namely $*$. So
 $\mathrm{Hom}_{\mathbf{Set}}(X, \{*\})$ has exactly one element regardless of
 what $X$ is, and $\{*\}$ is terminal.
 \end{example}
 
+\begin{remark}[Two corner cases: $X = \{*\}$ and $X = \emptyset$]
+A keen reader will push on the phrase ``regardless of what $X$ is'' from
+both ends.
+
+\textbf{What if $X = \{*\}$ itself?} The terminal property still says there
+should be exactly one function $\{*\} \to \{*\}$. There is: the only
+available image for $*$ is $*$, so the only such function is the identity
+$\mathrm{id}_{\{*\}}$ that sends $*$ to itself, and it lines up exactly with
+the identity arrow the category axioms had already demanded for $\{*\}$.
+(This is general: in any category with a terminal object, the unique
+morphism from the terminal object to itself is forced to be the identity,
+since identities exist by the category axioms and terminality forbids any
+second arrow. The diagonal case is absorbed for free.)
+
+\textbf{What if $X = \emptyset$?} There are no elements of $X$ to send
+anywhere; is there really a function from $\emptyset$ to $\{*\}$ at all?
+There is, and there is exactly one. Recall what a function from $A$ to $B$
+\textit{is}: a rule assigning to every element of $A$ exactly one element of
+$B$. If $A$ has no elements, the rule has nothing to assign, and a rule with
+nothing to do is still a rule. Every requirement on the rule is satisfied
+\textit{vacuously}: total, because every element of $\emptyset$ does get an
+image (there are none, so the ``every'' is trivially fulfilled); well-defined,
+because no input gets two images; and unique, because two such rules must
+agree on every input, and there are no inputs. We call this the \textit{empty
+function}\index{Empty Function} (sometimes also the \textit{void
+function}\index{Void Function|see {Empty Function}}), and there is exactly
+one of them into any target. So $|\mathrm{Hom}_{\mathbf{Set}}(\emptyset,
+\{*\})| = 1$, and the empty case lives inside our claim. (This is the same
+flavor of vacuous truth that already let us say $\emptyset \subseteq X$ for
+every set $X$, back in
+\hyperref[para:purple-motorcycle-club]{Chapter~0}.)
+
+The empty function with target $\{*\}$ was a special case. The empty function
+with target \textit{any} set $X$ works the same way, and we will see it play
+a starring role as soon as we meet initial objects below.
+\end{remark}
+
 \noindent The claim that singletons are terminal sounds abstract, but it is just
 a re-dressing of an elementary fact about functions. This is a good moment to
-peer back into the weeds.
+peer back into the weeds at the more general level.
 
 Morphisms in $\mathbf{Set}$ are functions. A function from any set $X$ to a
 singleton $\{*\}$ has only one choice for where to send each element:
@@ -506,16 +543,58 @@ pick elements. We have been using this implicitly every time we wrote ``let
 $x \in X$'': picking an element of $X$ is the same data as a function
 $\{*\} \to X$.
 
+This is more than a counting fact, it is a back door. The arrows-only view
+treats objects as contentless dots, so an element of $X$ is no longer
+something we can point at directly. But each element $x \in X$ already
+corresponds to an arrow $\hat{x} : \{*\} \to X$ (the \textit{selection
+morphism}\index{Selection Morphism} for $x$, sending $*$ to $x$), and given
+any function $f : X \to Y$ the composite $f \circ \hat{x} : \{*\} \to Y$ is
+the selection morphism for $f(x)$. Function evaluation, with all its
+element-level detail, is recovered inside the arrows-only picture as
+precomposition with the right selection morphism. The machinery we wiped
+away by climbing the abstraction ladder is still there, reached through
+the terminal object.
+
+This is one half of a bigger idea. In categorical thinking, an object is
+known by how it interacts with every other object, by its arrows in and
+out. Probing $X$ with arrows from $\{*\}$ recovers its elements, as we
+just saw; the broader statement that probing $X$ with arrows from
+\textit{every} object recovers $X$ entirely is the \textit{Yoneda
+lemma}\index{Yoneda Lemma}, which we will not develop here but point to
+again in \S\ref{sec:where-to}. An analogy we have always liked, from a
+course Ravi Vakil taught on algebraic geometry: imagine you work at a
+particle accelerator and want to understand some mystery particle. All you
+can do is throw other particles at it and watch how it responds. If you
+know how the mystery particle responds to every possible test particle at
+every possible energy, then you know everything there is to know about the
+mystery particle. Categorical thinking studies objects the same way.
+
 Both facts get \textit{applied} at the abstract level via the universal
 property of the terminal object. This is the move we will make over and over
 in this chapter. When an abstract claim surprises, peer back into the weeds,
 watch it cash out, then step back up and use the abstract form. The ladder is
 always there.
 
-% TODO §4.3b: see docs/ch4_planning/ch4_outline_v3.md §4.3 (Chunk 4.3b).
+\noindent The dual definition reverses the arrows.
+
+\begin{definition}[Initial Object]\label{def:initial}
+An object $I$ in a category $\mathcal{C}$ is \textit{initial}\index{Initial
+Object}\index{Object!Initial} if for every object $A \in
+\mathrm{ob}(\mathcal{C})$ there is exactly one morphism $I \to A$.
+\end{definition}
+
+\begin{example}[$\emptyset$ is initial in $\mathbf{Set}$]\label{ex:empty-initial}
+The empty set is initial in $\mathbf{Set}$. For any set $X$, the unique
+function $\emptyset \to X$ is the empty function: a rule with nothing to
+assign is still a rule, satisfied vacuously, and any two such rules agree on
+every input. (We worked through this above for the special case
+$X = \{*\}$; the reasoning carries over verbatim for any target $X$.) So
+$|\mathrm{Hom}_{\mathbf{Set}}(\emptyset, X)| = 1$ for every $X$, and
+$\emptyset$ is initial.
+\end{example}
+
+% TODO §4.3 (continued): see docs/ch4_planning/ch4_outline_v3.md §4.3.
 % Remaining promises:
-%   - initial object definition (paired with terminal above)
-%   - empty-function aside (drafted aside 3d) for the ∅-is-initial-in-Set example
 %   - cross-category examples: Grp zero object, Z initial in Ring, DivPos
 %   - tour of poset categories illustrating all four existence patterns:
 %       (Z, leq):           neither initial nor terminal
