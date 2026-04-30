@@ -439,7 +439,7 @@ distinction. The bijective-morphism notion would mislead us into calling them
 the same.
 \end{example}
 
-\begin{example}[A two-object diagram, after Magurn]
+\begin{example}[A two-object diagram, after Magurn]\label{ex:magurn-two-object}
 An early example from \cite{magurn2002algebraic} gives a category that is small
 enough to draw entirely:
 % quiver source: TBD (render in q.uiver.app and update URL on next polish)
@@ -547,7 +547,9 @@ This is more than a counting fact, it is a back door. The arrows-only view
 treats objects as contentless dots, so an element of $X$ is no longer
 something we can point at directly. But each element $x \in X$ already
 corresponds to an arrow $\hat{x} : \{*\} \to X$ (the \textit{selection
-morphism}\index{Selection Morphism} for $x$, sending $*$ to $x$), and given
+morphism}\index{Selection Morphism} for $x$, sending $*$ to $x$; the
+standard CT term for such an arrow is a \textit{global
+element}\index{Global Element|see {Selection Morphism}} of $X$), and given
 any function $f : X \to Y$ the composite $f \circ \hat{x} : \{*\} \to Y$ is
 the selection morphism for $f(x)$. Function evaluation, with all its
 element-level detail, is recovered inside the arrows-only picture as
@@ -582,7 +584,7 @@ An object $I$ in a category $\mathcal{C}$ is \textit{initial}\index{Initial
 Object}\index{Object!Initial} if for every object $A \in
 \mathrm{ob}(\mathcal{C})$ there is exactly one morphism $I \to A$.
 \end{definition}
-
+f
 \begin{example}[$\emptyset$ is initial in $\mathbf{Set}$]\label{ex:empty-initial}
 The empty set is initial in $\mathbf{Set}$. For any set $X$, the unique
 function $\emptyset \to X$ is the empty function: a rule with nothing to
@@ -687,14 +689,97 @@ we drew in Chapter~2 was a category all along, and the trivial subgroup
 and the whole group were initial and terminal in it. You have been drawing
 initial- and terminal-bearing categories without ever calling them that.
 
-% TODO §4.3 (continued): see docs/ch4_planning/ch4_outline_v3.md §4.3.
-% Remaining promises:
-%   - uniqueness proposition (terminal objects are isomorphic) + 3-4 line
-%     proof; first instance of the "uniqueness up to unique iso" pattern
-%   - dual corollary (initial objects are isomorphic)
-%   - brief existence note: not every category has terminal/initial objects
-%   - duality preview / closing promise sentence bridging to §4.5
-%     (introduces the phrase "opposite category" for §4.5 to formally name)
+\noindent We close the section with two short results that say the
+terminal and initial objects we have been pointing at are unique enough
+to deserve the article ``the.''
+
+\begin{proposition}[Uniqueness of terminal objects]\label{prop:terminal-unique}
+If $T$ and $T'$ are both terminal in a category $\mathcal{C}$, then
+$T \cong T'$.
+
+\begin{center}
+% quiver source: TBD
+\begin{tikzcd}[column sep=large]
+    T \arrow["\mathrm{id}_T", loop left, distance=2em] \arrow[r, bend left, "g"]
+    & T' \arrow["\mathrm{id}_{T'}", loop right, distance=2em] \arrow[l, bend left, "f"']
+\end{tikzcd}
+\end{center}
+
+\noindent \textit{Proof.} Since $T$ is terminal, there is a unique
+morphism $f : T' \to T$. Since $T'$ is terminal, there is a unique
+morphism $g : T \to T'$. The composite $f \circ g : T \to T$ is a
+morphism, and so is $\mathrm{id}_T$ (which exists by the category
+axioms). Terminality of $T$ says there is exactly one morphism
+$T \to T$, so these two have to coincide:
+$f \circ g = \mathrm{id}_T$. The symmetric argument applied to
+$g \circ f : T' \to T'$ gives $g \circ f = \mathrm{id}_{T'}$. So $f$
+and $g$ are mutual inverses (Definition~\ref{def:cat-iso}), and
+$T \cong T'$. $\blacksquare$
+\end{proposition}
+
+\begin{corollary}[Uniqueness of initial objects]\label{cor:initial-unique}
+If $I$ and $I'$ are both initial in a category $\mathcal{C}$, then
+$I \cong I'$.
+
+\begin{center}
+% quiver source: TBD
+\begin{tikzcd}[column sep=large]
+    I \arrow["\mathrm{id}_I", loop left, distance=2em] \arrow[r, bend left, "f"]
+    & I' \arrow["\mathrm{id}_{I'}", loop right, distance=2em] \arrow[l, bend left, "g"']
+\end{tikzcd}
+\end{center}
+
+\noindent \textit{Proof.} Reverse the arrows in the proof of
+Proposition~\ref{prop:terminal-unique}. Initiality of $I$ gives a
+unique $f : I \to I'$, initiality of $I'$ gives a unique $g : I' \to I$,
+and the same uniqueness clauses (now applied to $g \circ f : I \to I$
+and $f \circ g : I' \to I'$) force $g \circ f = \mathrm{id}_I$ and
+$f \circ g = \mathrm{id}_{I'}$. So $I \cong I'$. $\blacksquare$
+\end{corollary}
+
+\noindent Three remarks before we move on.
+
+\textit{First, on existence.} Not every category has a terminal or an
+initial object: $(\Z, \leq)$ has neither, and $\mathbf{DivPos}$ has only
+the initial. Existence is a real assumption, not a free consequence of
+the category axioms. What the proposition and corollary tell us is that
+\textit{when} terminal or initial objects exist, they are unique enough
+to be referred to without ambiguity: any two are canonically the same
+object, dressed up in possibly different clothes.
+
+\textit{Second, on the pattern.} The proposition and corollary are the
+first instance of a slogan we will use repeatedly: \textit{uniqueness
+up to unique\footnote{The inner ``unique'' is doing real work. A
+structure can be unique up to isomorphism without the isomorphism
+being unique: any two cyclic groups of order $3$ are isomorphic, but
+each has two generators, giving two distinct isomorphisms between any
+pair. Terminal and initial objects sidestep this loophole because the
+universal property forces every self-map to be the identity, leaving
+no room for a second iso to slip through.}
+isomorphism}\index{Uniqueness up to Unique Isomorphism}.
+Not only is any pair of terminal (or initial) objects isomorphic, the
+isomorphism between them is itself unique, forced by the same universal
+property that characterizes the objects. The same shape of argument
+will return for products in \S\ref{sec:products}, for coproducts in
+\S\ref{sec:coproducts}, and for limits in \S\ref{sec:limits}; we will
+use the slogan as shorthand each time, having now seen it work once.
+
+\textit{Third, on duality.} Look back at the two proofs side by side.
+They are the same argument with the arrows reversed, and the diagrams
+alongside them are the same shape with $f$ and $g$ pointing opposite
+ways. (That shape is the Magurn diagram of
+Example~\ref{ex:magurn-two-object} from \S\ref{sec:categories}.) There
+the ``only one arrow $A \to A$" constraint came from the diagram being
+the whole category; here it comes from terminality (or initiality). Same
+shape, different reason. That is also a recurring
+pattern: every definition phrased in terms of arrows \textit{into} an
+object has a dual phrased in terms of arrows \textit{out of} an
+object, and every theorem about the first has a dual theorem about the
+second whose proof is the original proof with arrows reversed. We will name this arrow-reversal operation in
+\S\ref{sec:coproducts}, once we have seen it pay off on products and
+coproducts. The name is the \textit{opposite category}\index{Opposite
+Category}, and by the time we write it down formally you will already
+have been using it for several pages.
 
 \section{Products via Universal Property}\label{sec:products}
 % TODO §4.4: see docs/ch4_planning/ch4_outline_v3.md §4.4 (Chunks 4.4a--4.4d).
@@ -775,11 +860,17 @@ initial- and terminal-bearing categories without ever calling them that.
 %   - YONEDA payoff (load-bearing): §4.3 named the Yoneda lemma in the
 %     selection-morphism / Vakil-particle-accelerator paragraph and pointed
 %     here. §4.9 must follow through with a brief, voiced orientation
-%     (1-2 short paragraphs). The minimum: name Hom(-,X) as the gadget that
-%     records "X as seen by every other object," state in plain terms that
-%     X is determined up to iso by this functor (no proof), and recommend
-%     a continuation source (Awodey or Riehl). A bare name-drop is not
-%     enough since §4.3 promised more.
+%     (1-2 short paragraphs). By §4.9 functors will be in hand from §4.6,
+%     so framing Hom(-,X) as a contravariant functor is in reach. The
+%     minimum: name Hom(-,X) as the functor that records "X as seen by
+%     every other object," state in plain terms that X is determined up
+%     to iso by this functor (no proof), and recommend a continuation
+%     source (Awodey or Riehl). Sharpen the §4.3 informal slogan: strict
+%     Yoneda is about the FUNCTOR Hom(-,X), i.e., arrows together with
+%     how they compose, not the bare collection of arrows; the Vakil
+%     analogy captures the "probing" half but not the "naturality" half,
+%     and §4.9 should briefly note this. A bare name-drop is not enough
+%     since §4.3 promised more.
 %   - bicartesian closed categories (CCC + initial + finite coproducts)
 %     short paragraph: a poset BCCC = Heyting algebra = algebraic backbone
 %     of intuitionistic logic. Curry-Howard-Lambek correspondence makes
