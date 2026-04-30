@@ -593,19 +593,108 @@ $|\mathrm{Hom}_{\mathbf{Set}}(\emptyset, X)| = 1$ for every $X$, and
 $\emptyset$ is initial.
 \end{example}
 
+\noindent Now we run both definitions across the other categories on our
+worktable; the results diverge interestingly.
+
+\begin{example}[$\{e\}$ is both terminal and initial in $\mathbf{Grp}$]\label{ex:trivial-grp-zero}
+The trivial group $\{e\}$ is both terminal and initial in $\mathbf{Grp}$.
+\textit{Terminal:} the constant map $g \mapsto e$ is the unique
+homomorphism $G \to \{e\}$, and it splits over products because
+$e = e \cdot e$. \textit{Initial:} a homomorphism $\varphi : \{e\} \to H$
+has only $e$ to send, and the homomorphism axiom forces
+$\varphi(e) = \varphi(e \cdot e) = \varphi(e) \cdot \varphi(e)$, hence
+$\varphi(e) = e_H$. So $|\mathrm{Hom}_{\mathbf{Grp}}(G, \{e\})| =
+|\mathrm{Hom}_{\mathbf{Grp}}(\{e\}, H)| = 1$. An object that is both
+terminal and initial is called a \textit{zero object}\index{Zero Object};
+back in Chapter~2 we already named the trivial group as such for the
+CT-aware reader, and now we have the framework to make that claim precise.
+\end{example}
+
+\begin{example}[Initial and terminal in $\mathbf{Ring}$]\label{ex:ring-initial-terminal}
+The zero ring $\{0\}$, in which the unique element acts as both additive
+and multiplicative identity ($0 = 1$), is terminal in $\mathbf{Ring}$:
+the constant map $r \mapsto 0$ is the only ring homomorphism $R \to \{0\}$,
+and it preserves the multiplicative identity because $1_{\{0\}} = 0$.
+
+The interesting object lives on the other side: $\Z$ is initial. To see
+why, suppose $\varphi : \Z \to R$ is any unital ring homomorphism. Our
+chapter convention requires $\varphi(1) = 1_R$, and that single
+requirement forces $\varphi$ on every other integer. Watch: by additivity,
+\[
+    \varphi(2) = \varphi(1+1) = \varphi(1) + \varphi(1) = 1_R + 1_R.
+\]
+The same trick gives $\varphi(3) = \varphi(1+1+1) = 1_R + 1_R + 1_R$, and
+inductively, for every positive integer $n$,
+\[
+    \varphi(n) \; = \; \underbrace{1_R + 1_R + \cdots + 1_R}_{n \text{ copies}}
+    \; = \; n \cdot 1_R.
+\]
+For zero, $\varphi(0) = 0_R$ (additive identities go to additive
+identities); for negatives, $\varphi(-n) = -\varphi(n) = -(n \cdot 1_R)$
+(additive inverses go to additive inverses). So $\varphi$ is pinned down
+everywhere by the single forced choice $\varphi(1) = 1_R$, with nothing
+left to vary. There is exactly one ring homomorphism $\Z \to R$, and $\Z$
+is initial.
+
+To see this in flesh, take $R = \Z/6\Z$. The unique ring homomorphism
+$\Z \to \Z/6\Z$ is $\varphi(n) = [n]_6$, the residue class mod $6$. We
+do not get to choose any other map: $\varphi(1) = [1]_6$ is forced by
+the convention, and then $\varphi(2) = [1]_6 + [1]_6 = [2]_6$,
+$\varphi(3) = [3]_6$, and so on around the dial of
+$\{[0]_6, [1]_6, \ldots, [5]_6\}$. Try writing down a different
+$\varphi$: you cannot, the recipe above will reproduce $\varphi(n) =
+[n]_6$ every time.
+
+This is the categorical reason the notation ``$n \cdot r$" makes sense
+for $n \in \Z$ and $r$ in any ring: it is shorthand for
+$\varphi(n) \cdot r$, where $\varphi$ is the unique ring homomorphism
+$\Z \to R$ pinned down by $\varphi(1) = 1_R$. We have been quietly using
+the universal property of the initial object in $\mathbf{Ring}$ all
+along.
+\end{example}
+
+\noindent What about poset categories? Recall that in a poset $(P, \leq)$
+viewed as a category, there is exactly one arrow $a \to b$ when $a \leq b$
+and no arrow otherwise; the ``exactly one" clause in the definitions of
+initial and terminal collapses, in posets, to a question about $\leq$. An
+object $i$ is initial when there is an arrow $i \to a$ for every $a$,
+which means $i \leq a$ for every $a$, which is to say $i$ is the smallest
+element of $P$. Dually, $t$ is terminal when $a \leq t$ for every $a$,
+i.e.\ $t$ is the largest element. So in a poset, ``initial" means
+\textit{minimum} and ``terminal" means \textit{maximum}; a poset can have
+either, both, or neither, depending on whether such elements exist. The
+posets on our worktable cover several of these patterns at once:
+\begin{itemize}
+    \item $(\Z, \leq)$: \textit{neither.} No smallest integer (no
+    initial) and no largest (no terminal).
+    \item $\mathbf{DivPos}$: \textit{initial only.} The integer $1$
+    divides every positive integer, so there is a unique arrow $1 \to n$
+    for every $n$. But no positive integer is divisible by every other
+    ($T + 1$ exceeds $T$ and so cannot divide it), so there is no
+    terminal.
+    \item $(\mathcal{P}(X), \subseteq)$: \textit{both,} for any set $X$.
+    The empty set is initial ($\emptyset \subseteq A$ for every subset
+    $A$), and the whole set $X$ is terminal ($A \subseteq X$ for every
+    $A$).
+    \item The subgroup lattice of a group $G$: \textit{both.} Objects
+    are subgroups of $G$, arrows are inclusions
+    (Figure~\ref{fig:Subgroup_lattice} in Chapter~2). The trivial
+    subgroup $\{e\}$ is initial, and $G$ itself is terminal.
+\end{itemize}
+
+\noindent The last entry is worth a moment. The subgroup-lattice picture
+we drew in Chapter~2 was a category all along, and the trivial subgroup
+and the whole group were initial and terminal in it. You have been drawing
+initial- and terminal-bearing categories without ever calling them that.
+
 % TODO §4.3 (continued): see docs/ch4_planning/ch4_outline_v3.md §4.3.
 % Remaining promises:
-%   - cross-category examples: Grp zero object, Z initial in Ring, DivPos
-%   - tour of poset categories illustrating all four existence patterns:
-%       (Z, leq):           neither initial nor terminal
-%       DivPos:             1 is initial; no terminal
-%       (P(X), subseteq):   emptyset is initial; X is terminal
-%       subgroup lattice of G: {e} is initial; G is terminal
-%     The subgroup lattice entry is the Ch2 callback -- the reader has been
-%     doing category theory in Ch2 without knowing it.
-%   - uniqueness proposition + dual corollary
+%   - uniqueness proposition (terminal objects are isomorphic) + 3-4 line
+%     proof; first instance of the "uniqueness up to unique iso" pattern
+%   - dual corollary (initial objects are isomorphic)
 %   - brief existence note: not every category has terminal/initial objects
 %   - duality preview / closing promise sentence bridging to §4.5
+%     (introduces the phrase "opposite category" for §4.5 to formally name)
 
 \section{Products via Universal Property}\label{sec:products}
 % TODO §4.4: see docs/ch4_planning/ch4_outline_v3.md §4.4 (Chunks 4.4a--4.4d).
@@ -683,6 +772,14 @@ $\emptyset$ is initial.
 %     natural transformations + limits
 %   - labeled forward-pointers: adjoints, Yoneda, full limits/colimits,
 %     monads, exponential objects, double-dual
+%   - YONEDA payoff (load-bearing): §4.3 named the Yoneda lemma in the
+%     selection-morphism / Vakil-particle-accelerator paragraph and pointed
+%     here. §4.9 must follow through with a brief, voiced orientation
+%     (1-2 short paragraphs). The minimum: name Hom(-,X) as the gadget that
+%     records "X as seen by every other object," state in plain terms that
+%     X is determined up to iso by this functor (no proof), and recommend
+%     a continuation source (Awodey or Riehl). A bare name-drop is not
+%     enough since §4.3 promised more.
 %   - bicartesian closed categories (CCC + initial + finite coproducts)
 %     short paragraph: a poset BCCC = Heyting algebra = algebraic backbone
 %     of intuitionistic logic. Curry-Howard-Lambek correspondence makes
