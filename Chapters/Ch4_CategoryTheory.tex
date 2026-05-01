@@ -1012,6 +1012,104 @@ proofs in \S\ref{sec:set-home-base} returns essentially unchanged in
 the diagram above; it has just sprouted projections. That is the visual
 content of the argument, and it is not specific to terminal or initial
 objects, only to universal properties.
+\newpage
+\noindent We now run the Cartesian product and the direct product of
+groups through the test. Both pass. The first is a recap of the worked
+motivation above; the second is worth slowing down for, because the
+universal property does more than verify a construction we already
+had: it \textit{derives} the component-wise operation on $G \times H$
+from the demand that the projections be homomorphisms.
+
+\begin{example}[Cartesian product in $\mathbf{Set}$]\label{ex:set-product}
+The categorical product of two sets $A$ and $B$ in $\mathbf{Set}$ is the
+Cartesian product $A \times B = \{(a, b) : a \in A, b \in B\}$, with the
+projections $\pi_1, \pi_2$ reading off the first and second coordinate.
+For any candidate $(X, f, g)$, the pairing is
+\[ \langle f, g \rangle : X \to A \times B, \qquad x \mapsto (f(x),
+g(x)). \]
+The commutation conditions hold by direct calculation:
+\[ (\pi_1 \circ \langle f, g \rangle)(x) \; = \; \pi_1\bigl(\langle
+   f, g \rangle(x)\bigr) \; = \; \pi_1\bigl((f(x), g(x))\bigr) \; =
+   \; f(x), \]
+and similarly $(\pi_2 \circ \langle f, g \rangle)(x) = g(x)$.
+Uniqueness: any function $h : X \to A \times B$ satisfying
+$\pi_1 \circ h = f$ and $\pi_2 \circ h = g$ must send each $x$ to a
+pair whose coordinates are $f(x)$ and $g(x)$, which is
+$\langle f, g \rangle(x)$. So $A \times B$ passes the test.
+\end{example}
+
+\noindent The Set case was the worked motivation of
+\S\ref{sec:products} above; we have just recorded it formally. In
+$\mathbf{Grp}$ we will use the universal property to \textit{derive}
+the operation on $G \times H$ before we ever write it down, and only
+then verify the resulting object passes the test.
+
+\begin{example}[Direct product in $\mathbf{Grp}$]\label{ex:grp-product}
+Let $G$ and $H$ be groups. We are looking for an object in
+$\mathbf{Grp}$, together with two projection homomorphisms, that
+satisfies the universal property of
+Definition~\ref{def:product}.
+
+\textit{Underlying set and projections.} Every group homomorphism is
+a function, so the candidate's projections are functions in
+$\mathbf{Set}$ first. That fixes the underlying set: take it to be
+$G \times H$ (the categorical product in $\mathbf{Set}$, by
+Example~\ref{ex:set-product}), and take $\pi_1 : G \times H \to G$ and
+$\pi_2 : G \times H \to H$ to be the coordinate-reading functions.
+
+\textit{Operation, derived.} What is missing is a binary operation on
+$G \times H$ that turns $\pi_1, \pi_2$ into homomorphisms. We do not
+pick it; we read it off. Suppose $*$ is any operation on $G \times H$.
+For $\pi_1$ to be a homomorphism, we need
+\[ \pi_1\bigl((g_1, h_1) * (g_2, h_2)\bigr) \; = \; \pi_1(g_1, h_1) \,
+   \pi_1(g_2, h_2) \; = \; g_1 g_2, \]
+so the first coordinate of $(g_1, h_1) * (g_2, h_2)$ is forced to be
+$g_1 g_2$. Symmetrically, $\pi_2$ being a homomorphism forces the
+second coordinate to be $h_1 h_2$. A pair is determined by its
+coordinates, so
+\[ (g_1, h_1) * (g_2, h_2) \; = \; (g_1 g_2, h_1 h_2). \]
+The operation is component-wise. We did not invent it; the
+projection-homomorphism conditions left no other choice.
+
+\textit{Group axioms.} That $*$ makes $G \times H$ into a group is a
+quick check: closure, associativity, identity $(e_G, e_H)$, and inverses
+$(g^{-1}, h^{-1})$ all inherit component-wise from $G$ and $H$. So
+$(G \times H, *)$ is a group, an object of $\mathbf{Grp}$, which is the
+whole point of the axiom check.
+
+\textit{Universal property.} For any candidate $(X, \varphi, \psi)$
+with $\varphi : X \to G$ and $\psi : X \to H$ group homomorphisms, the
+pairing is
+\[ \langle \varphi, \psi \rangle : X \to G \times H, \qquad x \mapsto
+(\varphi(x), \psi(x)). \]
+This is itself a homomorphism: for any $x, y \in X$,
+\begin{align*}
+\langle \varphi, \psi \rangle (xy)
+   & = (\varphi(xy), \psi(xy))
+     = (\varphi(x) \varphi(y), \psi(x) \psi(y)) \\
+   & = (\varphi(x), \psi(x))(\varphi(y), \psi(y))
+     = \langle \varphi, \psi \rangle(x) \, \langle \varphi, \psi
+\rangle(y),
+\end{align*}
+where the second equality uses that $\varphi, \psi$ are themselves
+homomorphisms, and the third uses the just-derived component-wise
+operation on $G \times H$. Commutation and uniqueness follow exactly
+as in $\mathbf{Set}$, since the underlying functions are the same.
+So $G \times H$ passes the test, and the direct product of groups is
+the categorical product in $\mathbf{Grp}$.
+\end{example}
+
+\noindent Two things worth saying out loud. First, the lift over
+Chapter~2: there we wrote down the component-wise operation by hand
+and verified the group axioms; here the same operation was
+\textit{forced} by requiring the projections to be homomorphisms. The
+categorical view converted a construction we had to invent into one
+we read off. Second, the \S\ref{sec:categories} phrase ``splits over
+products'' (where we said $g \mapsto e_H$ splits over products because
+$e_H = e_H \cdot e_H$) is the homomorphism property, and we just used
+it twice: once to derive the operation on $G \times H$ from the
+projections, and once to verify $\langle \varphi, \psi \rangle$ is
+itself a homomorphism.
 
 \section{Coproducts and the Duality We've Been Using}\label{sec:coproducts}
 % TODO §4.5: see docs/ch4_planning/ch4_outline_v3.md §4.5 (Chunks 4.5a--4.5b).
