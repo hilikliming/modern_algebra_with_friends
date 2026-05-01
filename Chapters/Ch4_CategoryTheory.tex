@@ -584,7 +584,7 @@ An object $I$ in a category $\mathcal{C}$ is \textit{initial}\index{Initial
 Object}\index{Object!Initial} if for every object $A \in
 \mathrm{ob}(\mathcal{C})$ there is exactly one morphism $I \to A$.
 \end{definition}
-f
+
 \begin{example}[$\emptyset$ is initial in $\mathbf{Set}$]\label{ex:empty-initial}
 The empty set is initial in $\mathbf{Set}$. For any set $X$, the unique
 function $\emptyset \to X$ is the empty function: a rule with nothing to
@@ -716,7 +716,7 @@ $g \circ f : T' \to T'$ gives $g \circ f = \mathrm{id}_{T'}$. So $f$
 and $g$ are mutual inverses (Definition~\ref{def:cat-iso}), and
 $T \cong T'$. $\blacksquare$
 \end{proposition}
-
+\newpage
 \begin{corollary}[Uniqueness of initial objects]\label{cor:initial-unique}
 If $I$ and $I'$ are both initial in a category $\mathcal{C}$, then
 $I \cong I'$.
@@ -793,6 +793,225 @@ have been using it for several pages.
 %   - "unique up to unique isomorphism" language for the categorical product
 %     (§4.2c iso cash-out flagged this for here, §4.5, and §4.8)
 %   - GCD in DivPos as the non-Cartesian product example (brief §4b)
+
+This is the heart of the chapter. We have used products without ceremony
+before, the Cartesian product of sets in Chapter~1 and the direct product of
+groups in Chapter~2; we are about to discover what they really are. The
+answer is surprisingly indirect. The product of $A$ and $B$ is not ``the
+object made of pairs.'' The pairs are bookkeeping. The product is the
+\textit{best} object that has arrows into $A$ and into $B$, the one through
+which every other such object factors uniquely. Once we make that precise,
+the Cartesian product, the direct product of groups, the GCD in the divides
+poset, and the direct product of rings all turn out to be products in their
+respective categories, with the ring case constructed via the universal
+property instead of via component-wise operation tables.
+
+\noindent We approach the definition the way we did terminal objects: look
+hard at one example, write down what really makes it work, then promote
+that to a general definition. The example is the Cartesian product in
+$\mathbf{Set}$. Take sets $A$ and $B$. The Cartesian product $A \times B =
+\{(a, b) : a \in A, b \in B\}$ ships with two functions, the
+\textit{projections}\index{Projection (of a Product)}
+\[ \pi_1 : A \times B \to A, \; (a, b) \mapsto a, \qquad \pi_2 : A \times B
+\to B, \; (a, b) \mapsto b. \]
+So $A \times B$ comes packaged as an object with one arrow into $A$ and one
+arrow into $B$. We want to characterize it purely in terms of that data.
+
+\noindent Plenty of objects have arrows into $A$ and into $B$. Any set $X$
+together with any pair of functions $f : X \to A$ and $g : X \to B$ has the
+right shape; let us call any such triple $(X, f, g)$ a
+\textit{candidate}\index{Candidate (for a Product)} for the product of $A$
+and $B$. The Cartesian product, with its projections, is one candidate. So
+is the empty set with the empty functions, and so is any singleton $\{*\}$
+with the two constant functions to chosen elements of $A$ and $B$.
+Candidates are cheap, and most of them are uninformative. We promised the
+Cartesian product is the \textit{best} of these candidates. We owe two
+things: a precise meaning for ``best,'' and a check that $A \times B$
+satisfies it.
+
+\noindent Here is what \textit{best} means: \textit{every candidate
+factors through $A \times B$, in exactly one way.} And here is what
+makes $A \times B$ satisfy it. Take any candidate $(X, f, g)$. There is a
+unique function $h : X \to A \times B$ with
+\[ \pi_1 \circ h \; = \; f \qquad \text{and} \qquad \pi_2 \circ h \; = \;
+g, \]
+namely $h(x) = (f(x), g(x))$. No other choice works: the value $h(x)$ is
+a pair, and the two projection equations force its coordinates to be
+$f(x)$ and $g(x)$. So whatever the candidate $X$ was doing, mapping into
+$A$ via $f$ and into $B$ via $g$, the Cartesian product reproduces those
+maps as $h$ followed by the projections; the candidate has been
+\textit{replaced} by $A \times B$, canonically, with no choice involved.
+\textit{That} is the way in which $A \times B$ is the best candidate:
+among all the objects with arrows into $A$ and into $B$, it is the
+unique one that every other factors through, with the mediating arrow
+forced.\footnote{We will use \textit{forced} and \textit{unique}
+interchangeably from here on: a morphism is \textit{forced} when the
+conditions defining it admit exactly one solution. The two are different
+verbal angles on the same uniqueness clause.}
+
+\noindent Notice what that description does not mention: pairs. We have
+characterized $A \times B$ purely in terms of objects, arrows out (the two
+projections), candidates, and a unique mediating arrow. Arrows are the
+only language a category speaks. So we promote the description to a
+definition and let it apply in every category. One shift to flag: in
+$\mathbf{Set}$, the uniqueness of $h$ \textit{followed} from the
+projection equations and the structure of pairs; in a general category
+there are no pairs to peel apart, so the unique-mediator clause becomes
+part of the definition rather than a consequence of one.
+
+\begin{definition}[Categorical Product]\label{def:product}
+Let $A$ and $B$ be objects in a category $\mathcal{C}$. A
+\textit{product}\index{Product (Categorical)}\index{Categorical
+Product|see {Product (Categorical)}} of $A$ and $B$ is an object
+$P \in \mathrm{ob}(\mathcal{C})$ together with two morphisms
+$\pi_1 : P \to A$ and $\pi_2 : P \to B$, called the
+\textit{projections}, with the following \textit{universal
+property}\index{Universal Property!of a Product}: for every object $X$ and
+every pair of morphisms $f : X \to A$ and $g : X \to B$, there exists a
+unique morphism $\langle f, g \rangle : X \to P$ with
+\[ \pi_1 \circ \langle f, g \rangle \; = \; f, \qquad
+   \pi_2 \circ \langle f, g \rangle \; = \; g. \]
+The morphism $\langle f, g \rangle$ is called the
+\textit{pairing}\index{Pairing of Morphisms} of $f$ and $g$.
+
+\begin{center}
+% quiver source: TBD
+\begin{tikzcd}[row sep=large, column sep=large]
+& X \arrow[dl, "f"', bend right=15]
+   \arrow[dr, "g", bend left=15]
+   \arrow[d, dashed, "{\langle f, g \rangle}"]
+\\
+A & P \arrow[l, "\pi_1"] \arrow[r, "\pi_2"'] & B
+\end{tikzcd}
+\end{center}
+
+\noindent When such a $(P, \pi_1, \pi_2)$ exists for the pair $A, B$ in
+$\mathcal{C}$, we abuse notation slightly and write $P = A \times B$,
+suppressing the projections from the symbol when they are clear from
+context.
+\end{definition}
+
+\noindent The picture is the definition. Any candidate $(X, f, g)$ goes on
+top with its arrows into $A$ and into $B$; the alleged product $P$ sits
+below with its projections; and the universal property is the assertion
+that the dashed arrow $\langle f, g \rangle$ both exists and is forced.
+We \textit{dash} mediating arrows like this throughout the chapter to
+flag uniqueness at a glance: a dashed arrow in a universal-property
+diagram means ``this morphism exists, and it is the only one making the
+diagram commute.'' Solid arrows are data we already had; the dashed arrow
+is the one the universal property requires of any candidate that hopes
+to pass the test.
+
+\noindent A word about that phrase, since it will keep returning. A
+\textit{diagram commutes}\index{Commuting Diagram}\index{Diagram!commuting}
+when every pair of paths through it with the same start and end compose
+to the same morphism. In the product diagram, there are two paths from
+$X$ to $A$: the solid arrow $f$ directly, and the composite $\pi_1 \circ
+\langle f, g \rangle$ that goes via $P$. Commuting forces these to be the
+same morphism, which is the equation $\pi_1 \circ \langle f, g \rangle =
+f$. The second equation, $\pi_2 \circ \langle f, g \rangle = g$, comes
+the same way from the two paths to $B$. So the commutation conditions
+written into the boxed definition are exactly what ``making the diagram
+commute'' spells out for this picture. The idea generalizes: asking any
+diagram to commute is asking that no choice of route between two objects
+matters.
+
+\noindent A word about the pairing $\langle f, g \rangle$. An object
+$(P, \pi_1, \pi_2)$ deserves the name ``product of $A$ and $B$''
+precisely when, for every candidate $(X, f, g)$, the pairing exists
+and is unique. In $\mathbf{Set}$ the formula is $x \mapsto (f(x),
+g(x))$; in a general category no formula need exist, and calculations
+proceed through the two commutation equations $\pi_1 \circ \langle f,
+g \rangle = f$ and $\pi_2 \circ \langle f, g \rangle = g$.
+
+\noindent The universal property is a \textit{test}, not a
+constructor. It plays the same role as the four group axioms in
+Chapter~2: when someone hands you a set with a binary operation and
+claims it is a group, you have four conditions to demand they verify.
+The universal property is just that kind of demand for products.
+Nothing said so far promises that any particular category $\mathcal{C}$
+contains a product of $A$ and $B$; to know $\mathcal{C}$ has products
+of $A$ and $B$ we exhibit a candidate and verify the test passes. The
+next several pages do that for $\mathbf{Set}$, $\mathbf{Grp}$,
+$\mathbf{DivPos}$, and $\mathbf{Ring}$. What the universal property
+gives us after a verification is the rest: results about products that
+hold no matter how a particular product was built. The next
+proposition is the first.
+
+The definition begins ``a product \textit{is},'' not ``\textit{the}
+product is,'' because nothing in the universal property forbids two
+different objects from both being products of the same pair $A, B$. The
+next proposition says they cannot really be different: any two products
+of $A$ and $B$ are canonically isomorphic. This is the same shape of
+argument that gave us Proposition~\ref{prop:terminal-unique} and its dual
+Corollary~\ref{cor:initial-unique}; the slogan
+\textit{uniqueness up to unique isomorphism} returns, doing a second job,
+and from now on we will use it as shorthand whenever a universal property
+pins an object down.
+
+\begin{proposition}[Uniqueness of products]\label{prop:product-unique}
+Let $A$ and $B$ be objects in a category $\mathcal{C}$, and suppose
+$(P, \pi_1, \pi_2)$ and $(P', \pi'_1, \pi'_2)$ are both products of $A$
+and $B$. Then there is a unique isomorphism $u : P' \to P$ in
+$\mathcal{C}$ with $\pi_1 \circ u = \pi'_1$ and
+$\pi_2 \circ u = \pi'_2$. In particular, $P' \cong P$.
+
+\begin{center}
+% quiver source: TBD
+\begin{tikzcd}[row sep=large, column sep=normal]
+& P \arrow["\mathrm{id}_P", loop above, distance=2em]
+   \arrow[dl, "\pi_1"']
+   \arrow[dr, "\pi_2"]
+   \arrow[dd, shift left=0.7ex, "v"]
+\\
+A & & B
+\\
+& P' \arrow["\mathrm{id}_{P'}", loop below, distance=2em]
+     \arrow[uu, shift left=0.7ex, "u"]
+     \arrow[ul, "\pi'_1"]
+     \arrow[ur, "\pi'_2"']
+\end{tikzcd}
+\end{center}
+
+\noindent \textit{Proof.} Apply the universal property of $P$ to the pair
+$\pi'_1 : P' \to A$ and $\pi'_2 : P' \to B$: it produces a unique morphism
+$u : P' \to P$ with $\pi_1 \circ u = \pi'_1$ and $\pi_2 \circ u = \pi'_2$.
+Symmetrically, the universal property of $P'$ applied to
+$\pi_1 : P \to A$ and $\pi_2 : P \to B$ produces a unique morphism
+$v : P \to P'$ with $\pi'_1 \circ v = \pi_1$ and $\pi'_2 \circ v = \pi_2$.
+
+Compose. The morphism $u \circ v : P \to P$ satisfies
+\[ \pi_1 \circ (u \circ v) \; = \; (\pi_1 \circ u) \circ v \; = \;
+   \pi'_1 \circ v \; = \; \pi_1, \]
+and likewise $\pi_2 \circ (u \circ v) = \pi_2$. So $u \circ v$ is a
+morphism $P \to P$ that commutes with the projections of $P$. The
+identity $\mathrm{id}_P$ is also such a morphism, trivially. The
+universal property of $P$, applied to its own projections, says there
+is exactly one morphism $P \to P$ commuting with them; therefore
+$u \circ v = \mathrm{id}_P$. Symmetrically,
+$v \circ u = \mathrm{id}_{P'}$. So $u$ and $v$ are mutual inverses
+(Definition~\ref{def:cat-iso}), and $P' \cong P$ via $u$.
+
+The isomorphism $u$ is itself unique: any morphism $u' : P' \to P$
+satisfying $\pi_1 \circ u' = \pi'_1$ and $\pi_2 \circ u' = \pi'_2$ must
+equal $u$ by the same universal property of $P$ that produced $u$ in
+the first place. $\blacksquare$
+\end{proposition}
+
+\noindent The slogan \textit{uniqueness up to unique
+isomorphism}\index{Uniqueness up to Unique Isomorphism}, named in
+\S\ref{sec:set-home-base} for terminal and initial objects, has now
+done its second job. The pattern, which will return again in
+\S\ref{sec:coproducts} for coproducts and in \S\ref{sec:limits} for
+general limits, is: build comparison morphisms in both directions using
+each universal property in turn; compose them; observe that the
+composites are forced to be identities by the same universal property
+that built the comparisons. The
+identities-loop-with-mediating-arrows shape from the uniqueness
+proofs in \S\ref{sec:set-home-base} returns essentially unchanged in
+the diagram above; it has just sprouted projections. That is the visual
+content of the argument, and it is not specific to terminal or initial
+objects, only to universal properties.
 
 \section{Coproducts and the Duality We've Been Using}\label{sec:coproducts}
 % TODO §4.5: see docs/ch4_planning/ch4_outline_v3.md §4.5 (Chunks 4.5a--4.5b).
