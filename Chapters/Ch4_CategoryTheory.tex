@@ -857,7 +857,7 @@ definition and let it apply in every category. One shift to flag: in
 $\mathbf{Set}$, the uniqueness of $h$ \textit{followed} from the
 projection equations and the structure of pairs; in a general category
 there are no pairs to peel apart, so the unique-mediator clause becomes
-part of the definition rather than a consequence of one.
+part of the definition.
 
 \begin{definition}[Categorical Product]\label{def:product}
 Let $A$ and $B$ be objects in a category $\mathcal{C}$. A
@@ -916,13 +916,11 @@ commute'' spells out for this picture. The idea generalizes: asking any
 diagram to commute is asking that no choice of route between two objects
 matters.
 
-\noindent A word about the pairing $\langle f, g \rangle$. An object
-$(P, \pi_1, \pi_2)$ deserves the name ``product of $A$ and $B$''
-precisely when, for every candidate $(X, f, g)$, the pairing exists
-and is unique. In $\mathbf{Set}$ the formula is $x \mapsto (f(x),
-g(x))$; in a general category no formula need exist, and calculations
-proceed through the two commutation equations $\pi_1 \circ \langle f,
-g \rangle = f$ and $\pi_2 \circ \langle f, g \rangle = g$.
+\noindent A word about the pairing $\langle f, g \rangle$ itself. In
+$\mathbf{Set}$ the formula is $x \mapsto (f(x), g(x))$; in a general
+category no formula need exist, and calculations proceed through the
+two commutation equations $\pi_1 \circ \langle f, g \rangle = f$ and
+$\pi_2 \circ \langle f, g \rangle = g$.
 
 \noindent The universal property is a \textit{test}, not a
 constructor. It plays the same role as the four group axioms in
@@ -1094,9 +1092,11 @@ This is itself a homomorphism: for any $x, y \in X$,
 where the second equality uses that $\varphi, \psi$ are themselves
 homomorphisms, and the third uses the just-derived component-wise
 operation on $G \times H$. Commutation and uniqueness follow exactly
-as in $\mathbf{Set}$, since the underlying functions are the same.
-So $G \times H$ passes the test, and the direct product of groups is
-the categorical product in $\mathbf{Grp}$.
+as in $\mathbf{Set}$: the underlying function of $\langle \varphi, \psi
+\rangle$ is the Set pairing of $\varphi$ and $\psi$, so the
+calculations from Example~\ref{ex:set-product} transfer. So $G \times
+H$ passes the test, and the direct product of groups is the
+categorical product in $\mathbf{Grp}$.
 \end{example}
 
 \noindent Two things worth saying out loud. First, the lift over
@@ -1111,11 +1111,86 @@ it twice: once to derive the operation on $G \times H$ from the
 projections, and once to verify $\langle \varphi, \psi \rangle$ is
 itself a homomorphism.
 
+\noindent The next example moves us into a category whose arrows are
+not functions: the divides poset. Here the categorical product comes
+out as something the integer-multiplication intuition would not have
+guessed.
+
+\begin{example}[$\gcd$ as the categorical product in $\mathbf{DivPos}$]\label{ex:divpos-product}
+Recall $\mathbf{DivPos}$ from \S\ref{sec:categories}: the objects are
+positive integers, and there is an arrow $m \to n$ exactly when $m$
+divides $n$, with composition by transitivity of divisibility. Take a
+concrete pair, $A = 12$ and $B = 18$. We will show the categorical
+product of $12$ and $18$ in this category is the integer $6$. Not
+$216$. Not the pair $(12, 18)$. The number $6$.
+
+\textit{What a candidate is.} A candidate $(X, f, g)$ here is a
+positive integer $X$ together with arrows $f : X \to 12$ and
+$g : X \to 18$. In $\mathbf{DivPos}$ those arrows are divisibility
+statements: $X | 12$ and $X | 18$. So a candidate is exactly a
+\textit{common divisor} of $12$ and $18$. The candidates are
+$1, 2, 3$, and $6$.
+
+\textit{What being best means.} The best candidate is one $P$ such
+that every candidate $X$ has a unique arrow into $P$. In
+$\mathbf{DivPos}$, an arrow $X \to P$ is the statement $X | P$. So
+the best candidate $P$ is one with the property that \textit{every
+common divisor of $12$ and $18$ (i.e.\ every candidate) divides
+$P$}.
+
+\textit{Searching for the best.} We have only four candidates to
+compare. Is $P = 1$ the best? No: $2$ is a candidate, but
+$2 \nmid 1$. Is $P = 2$? No: $3 \nmid 2$. Is $P = 3$? No:
+$2 \nmid 3$. Is $P = 6$? Check the four candidates: $1 | 6$,
+$2 | 6$, $3 | 6$, $6 | 6$. Every candidate divides $6$, so $6$ is
+the best candidate. Uniqueness of the mediating arrow $X \to 6$ is
+free, since between any two objects in a poset there is at most one
+arrow.
+
+\textit{That is the gcd.} The integer $6$ is the categorical product
+of $12$ and $18$ in $\mathbf{DivPos}$. And $6$ is precisely
+$\gcd(12, 18)$. The same search applied to any two positive integers
+$m$ and $n$ lands on $\gcd(m, n)$ for the same reason: the gcd is
+the common divisor that every other common divisor divides into.
+\end{example}
+
+\noindent Two things to draw out. First, the answer is not what
+ordinary integer multiplication would suggest: $12 \cdot 18 = 216$,
+but the categorical product in $\mathbf{DivPos}$ is
+$\gcd(12, 18) = 6$. The arrows in a category determine what the
+product is; change the category, change the answer. What looked in
+$\mathbf{Set}$ and $\mathbf{Grp}$ like ``a pair'' is in
+$\mathbf{DivPos}$ a single number, because the arrows in
+$\mathbf{DivPos}$ are divisibility statements rather than functions
+on coordinates.
+
+Second, this is the cash-out of \hyperref[note:ch1-gcd-teaser]{the
+Chapter~1 teaser}, where we asked CT-aware readers whether the
+definition of $\gcd$ looked categorically familiar. The Chapter~1
+definition of $\gcd(a, b)$ has two clauses:
+\begin{enumerate}[label=(\roman*)]
+    \item $c | a$ and $c | b$ (\textit{common});
+    \item if $d | a$ and $d | b$, then $d | c$ (\textit{greatest}).
+\end{enumerate}
+These line up with the universal property of the categorical product
+on the nose. Clause (i) makes $c$ a \textit{candidate} for the
+product of $a$ and $b$ in $\mathbf{DivPos}$: the two arrows
+$c \to a$ and $c \to b$ are exactly the divisibility statements
+$c | a$ and $c | b$. Clause (ii) makes $c$ the \textit{best}
+candidate, which is to say $c$ exhibits the universal property: for
+every other candidate $d$, that is, for every common divisor $d$ of
+$a$ and $b$, the required mediating arrow $d \to c$ is the
+divisibility $d | c$, which is exactly what clause (ii) asserts.
+Uniqueness of the mediating arrow is free, since between any two
+objects in a poset there is at most one arrow. The structure was
+there all along; we just did not have the framework to name it.
+
 \section{Coproducts and the Duality We've Been Using}\label{sec:coproducts}
 % TODO §4.5: see docs/ch4_planning/ch4_outline_v3.md §4.5 (Chunks 4.5a--4.5b).
 % Promises this section must deliver:
 %   - coproducts as the dual of products (cashes in the §4.3 duality preview)
-%   - LCM in DivPos as coproduct (dual of GCD-as-product from §4.4)
+%   - LCM in DivPos as coproduct (dual of GCD-as-product from §4.4) don't give 
+%     it away until it pops out we want LCM to be kind of a surprise
 %   - disjoint union in Set, free product in Grp (name-only ok),
 %     ring coproduct as tensor (mention-only ok)
 %   - "unique up to unique isomorphism" extended to coproducts
