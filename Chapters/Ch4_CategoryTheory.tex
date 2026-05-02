@@ -1185,6 +1185,107 @@ Uniqueness of the mediating arrow is free, since between any two
 objects in a poset there is at most one arrow. The structure was
 there all along; we just did not have the framework to name it.
 
+\noindent In $\mathbf{Set}$ and $\mathbf{Grp}$ we verified pre-existing
+constructions. $\mathbf{Ring}$ is different: Chapter~3 never defined
+the direct product of two rings. We let the universal property
+determine what one has to be.
+
+\begin{example}[Direct product in $\mathbf{Ring}$]\label{ex:ring-product}
+Let $R$ and $S$ be (commutative unital) rings. We are looking for an
+object in $\mathbf{Ring}$, together with two projection ring
+homomorphisms, that satisfies the universal property of
+Definition~\ref{def:product}. We build almost nothing by hand: one
+educated guess at the underlying set, and the universal property
+forces every remaining choice.
+
+\textit{Underlying set and projections.} A ring homomorphism is a
+function with extra structure-respecting conditions, so the
+candidate's projections are functions to $R$ and $S$. We try the
+natural choice\footnote{Once functors arrive in
+\S\ref{sec:functors}, the guess becomes a derivation: the forgetful
+functor $\mathbf{Ring} \to \mathbf{Set}$ takes products to products,
+so the underlying set of any categorical product of $R$ and $S$ in
+$\mathbf{Ring}$ is forced to be $R \times S$. We do not need that
+machinery here; the educated guess is enough, since the universal
+property will certify it after the fact.} for the underlying set,
+the Cartesian product $R \times S$, with $\pi_R : R \times S \to R$
+and $\pi_S : R \times S \to S$ the coordinate-reading functions. The
+work ahead is to equip $R \times S$ with the operations and unit
+that turn these two functions into ring homomorphisms; if we
+succeed, we will have a candidate in $\mathbf{Ring}$ to test against
+the universal property.
+
+\textit{Operations and unit, derived.} For $\pi_R$ and $\pi_S$ to be
+ring homomorphisms, $R \times S$ has to come with an addition, a
+multiplication, and a unit. Each is forced by the projections.
+
+Addition: $\pi_R$ is required to respect addition (the first equality
+below) and is the coordinate-reading function (the second equality):
+\[ \pi_R\bigl((r_1, s_1) + (r_2, s_2)\bigr) \; = \; \pi_R(r_1, s_1) +
+   \pi_R(r_2, s_2) \; = \; r_1 + r_2. \]
+So whatever pair $(r_1, s_1) + (r_2, s_2)$ turns out to be, its first
+coordinate (which is what $\pi_R$ extracts) must be $r_1 + r_2$. The
+symmetric argument with $\pi_S$ forces the second coordinate to be
+$s_1 + s_2$. So
+\[ (r_1, s_1) + (r_2, s_2) \; = \; (r_1 + r_2, s_1 + s_2), \]
+where the $+$ on the right is $R$'s addition on the first coordinate
+and $S$'s addition on the second.
+
+Multiplication: the same chain with $\cdot$ in place of $+$ forces
+\[ (r_1, s_1)(r_2, s_2) \; = \; (r_1 r_2, s_1 s_2), \]
+with $R$'s multiplication on the first coordinate and $S$'s on the
+second.
+
+Unit: unitality of $\pi_R$ and $\pi_S$ requires that whatever
+$1_{R \times S}$ turns out to be, it must project to $1_R$ via
+$\pi_R$ and to $1_S$ via $\pi_S$. The only pair with those
+projections is $(1_R, 1_S)$. So $1_{R \times S} = (1_R, 1_S)$.
+
+\textit{$R \times S$ is a ring.} With $+$, $\cdot$, and unit
+$(1_R, 1_S)$ as just derived, associativity and commutativity of $+$
+and $\cdot$, distributivity, the additive identity $(0_R, 0_S)$, and
+additive inverses $(-r, -s)$ all inherit component-wise from $R$ and
+$S$.\footnote{More precisely: each ring axiom is a universal
+equation in $+$, $\cdot$, $0$, $1$, and inverses (for instance,
+distributivity reads $\forall a, b, c : a(b + c) = ab + ac$). With
+component-wise operations, both sides of such an equation evaluate
+coordinate-by-coordinate on pairs in $R \times S$, and two pairs are
+equal iff their coordinates match. So the equation holds in
+$R \times S$ iff it holds in $R$ and in $S$ separately. The axioms
+hold in $R$ and $S$ by hypothesis, so they hold in $R \times S$.}
+So $R \times S$ is a (commutative unital) ring.
+
+\textit{The projections are ring homomorphisms.} By construction: the
+operations and unit on $R \times S$ were derived precisely so that
+$\pi_R$ and $\pi_S$ respect addition, multiplication, and the unit.
+So $(R \times S, \pi_R, \pi_S)$ is a candidate in $\mathbf{Ring}$.
+
+\textit{It is the best candidate.} For any candidate
+$(X, \varphi, \psi)$ with $\varphi : X \to R$ and $\psi : X \to S$
+ring homomorphisms, the pairing is
+\[ \langle \varphi, \psi \rangle : X \to R \times S, \qquad
+x \mapsto (\varphi(x), \psi(x)). \]
+This is itself a ring homomorphism: addition and multiplication are
+preserved by the same component-wise calculation as in
+Example~\ref{ex:grp-product}, and the unit-preservation
+$\langle \varphi, \psi \rangle(1_X) = (\varphi(1_X), \psi(1_X)) =
+(1_R, 1_S) = 1_{R \times S}$ is a one-line additional check.
+Commutation and uniqueness follow exactly as in $\mathbf{Grp}$,
+since the underlying functions are the same. So $R \times S$ passes
+the test, and the direct product of rings is the categorical product
+in $\mathbf{Ring}$.
+\end{example}
+
+\noindent We never wrote the operations on $R \times S$ as a separate
+definition. We never verified associativity, distributivity, or the
+unit element by element. With one educated guess at the underlying
+set, the projection-being-a-ring-hom condition forced the addition,
+the multiplication, and the unit; the ring axioms inherited from
+$R$ and $S$ for free; and the universal property certified the
+result. Chapter~3 left the direct product of rings out, and now we
+know why: the natural place to define it was here, where the
+categorical setup does almost all the work.
+
 \section{Coproducts and the Duality We've Been Using}\label{sec:coproducts}
 % TODO §4.5: see docs/ch4_planning/ch4_outline_v3.md §4.5 (Chunks 4.5a--4.5b).
 % Promises this section must deliver:
