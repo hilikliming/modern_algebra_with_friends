@@ -936,7 +936,7 @@ gives us after a verification is the rest: results about products that
 hold no matter how a particular product was built. The next
 proposition is the first.
 
-The definition begins ``a product \textit{is},'' not ``\textit{the}
+The definition begins ``\textit{a} product is,'' not ``\textit{the}
 product is,'' because nothing in the universal property forbids two
 different objects from both being products of the same pair $A, B$. The
 next proposition says they cannot really be different: any two products
@@ -1154,18 +1154,18 @@ $m$ and $n$ lands on $\gcd(m, n)$ for the same reason: the gcd is
 the common divisor that every other common divisor divides into.
 \end{example}
 
-\noindent Two things to draw out. First, the answer is not what
-ordinary integer multiplication would suggest: $12 \cdot 18 = 216$,
-but the categorical product in $\mathbf{DivPos}$ is
-$\gcd(12, 18) = 6$. The arrows in a category determine what the
-product is; change the category, change the answer. What looked in
-$\mathbf{Set}$ and $\mathbf{Grp}$ like ``a pair'' is in
-$\mathbf{DivPos}$ a single number, because the arrows in
-$\mathbf{DivPos}$ are divisibility statements rather than functions
-on coordinates.
+\noindent The answer is not what ordinary integer multiplication
+would suggest: $12 \cdot 18 = 216$, but the categorical product in
+$\mathbf{DivPos}$ is $\gcd(12, 18) = 6$. The arrows in a category
+determine what the product is; change the category, change the
+answer. What looked in $\mathbf{Set}$ and $\mathbf{Grp}$ like ``a
+pair'' is in $\mathbf{DivPos}$ a single number, because the arrows
+in $\mathbf{DivPos}$ are divisibility statements rather than
+functions on coordinates.
 
-Second, this is the cash-out of \hyperref[note:ch1-gcd-teaser]{the
-Chapter~1 teaser}, where we asked CT-aware readers whether the
+\noindent This example also cashes out
+\hyperref[note:ch1-gcd-teaser]{the Chapter~1 teaser}, where we
+asked CT-aware readers whether the
 definition of $\gcd$ looked categorically familiar. The Chapter~1
 definition of $\gcd(a, b)$ has two clauses:
 \begin{enumerate}[label=(\roman*)]
@@ -1185,10 +1185,58 @@ Uniqueness of the mediating arrow is free, since between any two
 objects in a poset there is at most one arrow. The structure was
 there all along; we just did not have the framework to name it.
 
-\noindent In $\mathbf{Set}$ and $\mathbf{Grp}$ we verified pre-existing
-constructions. $\mathbf{Ring}$ is different: Chapter~3 never defined
-the direct product of two rings. We let the universal property
-determine what one has to be.
+\begin{example}[Intersection as the categorical product in $(\mathcal{P}(S), \subseteq)$]\label{ex:powset-product}
+Fix a set $S$, and let $\mathcal{P}(S)$ denote the powerset of $S$
+ordered by inclusion: objects are subsets of $S$, and there is an
+arrow $A \to B$ exactly when $A \subseteq B$. Reflexivity of
+inclusion gives identity arrows, transitivity gives composition,
+and associativity is immediate; we leave it to the reader to
+confirm that $(\mathcal{P}(S), \subseteq)$ is a category. Take any
+two subsets $A, B \subseteq S$. What is their categorical product
+in $\mathcal{P}(S)$?
+
+\textit{What a candidate is.} A candidate $(X, f, g)$ here is a
+subset $X \subseteq S$ together with arrows $f : X \to A$ and
+$g : X \to B$. In $\mathcal{P}(S)$ those arrows are inclusion
+statements: $X \subseteq A$ and $X \subseteq B$. So a candidate
+is exactly a \textit{common subset} of $A$ and $B$.
+
+\textit{What being best means.} The best candidate is one $P$
+such that every candidate $X$ has a unique arrow into $P$. In
+$\mathcal{P}(S)$ an arrow $X \to P$ is the statement
+$X \subseteq P$, and uniqueness of such an arrow is free since
+between any two objects in a poset there is at most one. So the
+best candidate $P$ is itself a common subset of $A$ and $B$ and
+contains every other common subset. That is to say, $P$ is the
+largest common subset of $A$ and $B$.
+
+\textit{An object we know.} The largest common subset of $A$ and
+$B$ has a name we already know: the intersection $A \cap B$. By
+definition $A \cap B \subseteq A$ and $A \cap B \subseteq B$, so
+it is itself a common subset; and any common subset $X$ (i.e.,
+any subset with $X \subseteq A$ and $X \subseteq B$) satisfies
+$X \subseteq A \cap B$ by the same definition, so $A \cap B$
+contains every other common subset.
+
+\textit{That is the intersection.} The categorical product of any
+two subsets $A, B$ in $\mathcal{P}(S)$ is the intersection
+$A \cap B$.
+\end{example}
+
+\noindent The two poset examples line up. In $\mathbf{DivPos}$ the
+categorical product is the gcd; in $\mathcal{P}(S)$ it is the
+intersection. The pattern is general: in any poset viewed as a
+category, the categorical product of two objects, when it exists,
+is their \textit{meet}\index{Meet (Poset)}: the largest object
+below both. Coproducts dualize, and we will see in
+\S\ref{sec:coproducts} that they land on
+\textit{joins}\index{Join (Poset)}: smallest objects above both.
+
+\noindent In each of the four prior examples we landed on a
+construction we already knew about: Cartesian product, direct
+product of groups, gcd, intersection of subsets. $\mathbf{Ring}$
+is different: Chapter~3 never defined the direct product of two
+rings. We let the universal property determine what one has to be.
 
 \begin{example}[Direct product in $\mathbf{Ring}$]\label{ex:ring-product}
 Let $R$ and $S$ be (commutative unital) rings. We are looking for an
@@ -1297,6 +1345,176 @@ categorical setup does almost all the work.
 %   - "unique up to unique isomorphism" extended to coproducts
 %   - opposite-category definition (cashing in §4.3's duality promise)
 %   - duality cheat-sheet box (per outline)
+% TODO §4.5b reminder: deliver Pow(S) coproduct as warm-up exercise (promised by §4.4 synthesis)
+
+\noindent The arrow-reversal we have been doing by hand since
+\S\ref{sec:set-home-base} now gets a name. The proofs of
+Proposition~\ref{prop:terminal-unique} and
+Corollary~\ref{cor:initial-unique} were the same argument read
+with arrows reversed, and Proposition~\ref{prop:product-unique}
+ran that logic again. So when we now write the definition down,
+the reader has been using it for several pages already.
+
+\begin{definition}[Opposite Category]\label{def:opposite-category}
+Let $\mathcal{C}$ be a category. The
+\textit{opposite category}\index{Opposite Category}
+$\mathcal{C}^{\mathrm{op}}$ has the same objects as
+$\mathcal{C}$, with morphism sets reversed:
+\[ \mathrm{Hom}_{\mathcal{C}^{\mathrm{op}}}(A, B) \; = \;
+   \mathrm{Hom}_{\mathcal{C}}(B, A). \]
+A morphism $f : A \to B$ in $\mathcal{C}^{\mathrm{op}}$ is the
+same data as a morphism $f : B \to A$ in $\mathcal{C}$.
+Composition is reversed accordingly: if $f : A \to B$ and
+$g : B \to D$ are morphisms in $\mathcal{C}^{\mathrm{op}}$, their
+composite $g \circ f : A \to D$ in $\mathcal{C}^{\mathrm{op}}$ is
+the morphism $f \circ g : D \to A$ of $\mathcal{C}$. Identities of
+$\mathcal{C}$ remain identities, and associativity in
+$\mathcal{C}^{\mathrm{op}}$ follows from associativity in
+$\mathcal{C}$. So $\mathcal{C}^{\mathrm{op}}$ is a category, and
+$(\mathcal{C}^{\mathrm{op}})^{\mathrm{op}} = \mathcal{C}$.
+\end{definition}
+
+\noindent A careful reader who remembers the definition of a
+function might pause here when considering
+$\mathbf{Set}^{\mathrm{op}}$. If $f : A \to B$ is not surjective,
+wouldn't the opposite morphism no longer be a function? A
+function is total on its source, but $f$ has no rule for sending
+arbitrary elements of $B$ back to $A$. The resolution is that
+morphisms in any category are, by definition, simply elements of
+hom-sets; they need not be functions in the traditional sense.
+Passing to $\mathcal{C}^{\mathrm{op}}$ preserves a morphism's
+underlying data, but not its type.\\
+
+\noindent To make this concrete, recall
+\hyperref[note:mapping-as-relation]{the relational view of
+mappings from Chapter~1}: a function $A \to B$ is a binary
+relation $R \subseteq A \times B$ that is right-unique (each $a$
+has at most one paired $b$) and left-total (each $a$ has at
+least one paired $b$); together these say every $a$ has exactly
+one $b$, the function condition. The same data, viewed as a
+morphism $B \to A$ in $\mathbf{Set}^{\mathrm{op}}$, is the
+converse relation
+$R^{\mathrm{op}} = \{(b, a) : (a, b) \in R\} \subseteq B \times A$,
+which is left-unique (each $a$ has at most one paired $b$) and
+right-total (each $a$ has at least one paired $b$); together
+these say every $a$ has exactly one $b$. The condition reads
+the same as the function condition, but now $a$ sits on the
+target side of the morphism rather than the source side: each
+target has exactly one source, not each source has exactly one
+target. The relation is no less concrete than a function; it is
+simply not a function from $B$ to $A$, and no contradiction with
+a non-surjective $f$ arises, since the data is not being asked
+to operate on elements in reverse. The same story plays out for
+any opposite category: morphisms remain elements of hom-sets,
+their type may shift, their data carries over, and the result
+is again a category. The puzzle, once answered here, does not
+need to be re-posed each time a new $\mathcal{C}^{\mathrm{op}}$
+appears.\\
+
+\noindent Why introduce $\mathcal{C}^{\mathrm{op}}$ at all?
+Because a definition phrased entirely in arrows and compositions,
+like the universal property in Definition~\ref{def:product}, can
+be read in either $\mathcal{C}$ or $\mathcal{C}^{\mathrm{op}}$,
+and the two readings generally pick out different objects of
+$\mathcal{C}$. The product of $A$ and $B$ in $\mathcal{C}$ is
+one. The product of $A$ and $B$ in $\mathcal{C}^{\mathrm{op}}$
+(same universal property, with arrows pointing the other way and
+compositions in reverse order) is a different object of
+$\mathcal{C}$, deserving its own name; we present it next.
+\newpage
+
+\begin{definition}[Categorical Coproduct]\label{def:coproduct}
+Let $A$ and $B$ be objects in a category $\mathcal{C}$. A
+\textit{coproduct}\index{Coproduct (Categorical)}\index{Categorical
+Coproduct|see {Coproduct (Categorical)}}\footnote{The prefix
+``co-'' in \textit{coproduct} signals what it almost always
+signals in category theory: a dual notion, the original concept
+read in $\mathcal{C}^{\mathrm{op}}$. The same convention runs
+through \textit{limit}/\textit{colimit},
+\textit{kernel}/\textit{cokernel},
+\textit{equalizer}/\textit{coequalizer},
+\textit{cycle}/\textit{cocycle} (in cohomology), and even
+\textit{domain}/\textit{codomain}: the codomain of $f : A \to B$
+in $\mathcal{C}$ is the domain of $f$ viewed as a morphism in
+$\mathcal{C}^{\mathrm{op}}$. The convention is not universal:
+\textit{coset} in group theory was coined by G.~A.~Miller in
+1910, decades before category theory existed, and the ``co-''
+there has an older sense unrelated to duality. But within CT
+vocabulary, ``co-X'' reliably means ``X in the opposite
+category.''} of $A$ and $B$ in $\mathcal{C}$ is a categorical
+product (Definition~\ref{def:product}) of $A$ and $B$ in
+$\mathcal{C}^{\mathrm{op}}$. Spelled out as a statement about
+$\mathcal{C}$ directly: a coproduct is an object
+$C \in \mathrm{ob}(\mathcal{C})$ together with two morphisms
+$\iota_1 : A \to C$ and $\iota_2 : B \to C$, called the
+\textit{injections}\index{Injection (of a Coproduct)}, with the
+following \textit{universal property}\index{Universal
+Property!of a Coproduct}: for every object $X$ and every pair of
+morphisms $f : A \to X$ and $g : B \to X$, there exists a unique
+morphism $[f, g] : C \to X$ with
+\[ [f, g] \circ \iota_1 \; = \; f, \qquad
+   [f, g] \circ \iota_2 \; = \; g. \]
+The morphism $[f, g]$ is called the
+\textit{copairing}\index{Copairing of Morphisms} of $f$ and $g$.
+
+\begin{center}
+% quiver source: TBD
+\begin{tikzcd}[row sep=large, column sep=large]
+A \arrow[r, "\iota_1"] \arrow[dr, "f"', bend right=15] & C
+   \arrow[d, dashed, "{[f, g]}"] & B \arrow[l, "\iota_2"']
+   \arrow[dl, "g", bend left=15]
+\\
+& X &
+\end{tikzcd}
+\end{center}
+
+\noindent When such a $(C, \iota_1, \iota_2)$ exists for the
+pair $A, B$ in $\mathcal{C}$, we abuse notation slightly and
+write $C = A + B$ (also $A \sqcup B$ in some sources),
+suppressing the injections from the symbol when they are clear
+from context.
+\end{definition}
+
+\noindent The dashed-arrow and test-not-constructor conventions
+of \S\ref{sec:products} carry over verbatim. Knowing
+$\mathcal{C}$ has a coproduct of $A$ and $B$ requires exhibiting
+a candidate and verifying it passes the test; the next several
+pages run a few categories through that.
+
+\begin{proposition}[Uniqueness of coproducts]\label{prop:coproduct-unique}
+Let $A$ and $B$ be objects in a category $\mathcal{C}$, and
+suppose $(C, \iota_1, \iota_2)$ and $(C', \iota'_1, \iota'_2)$
+are both coproducts of $A$ and $B$. Then there is a unique
+isomorphism $u : C \to C'$ in $\mathcal{C}$ with
+$u \circ \iota_1 = \iota'_1$ and $u \circ \iota_2 = \iota'_2$.
+In particular, $C \cong C'$.
+
+\begin{center}
+% quiver source: TBD
+\begin{tikzcd}[row sep=large, column sep=normal]
+& C \arrow["\mathrm{id}_C", loop above, distance=2em]
+   \arrow[dd, shift left=0.7ex, "u"]
+\\
+A \arrow[ur, "\iota_1"] \arrow[dr, "\iota'_1"'] & &
+B \arrow[ul, "\iota_2"'] \arrow[dl, "\iota'_2"]
+\\
+& C' \arrow["\mathrm{id}_{C'}", loop below, distance=2em]
+     \arrow[uu, shift left=0.7ex, "v"]
+\end{tikzcd}
+\end{center}
+
+\noindent \textit{Proof.} Read the proof of
+Proposition~\ref{prop:product-unique} in
+$\mathcal{C}^{\mathrm{op}}$: replace $\pi_i$ with $\iota_i$,
+reverse every composition, and the same argument produces the
+unique iso $u : C \to C'$. $\blacksquare$
+\end{proposition}
+
+\noindent The slogan \textit{uniqueness up to unique
+isomorphism} has now done its third job. The diagram is the
+\S\ref{sec:products} uniqueness picture flipped, with injections
+replacing projections; the proof is the same argument read in
+$\mathcal{C}^{\mathrm{op}}$. We turn to examples.
 
 \section{Functors}\label{sec:functors}
 % TODO §4.6: see docs/ch4_planning/ch4_outline_v3.md §4.6 (Chunks 4.6a--4.6c).
