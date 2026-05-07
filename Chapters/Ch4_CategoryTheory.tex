@@ -1515,6 +1515,206 @@ isomorphism} has now done its third job. The diagram is the
 \S\ref{sec:products} uniqueness picture flipped, with injections
 replacing projections; the proof is the same argument read in
 $\mathcal{C}^{\mathrm{op}}$. We turn to examples.
+\newpage 
+
+\noindent A warm-up first. \S\ref{sec:products} promised the
+coproduct of two subsets in the powerset poset. With the
+coproduct framework now in place, the reader is invited to
+dualize Example~\ref{ex:powset-product} (intersection as the
+product in $\mathcal{P}(S)$) and identify the corresponding
+coproduct. A spoiler note: the duality cheat-sheet at the end
+of this section gives the answer away, so we encourage you to 
+give this exercise a whirl before flipping ahead to the next 
+page.
+
+\begin{example}[Disjoint union in $\mathbf{Set}$]\label{ex:set-coproduct}
+Let $A$ and $B$ be sets. Their \textit{disjoint
+union}\index{Disjoint Union} (sometimes called the 
+\textit{discriminated union}\index{Discriminated Union} or 
+\textit{tagged union}\index{Tagged Union}) is
+$A \sqcup B = (A \times \{0\}) \cup (B \times \{1\})$, the set
+obtained by tagging each element with its origin. The
+injections are
+\[ \iota_1 : A \to A \sqcup B, \; a \mapsto (a, 0), \qquad
+   \iota_2 : B \to A \sqcup B, \; b \mapsto (b, 1). \]
+
+\textit{What a candidate is.} A candidate $(X, f, g)$ here is a
+set $X$ together with arrows $f : A \to X$ and $g : B \to X$.
+
+\textit{The copairing, by case-split.} For any candidate, the
+copairing is forced. The values
+\[ [f, g](a, 0) \; = \; f(a), \qquad [f, g](b, 1) \; = \; g(b) \]
+are required by the commutation conditions
+$[f, g] \circ \iota_1 = f$ and $[f, g] \circ \iota_2 = g$. They
+specify $[f, g]$ on every element of $A \sqcup B$, since each
+element is uniquely tagged: there is no element appearing as
+both $(a, 0)$ and $(b, 1)$, so the case-split has no overlap.
+That makes $[f, g]$ a well-defined function and the unique one
+satisfying the commutation conditions.
+
+\textit{That is the disjoint union.} The categorical coproduct
+of two sets $A$ and $B$ in $\mathbf{Set}$ is the disjoint union
+$A \sqcup B$.
+\end{example}
+
+\noindent A function out of $A \sqcup B$ is the same data as a
+pair of functions, one out of each summand. This is the
+\textit{case-split} pattern from functional programming: a
+single function on a tagged-union type is given by a clause for
+each tag. The categorical coproduct in $\mathbf{Set}$ makes
+that case-split structure formal.
+
+\noindent We move to a category whose arrows are not functions,
+the divides poset, and run the same kind of search.
+
+\begin{example}[Coproduct in $\mathbf{DivPos}$]\label{ex:divpos-coproduct}
+Take the same pair as in Example~\ref{ex:divpos-product}:
+$A = 12$ and $B = 18$. We will identify their categorical
+coproduct in $\mathbf{DivPos}$.
+
+\textit{What a candidate is.} A candidate $(X, f, g)$ here is a
+positive integer $X$ together with arrows $f : 12 \to X$ and
+$g : 18 \to X$. In $\mathbf{DivPos}$ those arrows are
+divisibility statements: $12 | X$ and $18 | X$. So a candidate
+is exactly a \textit{common multiple} of $12$ and $18$.
+
+\textit{What being best means.} The best candidate is one $C$
+such that every candidate $X$ has a unique arrow $C \to X$,
+equivalently $C | X$. So the best candidate $C$ is itself a
+common multiple of $12$ and $18$ and divides every other
+common multiple. Uniqueness of the mediating arrow is free,
+since between any two objects in a poset there is at most one
+arrow.
+
+\textit{Searching for the best.} The candidates begin
+$36, 72, 108, 144, \ldots$, the common multiples of $12$ and
+$18$. Is $C = 72$ the best? No: $36$ is a candidate, but
+$72 \nmid 36$. Is $C = 108$? No: $108 \nmid 36$. Is $C = 36$?
+Check the candidates: $36 | 36$, $36 | 72$, $36 | 108$,
+$36 | 144$. The pattern continues: every common multiple of
+$12 = 2^2 \cdot 3$ and $18 = 2 \cdot 3^2$ must be divisible by
+$2^2 \cdot 3^2 = 36$. So $36$ is the best candidate.
+
+\textit{That is the lcm.} The integer $36$ is the categorical
+coproduct of $12$ and $18$ in $\mathbf{DivPos}$. And $36$ is
+precisely $\mathrm{lcm}(12, 18)$.
+\end{example}
+
+\noindent The same exercise applied to any two positive
+integers $m$ and $n$ lands on $\mathrm{lcm}(m, n)$. The standard
+definition of $\mathrm{lcm}(m, n)$ has two clauses:
+\begin{enumerate}[label=(\roman*)]
+    \item $m | c$ and $n | c$ (\textit{common multiple});
+    \item if $m | d$ and $n | d$, then $c | d$ (\textit{least}).
+\end{enumerate}
+These line up with the universal property of the categorical
+coproduct on the nose. Clause (i) makes $c$ a
+\textit{candidate} for the coproduct of $m$ and $n$ in
+$\mathbf{DivPos}$: the two arrows $m \to c$ and $n \to c$ are
+exactly the divisibility statements $m | c$ and $n | c$.
+Clause (ii) makes $c$ the \textit{best} candidate: for every
+other candidate $d$, the required mediating arrow $c \to d$ is
+the divisibility $c | d$, which is exactly what clause (ii)
+asserts. The dual of the gcd-as-product story, reading off the
+same poset with arrows reversed.
+
+\noindent The meet/join slogan from \S\ref{sec:products} has
+now cashed in $\mathbf{DivPos}$: the categorical product is the
+meet (the gcd, largest common divisor) and the categorical
+coproduct is the join (the lcm, smallest common multiple).
+
+\noindent An arithmetic surprise: the abstract definition of
+categorical coproduct mentions no arithmetic and no
+divisibility, yet running the test in $\mathbf{DivPos}$ lands
+on lcm. That is the kind of unification the categorical
+language is built for.
+
+\noindent The next category is one whose coproduct construction
+takes substantive work to set up properly, in contrast to the
+examples so far.
+
+\begin{example}[Free product in $\mathbf{Grp}$]\label{ex:grp-coproduct}
+The categorical coproduct of two groups $G$ and $H$ in
+$\mathbf{Grp}$ is the \textit{free
+product}\index{Free Product} $G * H$, whose elements are
+reduced words in the alphabet $G \sqcup H$.
+
+\textit{Words and reduction.} A \textit{word} is a finite
+sequence of letters from
+$(G \setminus \{e_G\}) \sqcup (H \setminus \{e_H\})$. A word is
+\textit{reduced} if no two consecutive letters come from the
+same group; otherwise, two adjacent letters from the same group
+are combined via that group's operation, and the result is
+dropped from the word if it equals the identity. Every word has
+a unique reduced form.
+
+\textit{The operation.} Multiplication of two reduced words is
+concatenation followed by reduction. The identity is the empty
+word $\varepsilon$. The inverse of $a_1 a_2 \cdots a_n$ is
+$a_n^{-1} a_{n-1}^{-1} \cdots a_1^{-1}$, with each letter
+inverted in its respective group.
+
+\textit{The injections.} $\iota_1 : G \to G * H$ and
+$\iota_2 : H \to G * H$ send each non-identity element to its
+singleton word and the identity to $\varepsilon$.
+
+\textit{What is hard.} That $G * H$ is a group is true but
+nontrivial. Closure under the operation is direct from the
+reduction algorithm and the empty word is plainly an identity;
+the inverse formula above composes correctly with a small but
+nontrivial calculation; associativity is the worst, and the
+standard proof appeals to a normal-form theorem to avoid
+bracket-tracking. A careful treatment lives in any
+introductory text on combinatorial or geometric group theory.
+
+\textit{Contrast with the product.} The categorical product of
+$G$ and $H$ in $\mathbf{Grp}$ was the direct product
+$G \times H$ of pairs (Example~\ref{ex:grp-product}); the
+coproduct is the free product $G * H$ of words. They genuinely
+differ in $\mathbf{Grp}$, and quantitatively so: while
+$G \times H$ is finite whenever $G$ and $H$ are, $G * H$ is
+infinite as soon as both $G$ and $H$ are nontrivial. Take any
+$g \in G \setminus \{e_G\}$ and $h \in H \setminus \{e_H\}$;
+the alternating words $g, gh, ghg, ghgh, \ldots$ are reduced
+(no two consecutive letters come from the same group) and so
+are all distinct. Even $\mathbb{Z}/2 * \mathbb{Z}/2$, built
+from the smallest nontrivial group on each side, has infinitely
+many elements.
+\end{example}
+
+\begin{example}[Tensor product in $\mathbf{Ring}$]\label{ex:ring-coproduct}
+The categorical coproduct of two commutative unital rings $R$
+and $S$ in $\mathbf{Ring}$ is the \textit{tensor
+product}\index{Tensor Product} $R \otimes_{\mathbb{Z}} S$, with
+injections $r \mapsto r \otimes 1$ and
+$s \mapsto 1 \otimes s$. The construction is delicate to set
+up properly; a treatment can be found in any standard
+commutative algebra reference.
+\end{example}
+
+\begin{remark}[Duality cheat-sheet]\label{rem:duality-cheat-sheet}
+\begin{center}
+\begin{tabular}{lll}
+\hline
+\textit{Category} & \textit{Product} & \textit{Coproduct} \\
+\hline
+$\mathbf{Set}$ & Cartesian product $A \times B$ & disjoint union $A \sqcup B$ \\
+$\mathbf{Grp}$ & direct product $G \times H$ & free product $G * H$ \\
+$\mathbf{Ring}$ & direct product $R \times S$ & tensor product $R \otimes_{\mathbb{Z}} S$ \\
+$\mathbf{DivPos}$ & $\gcd(m, n)$ & $\mathrm{lcm}(m, n)$ \\
+$(\mathcal{P}(S), \subseteq)$ & intersection $A \cap B$ & union $A \cup B$ \\
+poset (general) & meet ($\wedge$) & join ($\vee$) \\
+\hline
+\end{tabular}
+\end{center}
+\end{remark}
+
+\noindent The slogan from \S\ref{sec:set-home-base} has run all
+the way through: terminal/initial, product/coproduct,
+gcd/lcm, intersection/union. We have a formal handle for it in
+the opposite category, and the diagram of every theorem on one
+side has its mirror on the other. Functors, the morphisms
+between categories, are next.
 
 \section{Functors}\label{sec:functors}
 % TODO §4.6: see docs/ch4_planning/ch4_outline_v3.md §4.6 (Chunks 4.6a--4.6c).
@@ -1589,4 +1789,12 @@ $\mathcal{C}^{\mathrm{op}}$. We turn to examples.
 %     from which HoTT, dependent type theory, and modern proof assistants
 %     (Lean, Coq) grew. Honors the Brouwer thread the chapter is friendly
 %     to without demanding the reader use any of this machinery.
+%   - lattice/logic notation overlap pointer: the meet/join symbols
+%     ($\wedge$, $\vee$) introduced in the §4.5 duality cheat-sheet are
+%     literally the AND/OR symbols of the logic appendix. This is not a
+%     coincidence: propositional logic is a Boolean algebra, which is a
+%     particular flavor of lattice; AND = meet and OR = join in that
+%     lattice. Worth a sentence or two pointing the reader at lattice
+%     theory / Boolean algebras / Heyting algebras as a unified
+%     algebraic-and-logical story (overlaps with the BCCC bullet above).
 %   - closing "we named what you were already doing" aside
