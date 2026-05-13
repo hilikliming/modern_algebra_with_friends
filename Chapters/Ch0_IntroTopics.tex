@@ -694,6 +694,13 @@ In the last sentence of the \textit{induction step}, we said ``lastly, we note t
 
 \section{Why Induction Works: A Rigorous Justification}
 \label{sec:WhyInductionWorks}
+
+\begin{selfcheckbox}{0.12}{sec:ChongInduction}
+  \hypertarget{q:ch0:whyinduction:1}{Q1.} \textit{[T/F]} The informal ``$\ldots$'' in the chain $P(N), P(N+1), P(N+2), \ldots$ implicitly appeals to induction itself, so it cannot serve as the justification for induction. \sclink{a:ch0:whyinduction:1}{answer}\par\smallskip
+  \hypertarget{q:ch0:whyinduction:2}{Q2.} \textit{[T/F]} The contrapositive-style argument in this section shows that if the base case and induction step both hold, then there cannot exist a smallest $k \geq N$ for which $P(k)$ fails. \sclink{a:ch0:whyinduction:2}{answer}\par\smallskip
+  \hypertarget{q:ch0:whyinduction:3}{Q3.} \textit{Produce.} The section's argument denies the existence of a ``first $k$'' for which $P$ fails. Why is denying the existence of a \emph{first} failure enough to conclude $P$ holds for every $n \geq N$? \sclink{a:ch0:whyinduction:3}{answer}
+\end{selfcheckbox}
+
 % Mathematical induction is often introduced through analogy and intuition—such as
 % falling dominoes or climbing an infinite ladder. While these images are helpful,
 % they hide the logical machinery that makes induction a valid method of proof.
@@ -840,7 +847,11 @@ property. But, then again, the second condition implies that the number $3$ poss
 \hypertarget{a:ch0:induction:3}{Q3.} T. That is the structure of the induction step. \sclink{q:ch0:induction:3}{back}\par\smallskip
 \hypertarget{a:ch0:induction:4}{Q4.} The section uses $n = 1$ as the base case. There the statement says $\sum_{k=1}^1 k = 1 = \tfrac{1 \cdot (1+1)}{2} = 1$, which holds by inspection. \sclink{q:ch0:induction:4}{back}\par\smallskip
 
-% Section answer blocks land here as quizzes are added (Tasks 4-14).
+\subsection*{\S\ref{sec:WhyInductionWorks} Why Induction Works}
+\hypertarget{a:ch0:whyinduction:1}{Q1.} T. The ``$\ldots$'' silently invokes the very induction we are trying to validate; that is the circular reasoning this section warns about. \sclink{q:ch0:whyinduction:1}{back}\par\smallskip
+\hypertarget{a:ch0:whyinduction:2}{Q2.} T. That is the structure of the section's proof: from the base case and induction step, no first failure can exist. \sclink{q:ch0:whyinduction:2}{back}\par\smallskip
+\hypertarget{a:ch0:whyinduction:3}{Q3.} If $P$ failed at any $n$, there would have to be a smallest such $n$, because any non-empty collection of natural numbers starting at $N$ has a smallest member (this is a property of how the natural numbers are ordered). So ruling out ``there is a smallest failure'' rules out ``there is any failure'' at all; the failure set is empty, and $P$ holds for every $n \geq N$. \sclink{q:ch0:whyinduction:3}{back}\par\smallskip
+
 
 %% EVEN MORE EXPLAINING %%
 % There are many work-arounds to see that this Theorem is obviously false. Two of these approaches include: 
