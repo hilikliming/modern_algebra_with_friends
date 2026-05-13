@@ -634,6 +634,14 @@ In this example\footnote{ A reader who is familiar with intuitionistic logic may
 
 \section{Proof by Induction Example}
 \label{sec:InductionExample}
+
+\begin{selfcheckbox}{0.10}{sec:InductionPitfall}
+  \hypertarget{q:ch0:induction:1}{Q1.} \textit{[T/F]} An induction proof has two parts: a base case and an induction step. \sclink{a:ch0:induction:1}{answer}\par\smallskip
+  \hypertarget{q:ch0:induction:2}{Q2.} \textit{[T/F]} The base case of an induction proof must always be $n = 0$. \sclink{a:ch0:induction:2}{answer}\par\smallskip
+  \hypertarget{q:ch0:induction:3}{Q3.} \textit{[T/F]} In the induction step, we assume the statement holds for some $n \geq N$ and show it holds for $n + 1$. \sclink{a:ch0:induction:3}{answer}\par\smallskip
+  \hypertarget{q:ch0:induction:4}{Q4.} \textit{Produce.} In the induction proof of $\sum_{k=1}^n k = \tfrac{n(n+1)}{2}$ given in this section, what is the base case used, and what does the statement say there? \sclink{a:ch0:induction:4}{answer}
+\end{selfcheckbox}
+
 Mathematical induction is a technique of proof that is essentially used to prove that a statement $P(n)$ holds for \textit{every} natural number $n = 0, 1, 2, 3, ...$ ; that is, the overall statement is a sequence of infinitely many cases $P(0), \ P(1), \ P(2), \ P(3), \ ...$ \\
 \noindent A proof by induction consists of two cases. The first, the base case (or basis), proves the statement for $n = 0$ without assuming any knowledge of other cases. The second case, the induction step, proves that if the statement holds for any given case $n\geq 0$, then it must also hold for the next case $n + 1$. These two steps establish that the statement holds for every natural number $n$. The base case does not necessarily begin with $n = 0$, but often with $n = 1$, and possibly with any fixed natural number $n = N$, establishing the truth of the statement for all natural numbers $n \geq N$. Now we will give an example of this approach of proof in order to prove the following fact about sums of natural numbers:
 \begin{align}
@@ -825,6 +833,12 @@ property. But, then again, the second condition implies that the number $3$ poss
 \subsection*{\S\ref{sec:RAAExample} Proof by Contradiction}
 \hypertarget{a:ch0:contra:1}{Q1.} T. That is the definition: assume $A \land \lnot B$, derive $\Rightarrow \Leftarrow$, conclude $A \implies B$. \sclink{q:ch0:contra:1}{back}\par\smallskip
 \hypertarget{a:ch0:contra:2}{Q2.} You assume $A$ (the antecedent of the original implication) AND $\lnot B$ (the negation of the consequent). Saying ``assume the negation of $A \implies B$'' is loose shorthand: per the negation table in \S\ref{sec:NegatingConnectives}, the negation of ``if $A$ then $B$'' is ``$A$ and $\lnot B$,'' so the two assumptions are precisely that pair. \sclink{q:ch0:contra:2}{back}\par\smallskip
+
+\subsection*{\S\ref{sec:InductionExample} Proof by Induction Example}
+\hypertarget{a:ch0:induction:1}{Q1.} T. The two parts together establish $P(n)$ for all $n \geq N$. \sclink{q:ch0:induction:1}{back}\par\smallskip
+\hypertarget{a:ch0:induction:2}{Q2.} F. The base case can be any natural number $N$; the conclusion is then that $P(n)$ holds for all $n \geq N$. The section's sum-of-integers example uses $n = 1$ as its base. \sclink{q:ch0:induction:2}{back}\par\smallskip
+\hypertarget{a:ch0:induction:3}{Q3.} T. That is the structure of the induction step. \sclink{q:ch0:induction:3}{back}\par\smallskip
+\hypertarget{a:ch0:induction:4}{Q4.} The section uses $n = 1$ as the base case. There the statement says $\sum_{k=1}^1 k = 1 = \tfrac{1 \cdot (1+1)}{2} = 1$, which holds by inspection. \sclink{q:ch0:induction:4}{back}\par\smallskip
 
 % Section answer blocks land here as quizzes are added (Tasks 4-14).
 
