@@ -749,7 +749,7 @@ object, dressed up in possibly different clothes.
 
 \textit{Second, on the pattern.} The proposition and corollary are the
 first instance of a slogan we will use repeatedly: \textit{uniqueness
-up to unique\footnote{The inner ``unique'' is doing real work. A
+up to unique\footnote{The inner ``unique'' is not redundant. A
 structure can be unique up to isomorphism without the isomorphism
 being unique: any two cyclic groups of order $3$ are isomorphic, but
 each has two generators, giving two distinct isomorphisms between any
@@ -1724,16 +1724,251 @@ side has its mirror on the other. Functors, the morphisms
 between categories, are next.
 
 \section{Functors}\label{sec:functors}
-% TODO §4.6: see docs/ch4_planning/ch4_outline_v3.md §4.6 (Chunks 4.6a--4.6c).
-% Promises this section must deliver:
-%   - forgetful functors and product-as-a-functor (§4.1 promise (iii))
+% TODO §4.6 remaining (Chunks 4.6b--4.6c): see docs/ch4_planning/ch4_outline_v3.md §4.6.
+% Promises still to deliver:
+%   - product-as-a-functor and product-as-a-bifunctor sketch (§4.1 promise (iii))
 %   - "monoid homomorphism" as a functor between one-object categories;
 %     ditto group hom = functor between one-object groupoids
 %     (§4.2c monoid remark explicitly forwarded here)
-%   - identity and constant functors (per outline)
-%   - product-as-a-bifunctor sketch (per outline)
 %   - Cat (category of categories) remark (per outline)
 %   - exponential-object allusion (drafted aside 3e)
+%   - cash the §4.4d Ring footnote's "forgetful Ring -> Set takes products to products"
+
+\noindent The duality story closed with a name for arrow-reversal,
+which puts us in position to ask the next question: what is the
+right notion of a structure-preserving map \textit{between
+categories themselves}? Saunders Mac Lane, writing in 1971,
+recalled the moment with characteristic candor as ``the pleasure
+of purloining words from the philosophers'': \textit{category} he
+and Samuel Eilenberg had taken from Aristotle and Kant;
+\textit{functor} from Rudolf Carnap; \textit{natural
+transformation} from the informal parlance of mathematicians
+already using ``natural'' as a shorthand for ``the only choice
+that doesn't require extra data.''
+
+\noindent The order is no accident. Eilenberg and Mac
+Lane wanted a precise meaning for ``natural,'' and to give one
+they needed a notion of a map between categories. The word for
+that map they took from Carnap's \textit{Logische Syntax der
+Sprache} (1934), where a functor was an expression that took
+arguments of given syntactic categories and yielded an expression
+of another category. Carnap's program (a
+formal language stripped of unwanted metaphysics, mathematics
+treated as a branch of logic) had its own ambitions, very
+different from ours; we will not pursue that program, and the
+topologists who picked up the word were not pursuing it either.
+What they took was the word, not the philosophy.
+
+\noindent So what is a functor, beyond a borrowed word? Briefly:
+the natural thing. A category carries two layers (objects and
+morphisms) and two compositional facts (composition associates,
+identities do nothing), so a functor must do something on
+objects, do something compatible on morphisms, and not break
+either compositional fact in the process. The chapter has, in
+practice, been handling maps of this kind throughout. Sending a
+group to its underlying set ignores the multiplication, the
+inverses, and the identity element; the data lost is real, yet
+composition of group homomorphisms still becomes composition of
+their underlying functions, and the picture is well-behaved
+enough to deserve a name. Let us write the definition down.
+
+\begin{definition}[Functor]\label{def:functor}
+Let $\mathcal{C}$ and $\mathcal{D}$ be categories. A
+\textit{functor}\index{Functor} $F : \mathcal{C} \to \mathcal{D}$
+consists of:
+\begin{enumerate}[label=\roman*)]
+    \item an \textit{object map} sending each $A \in
+    \mathrm{ob}(\mathcal{C})$ to an object $F(A) \in
+    \mathrm{ob}(\mathcal{D})$;
+    \item a \textit{morphism map} sending each morphism
+    $f : A \to B$ in $\mathcal{C}$ to a morphism
+    $F(f) : F(A) \to F(B)$ in $\mathcal{D}$;
+\end{enumerate}
+satisfying the two axioms:
+\begin{enumerate}[label=(\arabic*)]
+    \item (\textit{Preservation of composition.}) For every
+    composable pair $f : A \to B$ and $g : B \to C$ in
+    $\mathcal{C}$,
+    \[ F(g \circ f) \; = \; F(g) \circ F(f). \]
+    \item (\textit{Preservation of identities.}) For every
+    object $A$ in $\mathcal{C}$,
+    \[ F(\mathrm{id}_A) \; = \; \mathrm{id}_{F(A)}. \]
+\end{enumerate}
+\end{definition}
+
+\noindent It is a small definition. Two maps, two axioms. The
+wonder is how much of the chapter it covers. Forgetting
+structure on the way from $\mathbf{Grp}$ to $\mathbf{Set}$ will
+be a functor; the binary-product construction from
+\S\ref{sec:products} will assemble itself into a functor; the
+monoid homomorphism promised in \S\ref{sec:categories} will turn
+out to be exactly a functor between one-object categories. The
+verifications are short. The chapter has done most of them
+already without using the word.
+
+\noindent A note on notation. Both the object map and the
+morphism map are written $F$; whether $F$ is being applied to an
+object or a morphism is determined by the input. The morphism map
+is required to send the hom-set $\mathrm{Hom}_{\mathcal{C}}(A,B)$
+into the hom-set $\mathrm{Hom}_{\mathcal{D}}(F(A), F(B))$; domain
+and codomain must match what the object map says they should. Both halves matter. A
+functor is a coordinated pair of maps, one on objects and one on
+morphisms, and the two axioms keep the morphism part from
+drifting away from what $\mathcal{C}$'s composition demands.
+
+\begin{example}[Forgetful functors]\label{ex:forgetful}
+The first family of functors throws away structure; the standard
+name for it is the family of \textit{forgetful
+functors}\index{Forgetful Functor}.
+
+\textit{$\mathbf{Grp} \to \mathbf{Set}$.} Define $U$ on objects
+by sending each group $G$ to its underlying set, the set of
+elements of $G$ with the multiplication erased from the symbol
+but not from the data. On morphisms, send each group
+homomorphism $\varphi : G \to H$ to its underlying function
+$U(\varphi) : U(G) \to U(H)$, that is, $g \mapsto \varphi(g)$
+read as a function between sets, with the homomorphism conditions
+silently dropped. The two laws are inherited from how group
+homomorphisms compose: the composite of two group homomorphisms
+is the group homomorphism whose underlying function is the
+composite of their underlying functions, giving $U(\psi \circ
+\varphi) = U(\psi) \circ U(\varphi)$; and the identity
+homomorphism on $G$ has the identity function on $U(G)$ as its
+underlying function, giving $U(\mathrm{id}_G) =
+\mathrm{id}_{U(G)}$. So $U$ is a functor.\footnote{Once a
+category's structure is named, verifications like this one often
+collapse into near-mechanical unfoldings of a definition, a
+rhythm that would later earn category theory the affectionate
+pejorative \textit{general abstract nonsense}. The phrase is
+generally credited to the topologist Norman Steenrod, and was
+embraced (in print, in public, and proudly) by Eilenberg and
+Mac Lane themselves.
+Steenrod meant it half-jokingly; what he was naming is real, and
+many proofs in category theory really do collapse into
+diagram-chases once the right notions are in place. The label has
+stuck, used to this day in a tone somewhere between respect and
+a wink.}
+
+\textit{$\mathbf{Ring} \to \mathbf{Set}$.} The same construction.
+Ring homomorphisms compose as functions, and the one-line
+verification carries over with $\mathbf{Ring}$ substituted for
+$\mathbf{Grp}$. The footnote at Example~\ref{ex:ring-product}
+promised that this functor ``takes products to products''; we
+now have the functor, and the meaning of that phrase will be
+settled later in this section.
+
+\textit{$\mathbf{Ring} \to \mathbf{Ab}$.} Forgetting need not be
+total. Send each ring $R$ to its additive group $(R, +, 0_R)$
+and each ring homomorphism $\varphi$ to itself, now read as a
+group homomorphism between additive groups; preservation of
+multiplication is dropped, preservation of addition is kept.
+The two functor laws are inherited from $\mathbf{Ring}$ the same
+way as before.
+
+These functors are not surprising as constructions; they are the
+maps a careful reader has been mentally executing whenever moving
+from a more-structured category to a less-structured one. What
+is new is that they fit into a single common pattern, with a
+name and a verification template.
+\end{example}
+
+\begin{remark}[Contravariant functors]\label{rem:contravariant}
+Now that $\mathcal{C}^{\mathrm{op}}$ is on the table
+(Definition~\ref{def:opposite-category}), two flavors of functor
+are available. The default, a functor $\mathcal{C} \to
+\mathcal{D}$, is sometimes called \textit{covariant} when
+emphasis is needed. The other flavor is a functor
+$\mathcal{C}^{\mathrm{op}} \to \mathcal{D}$, called a
+\textit{contravariant functor on
+$\mathcal{C}$}\index{Contravariant Functor}. Formally there is
+nothing new: contravariance is a functor in the sense of
+Definition~\ref{def:functor}, applied to the opposite category.
+What is new is how the rules read when phrased back in
+$\mathcal{C}$ directly.
+
+A contravariant functor $F$ on $\mathcal{C}$ sends each object
+$A \in \mathrm{ob}(\mathcal{C})$ to an object $F(A) \in
+\mathrm{ob}(\mathcal{D})$, and each morphism $f : A \to B$ of
+$\mathcal{C}$ to a morphism $F(f) : F(B) \to F(A)$ of
+$\mathcal{D}$, with arrows reversed. The two preservation laws,
+restated in $\mathcal{C}$-side terms, read
+\[ F(g \circ f) \; = \; F(f) \circ F(g), \qquad
+   F(\mathrm{id}_A) \; = \; \mathrm{id}_{F(A)}. \]
+The order of $F(f)$ and $F(g)$ on the right is swapped: that is
+the composition law of $\mathcal{C}^{\mathrm{op}}$ restated, since
+composition in $\mathcal{C}^{\mathrm{op}}$ runs in the reverse
+order of composition in $\mathcal{C}$.
+
+The cleanest small example is the power-set operator
+$\mathcal{P} : \mathbf{Set}^{\mathrm{op}} \to \mathbf{Set}$ via
+preimage. On objects, $\mathcal{P}(A)$ is the set of subsets of
+$A$. On morphisms, a function $f : A \to B$ in $\mathbf{Set}$ is
+sent to the preimage function $f^{-1} : \mathcal{P}(B) \to
+\mathcal{P}(A)$ taking $T \subseteq B$ to
+$\{a \in A : f(a) \in T\} \subseteq A$. The direction reversal
+is honest: preimages of subsets of the codomain live in the
+domain. Both laws fall out element by element. Preimage of a
+composite is the composite of preimages in reversed order,
+\[ (g \circ f)^{-1}(W) \; = \; \{a : g(f(a)) \in W\}
+   \; = \; f^{-1}\bigl(g^{-1}(W)\bigr) \; = \;
+   \bigl(f^{-1} \circ g^{-1}\bigr)(W), \]
+so $\mathcal{P}(g \circ f) = \mathcal{P}(f) \circ \mathcal{P}(g)$;
+and the preimage of the identity is the identity on the power-set,
+since $\mathrm{id}_A^{-1}(T) = T$ for every $T \subseteq A$,
+giving $\mathcal{P}(\mathrm{id}_A) = \mathrm{id}_{\mathcal{P}(A)}$.
+So $\mathcal{P}$ is a functor $\mathbf{Set}^{\mathrm{op}} \to
+\mathbf{Set}$: a contravariant functor on $\mathbf{Set}$.
+
+Contravariant functors keep turning up throughout mathematics:
+every time a construction inverts direction (dual vector spaces,
+presheaves on a topological space), what you are looking at is
+a contravariant functor in disguise. For the rest of this
+section, however, \textit{functor} means covariant unless we say
+otherwise.
+\end{remark}
+
+\begin{example}[Identity and constant functors]\label{ex:id-const-functor}
+Given any category, two functors are available for free.
+
+\textit{The identity functor.} For any category $\mathcal{C}$,
+the \textit{identity functor}\index{Identity Functor}
+$\mathrm{id}_{\mathcal{C}} : \mathcal{C} \to \mathcal{C}$ sends
+each object to itself and each morphism to itself. The two
+preservation laws are immediate: composition of morphisms in
+$\mathcal{C}$ is composition of their images, since the images
+are the morphisms themselves; identities go to identities for
+the same reason.
+
+\textit{The constant functor.} For any categories $\mathcal{C}$,
+$\mathcal{D}$ and any chosen object $X \in
+\mathrm{ob}(\mathcal{D})$, the \textit{constant
+functor}\index{Constant Functor} $\Delta_X : \mathcal{C} \to
+\mathcal{D}$ sends every object of $\mathcal{C}$ to $X$ and every
+morphism of $\mathcal{C}$ to $\mathrm{id}_X$. Preservation of
+composition holds because the right-hand side is always
+$\mathrm{id}_X \circ \mathrm{id}_X = \mathrm{id}_X$, which equals
+the left-hand side $\Delta_X(g \circ f) = \mathrm{id}_X$;
+preservation of identities holds because
+$\Delta_X(\mathrm{id}_A) = \mathrm{id}_X =
+\mathrm{id}_{\Delta_X(A)}$. The constant functor will return in
+\S\ref{sec:limits} when we discuss cones over a diagram.
+\end{example}
+
+\noindent The examples so far have been recipes for losing
+structure, with the identity and constant functors as the two
+degenerate corners (the one that preserves everything, and the
+one that collapses everything onto a chosen point). The next
+family is more surprising. The monoids and groups from
+Chapter~2, viewed as one-object categories in
+\S\ref{sec:categories}, have a notion of homomorphism that
+predates category theory by more than a century; that notion
+will turn out to be exactly a functor between the corresponding
+one-object categories. And the binary-product construction from
+\S\ref{sec:products}, which we built case by case, will assemble
+itself into a functor sending pairs of objects to their product
+and pairs of morphisms to a single ``product morphism.'' What
+follows is recognition of what is already there, applied to what
+we have already built.
 
 \section{Natural Transformations}\label{sec:nat-trans}
 % TODO §4.7: see docs/ch4_planning/ch4_outline_v3.md §4.7 (Chunks 4.7a--4.7c).
