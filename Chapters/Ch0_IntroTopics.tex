@@ -21,6 +21,7 @@ Homework sets, a copy of this text (updated regularly), and homework solutions w
 Lastly, when reading this material, read slowly and carefully and try to explain the argument out loud as if another were listening. Don't just read it aloud, really think about what the claim or statement is asserting. There is very little redundancy in mathematical writing so it pays dividends to read slowly, carefully, and to re-read many times until the argument is so clear that you could write it down again in your own words. When I read a new book or article in my field, the first 2-3 reads through I am just letting the new notations, jargon, definitions, and claims wash over me, I want to see the way the author uses these terms first and then I try to understand them more carefully. You can do it, you can piece it together! Just take baby steps to make your foundation solid. \newpage
 
 \section{Common Notation seen in Herstein's book and this book}
+\label{sec:CommonNotation}
 This section presents commonly used mathematical symbols grouped into three categories: logical symbols, set-theoretic symbols, and proof-structuring symbols.
 
 \subsection{Logic Notation: Quantifiers, Implication, and Falsum/Contradiction}
@@ -136,6 +137,7 @@ For the sake of argument we should note that to date, it is true that all humans
 \end{center}
 \newpage
 \section{Logical Connectives and Their Truth Tables}
+\label{sec:LogicalConnectives}
 
 In propositional logic, statements (or \textit{propositions}) can be combined using
 \textit{logical connectives}. We denote \textit{conjunction} (logical ``and'') by the symbol $\land$,
@@ -215,6 +217,7 @@ meets a domain that turns out to be empty, expect the statement to come out
 true by default.
 \newpage 
 \section{Negating Logical Connectives and Quantifiers}
+\label{sec:NegatingConnectives}
 This table provides a resource for negating the most common types of expressions that we will encounter in this class:
 \begin{center}
   \begin{tabular}{|c|c|}\hline
@@ -416,6 +419,7 @@ Consider the set $A=\{a,b,c\}$ and the set $B=\{1,2\}$, then $A\times B =\{(a,1)
 \end{definition}
 \newpage
 \noindent\section{Some important sets to remember}
+\label{sec:ImportantSets}
 % \begin{align}
 % \emptyset=\{\} =\text{ The empty set (set with no elements, $\emptyset$ is trivially a subset of all sets) } \nonumber \\
 % \text{Bool}= \{T,F\} \nonumber \\
@@ -581,6 +585,7 @@ Since $\sum_{k=1}^{n} k + (n+1)=\sum_{k=1}^{n+1} k$ we have shown that arbitrary
 \smallbreak
 
 \section{A common pitfall when first learning Proof by Induction}
+\label{sec:InductionPitfall}
 %\noindent Having just covered the principle of mathematical induction, the authors want to emphasize that both of the steps used (i.e. the base case, and inductive step) play an \textit{equal role} in proof of the fact. We emphasize the importance of the \textit{base case} first and then will use an example to show how base case oversights can often reveal themselves in the inductive step. In particular, we emphasize that when choosing the base case, the proof-writer should ensure that the base case is satisfied because of a property that follows from the assumptions about the claim, and not from a property of the \textit{specific} base case that was chosen. \\
 
 %\noindent When choosing the base case above you might notice that we chose $n=1$ instead of $n=0$, partly this is because the claim only pertained to $n>0$, but the other reason for this is because while, $n=0$ satisfies the rule, (i.e. $0(0+1)/2=0$, it satisfies the rule in a trivial way, because the $0$ on the left annihilates the $1/2$ on the right and the sum of $0$ numbers $k$ is itself 0. \\ \\

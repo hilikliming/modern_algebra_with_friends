@@ -33,6 +33,33 @@
 \usepackage{mathtools, wrapfig}
 \usepackage{tikz-cd} % Commutative diagrams for Ch4 (Category Theory)
 \usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+
+%----------------------------------------------------------------------------------------
+% Self-Check environment (Ch0 diagnostic quizzes)
+%----------------------------------------------------------------------------------------
+
+% Internal hyperlink with visible orange-ish styling
+% (the book uses hidelinks by default, so internal jumps need explicit styling).
+\newcommand{\sclink}[2]{\hyperlink{#1}{\small\textcolor{ocre}{[#2]}}}
+
+% selfcheckbox: tcolorbox styled in light blue, distinct from the orange eBox.
+% Usage: \begin{selfcheckbox}{0.4}{sec:BasicSetTheory} ... \end{selfcheckbox}
+% Arg 1: section-number label shown in title (e.g., "0.4")
+% Arg 2: \label-key of the section to "skip to" if the reader aces the quiz
+\newtcolorbox{selfcheckbox}[2]{
+  enhanced, breakable,
+  colframe=blue!55!cyan!60!black,
+  colback=blue!4,
+  colbacktitle=blue!18,
+  coltitle=black,
+  title={Self-Check #1},
+  fonttitle=\bfseries\sffamily,
+  attach boxed title to top left={xshift=4mm, yshift=-2mm},
+  boxed title style={size=small, frame hidden, sharp corners},
+  before upper={\textit{Ace these and skip to \S\ref{#2}. Miss one? Read on.}\par\smallskip}
+}
+
 \usepackage{soul}
 \usepackage{colortbl}
 \usepackage{centernot}
