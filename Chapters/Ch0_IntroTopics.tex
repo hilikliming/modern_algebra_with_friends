@@ -621,9 +621,15 @@ Let $x\in \mathbb{Z}$ and suppose we have statements $A=$``$x^2$ is even" and $B
 
 \noindent This is not to be confused with proof by contradiction. In proof by contradiction we have statement $A\implies B$ that we wish to show. To accomplish this, we begin by assuming $A$ is true \textit{and} that $B$ is false and we will arrive at a contradiction (denoted as $\Rightarrow\Leftarrow$) that is a direct consequence of our incorrect assumption about $B$, meaning the only possibility is that our assumption about $B$ being false when $A$ is true was incorrect, meaning that if $A$ is true then $B$ must be true too, giving us the desired result: $A \implies B$ 
 
-\noindent\section{Proof by Contradiction (a.k.a. 
-\textit{Reductio ad absurdum}) Example:} 
+\noindent\section{Proof by Contradiction (a.k.a.
+\textit{Reductio ad absurdum}) Example:}
 \label{sec:RAAExample}
+
+\begin{selfcheckbox}{0.9}{sec:InductionExample}
+  \hypertarget{q:ch0:contra:1}{Q1.} \textit{[T/F]} To prove $A \implies B$ by contradiction, we assume $A$ is true and $B$ is false, then derive a contradiction. \sclink{a:ch0:contra:1}{answer}\par\smallskip
+  \hypertarget{q:ch0:contra:2}{Q2.} \textit{Produce.} A friend says ``proof by contradiction starts by assuming the negation of the implication.'' Restate that assumption more carefully: which two things, exactly, do you assume? \sclink{a:ch0:contra:2}{answer}
+\end{selfcheckbox}
+
 In this example\footnote{ A reader who is familiar with intuitionistic logic may scoff at this example for Reductio ad absurdum as it relies on Indirect Proof (In some camps, RAA is the same as ``Proof of Negation" from Int. Logic, and what I called RAA here would be referred to as Indirect Proof). We will be working with Classical Logic for the time being, and under those rules, this is all fine. I will present the natural deduction rules we've been using ( see Dr. Mark Jago's excellent lectures here: \textcolor{orange}{\href{https://www.youtube.com/watch?v=dlUkeN7KqVA&t=8s}{Propositional Logic/Classical Natural Deduction}/ \href{https://www.youtube.com/watch?v=C30w5vZypXE}{First-Order Logic}}) towards the end of the text and allude to logics that relax assumptions like double negation elimination and indirect proof. Stick with us, you may enjoy the presentation of the algebraic topics covered here \smiley } we will prove an implication using \textit{Reductio ad absurdum} or proof by contradiction. Given statements $A= "x^2 \text{ is even}"$, and $B= "x \text{ is even}"$, we could show $A\implies B$ through the following contradiction: Assume $A$ true and $\lnot B$ true, that is assume ``$x^2 \text{ is even}$" and ``$x \text{ is not even}$", now since $x$ is odd, and the product of two odds is odd, $x\cdot x$ is odd, but $x\cdot x=x^2$ and $x^2$ was assumed even! $\Rightarrow\Leftarrow$ (contradiction!). What we have shown is that $\lnot B$ cannot be true when $A$ is true. So our only option left is to conclude that if $A$ is true, then $B$ is true, i.e. $A\implies B$
 
 \section{Proof by Induction Example}
@@ -815,6 +821,10 @@ property. But, then again, the second condition implies that the number $3$ poss
 \hypertarget{a:ch0:contrapos:1}{Q1.} T. Both parts are the substance of this section: the contrapositive of $A \implies B$ is $\lnot B \implies \lnot A$, and they share a truth table. \sclink{q:ch0:contrapos:1}{back}\par\smallskip
 \hypertarget{a:ch0:contrapos:2}{Q2.} T. That is exactly the structure of a contrapositive proof: assume the negation of the consequent, then derive the negation of the antecedent. \sclink{q:ch0:contrapos:2}{back}\par\smallskip
 \hypertarget{a:ch0:contrapos:3}{Q3.} ``If $n+1$ is not odd, then $n$ is not even.'' Equivalently: ``If $n+1$ is even, then $n$ is odd.'' (Negate the consequent, then the antecedent, and swap their order.) \sclink{q:ch0:contrapos:3}{back}\par\smallskip
+
+\subsection*{\S\ref{sec:RAAExample} Proof by Contradiction}
+\hypertarget{a:ch0:contra:1}{Q1.} T. That is the definition: assume $A \land \lnot B$, derive $\Rightarrow \Leftarrow$, conclude $A \implies B$. \sclink{q:ch0:contra:1}{back}\par\smallskip
+\hypertarget{a:ch0:contra:2}{Q2.} You assume $A$ (the antecedent of the original implication) AND $\lnot B$ (the negation of the consequent). Saying ``assume the negation of $A \implies B$'' is loose shorthand: per the negation table in \S\ref{sec:NegatingConnectives}, the negation of ``if $A$ then $B$'' is ``$A$ and $\lnot B$,'' so the two assumptions are precisely that pair. \sclink{q:ch0:contra:2}{back}\par\smallskip
 
 % Section answer blocks land here as quizzes are added (Tasks 4-14).
 
