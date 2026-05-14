@@ -287,7 +287,7 @@ This book is not a set theory or foundations of mathematics course so we will ta
 Further, the fundamentals of grade-school algebra, such as the manipulations mentioned in Section \ref{sec:ManipulatingInequalities}, can be used without providing justification.
 
 All of this being said, using the tools of first order logic that you will learn along the way, if you wished to, you could ``begin again" with some weaker assumptions and build your way back up to showing that e.g. adding, subtracting, or multiplying two integers gives another integer, or that every integer $a\in\Z$ has an opposite $-a\in\Z$. 
-
+\newpage
 \section{Basic Set Theory Definitions}
 \label{sec:BasicSetTheory}
 
@@ -304,7 +304,7 @@ Given a set $S$ we will consistently use the notation $A=\{a\in S\ |\ P(a)\}$ to
 \noindent Here is a simple example of this \textbf{set builder} notation in use, let $P(a)=$ "$a \text{ is even}$". \\
 Then $\{a\in \Z | P(a)\} = \{...,-4,-2,0,2,4,6,...\} = \{ \text{the set of all even integers}\}$ \\ \\
 Sometimes, in other math texts, a colon, ``$:$", will be used in place of the vertical bar, ``$|$", in set builder notation.\\ \\
-\noindent We will now present thirteen basic, but very important, definitions from Set Theory. \newpage
+\noindent We will now present thirteen basic, but very important, definitions from Set Theory.
 \begin{definition}[Subset]\index{$\subset$}
 Set $A$ is a \textit{subset} of set $B$, denoted $A\subset B$, if every element of $A$ is an element of $B$, that is, if
 \begin{align}
@@ -320,6 +320,7 @@ A simple visual example of $A\subset B$ can be seen in Figure \ref{fig:Subset_ex
     \label{fig:Subset_example}
 \end{figure}\\
 To define a set, we start with some “universe” of all possible elements of that set, usually called the \textit{universe of discourse} or simply \textit{universe}. In the figure above, our universe is denoted by $\Omega$. Then, a set $S$ can be defined by specifying which elements of the universe of discourse is in that set $S$, typically done with the set builder notation that we just introduced.
+\newpage
 \begin{definition}[Set equality]
 Sets $A$ and $B$ are equal if both $A\subset B$ and $B\subset A$
 \end{definition}
@@ -369,7 +370,7 @@ in another way using an idea known as set complement. In this case we would have
     \caption{Complements View of Set Minus: on the left side of the intersection, set $A$ is shaded in, on the right side of the intersection set $B^C$ ($B$'s complement in universe $\Omega$) is shaded in; now it is easy to see that $A$'s intersection with $B^C$ (i.e. the portion these two shaded regions have in common) is simply $A-B$, or "the parts of $A$ that are not in $B$".}
     \label{fig:complements_view_set_minus}
 \end{figure}
-\newpage
+
 \noindent For the two definitions provided below, the reader should note a finite union/intersection is the union/intersection of a finite number of sets; this phrase does not imply that the union/intersection set itself is a finite set!
 
 \begin{definition}[Finite Union of Sets]
@@ -388,7 +389,7 @@ in another way using an idea known as set complement. In this case we would have
     &= A_1 \cap A_2 \cap A_3 \cap \dots \cap A_n \nonumber 
 \end{align}
 \end{definition}
-
+\newpage
 \begin{definition}[Disjoint Sets]
     Sets $A, B$ are said to be disjoint if $A\cap B= \emptyset=\{\}$\steezybreak \\
     \noindent That is, a pair of sets are disjoint if they share no elements in common (hence, their intersection is the empty set)
@@ -407,8 +408,8 @@ in another way using an idea known as set complement. In this case we would have
 
     \noindent That is, a collection of sets are mutually disjoint when each set in the collection contain no common elements with any other set in the collection (aside from itself).
 \end{definition}
-\newpage
-Without going into too much detail we want to briefly introduce the concept of cardinality. Cardinality describes a relationship between sets which compares their relative size.
+
+\noindent Without going into too much detail we want to briefly introduce the concept of cardinality. Cardinality describes a relationship between sets which compares their relative size.
 \begin{definition}[Cardinality (of a Set)]
     The \textit{cardinality} of a set $A$, denoted $|A|$, is, roughly speaking, the "number of elements" in $A$. \\
 
@@ -440,6 +441,9 @@ Without going into too much detail we want to briefly introduce the concept of c
 \noindent The simplified definition applies only to finite sets but helps build intuition about cardinality as the "size" of a set. The more rigorous definition extends this concept to both finite and infinite sets, enabling us to compare sets such as the natural numbers $\mathbb{N}$ ($|\mathbb{N}| = \aleph_0$, pronounced "aleph nought") and the real numbers $\mathbb{R}$ ($|\mathbb{R}| = 2^{\aleph_0} > \aleph_0$). \\ \steezybreak
 
 \noindent The rigorous definition also aligns with our intuition for finite sets: two finite sets have the same number of elements if and only if a bijection exists between them.
+\newpage
+
+\noindent The last three basic set-theory definitions of this section deal with \textit{Cartesian products}: sets whose elements are ordered pairs (or, more generally, ordered tuples) of elements drawn from one or more underlying sets.
 
 \begin{definition}[Cartesian Product (of Sets)]
     Given sets $A$ and $B$, the \textit{Cartesian product} of $A$ and $B$ is the set of all ordered pairs $(a,b)$ where $a\in A$ and $b\in B$, that is 
@@ -648,7 +652,7 @@ Mathematical induction is a technique of proof that is essentially used to prove
     \sum_{k=1}^{n} k = \frac{n(n+1)}{2} \ \ \ \forall n \in \N \nonumber
 \end{align}
 In the proof below we will begin by establishing the result for a \textit{base case} where $n=1$. Then, in the \textit{induction step}, we will \textit{assume} that it holds for some $n\geq 1$ and we will show that assuming this $\implies$ $n+1$ also satisfies the property. The base case, together with the induction step, show that the rule is obeyed by all natural numbers $n\geq 1$ in a domino sort of effect, since $n=1$ (base) case plus the induction step implies that $n=2$ holds, then $n=2$ plus induction step implies $n=3$ holds, and so on and so forth. The principle of induction is a formal statement of this intuitive reasoning. The proof begins on the next page.\\
-\newpage 
+
 \noindent \textit{Proof:}\\
 \noindent\textit{Base case:} Let $n=1$, then it is obvious that $\sum_{k=1}^1 k = 1 = \frac{1\cdot(2)}{2}=1$\\
 \textit{Induction step:} Suppose for $n\geq 1$ it is true that 
@@ -661,7 +665,7 @@ In the proof below we will begin by establishing the result for a \textit{base c
     &=\frac{(n+1)((n+1)+1)}{2} \nonumber
 \end{align}
 Since $\sum_{k=1}^{n} k + (n+1)=\sum_{k=1}^{n+1} k$ we have shown that arbitrary $n\geq 1$ obeying the rule \textit{implies} that $n+1$ also obeys the rule. This induction step, along with the base case for $n=1$ completes the proof. $\blacksquare$
-\smallbreak
+\newpage
 
 \section{A common pitfall when first learning Proof by Induction}
 \label{sec:InductionPitfall}
