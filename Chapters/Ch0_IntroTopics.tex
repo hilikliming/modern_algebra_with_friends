@@ -19,7 +19,7 @@ Homework sets, a copy of this text (updated regularly), and homework solutions w
 \noindent Chapter 0 is meant to serve as a reference for symbols and terminology used in the main course material (Chapter 1 onward). On its own, this first Chapter is a doozy and we are going to throw all sorts of new notation at you. \textit{Don't be intimidated}. You do not need to understand or memorize all of this right away; the utility of these new notations will become apparent as you progress further through the text. Treat this chapter as a reference for the main course material that begins in Chapter 1.
 
 \medskip
-\noindent \textbf{Self-Checks.} Most sections of this chapter open with a small \textit{Self-Check}: a handful of true/false and short-answer questions that probe the section's main ideas. If you can answer them all confidently, you can safely skip to the next section; if not, read on. Answers are gathered at the end of the chapter in \S\ref{sec:ch0SelfCheckAnswers}; each question links forward to its answer, and each answer links back. Two sections, \S\ref{sec:InductionPitfall} and \S\ref{sec:ChongInduction}, have no Self-Check by design: the first is itself a puzzle you are meant to solve, and the second is a softer alternative route for readers new to induction. The authors recommend that readers who are familiar with mathematical induction already read sections \ref{sec:InductionExample} through \ref{sec:WhyInductionWorks}. For readers who have never seen induction before, as to not distract from the more important intuition, we would prefer you skip these and read \ref{sec:ChongInduction} first, then return to those sections after the underlying argument for the principle of induction is understood.
+\noindent \textbf{Self-Checks.} Most sections of this chapter open with a small \textit{Self-Check}: a handful of true/false and short-answer questions that probe the section's main ideas. If you can answer them all confidently, you can safely skip to the next section; if not, read on. Answers are gathered at the end of the chapter in \S\ref{sec:ch0SelfCheckAnswers}; each question links forward to its answer, and each answer links back. Two sections, \S\ref{sec:InductionPitfall} and \S\ref{sec:ChongInduction}, have no Self-Check by design: the first is itself a puzzle you are meant to solve, and the second is a softer alternative route for readers new to induction. The authors recommend that readers who are familiar with mathematical induction already read sections \ref{sec:InductionExample} through \ref{sec:WhyInductionWorks}. For readers who have never seen induction before, as to not distract from the more important intuition, we would prefer you skip these and read \ref{sec:ChongInduction} first, then return to those sections after the underlying argument for the principle of induction is understood. Section \ref{sec:WhyInductionWorks} is a deeper-dive into \textit{why} induction works and is optional reading for the curious.
 
 \medskip
 \noindent Lastly, when reading this material, read slowly and carefully and try to explain the argument out loud as if another were listening. Don't just read it aloud, really think about what the claim or statement is asserting. There is very little redundancy in mathematical writing so it pays dividends to read slowly, carefully, and to re-read many times until the argument is so clear that you could write it down again in your own words. When I read a new book or article in my field, the first 2-3 reads through I am just letting the new notations, jargon, definitions, and claims wash over me, I want to see the way the author uses these terms first and then I try to understand them more carefully. You can do it, you can piece it together! Just take baby steps to make your foundation solid. \newpage
@@ -31,13 +31,13 @@ Homework sets, a copy of this text (updated regularly), and homework solutions w
   \hypertarget{q:ch0:notation:1}{Q1.} \textit{[T/F]} The statement ``$A$ only if $B$'' has the same meaning as ``$A \implies B$.'' \sclink{a:ch0:notation:1}{answer}\par\smallskip
   \hypertarget{q:ch0:notation:2}{Q2.} \textit{[T/F]} The statement ``$B$ is necessary for $A$'' has the same meaning as ``$A \implies B$.'' \sclink{a:ch0:notation:2}{answer}\par\smallskip
   \hypertarget{q:ch0:notation:3}{Q3.} \textit{[T/F]} ``$A$ is sufficient for $B$'' and ``$B$ is necessary for $A$'' mean the same thing. \sclink{a:ch0:notation:3}{answer}\par\smallskip
-  \hypertarget{q:ch0:notation:4}{Q4.} \textit{Produce.} Using the vertical bar ``for which'' notation introduced in this section, write the set of integers $x$ with $22 \leq x < 27$. \sclink{a:ch0:notation:4}{answer}\par\smallskip
+  \hypertarget{q:ch0:notation:4}{Q4.} \textit{Produce.} Using the vertical bar ``for which'' notation introduced in this section, write the set of integers $x$ that are greater than or equal to $22$ and strictly less than $27$. \sclink{a:ch0:notation:4}{answer}\par\smallskip
   \hypertarget{q:ch0:notation:5}{Q5.} \textit{Produce.} Translate each of the following into a sentence of plain English, naming each logic-and-set symbol as you go:
   \begin{enumerate}[(a),topsep=2pt,itemsep=0pt]
     \item $\forall \, x \in \Z, \; x^2 \geq 0$
-    \item $\exists \, x \in \Z \ni x + 5 = 0$
+    \item $\exists \, x \in \Z \ni x + 5 = 0$ \hspace{1in} \sclink{a:ch0:notation:5}{answer}
   \end{enumerate}
-  \sclink{a:ch0:notation:5}{answer}
+  
 \end{selfcheckbox}
 
 This section presents commonly used mathematical symbols grouped into three categories: logical symbols, set-theoretic symbols, and proof-structuring symbols.
@@ -110,6 +110,11 @@ A sentence of the form ``if $A$ then $B$'' (denoted $A \Rightarrow B$) is itself
 For example, let $A$ be ``Charlie is a human being'' and $B$ be ``Charlie was born on planet Earth.'' Then both $A \implies B$ and $A \iff B$ are statements that can be evaluated for truth. 
 For the sake of argument we should note that to date, it is true that all humans have been born on the planet earth \footnote{At least it is true as of February 24th, 2025; we have yet to see a human being born anywhere but on planet earth, perhaps this will be a poor example in the future!}. Given this context, the first of these statements ($A\implies B$) is always true; if we assume that Charlie is a human, then since he is a human, he was certainly born on planet earth. However the second of these statements isn't necessarily true... sure the left hand side implies the right hand side (as before) but from the right hand side \textit{alone} can we infer that Charlie is a human? What if Charlie were a dog born on planet earth? Surely that does not entail that Charlie is a human! Without more context about Charlie, $B$ does not imply $A$ in general, so $A \iff B$ is false.\footnote{Though $A\implies B$ holds, $B\implies A$ does not, and both must be true for $A \iff B$ to be true.}
 
+\paragraph{Reading universally quantified statements.}
+A statement of the form ``$\forall x \in S, P(x)$'' is read ``for every $x$ in $S$, $P(x)$ holds.'' The comma after the quantification clause is just a separator before the body. You will sometimes see ``$\ni$'' play this role when an extra qualifier attaches directly to the variable's domain; for example, ``$\forall x \in \Z \ni x > 0, P(x)$'' reads ``for every $x \in \Z$ for which $x > 0$, $P(x)$ holds.''
+
+\paragraph{Writing proofs of universally quantified statements.}
+When you are writing a proof of a ``$\forall x \in S, P(x)$'' statement, the standard opening is ``\textit{Let $x \in S$ be arbitrary}'' (or equivalently ``\textit{Fix $x \in S$}''). The argument that follows treats $x$ as a generic representative of $S$, so any conclusion you reach about $x$ applies to every element of $S$ at once. This convention is common enough that the explicit ``$\forall x$'' is often dropped from the prose entirely, with ``Let $x \in S$'' opening the argument by itself.
 
 \subsection{Set Theory Notation}
 
@@ -247,7 +252,8 @@ true by default.
 \begin{selfcheckbox}{0.3}{sec:axioms}
   \hypertarget{q:ch0:negations:1}{Q1.} \textit{[T/F]} The negation of ``$A$ or $B$'' is ``$\lnot A$ and $\lnot B$.'' \sclink{a:ch0:negations:1}{answer}\par\smallskip
   \hypertarget{q:ch0:negations:2}{Q2.} \textit{Produce.} Write the negation of ``for every $x \in \Z$, $x \geq 0$.'' \sclink{a:ch0:negations:2}{answer}\par\smallskip
-  \hypertarget{q:ch0:negations:3}{Q3.} \textit{Produce.} Write the negation of ``if it is raining, then the sidewalk is wet.'' \sclink{a:ch0:negations:3}{answer}
+  \hypertarget{q:ch0:negations:3}{Q3.} \textit{Produce.} Write the negation of ``if it is raining, then the sidewalk is wet.'' \sclink{a:ch0:negations:3}{answer}\par\smallskip
+  \hypertarget{q:ch0:negations:4}{Q4.} \textit{Produce.} Write the negation of ``$A$ or ($B$ and $C$),'' applying DeMorgan as many times as needed until each ``$\lnot$'' sits on a single proposition variable. \sclink{a:ch0:negations:4}{answer}
 \end{selfcheckbox}
 
 This table provides a resource for negating the most common types of expressions that we will encounter in this class:
@@ -263,6 +269,20 @@ This table provides a resource for negating the most common types of expressions
 \end{center}
 The first two rows in this table are often referred to as DeMorgan's Laws 1 \& 2 respectively (or sometimes DeMorgans ``and'' negation law and Demorgan's ``or'' negation law.) \steezybreak
 
+\noindent The general principle behind these rules is that negation pushes inward one level at a time. When you apply a row of the table to a compound expression, the $\lnot$ moves one step deeper into the structure; if what remains under a $\lnot$ is itself compound, you apply the appropriate row again, and you repeat until each remaining $\lnot$ sits on an atomic proposition (a single proposition variable). Two worked examples make this concrete.
+
+\noindent \textit{Example 1 (single application).} Negating $P \land Q$ once is enough, because the inner pieces $P$ and $Q$ are already atomic:
+\begin{align}
+    \lnot(P \land Q) &= \lnot P \lor \lnot Q \quad \text{(``and'' negation row)} \nonumber
+\end{align}
+
+\noindent \textit{Example 2 (nested application).} Negating $A \lor (B \land C)$ requires two passes; the first pulls the $\lnot$ past the outer ``or,'' the second pulls it past the inner ``and'':
+\begin{align}
+    \lnot(A \lor (B \land C)) &= \lnot A \land \lnot(B \land C) \quad &\text{(``or'' negation row)} \nonumber \\
+    &= \lnot A \land (\lnot B \lor \lnot C) \quad &\text{(``and'' negation row applied to } \lnot(B \land C) \text{)} \nonumber
+\end{align}
+The result is fully simplified: each remaining $\lnot$ sits on a single proposition variable, joined by the basic connectives ``$\land$'' and ``$\lor$.''
+
 \noindent The reader should also take a moment to meditate on the negations of the universal and existential quantifiers. It should agree with your intuition that if we can't say \textul{all} $x$'s obey $P$, then there must exist an $x$ for which ``not $P$'' holds. Similarly if there doesn't exist a single $x$ for which $P$ holds, then forall $x$ we have ``not $P$''.
 \newpage
 \section{A Word About Axioms in This Book}
@@ -273,7 +293,7 @@ The first two rows in this table are often referred to as DeMorgan's Laws 1 \& 2
   \hypertarget{q:ch0:axioms:2}{Q2.} \textit{[T/F]} The sets $\{1, 2, 2, 3\}$ and $\{1, 2, 3\}$ are equal. \sclink{a:ch0:axioms:2}{answer}\par\smallskip
   \hypertarget{q:ch0:axioms:3}{Q3.} \textit{[T/F]} The set $\{\text{green}, \text{red}, \text{blue}, \text{red}, \text{orange}\}$ has 5 elements. \sclink{a:ch0:axioms:3}{answer}\par\smallskip
   \hypertarget{q:ch0:axioms:4}{Q4.} \textit{Produce.} This section lists four arithmetic facts about $\Z$: that $a + b$, $a - b$, $-a$, and $a \cdot b$ are integers whenever $a, b \in \Z$. Name one familiar arithmetic operation on two integers whose result is \emph{not} guaranteed to be an integer, with a counterexample. \sclink{a:ch0:axioms:4}{answer}\par\smallskip
-  \hypertarget{q:ch0:axioms:5}{Q5.} \textit{[T/F]} The book treats ``set'' and ``integer'' as primitive notions: their existence and basic properties are taken as starting points and not derived from anything more fundamental. \sclink{a:ch0:axioms:5}{answer}
+  \hypertarget{q:ch0:axioms:5}{Q5.} \textit{[T/F]} This book treats ``set'' and ``integer'' as primitive notions: their existence and basic properties are taken as starting points and not derived from anything more fundamental. \sclink{a:ch0:axioms:5}{answer}
 \end{selfcheckbox}
 
 As of January 11th, 2021, Merriam-Webster defines the noun ``Axiom" as:
@@ -545,7 +565,7 @@ Let $a,b\in \R, a<b$ we denote the following sets:
   \hypertarget{q:ch0:ineq:1}{Q1.} \textit{[T/F]} If $a \geq b$ and $c \leq 0$, then $ac \leq bc$. \sclink{a:ch0:ineq:1}{answer}\par\smallskip
   \hypertarget{q:ch0:ineq:2}{Q2.} \textit{[T/F]} If $0 < a \leq b$, then $\tfrac{1}{a} \geq \tfrac{1}{b}$. \sclink{a:ch0:ineq:2}{answer}\par\smallskip
   \hypertarget{q:ch0:ineq:3}{Q3.} \textit{Produce.} Solve $-3x \geq 12$ for $x$, and identify the step where the inequality flips direction. \sclink{a:ch0:ineq:3}{answer}\par\smallskip
-  \hypertarget{q:ch0:ineq:4}{Q4.} \textit{Produce.} Given $0 < 2 < 5$, write down the correct chain of inequalities between $0$, $\tfrac{1}{5}$, and $\tfrac{1}{2}$. Cite the rule from this section's table that justifies the ordering you chose. \sclink{a:ch0:ineq:4}{answer}
+  \hypertarget{q:ch0:ineq:4}{Q4.} \textit{Produce.} Given $0 < 2 < 5$, write down the correct chain of inequalities between $0$, $\tfrac{1}{5}$, and $\tfrac{1}{2}$. Cite the rule(s) from this section's table that justify the ordering you chose. \sclink{a:ch0:ineq:4}{answer}
 \end{selfcheckbox}
 
 The following table summarizes some algebraic transformations that preserve the truth of inequalities over the real numbers (and hence hold for inequalities of elements from any subset of the reals). This is by no means an exhaustive list but contains some useful ones that should be familiar from gradeschool and high school mathematics. All variables are assumed to be real unless otherwise noted. \steezybreak \\
@@ -810,7 +830,7 @@ property. But, then again, the second condition implies that the number $3$ poss
 \noindent\hypertarget{a:ch0:notation:2}{Q2.} T. ``Necessary'' tracks the consequent of an implication; ``sufficient'' tracks the antecedent. \sclink{q:ch0:notation:2}{back}\par\smallskip
 \noindent\hypertarget{a:ch0:notation:3}{Q3.} T. Both are readings of $A \implies B$: ``sufficient'' tags the antecedent ($A$ on its own is enough to force $B$), and ``necessary'' tags the consequent ($B$ has to hold for $A$ to possibly hold). Reading them paired makes the equivalence obvious. \sclink{q:ch0:notation:3}{back}\par\smallskip
 \noindent\hypertarget{a:ch0:notation:4}{Q4.} $\{x \in \Z \mid 22 \leq x < 27\} = \{22, 23, 24, 25, 26\}$. The vertical bar reads as ``for which.'' \sclink{q:ch0:notation:4}{back}\par\smallskip
-\noindent\hypertarget{a:ch0:notation:5}{Q5.} (a) ``For every integer $x$, $x^2$ is at least $0$'' (true). Symbols: $\forall$ is ``for every,'' $\in$ is ``is an element of,'' $\Z$ names the integers. (b) ``There exists an integer $x$ for which $x + 5 = 0$'' (true, namely $x = -5$). Symbols: $\exists$ is ``there exists,'' $\ni$ is the element-wise ``for which.'' \sclink{q:ch0:notation:5}{back}\par\smallskip
+\noindent\hypertarget{a:ch0:notation:5}{Q5.} (a) ``For every integer $x$, $x^2$ is at least $0$'' (true). Symbols: $\forall$ is ``for every,'' $\in$ is ``is an element of,'' $\Z$ names the integers. (b) ``There exists an integer $x$ for which $x + 5 = 0$'' (true, namely $x = -5$). Symbols: $\exists$ is ``there exists,'' $\ni$ is the element-wise ``for which.'' A reading convention: the comma after the quantification clause (as in $\forall x \in \Z, \, \ldots$) just separates the quantifier-and-domain from the body, so $\forall x \in \Z, P(x)$ reads ``for every $x \in \Z$, $P(x)$ holds.'' \sclink{q:ch0:notation:5}{back}\par\smallskip
 
 \subsection*{\S\ref{sec:LogicalConnectives} Logical Connectives \& Truth Tables}
 \noindent\hypertarget{a:ch0:truthtables:1}{Q1.} T. This is \textit{vacuous truth}: an implication with a false antecedent is satisfied with nothing to check. The Purple Motorcycle Club is this section's vehicle for the idea. \sclink{q:ch0:truthtables:1}{back}\par\smallskip
@@ -822,6 +842,7 @@ property. But, then again, the second condition implies that the number $3$ poss
 \noindent\hypertarget{a:ch0:negations:1}{Q1.} T. This is one of DeMorgan's laws (the ``or''-negation form); the negation of an ``or'' is the ``and'' of the negations. \sclink{q:ch0:negations:1}{back}\par\smallskip
 \noindent\hypertarget{a:ch0:negations:2}{Q2.} $\exists \, x \in \Z \ni x < 0$. (Equivalently in words: ``there exists an integer $x$ for which $x < 0$.'' Negating a universal gives an existential of the negated predicate.) \sclink{q:ch0:negations:2}{back}\par\smallskip
 \noindent\hypertarget{a:ch0:negations:3}{Q3.} ``It is raining and the sidewalk is not wet.'' The negation of ``if $A$ then $B$'' is ``$A$ and $\lnot B$,'' per the third row of this section's negation table. \sclink{q:ch0:negations:3}{back}\par\smallskip
+\noindent\hypertarget{a:ch0:negations:4}{Q4.} $\lnot(A \lor (B \land C)) = \lnot A \land \lnot(B \land C)$ (DeMorgan applied to the outer ``or''), and then $\lnot(B \land C) = \lnot B \lor \lnot C$ (DeMorgan applied to the inner ``and''). So the fully simplified negation is $\lnot A \land (\lnot B \lor \lnot C)$. \sclink{q:ch0:negations:4}{back}\par\smallskip
 
 \subsection*{\S\ref{sec:axioms} A Word About Axioms}
 \noindent\hypertarget{a:ch0:axioms:1}{Q1.} T. This is the working definition of ``axiom'' adopted by this book: statements taken as true without justification, serving as the starting point of argument. \sclink{q:ch0:axioms:1}{back}\par\smallskip
@@ -849,7 +870,7 @@ property. But, then again, the second condition implies that the number $3$ poss
 \noindent\hypertarget{a:ch0:ineq:1}{Q1.} T. The Multiplication rule in the section's table: multiplying both sides of $a \geq b$ by a non-positive $c$ flips the inequality, giving $ac \leq bc$. \sclink{q:ch0:ineq:1}{back}\par\smallskip
 \noindent\hypertarget{a:ch0:ineq:2}{Q2.} T. The Reciprocals rule: for $0 < a \leq b$, the reciprocals reverse the inequality, so $\tfrac{1}{a} \geq \tfrac{1}{b}$ (smaller positive number gives larger reciprocal). \sclink{q:ch0:ineq:2}{back}\par\smallskip
 \noindent\hypertarget{a:ch0:ineq:3}{Q3.} Divide both sides by $-3$ (equivalently, multiply by $-\tfrac{1}{3}$): $x \leq -4$. The flip happens precisely because we multiplied/divided by a negative quantity (the Multiplication or Division rule with $c < 0$). \sclink{q:ch0:ineq:3}{back}\par\smallskip
-\noindent\hypertarget{a:ch0:ineq:4}{Q4.} $0 < \tfrac{1}{5} < \tfrac{1}{2}$. The Reciprocals rule on positive numbers reverses the order, so the larger original ($5$) yields the smaller reciprocal ($\tfrac{1}{5}$) and the smaller original ($2$) yields the larger reciprocal ($\tfrac{1}{2}$). The leading ``$0 <$'' survives because the same rule's first row says $a > 0 \implies \tfrac{1}{a} > 0$. \sclink{q:ch0:ineq:4}{back}\par\smallskip
+\noindent\hypertarget{a:ch0:ineq:4}{Q4.} $0 < \tfrac{1}{5} < \tfrac{1}{2}$. Three pieces from the table combine: the third Reciprocals row ($0 < a \leq b \implies \tfrac{1}{a} \geq \tfrac{1}{b}$, applied with $a=2, b=5$) gives $\tfrac{1}{5} < \tfrac{1}{2}$; the first Reciprocals row ($a > 0 \implies \tfrac{1}{a} > 0$) gives $0 < \tfrac{1}{5}$; and Transitivity chains these into the single inequality $0 < \tfrac{1}{5} < \tfrac{1}{2}$. \sclink{q:ch0:ineq:4}{back}\par\smallskip
 
 \subsection*{\S\ref{sec:ContrapositiveExample} Proof by Contrapositive}
 \noindent\hypertarget{a:ch0:contrapos:1}{Q1.} T. Both parts are the substance of this section: the contrapositive of $A \implies B$ is $\lnot B \implies \lnot A$, and they share a truth table. \sclink{q:ch0:contrapos:1}{back}\par\smallskip
