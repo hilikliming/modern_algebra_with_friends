@@ -21,7 +21,7 @@ The book provides:
 
 ### **Part I – Foundations of Modern Algebra**
 **Chapter 0 – Preliminaries**  
-Common notation, proof strategies (contrapositive, contradiction, induction), and set-theoretic foundations.
+Common notation, proof strategies (contrapositive, contradiction, induction), and set-theoretic foundations. Each section closes with a **Self-Check** of short questions, with worked answers collected at the end of the chapter for self-paced practice.
 
 **Chapter 1 – Relations, Mappings, and the Integers  (ℤ)**  
 Equivalence relations, functions and mappings, divisibility, greatest common divisors, and modular arithmetic.
@@ -31,6 +31,9 @@ From definitions and examples to subgroups, normal subgroups, homomorphisms, Cay
 
 **Chapter 3 – Ring Theory**  
 Covers ring structures, ideals, quotient rings, ring homomorphisms, fields of fractions, Euclidean rings, and polynomial rings. Includes discussions on principal ideal domains and related problems.
+
+**Chapter 4 – A Taste of Category Theory** *(in progress)*  
+Builds gently from familiar group- and ring-theoretic patterns to categories, products and coproducts, universal properties, duality, and functors. Aimed at giving the reader enough categorical vocabulary to read further on their own.
 
 ---
 
