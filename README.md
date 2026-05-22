@@ -2,6 +2,8 @@
 
 This repository contains the LaTeX source files for *Modern Algebra With Friends*. The text is inspired by Dr. Katherine Magurn's Fall 2012 MATH 421 course at Miami University in Oxford, OH. In this work, we attempt to preserve her unique ability to make dense material accessible to all learners, so that others may bask in the warm light she brought to learning mathematics. 
 
+📦 **Grab the latest PDF** from the [Releases](https://github.com/hilikliming/modern_algebra_with_friends/releases) page. Releases follow a calendar-versioned tag scheme (`YYYY.MM[.N]`) and the rendered PDF is attached to each tag.
+
 ---
 
 ## About the Text
@@ -32,18 +34,24 @@ From definitions and examples to subgroups, normal subgroups, homomorphisms, Cay
 **Chapter 3 – Ring Theory**  
 Covers ring structures, ideals, quotient rings, ring homomorphisms, fields of fractions, Euclidean rings, and polynomial rings. Includes discussions on principal ideal domains and related problems.
 
-**Chapter 4 – A Taste of Category Theory** *(in progress)*  
+---
+
+### **Part II – A Taste of Category Theory** *(in progress)*
+
+**Chapter 4 – Category Theory**  
 Builds gently from familiar group- and ring-theoretic patterns to categories, products and coproducts, universal properties, duality, and functors. Aimed at giving the reader enough categorical vocabulary to read further on their own.
 
 ---
 
-### **Part II – Homework, Exams, and Solutions**
+### **Part III – Homework, Exams, and Solutions**
 Contains complete **homework sets**, **course exams**, and detailed **solutions** to selected problems.  
 Designed for both **self-assessment** and **instructor use**.
 
 ---
 
-### **Part III – Logic Primer**
+### **Part IV – Supplementary Material**
+
+**Logic Primer**  
 A self-contained reference on **propositional** and **first-order logic**, including:
 - Introduction and elimination rules for all logical connectives.
 - Quantifier rules with scope management.
@@ -54,13 +62,7 @@ A self-contained reference on **propositional** and **first-order logic**, inclu
 
 This section doubles as a **mini-course in formal reasoning**, complete with practice problems and solutions.
 
----
-
-### **Appendices & Supplementary Material**
-- **Brief Primer on Matrix Multiplication**
-- **Homework and Exam Solutions**
-- **Bibliography and References**
-- **Index**
+**Brief Primer on Matrix Multiplication**, **Bibliography**, **Index**.
 
 ---
 
