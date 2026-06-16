@@ -117,7 +117,7 @@
                 \iff &\alpha = \beta. \ \ \ \ \ \blacksquare &
               \end{align*}
                     
-              (For the last step, note that $\forall \ s\in S, (\alpha \circ I_S)(s) = \alpha[I_S(s)]=\alpha(s)$, so $\alpha \circ I_s = \alpha$. Likewise, $\beta \circ I_s =\beta$.)
+              (For the last step, note that $\forall \ s\in S, (\alpha \circ I_S)(s) = \alpha[I_S(s)]=\alpha(s)$, so $\alpha \circ I_S = \alpha$. Likewise, $\beta \circ I_S =\beta$.)
           
 \end{enumerate}
 
@@ -209,7 +209,7 @@
           We also have $GCD(a, n) = 1$, so by Lemma 1.3.1, $\exists \ x, y \in \Z \ni 1 = xa + yn.$ \\
           We know $GCD(b, n)$ exists; let's call it $d$. [Idea: If I can get $1$ as a linear combination of $b$ and $n$, then it can be finished off like the end of the problem (3) proof]. 
           \begin{align*}
-            1 = xa+yn \underset{\substack{\uparrow \\ b-a=kn \\ \text{so }a=b-kn}}{=} x(b-kn)+yn &= xb-wkn+yn \\
+            1 = xa+yn \underset{\substack{\uparrow \\ b-a=kn \\ \text{so }a=b-kn}}{=} x(b-kn)+yn &= xb-xkn+yn \\
             &= \underset{\substack{\uparrow \\ \in \Z}}{x}b+ \underbrace{(y-xk)}_{\in \Z}n
           \end{align*}
           Now $d|b$ and $d|n$, so $d| \underbrace{\overset{\substack{lin. comb.}}{xb+(y-xk)n}}_{1}$ \ \ (again, by Observation \#4 about divisions [Prop 1.3.1 part 4]). \\
@@ -410,7 +410,7 @@ Then Lemma 2.3.2 says we may right-cancel $y$ to get $xxy = xyx$, then left-canc
     \begin{align*}
         e &\underset{\substack{\uparrow \\ hyp.}}{=} a^m 
         = a^{qo(a)+r} 
-        \underset{\substack{\uparrow \\ laws \\ of \\ exp.}}{=} [a^{o(a)}]^{q} 
+        \underset{\substack{\uparrow \\ laws \\ of \\ exp.}}{=} [a^{o(a)}]^{q} \cdot a^r
         \underset{\substack{\uparrow \\ defn. \ of \\ o(a)}}{=} e^q\cdot a^r 
         =a^r  \\ 
         \text{ So, } a^r &= e
@@ -449,7 +449,7 @@ So $xy = g^m g^n \underset{\substack{\uparrow \\ Laws \ of \\ Exps.}}{=} g^{m+n}
     \begin{align*}
         a = xax^{-1} \\
     \end{align*}
-    and then again on the left
+    and then left multiply by the same
     \begin{align*}
         x^{-1}a= ax^{-1}
     \end{align*}
@@ -501,7 +501,7 @@ Use the Euler Corollary to Lagrange's Thm: for $n\in \Z^+$ and $a\in \Z$ with $G
 
 Here $n=21$, $a=41$ with $GCD(41,21)=1$, so we need $\phi(21)$ \\
 
-$G_{21}= \{1,2,4,5,8,10,11,13,16,17,19,20\}$, so $\phi(21)=o(G_{21}=12)$, and Euler says $41^{12}\equiv 1 \mod 21$. \\
+$G_{21}= \{1,2,4,5,8,10,11,13,16,17,19,20\}$, so $\phi(21)=o(G_{21})=12$, and Euler says $41^{12}\equiv 1 \mod 21$. \\
 
 Now,
 \begin{align*}
@@ -652,8 +652,8 @@ Now,
     \begin{enumerate}[a)]
         \item Form $ghg^{-1}$ where $g$ is a generator of $D_{12}$ and $h$ is a generator of $H$:
         \begin{align*}
-            a(a^2)a^{-1} &= aa^2a^{11} = a^14 = a^2 \in H \\
-            b(a^2)b^{-1} &= ba^2b = (a^{11})^2bb = a^{22} = a^10 \in H
+            a(a^2)a^{-1} &= aa^2a^{11} = a^{14} = a^2 \in H \\
+            b(a^2)b^{-1} &= ba^2b = (a^{11})^2bb = a^{22} = a^{10} \in H
         \end{align*}
         It follows from the discussion of shortcut \#5 in subsection \ref{subsec:EasyWaysNormalSubgroup} that $ghg^{-1}\in H \ \forall g \in G, \forall h \in H$.\\
         $\therefore \ H \triangleleft D_{12}$.
@@ -699,12 +699,55 @@ Now,
             &\iff \forall \ x,y \in G, \ xyx^{-1}=y \\
             &\iff \forall \ x,y \in G, \ xyx^{-1}y^{-1} = e \iff \forall \ x,y \in G, \ [x,y]=e. \ \ \blacksquare
         \end{align*}
-        \item Prove $\forall \ g \in G $ $g[x,y]g^{-1}= [gxg^{-1}, gyg^{-1}].$
+        \item Prove $\forall \ g \in G $ $g[x,y]g^{-1}= [gxg^{-1}, gyg^{-1}].$ \\
         \textit{Proof:} I'll start on the right
         \begin{align*}
-            [gxg^{-1}, gyg^{-1}] &= 
+            [gxg^{-1}, gyg^{-1}] &= (gxg^{-1})(gyg^{-1})(gxg^{-1})^{-1}(gyg^{-1})^{-1} \\
+            &= gx\underbrace{g^{-1}g}_{e}yg^{-1}(g^{-1})^{-1}x^{-1}g^{-1}(g^{-1})^{-1}y^{-1}g^{-1} \ \ \substack{  (Reassoc. \ and \ take \ inverse \\ of \ products \ in \ reverse \ order)} \\
+            &= gxy\underbrace{g^{-1}g}_e x^{-1}\underbrace{g^{-1}g}_e y^{-1}g^{-1} \\
+            &= g(xyx^{-1}y^{-1})g^{-1}=g[x,y]g^{-1}
         \end{align*}
     \end{enumerate}
+    \item $H<G$. Prove that $H$ contains all commutators of $G$ $\iff$ $H\triangleleft G$ and $G/H$ is abelian. \\
+    \textit{Proof:} \\
+    $\boxed{\Rightarrow \ :}$ Assume $H$ contains all the commutators of $G$ (so $\forall \ x,y\in G, \ [x,y]\in H$).\\
+    Take $g\in G$, $h\in H$
+    \begin{align*}
+        Hypothesis &\Rightarrow ghg^{-1}h^{-1}\in H \\
+        &\Rightarrow \ \exists \ \hat{h}\in H \ni ghg^{-1}h^{-1}=\hat{h} \ \textit{(next R mult by h)} \\
+        &\Rightarrow ghg^{-1}=\hat{h}h \in H \ \textit{(by closure in H)}
+    \end{align*}
+    So $\forall \ g\in G$, $h\in H$ we have $ghg^{-1}\in H$, so $H\triangleleft G$. \\
+    Now $G/H=\{\text{(right) cosets of $H$ in $G$}\}$ is a group since $H\triangleleft G$, we will show $G/H$ is abelian by using 4a. We must show $[Hx,Hy]=H \ \forall \  Hx, Hy \in G/H$
+    \begin{align*}
+        [Hx,Hy]=HxHy(Hx)^{-1}(Hy)^{-1}=HxHyHx^{-1}Hy^{-1}=Hxyx^{-1}y^{-1},
+    \end{align*}
+    and our hypothesis $\Rightarrow \ xyx^{-1}y^{-1}\in H$, i.e. the coset of $xyx^{-1}y^{-1}$ IS $H$ (cosets not disjoint must be identical) \\
+    $\therefore$ $[Hx,Hy]=Hxyx^{-1}y^{-1}=H$, so $G/H$ is abelian by 4a.\\
+    $\boxed{\Leftarrow \ :}$ Assume $H\triangleleft G$ and $G/H$ abelian. Take $x,y \in G$, we must show $[x,y]\in H$. First note $G/H$ is an abelian group (it is a group because $H\triangleleft G$)\\
+    so 
+    \begin{align*}
+        HxHy=HyHx \implies Hxy=Hyx &\implies Hxyx^{-1}=Hy \\
+        &\implies Hxyx^{-1}y^{-1}= H 
+    \end{align*}
+    This last equation says $Hxyx^{-1}y^{-1}$'s coset is $H$ which puts $xyx^{-1}y^{-1}\in H$, so $[x,y]\in H$. $\blacksquare$
+
+    \item Problem 5 says look in a normal subgroup $H$ for which $G/H$ is abelian; all the commutators will be found in $H$. Problem 2a gave us a normal subgroup, namely $H=\langle a^2\rangle$, and a 
+    look at the Cayley table in 3 shows $G/H$ is abelian (main diagonal symm. or use HW\#2 problem 6: if $o(G)=4$ then $G$ is abelian). So if there are commutators they are among the elements of $H$:
+    \begin{align*}
+        H=\{e, a^2,a^4,a^6,a^8,a^{10}\}.
+    \end{align*}
+    Turns out they \textit{all} are: 
+    \begin{align*}
+        e&=[e,e] \\
+        a^2&=[a,b]\\
+        a^4&=[a^2,b]\\
+        a^6&=[a^3,b]\\
+        a^8&=[a^4,b]\\
+        a^{10}&=[a^5,b]\\
+    \end{align*}
+    (Note these expressions are not unique, e.g. $a^8$ can also be expressed $[b,a^2]$)
+    \item Personal Groups...
 \end{enumerate}
 
 
