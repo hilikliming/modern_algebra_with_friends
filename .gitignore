@@ -12,3 +12,14 @@
 main.*
 !main.tex
 .DS_Store
+
+# --- Personal scratch / planning / reference — NOT book source ---
+# Rule: this repo is for book source only (files needed to build the PDF:
+# .tex, .bib, images, main.tex, structure.tex, Chapters/, .github/workflows/,
+# the class file, etc.). Personal scratch notes, planning docs, handoff
+# prompts, reference material, and one-off helper scripts do not belong here.
+scratch_*
+CLEANUP_PLAN.md
+docs/
+detect_whitespace.py
+wrap_lines.py
